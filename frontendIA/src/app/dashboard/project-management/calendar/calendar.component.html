@@ -1,0 +1,113 @@
+<mat-card
+    class="trinta-card calendar-card mb-25 bg-white border-none d-block"
+>
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Calendar
+            </h5>
+        </mat-card-title>
+        <mat-card-subtitle>
+            <button type="button" mat-button class="card-header-menu-btn" [matMenuTriggerFor]="cardHeaderMenu">
+                January
+            </button>
+            <mat-menu #cardHeaderMenu="matMenu" class="card-header-menu" xPosition="before">
+                <button mat-menu-item>
+                    January
+                </button>
+                <button mat-menu-item>
+                    February
+                </button>
+                <button mat-menu-item>
+                    March
+                </button>
+                <button mat-menu-item>
+                    April
+                </button>
+                <button mat-menu-item>
+                    May
+                </button>
+                <button mat-menu-item>
+                    June
+                </button>
+                <button mat-menu-item>
+                    July
+                </button>
+                <button mat-menu-item>
+                    August
+                </button>
+                <button mat-menu-item>
+                    September
+                </button>
+                <button mat-menu-item>
+                    October
+                </button>
+                <button mat-menu-item>
+                    November
+                </button>
+                <button mat-menu-item>
+                    December
+                </button>
+            </mat-menu>
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-calendar [(selected)]="selected"></mat-calendar>
+        <ul class="events-list p-0 m-0 list-unstyled">
+            <li class="d-sm-flex align-items-center justify-content-between">
+                <div class="content d-flex align-items-center">
+                    <div class="number d-flex align-items-center justify-content-center text-center bg-primary text-white fw-semibold rounded-circle flex-shrink-0">
+                        1
+                    </div>
+                    <div class="title flex-grow-1">
+                        <h6>
+                            Meeting with Developers
+                        </h6>
+                        <span class="d-block time text-body">
+                            7:30 AM - 10:00 AM
+                        </span>
+                    </div>
+                </div>
+                <div class="image">
+                    <img src="assets/images/calendar/event1.jpg" alt="event-image">
+                </div>
+            </li>
+            <li class="d-sm-flex align-items-center justify-content-between">
+                <div class="content d-flex align-items-center">
+                    <div class="number d-flex align-items-center justify-content-center text-center bg-primary text-white fw-semibold rounded-circle flex-shrink-0">
+                        2
+                    </div>
+                    <div class="title flex-grow-1">
+                        <h6>
+                            Develop A Marketing Strategy
+                        </h6>
+                        <span class="d-block time text-body">
+                            10:30 AM - 12:00 PM
+                        </span>
+                    </div>
+                </div>
+                <div class="image">
+                    <img src="assets/images/calendar/event2.jpg" alt="event-image">
+                </div>
+            </li>
+            <li class="d-sm-flex align-items-center justify-content-between">
+                <div class="content d-flex align-items-center">
+                    <div class="number d-flex align-items-center justify-content-center text-center bg-primary text-white fw-semibold rounded-circle flex-shrink-0">
+                        3
+                    </div>
+                    <div class="title flex-grow-1">
+                        <h6>
+                            Prepare For App Deployment
+                        </h6>
+                        <span class="d-block time text-body">
+                            2:30 AM - 6:20 PM
+                        </span>
+                    </div>
+                </div>
+                <div class="image">
+                    <img src="assets/images/calendar/event3.jpg" alt="event-image">
+                </div>
+            </li>
+        </ul>
+    </mat-card-content>
+</mat-card>

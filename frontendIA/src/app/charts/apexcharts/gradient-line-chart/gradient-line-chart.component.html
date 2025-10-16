@@ -1,0 +1,23 @@
+<mat-card class="trinta-card mb-25 bg-white border-none d-block">
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Gradient Line Chart
+            </h5>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <apx-chart
+            [series]="chartOptions.series!"
+            [chart]="chartOptions.chart!"
+            [xaxis]="chartOptions.xaxis!"
+            [dataLabels]="chartOptions.dataLabels!"
+            [grid]="chartOptions.grid!"
+            [stroke]="chartOptions.stroke!"
+            [title]="chartOptions.title!"
+            [markers]="chartOptions.markers!"
+            [yaxis]="chartOptions.yaxis!"
+            [fill]="chartOptions.fill!"
+        ></apx-chart>
+    </mat-card-content>
+</mat-card>

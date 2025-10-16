@@ -1,0 +1,23 @@
+<mat-card class="trinta-card mb-25 bg-white border-none d-block">
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Stepline Line Chart
+            </h5>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <apx-chart
+            [series]="chartOptions.series!"
+            [chart]="chartOptions.chart!"
+            [markers]="chartOptions.markers!"
+            [stroke]="chartOptions.stroke!"
+            [dataLabels]="chartOptions.dataLabels!"
+            [yaxis]="chartOptions.yaxis!"
+            [xaxis]="chartOptions.xaxis!"
+            [grid]="chartOptions.grid!"
+            [colors]="chartOptions.colors!"
+            [title]="chartOptions.title!"
+        ></apx-chart>
+    </mat-card-content>
+</mat-card>

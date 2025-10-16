@@ -1,0 +1,28 @@
+<div cdkDropListGroup>
+    <div class="example-container">
+        <h6>Available items</h6>
+        <div
+            cdkDropList
+            class="example-list"
+            cdkDropListSortingDisabled
+            (cdkDropListDropped)="drop($event)"
+        >
+            @for (item of items; track item) {
+                <div class="example-box" cdkDrag [cdkDragDisabled]="item.disabled">{{item.value}}</div>
+            }
+        </div>
+    </div>
+    <div class="example-container">
+        <h6>Shopping basket</h6>
+        <div
+            cdkDropList
+            class="example-list"
+            cdkDropListSortingDisabled
+            (cdkDropListDropped)="drop($event)"
+        >
+            @for (item of basket; track item) {
+                <div class="example-box" cdkDrag [cdkDragDisabled]="item.disabled">{{item.value}}</div>
+            }
+        </div>
+    </div>
+</div>

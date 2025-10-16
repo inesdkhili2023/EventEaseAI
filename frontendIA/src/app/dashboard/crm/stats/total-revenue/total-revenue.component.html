@@ -1,0 +1,32 @@
+<mat-card
+    class="trinta-card total-revenue-card mb-25 bg-white border-none d-block"
+>
+    <mat-card-content>
+        <span class="sub-title text-gray d-block">
+            Total Revenue
+        </span>
+        <h3>
+            $130.4M
+        </h3>
+        <span class="trending d-inline-block fw-medium position-relative">
+            11.8% <i class="ri-arrow-up-s-line"></i>
+        </span>
+        <div class="chart">
+            <apx-chart
+                [series]="chartOptions.series!"
+                [chart]="chartOptions.chart!"
+                [xaxis]="chartOptions.xaxis!"
+                [stroke]="chartOptions.stroke!"
+                [dataLabels]="chartOptions.dataLabels!"
+                [tooltip]="chartOptions.tooltip!"
+                [yaxis]="chartOptions.yaxis!"
+                [labels]="chartOptions.labels!"
+                [colors]="chartOptions.colors!"
+                [legend]="chartOptions.legend!"
+                [title]="chartOptions.title!"
+                [grid]="chartOptions.grid!"
+                [subtitle]="chartOptions.subtitle!"
+            ></apx-chart>
+        </div>
+    </mat-card-content>
+</mat-card>

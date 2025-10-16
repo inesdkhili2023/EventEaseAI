@@ -1,0 +1,161 @@
+.mat-mdc-card {
+    &.trinta-card {
+        &.team-member-card {
+            .mat-mdc-card-header {
+                margin-bottom: 0;
+            }
+            .mat-mdc-card-content {
+                .user {
+                    img {
+                        width: 153px;
+                        height: 153px;
+                    }
+                    h5 {
+                        font-size: 16px;
+                        margin: {
+                            top: 20px;
+                            bottom: 11px;
+                        };
+                    }
+                    .socials {
+                        margin-top: 30px;
+
+                        li {
+                            margin: {
+                                left: 7.5px;
+                                right: 7.5px;
+                            };
+                            a {
+                                width: 41px;
+                                height: 44px;
+                                font-size: 20px;
+                                border-radius: 3px;
+                                color: var(--primaryColor);
+                                border: 1px solid #e2e8f0;
+
+                                &:hover {
+                                    color: var(--whiteColor);
+                                    border-color: var(--primaryColor);
+                                    background-color: var(--primaryColor);
+                                }
+                            }
+                            &:first-child {
+                                margin-left: 0;
+                            }
+                            &:last-child {
+                                margin-right: 0;
+                            }
+                        }
+                    }
+                }
+                .info {
+                    margin-top: 35px;
+
+                    span {
+                        margin-bottom: 8px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    .mat-mdc-card {
+        &.trinta-card {
+            &.team-member-card {
+                .mat-mdc-card-content {
+                    .user {
+                        img {
+                            width: 130px;
+                            height: 130px;
+                        }
+                        h5 {
+                            font-size: 15px;
+                            margin: {
+                                top: 10px;
+                                bottom: 8px;
+                            };
+                        }
+                        .socials {
+                            margin-top: 15px;
+    
+                            li {
+                                margin: {
+                                    left: 5px;
+                                    right: 5px;
+                                };
+                                a {
+                                    width: 40px;
+                                    height: 40px;
+                                    font-size: 18px;
+                                }
+                            }
+                        }
+                    }
+                    .info {
+                        margin-top: 20px;
+
+                        div {
+                            margin-top: 15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width : 576px) and (max-width : 767px) {}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+
+    .mat-mdc-card {
+        &.trinta-card {
+            &.team-member-card {
+                .mat-mdc-card-content {
+                    .user {
+                        img {
+                            width: 145px;
+                            height: 145px;
+                        }
+                        h5 {
+                            margin: {
+                                top: 15px;
+                                bottom: 9px;
+                            };
+                        }
+                        .socials {
+                            margin-top: 20px;
+    
+                            li {
+                                margin: {
+                                    left: 5px;
+                                    right: 5px;
+                                };
+                            }
+                        }
+                    }
+                    .info {
+                        margin-top: 20px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width : 992px) and (max-width : 1199px) {}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {}

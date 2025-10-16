@@ -1,0 +1,49 @@
+<mat-card class="trinta-card mb-25 bg-white border-none d-block">
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Date Range Picker Comparison Ranges
+            </h5>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="row">
+            <div class="col-md-6">
+                <mat-form-field>
+                    <i-feather name="list"></i-feather>
+                    <mat-label>First campaign</mat-label>
+                    <mat-date-range-input
+                        [formGroup]="campaignOne"
+                        [rangePicker]="campaignOnePicker"
+                        [comparisonStart]="campaignTwo.value.start"
+                        [comparisonEnd]="campaignTwo.value.end"
+                    >
+                        <input matStartDate placeholder="Start date" formControlName="start">
+                        <input matEndDate placeholder="End date" formControlName="end">
+                    </mat-date-range-input>
+                    <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="campaignOnePicker"></mat-datepicker-toggle>
+                    <mat-date-range-picker #campaignOnePicker></mat-date-range-picker>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field>
+                    <i-feather name="list"></i-feather>
+                    <mat-label>Second campaign</mat-label>
+                    <mat-date-range-input
+                        [formGroup]="campaignTwo"
+                        [rangePicker]="campaignTwoPicker"
+                        [comparisonStart]="campaignOne.value.start"
+                        [comparisonEnd]="campaignOne.value.end"
+                    >
+                        <input matStartDate placeholder="Start date" formControlName="start">
+                        <input matEndDate placeholder="End date" formControlName="end">
+                    </mat-date-range-input>
+                    <mat-datepicker-toggle matIconSuffix [for]="campaignTwoPicker"></mat-datepicker-toggle>
+                    <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+                    <mat-date-range-picker #campaignTwoPicker></mat-date-range-picker>
+                </mat-form-field>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

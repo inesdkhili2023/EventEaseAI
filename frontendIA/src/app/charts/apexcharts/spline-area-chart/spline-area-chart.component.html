@@ -1,0 +1,24 @@
+<mat-card class="trinta-card mb-25 bg-white border-none d-block">
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Spline Area Chart
+            </h5>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <apx-chart
+            [series]="chartOptions.series!"
+            [chart]="chartOptions.chart!"
+            [xaxis]="chartOptions.xaxis!"
+            [yaxis]="chartOptions.yaxis!"
+            [colors]="chartOptions.colors!"
+            [grid]="chartOptions.grid!"
+            [stroke]="chartOptions.stroke!"
+            [fill]="chartOptions.fill!"
+            [legend]="chartOptions.legend!"
+            [tooltip]="chartOptions.tooltip!"
+            [dataLabels]="chartOptions.dataLabels!"
+        ></apx-chart>
+    </mat-card-content>
+</mat-card>

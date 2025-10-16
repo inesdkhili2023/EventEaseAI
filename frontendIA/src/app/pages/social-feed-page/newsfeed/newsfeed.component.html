@@ -1,0 +1,382 @@
+<!-- Create Post -->
+<mat-card
+    class="trinta-card publish-post-card mb-25 bg-white border-none d-block"
+>
+    <mat-card-content>
+        <mat-tab-group animationDuration="0ms">
+            <mat-tab label="Create Post">
+                <mat-form-field class="textarea">
+                    <i-feather name="edit"></i-feather>
+                    <mat-label>Type Something...</mat-label>
+                    <textarea matInput placeholder="E.g. It makes me feel..."></textarea>
+                </mat-form-field>
+                <div class="btn-box d-md-flex justify-content-between align-items-center">
+                    <div class="buttons-list d-flex align-items-center">
+                        <button mat-button>
+                            <i class="material-symbols-outlined">
+                                sentiment_satisfied
+                            </i>
+                        </button>
+                        <button mat-button>
+                            <i class="material-symbols-outlined">
+                                attach_file
+                            </i>
+                        </button>
+                        <button mat-button>
+                            <i class="material-symbols-outlined">
+                                mic_none
+                            </i>
+                        </button>
+                        <button mat-button>
+                            <i class="material-symbols-outlined">
+                                image
+                            </i>
+                        </button>
+                    </div>
+                    <button mat-button class="btn">
+                        Publish Post
+                    </button>
+                </div>
+            </mat-tab>
+            <mat-tab label="Photos/Videos">
+                <mat-form-field class="textarea">
+                    <i-feather name="edit"></i-feather>
+                    <mat-label>Type Something...</mat-label>
+                    <textarea matInput placeholder="E.g. It makes me feel..."></textarea>
+                </mat-form-field>
+                <div class="btn-box d-md-flex justify-content-between align-items-center">
+                    <div class="buttons-list d-flex align-items-center">
+                        <button mat-button>
+                            <i class="material-symbols-outlined">
+                                sentiment_satisfied
+                            </i>
+                        </button>
+                        <button mat-button>
+                            <i class="material-symbols-outlined">
+                                attach_file
+                            </i>
+                        </button>
+                        <button mat-button>
+                            <i class="material-symbols-outlined">
+                                mic_none
+                            </i>
+                        </button>
+                        <button mat-button>
+                            <i class="material-symbols-outlined">
+                                image
+                            </i>
+                        </button>
+                    </div>
+                    <button mat-button class="btn">
+                        Publish Post
+                    </button>
+                </div>
+            </mat-tab>
+            <mat-tab label="Story">
+                <mat-form-field class="textarea">
+                    <i-feather name="edit"></i-feather>
+                    <mat-label>Type Something...</mat-label>
+                    <textarea matInput placeholder="E.g. It makes me feel..."></textarea>
+                </mat-form-field>
+                <div class="btn-box d-md-flex justify-content-between align-items-center">
+                    <div class="buttons-list d-flex align-items-center">
+                        <button mat-button>
+                            <i class="material-symbols-outlined">
+                                sentiment_satisfied
+                            </i>
+                        </button>
+                        <button mat-button>
+                            <i class="material-symbols-outlined">
+                                attach_file
+                            </i>
+                        </button>
+                        <button mat-button>
+                            <i class="material-symbols-outlined">
+                                mic_none
+                            </i>
+                        </button>
+                        <button mat-button>
+                            <i class="material-symbols-outlined">
+                                image
+                            </i>
+                        </button>
+                    </div>
+                    <button mat-button class="btn">
+                        Publish Post
+                    </button>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+    </mat-card-content>
+</mat-card>
+
+<!-- Timeline -->
+<mat-card
+    class="trinta-card post-card mb-25 bg-white border-none d-block"
+>
+    <mat-card-header>
+        <mat-card-header>
+            <mat-card-title>
+                <div class="user d-flex align-items-center">
+                    <img src="assets/images/users/user3.jpg" class="rounded-circle" alt="user-image">
+                    <div>
+                        <h6>
+                            Oliver Jenkins
+                        </h6>
+                        <span class="d-block text-body">
+                            54 mins ago
+                        </span>
+                    </div>
+                </div>
+            </mat-card-title>
+            <mat-card-subtitle>
+                <button type="button" mat-button class="card-header-dot-btn lh-1 p-0 min-w-auto h-auto" [matMenuTriggerFor]="cardHeaderMenu">
+                    <i class="ri-more-2-fill"></i>
+                </button>
+                <mat-menu #cardHeaderMenu="matMenu" class="card-header-menu" xPosition="before">
+                    <button mat-menu-item>
+                        Save Post
+                    </button>
+                    <button mat-menu-item>
+                        Hide Post
+                    </button>
+                    <button mat-menu-item>
+                        Report Photo
+                    </button>
+                    <button mat-menu-item>
+                        Block Cynthia
+                    </button>
+                </mat-menu>
+            </mat-card-subtitle>
+        </mat-card-header>
+    </mat-card-header>
+    <mat-card-content>
+        <p class="text-black fs-16">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pharetra ligula non some demi text variusTo help manage your order refer to the “Action Menu” to initiate return, contact Customer Support and more. Action Menu” to initiate return.
+        </p>
+        <div class="post-info d-md-flex align-items-center">
+            <button mat-button>
+                <i-feather name="thumbs-up"></i-feather>
+                42 Likes
+            </button>
+            <button mat-button>
+                <i-feather name="message-square"></i-feather>
+                2 Comments
+            </button>
+            <button mat-button>
+                <i-feather name="share-2"></i-feather>
+                1 Share
+            </button>
+        </div>
+        <div class="post-comment position-relative d-md-flex align-items-center">
+            <div class="img">
+                <img src="assets/images/admin.jpg" class="rounded-circle" alt="admin-image">
+            </div>
+            <form class="position-relative">
+                <mat-form-field>
+                    <mat-label>Type something....</mat-label>
+                    <input matInput>
+                </mat-form-field>
+                <button mat-button type="button">
+                    <i class="material-symbols-outlined">
+                        send
+                    </i>
+                </button>
+            </form>
+            <div class="buttons-list d-flex align-items-center">
+                <button mat-button>
+                    <i class="material-symbols-outlined">
+                        sentiment_satisfied
+                    </i>
+                </button>
+                <button mat-button>
+                    <i class="material-symbols-outlined">
+                        attach_file
+                    </i>
+                </button>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>
+<mat-card
+    class="trinta-card post-card mb-25 bg-white border-none d-block"
+>
+    <mat-card-header>
+        <mat-card-header>
+            <mat-card-title>
+                <div class="user d-flex align-items-center">
+                    <img src="assets/images/users/user2.jpg" class="rounded-circle" alt="user-image">
+                    <div>
+                        <h6>
+                            Alexander Johnson
+                        </h6>
+                        <span class="d-block text-body">
+                            54 mins ago
+                        </span>
+                    </div>
+                </div>
+            </mat-card-title>
+            <mat-card-subtitle>
+                <button type="button" mat-button class="card-header-dot-btn lh-1 p-0 min-w-auto h-auto" [matMenuTriggerFor]="cardHeaderMenu">
+                    <i class="ri-more-2-fill"></i>
+                </button>
+                <mat-menu #cardHeaderMenu="matMenu" class="card-header-menu" xPosition="before">
+                    <button mat-menu-item>
+                        Save Post
+                    </button>
+                    <button mat-menu-item>
+                        Hide Post
+                    </button>
+                    <button mat-menu-item>
+                        Report Photo
+                    </button>
+                    <button mat-menu-item>
+                        Block Cynthia
+                    </button>
+                </mat-menu>
+            </mat-card-subtitle>
+        </mat-card-header>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="row">
+            <div class="col-4">
+                <img src="assets/images/photos/photo7.jpg" class="post-img border-radius" alt="image">
+            </div>
+            <div class="col-4">
+                <img src="assets/images/photos/photo9.jpg" class="post-img border-radius" alt="image">
+            </div>
+            <div class="col-4">
+                <img src="assets/images/photos/photo8.jpg" class="post-img border-radius" alt="image">
+            </div>
+        </div>
+        <div class="post-info d-md-flex align-items-center">
+            <button mat-button>
+                <i-feather name="thumbs-up"></i-feather>
+                42 Likes
+            </button>
+            <button mat-button>
+                <i-feather name="message-square"></i-feather>
+                2 Comments
+            </button>
+            <button mat-button>
+                <i-feather name="share-2"></i-feather>
+                1 Share
+            </button>
+        </div>
+        <div class="post-comment position-relative d-md-flex align-items-center">
+            <div class="img">
+                <img src="assets/images/admin.jpg" class="rounded-circle" alt="admin-image">
+            </div>
+            <form class="position-relative">
+                <mat-form-field>
+                    <mat-label>Type something....</mat-label>
+                    <input matInput>
+                </mat-form-field>
+                <button mat-button type="button">
+                    <i class="material-symbols-outlined">
+                        send
+                    </i>
+                </button>
+            </form>
+            <div class="buttons-list d-flex align-items-center">
+                <button mat-button>
+                    <i class="material-symbols-outlined">
+                        sentiment_satisfied
+                    </i>
+                </button>
+                <button mat-button>
+                    <i class="material-symbols-outlined">
+                        attach_file
+                    </i>
+                </button>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>
+<mat-card
+    class="trinta-card post-card mb-25 bg-white border-none d-block"
+>
+    <mat-card-header>
+        <mat-card-header>
+            <mat-card-title>
+                <div class="user d-flex align-items-center">
+                    <img src="assets/images/users/user10.jpg" class="rounded-circle" alt="user-image">
+                    <div>
+                        <h6>
+                            Mason Williams
+                        </h6>
+                        <span class="d-block text-body">
+                            54 mins ago
+                        </span>
+                    </div>
+                </div>
+            </mat-card-title>
+            <mat-card-subtitle>
+                <button type="button" mat-button class="card-header-dot-btn lh-1 p-0 min-w-auto h-auto" [matMenuTriggerFor]="cardHeaderMenu">
+                    <i class="ri-more-2-fill"></i>
+                </button>
+                <mat-menu #cardHeaderMenu="matMenu" class="card-header-menu" xPosition="before">
+                    <button mat-menu-item>
+                        Save Post
+                    </button>
+                    <button mat-menu-item>
+                        Hide Post
+                    </button>
+                    <button mat-menu-item>
+                        Report Photo
+                    </button>
+                    <button mat-menu-item>
+                        Block Cynthia
+                    </button>
+                </mat-menu>
+            </mat-card-subtitle>
+        </mat-card-header>
+    </mat-card-header>
+    <mat-card-content>
+        <p class="text-black fs-16">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pharetra ligula non some demi text variusTo help manage your order refer to the “Action Menu” to initiate return, contact Customer Support and more. Action Menu” to initiate return.
+        </p>
+        <div class="post-info d-md-flex align-items-center">
+            <button mat-button>
+                <i-feather name="thumbs-up"></i-feather>
+                42 Likes
+            </button>
+            <button mat-button>
+                <i-feather name="message-square"></i-feather>
+                2 Comments
+            </button>
+            <button mat-button>
+                <i-feather name="share-2"></i-feather>
+                1 Share
+            </button>
+        </div>
+        <div class="post-comment position-relative d-md-flex align-items-center">
+            <div class="img">
+                <img src="assets/images/admin.jpg" class="rounded-circle" alt="admin-image">
+            </div>
+            <form class="position-relative">
+                <mat-form-field>
+                    <mat-label>Type something....</mat-label>
+                    <input matInput>
+                </mat-form-field>
+                <button mat-button type="button">
+                    <i class="material-symbols-outlined">
+                        send
+                    </i>
+                </button>
+            </form>
+            <div class="buttons-list d-flex align-items-center">
+                <button mat-button>
+                    <i class="material-symbols-outlined">
+                        sentiment_satisfied
+                    </i>
+                </button>
+                <button mat-button>
+                    <i class="material-symbols-outlined">
+                        attach_file
+                    </i>
+                </button>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

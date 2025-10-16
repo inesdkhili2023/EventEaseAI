@@ -1,0 +1,82 @@
+<mat-card
+    class="trinta-card transactions-history-card mb-25 bg-white border-none d-block"
+>
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Transactions History
+            </h5>
+        </mat-card-title>
+        <mat-card-subtitle>
+            <button type="button" mat-button class="card-header-menu-btn" [matMenuTriggerFor]="cardHeaderMenu">
+                Sales Report
+            </button>
+            <mat-menu #cardHeaderMenu="matMenu" class="card-header-menu" xPosition="before">
+                <button mat-menu-item>
+                    Last Day
+                </button>
+                <button mat-menu-item>
+                    Last Week
+                </button>
+                <button mat-menu-item>
+                    Last Month
+                </button>
+                <button mat-menu-item>
+                    Last Year
+                </button>
+            </mat-menu>
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="transactions-history-table">
+            <div class="table-responsive">
+                <table mat-table [dataSource]="dataSource">
+
+                    <!-- User Column -->
+                    <ng-container matColumnDef="user">
+                        <th mat-header-cell *matHeaderCellDef class="pl-0">
+                            User
+                        </th>
+                        <td mat-cell *matCellDef="let element" class="pl-0">
+                            <div class="user d-sm-flex align-items-center">
+                                <div class="image flex-shrink-0">
+                                    <img [src]="element.user.img" alt="user-image">
+                                </div>
+                                <span class="d-block text-dark fw-semibold flex-grow-1">
+                                    {{element.user.name}}
+                                </span>
+                            </div>
+                        </td>
+                    </ng-container>
+
+                    <!-- ID Column -->
+                    <ng-container matColumnDef="id">
+                        <th mat-header-cell *matHeaderCellDef>
+                            ID
+                        </th>
+                        <td mat-cell *matCellDef="let element" class="text-primary fw-medium">
+                            ID: {{element.id}}
+                        </td>
+                    </ng-container>
+
+                    <!-- Created Date Column -->
+                    <ng-container matColumnDef="createdDate">
+                        <th mat-header-cell *matHeaderCellDef class="text-end pr-0">
+                            Created Date
+                        </th>
+                        <td mat-cell *matCellDef="let element" class="text-body pr-0">
+                            <span class="date d-block">
+                                {{element.createdDate}}
+                            </span>
+                        </td>
+                    </ng-container>
+
+                    <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr> -->
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                </table>
+            </div>
+            <mat-paginator [pageSizeOptions]="[5, 10, 15]"></mat-paginator>
+        </div>
+    </mat-card-content>
+</mat-card>

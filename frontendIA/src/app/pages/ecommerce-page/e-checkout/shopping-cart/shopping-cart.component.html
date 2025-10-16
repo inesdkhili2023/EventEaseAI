@@ -1,0 +1,97 @@
+<mat-card
+    class="trinta-card shopping-cart-card mb-25 bg-white border-none d-block"
+>
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Shopping Cart
+            </h5>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="shopping-cart-table">
+            <div class="table-responsive">
+                <table mat-table [dataSource]="dataSource">
+
+                    <!-- Product Column -->
+                    <ng-container matColumnDef="product">
+                        <th mat-header-cell *matHeaderCellDef class="pl-0">
+                            Product
+                        </th>
+                        <td mat-cell *matCellDef="let element" class="pl-0">
+                            <div class="product-info d-flex align-items-center">
+                                <a routerLink="/" class="image d-block">
+                                    <img [src]="element.product.img" alt="product-image">
+                                </a>
+                                <div class="info">
+                                    <a routerLink="/" class="d-block fw-semibold">
+                                        {{element.product.title}}
+                                    </a>
+                                    <span class="d-block text-body">
+                                        {{element.product.date}}
+                                    </span>
+                                </div>
+                            </div>
+                        </td>
+                    </ng-container>
+
+                    <!-- Price Column -->
+                    <ng-container matColumnDef="price">
+                        <th mat-header-cell *matHeaderCellDef class="text-end pr-0">
+                            Price
+                        </th>
+                        <td mat-cell *matCellDef="let element" class="text-end pr-0">
+                            {{element.price}}
+                        </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                </table>
+            </div>
+        </div>
+        <ul class="cart-info p-0 m-0 list-unstyled">
+            <li class="d-flex justify-content-between text-dark">
+                <span class="d-block fw-medium">
+                    Grand Total :
+                </span>
+                <span class="d-block fw-medium">
+                    $1641
+                </span>
+            </li>
+            <li class="d-flex justify-content-between text-black">
+                <span class="d-block">
+                    Shipping Charge :
+                </span>
+                <span class="d-block">
+                    $120
+                </span>
+            </li>
+            <li class="d-flex justify-content-between text-black">
+                <span class="d-block">
+                    Discount :
+                </span>
+                <span class="d-block">
+                    $40
+                </span>
+            </li>
+            <li class="d-flex justify-content-between text-black">
+                <span class="d-block">
+                    Estimated Tax :
+                </span>
+                <span class="d-block">
+                    $250
+                </span>
+            </li>
+            <li class="d-flex justify-content-between text-dark">
+                <span class="d-block fw-medium">
+                    Total :
+                </span>
+                <span class="d-block fw-medium">
+                    $56,105
+                </span>
+            </li>
+        </ul>
+    </mat-card-content>
+</mat-card>

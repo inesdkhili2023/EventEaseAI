@@ -1,0 +1,22 @@
+<mat-card class="trinta-card mb-25 bg-white border-none d-block">
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Dynamic Grid List
+            </h5>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-grid-list cols="4" rowHeight="100px">
+            @for (tile of tiles; track tile) {
+                <mat-grid-tile
+                    [colspan]="tile.cols"
+                    [rowspan]="tile.rows"
+                    [style.background]="tile.color"
+                >
+                    {{tile.text}}
+                </mat-grid-tile>
+            }
+        </mat-grid-list>
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,47 @@
+<mat-card class="trinta-card mb-25 bg-white border-none d-block">
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Form Field with Label
+            </h5>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form [formGroup]="options">
+            <mat-checkbox [formControl]="hideRequiredControl">Hide required marker</mat-checkbox>
+            <div class="mt-10">
+                <label>Float label: </label>
+                <mat-radio-group [formControl]="floatLabelControl">
+                    <mat-radio-button value="auto">Auto</mat-radio-button>
+                    <mat-radio-button value="always">Always</mat-radio-button>
+                </mat-radio-group>
+            </div>
+            <div class="mt-10">
+                <mat-form-field
+                    [hideRequiredMarker]="hideRequiredControl.value"
+                    [floatLabel]="getFloatLabelValue()"
+                >
+                    <i-feather name="edit-3"></i-feather>
+                    <mat-label>Simple placeholder</mat-label>
+                    <input matInput placeholder="Simple placeholder" required>
+                </mat-form-field>
+                <mat-form-field [floatLabel]="getFloatLabelValue()">
+                    <i-feather name="edit-3"></i-feather>
+                    <mat-label>Both a label and a placeholder</mat-label>
+                    <input matInput placeholder="Simple placeholder">
+                </mat-form-field>
+                <mat-form-field
+                    [hideRequiredMarker]="hideRequiredControl.value"
+                    [floatLabel]="getFloatLabelValue()"
+                >
+                    <i-feather name="edit-3"></i-feather>
+                    <mat-select required>
+                        <mat-option>-- None --</mat-option>
+                        <mat-option value="option">Option</mat-option>
+                    </mat-select>
+                    <mat-label><strong>Fancy</strong><em> label</em></mat-label>
+                </mat-form-field>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

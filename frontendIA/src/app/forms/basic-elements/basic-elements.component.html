@@ -1,0 +1,105 @@
+<!-- Textual Inputs -->
+<mat-card
+    class="trinta-card mb-25 bg-white border-none d-block"
+>
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Textual Inputs
+            </h5>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form>
+            <div class="row">
+                <div class="col-sm-6">
+                    <mat-form-field>
+                        <i-feather name="user"></i-feather>
+                        <mat-label>First name</mat-label>
+                        <input matInput placeholder="Ex. Marcus">
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-6">
+                    <mat-form-field>
+                        <i-feather name="user"></i-feather>
+                        <mat-label>Last name</mat-label>
+                        <input matInput placeholder="Ex. Davis">
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-6">
+                    <mat-form-field>
+                        <i-feather name="mail"></i-feather>
+                        <mat-label>Email address</mat-label>
+                        <input matInput placeholder="Ex. hello@trinta.com">
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-6">
+                    <mat-form-field>
+                        <i-feather name="phone"></i-feather>
+                        <mat-label>Phone</mat-label>
+                        <input matInput placeholder="Ex. +098765432">
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-6">
+                    <mat-form-field>
+                        <i-feather name="map-pin"></i-feather>
+                        <mat-label>Address</mat-label>
+                        <input matInput placeholder="Ex. Amsterdam">
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-6">
+                    <mat-form-field>
+                        <i-feather name="map"></i-feather>
+                        <mat-label>Country</mat-label>
+                        <input matInput placeholder="Ex. Netherlands">
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-4">
+                    <mat-form-field>
+                        <i-feather name="map"></i-feather>
+                        <mat-label>Town/City</mat-label>
+                        <mat-select>
+                            <mat-option value="volvo">New York</mat-option>
+                            <mat-option value="saab">Amsterdam</mat-option>
+                            <mat-option value="mercedes">Nalchity</mat-option>
+                            <mat-option value="audi">Beijing</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-4">
+                    <mat-form-field>
+                        <i-feather name="map"></i-feather>
+                        <mat-label>State</mat-label>
+                        <mat-select>
+                            <mat-option value="volvo">Washington</mat-option>
+                            <mat-option value="saab">Utah</mat-option>
+                            <mat-option value="mercedes">Nebraska</mat-option>
+                            <mat-option value="audi">Florida</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-4">
+                    <mat-form-field>
+                        <i-feather name="code"></i-feather>
+                        <mat-label>Zip code</mat-label>
+                        <input matInput placeholder="Ex. 0986">
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-12">
+                    <mat-form-field class="textarea">
+                        <i-feather name="file-text"></i-feather>
+                        <mat-label>Description</mat-label>
+                        <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+                    </mat-form-field>
+                </div>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>
+
+<!-- Basic Form -->
+<div class="row">
+    <div class="col-md-6">
+        <app-basic-form></app-basic-form>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="example-listbox-container" [class.example-listbox-invalid]="invalid | async">
+    <label class="example-listbox-label fw-medium" id="example-zodiac-sign-label">
+        Zodiac Sign
+    </label>
+    <ul cdkListbox
+        [formControl]="signCtrl"
+        aria-labelledby="example-zodiac-sign-label"
+        class="example-listbox"
+    >
+        @for (sign of signs; track sign) {
+            <li [cdkOption]="sign" class="example-option text-black">{{sign}}</li>
+        }
+    </ul>
+</div>
+@if (invalid | async) {
+    <div class="example-listbox-errors">
+        @for (error of getErrors(); track error) {
+            <p>{{error}}</p>
+        }
+    </div>
+}
+<p class="mt-10">
+    Your zodiac sign is: <strong class="fw-medium text-black">{{signCtrl.value | json}}</strong>&nbsp;
+    <button (click)="signCtrl.setValue(['Cat'])">Set: Cat</button>&nbsp;
+    <button (click)="signCtrl.setValue(['Dragon', 'Snake'])">Set: Dragon, Snake</button>&nbsp;
+    <button (click)="signCtrl.setValue(['Cat', 'Rat'])">Set: Cat, Rat</button>&nbsp;
+    <button (click)="signCtrl.setValue([])">Clear</button>
+</p>
