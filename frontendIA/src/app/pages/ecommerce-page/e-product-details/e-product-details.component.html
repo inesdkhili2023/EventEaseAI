@@ -1,50 +1,36 @@
 <!-- Product Details Card -->
-<mat-card
-    class="trinta-card product-details-card mb-25 bg-white border-none d-block"
->
-    <mat-card-content>
-        <div class="row align-items-center">
-            <div class="col-xxxl-5 col-lg-6 col-md-12">
-                <div class="product-details-image">
-                    <div class="product-gallery__featured">
-                        <owl-carousel-o [options]="{items: 1, dots: false, animateIn: 'fadeIn', animateOut: 'fadeOut'}" #owlCar>
-                            <ng-container *ngFor="let image of productImages">
-                                <ng-template carouselSlide [id]="image.url">
-                                    <img [src]="image.url" [alt]="image.url" class="border-radius">
-                                </ng-template>
-                            </ng-container>
-                        </owl-carousel-o>
-                    </div>
-                    <div class="product-gallery__carousel">
-                        <owl-carousel-o [options]="{dots: false, margin: 10, autoWidth: true}">
-                            <ng-container *ngFor="let image of productImages; let i = index">
-                                <ng-template carouselSlide [id]="image.url+i" [width]="100">
-                                    <a (click)="owlCar.to(image.url); changeimage(image.url+i)" class="border-radius">
-                                        <img [src]="image.url" [alt]="image.url" class="border-radius">
-                                    </a>
-                                </ng-template>
-                            </ng-container>
-                        </owl-carousel-o>
-                    </div>
-                </div>
-            </div>
+<mat-card class="trinta-card product-details-card mb-25 bg-white border-none d-block">
+  <mat-card-content>
+    <div class="row align-items-center">
+      <!-- 🖼️ Event Image -->
+      <div class="col-xxxl-5 col-lg-6 col-md-12">
+        <div class="product-details-image text-center">
+          <img
+            [src]="event?.images?.[0] || 'assets/images/default-event.png'"
+            alt="Event image"
+            class="border-radius img-fluid"
+          />
+        </div>
+      </div>
+            <!-- Event Details -->
+
             <div class="col-xxxl-7 col-lg-6 col-md-12">
                 <div class="product-details-content">
                     <div class="title d-flex align-items-center justify-content-between">
                         <h3 class="mb-0">
-                            Comforta Armchair
+                            {{event?.title}}
                         </h3>
-                        <div class="action d-flex align-items-center">
+                       <!--<div class="action d-flex align-items-center">
                             <a routerLink="/ecommerce-page/product-details" class="d-inline-block">
                                 <i-feather name="edit-3"></i-feather>
                             </a>
                             <a routerLink="/ecommerce-page/product-details" class="d-inline-block">
                                 <i-feather name="trash-2"></i-feather>
                             </a>
-                        </div>
+                        </div>--> 
                     </div>
                     <span class="category text-body d-block">
-                        Furniture
+                        {{event?.category}}
                     </span>
                     <div class="ratings lh-1 d-flex align-items-center">
                         <i class="ri-star-fill"></i>
@@ -60,23 +46,23 @@
                         Description :
                     </span>
                     <p class="fs-15 text-black">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim adlino minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        {{event?.description}}
                     </p>
                     <ul class="list p-0 list-unstyled">
-                        <li class="d-flex align-items-center fs-14">
+                      <!--  <li class="d-flex align-items-center fs-14">
                             <span class="d-block fw-medium">
                                 Color :
                             </span>
                             <div class="colors">
                                 <img src="assets/images/colors.png" alt="colors">
                             </div>
-                        </li>
+                        </li>-->
                         <li class="d-flex align-items-center fs-14">
                             <span class="d-block fw-medium">
-                                Availability :
+                                Capacity :
                             </span>
                             <span class="d-block availability">
-                                in stock <span class="fw-semibold fs-15">2,508</span> Pics 
+                               <!--in stock <span class="fw-semibold fs-15">2,508</span> Pics --> {{event?.capacity}}
                             </span>
                         </li>
                         <li class="d-flex align-items-center fs-14">
@@ -84,23 +70,24 @@
                                 Category :
                             </span>
                             <span class="text-black">
-                                Furniture
+                                {{event?.category}}
+                            </span>
+                        </li>
+                        
+                        <li class="d-flex align-items-center fs-14">
+                            <span class="d-block fw-medium">
+                                Address :
+                            </span>
+                            <span class="d-block text-black">
+                                {{event?.address}}
                             </span>
                         </li>
                         <li class="d-flex align-items-center fs-14">
                             <span class="d-block fw-medium">
-                                SKU :
+                                Date :
                             </span>
                             <span class="d-block text-black">
-                                Demo Model-12
-                            </span>
-                        </li>
-                        <li class="d-flex align-items-center fs-14">
-                            <span class="d-block fw-medium">
-                                Vendor :
-                            </span>
-                            <span class="d-block text-black">
-                                Lereve Mad
+                                from <strong>{{event?.startDate | date:'medium'}}</strong> to <strong>{{event?.endDate | date:'medium'}}</strong>
                             </span>
                         </li>
                     </ul>
@@ -111,14 +98,14 @@
                             </div>
                             <div>
                                 <span class="d-block text-gray">
-                                    Total revenue
+                                    Price
                                 </span>
                                 <h4 class="mb-0 fw-medium">
-                                    $80.5k
+                                    {{event?.price }} DT
                                 </h4>
                             </div>
                         </div>
-                        <div class="box d-flex align-items-center">
+                      <!-- <div class="box d-flex align-items-center">
                             <div class="icon d-flex align-items-center justify-content-center rounded-circle text-white">
                                 <i-feather name="check-circle"></i-feather>
                             </div>
@@ -130,7 +117,7 @@
                                     20.9k
                                 </h4>
                             </div>
-                        </div>
+                        </div>--> 
                     </div>
                 </div>
             </div>

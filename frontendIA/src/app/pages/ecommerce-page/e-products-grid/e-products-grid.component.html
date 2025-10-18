@@ -199,12 +199,12 @@
                 </mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
-                <a routerLink="/ecommerce-page/product-details" class="image">
+                <a [routerLink]="['/ecommerce-page/product-details', event.id]" class="image">
                     <img [src]="event.images[0] || 'assets/images/default-event.png'" alt="event-image">
                 </a>
                 <div class="content">
                     <h5>
-                        <a routerLink="/ecommerce-page/product-details">
+                        <a [routerLink]="['/ecommerce-page/product-details', event.id]">
                             {{event.title}}
                         </a>
                     </h5>

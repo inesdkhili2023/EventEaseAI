@@ -4,28 +4,7 @@ import { HttpClient, HttpClientModule, HttpHeaders  } from '@angular/common/http
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-export enum EventCategory {
-  SPORTIF = 'SPORTIF',
-  CULTUREL = 'CULTUREL',
-  EDUCATIF = 'EDUCATIF',
-  TECHNOLOGIQUE = 'TECHNOLOGIQUE',
-  SOCIAL = 'SOCIAL',
-  AUTRE = 'AUTRE'
-}
-export interface Event {
-  id: number;
-  title: string;
-  description: string;
-  category: EventCategory;
-  location: string;
-  address: string;
-  startDate: string;
-  endDate: string;
-  capacity: number;
-  organizerId: number;
-  images: string[];
-  price: number;
-}
+
 
 
 @Injectable({
@@ -69,4 +48,27 @@ export class EventService {
     console.error('An error occurred:', error);
     return throwError(() => new Error(error.message || 'Server error'));
   }
+ 
+}
+ export enum EventCategory {
+  SPORTIF = 'SPORTIF',
+  CULTUREL = 'CULTUREL',
+  EDUCATIF = 'EDUCATIF',
+  TECHNOLOGIQUE = 'TECHNOLOGIQUE',
+  SOCIAL = 'SOCIAL',
+  AUTRE = 'AUTRE'
+}
+export interface Event {
+  id: number;
+  title: string;
+  description: string;
+  category: EventCategory;
+  location: string;
+  address: string;
+  startDate: string;
+  endDate: string;
+  capacity: number;
+  organizerId: number;
+  images: string[];
+  price: number;
 }
