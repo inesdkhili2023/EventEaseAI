@@ -31,7 +31,7 @@ filteredEvents: Event[] = [];
 
   // Pagination
   currentPage: number = 1;
-  itemsPerPage: number = 6; // Number of events per page
+  itemsPerPage: number = 8; // Number of events per page
   totalItems: number = 0;
   totalPages: number = 0;
   constructor(private eventService: EventService) {}
@@ -109,9 +109,8 @@ filteredEvents: Event[] = [];
 }
 
   updatePage() {
-    const start = (this.currentPage - 1) * this.itemsPerPage;
-    const end = start + this.itemsPerPage;
-    this.filteredEvents = this.events.slice(start, end);
+      this.updatePagination();
+
   }
 
   updatePagination() {
@@ -120,10 +119,10 @@ filteredEvents: Event[] = [];
   }
 
   get paginatedEvents(): Event[] {
-    const start = (this.currentPage - 1) * this.itemsPerPage;
-    const end = start + this.itemsPerPage;
-    return this.filteredEvents.slice(start, end);
-  }
+  const start = (this.currentPage - 1) * this.itemsPerPage;
+  const end = start + this.itemsPerPage;
+  return this.filteredEvents.slice(start, end);
+}
 
   goToPage(page: number) {
     if (page < 1 || page > this.totalPages) return;
