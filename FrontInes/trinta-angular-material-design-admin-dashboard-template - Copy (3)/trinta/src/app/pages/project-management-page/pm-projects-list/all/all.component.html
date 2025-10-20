@@ -1,0 +1,113 @@
+<div class="all-projects-table">
+    <div class="table-responsive">
+        <table mat-table [dataSource]="dataSource">
+
+            <!-- Project Column -->
+            <ng-container matColumnDef="project">
+                <th mat-header-cell *matHeaderCellDef class="pl-0">
+                    Project
+                </th>
+                <td mat-cell *matCellDef="let element" class="pl-0">
+                    <div class="project-info d-flex align-items-center">
+                        <mat-checkbox color="primary"></mat-checkbox>
+                        <div class="info">
+                            <h6 class="mt-0">
+                                <a routerLink="/">
+                                    {{element.project.title}}
+                                </a>
+                            </h6>
+                            <span class="d-block text-body">
+                                Assigned - {{element.project.assigned}}
+                            </span>
+                        </div>
+                    </div>
+                </td>
+            </ng-container>
+
+            <!-- Completion Column -->
+            <ng-container matColumnDef="completion">
+                <th mat-header-cell *matHeaderCellDef>
+                    Completion
+                </th>
+                <td mat-cell *matCellDef="let element">
+                    <span class="d-block text-black">
+                        {{element.completion}}%
+                    </span>
+                    <mat-progress-bar mode="determinate" value="{{element.completion}}"></mat-progress-bar>
+                </td>
+            </ng-container>
+
+            <!-- Budget Column -->
+            <ng-container matColumnDef="budget">
+                <th mat-header-cell *matHeaderCellDef>
+                    Budget
+                </th>
+                <td mat-cell *matCellDef="let element">
+                    {{element.budget}}
+                </td>
+            </ng-container>
+
+            <!-- Members Column -->
+            <ng-container matColumnDef="members">
+                <th mat-header-cell *matHeaderCellDef>
+                    Members
+                </th>
+                <td mat-cell *matCellDef="let element">
+                    <div class="members d-flex align-items-center">
+                        @for (content of element.members; track content) {
+                            <img [src]="content.img" class="rounded-circle" matTooltip="{{content.name}}" alt="member-image">
+                        }
+                    </div>
+                </td>
+            </ng-container>
+
+            <!-- Status Column -->
+            <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef>
+                    Status
+                </th>
+                <td mat-cell *matCellDef="let element">
+                    <span class="trinta-badge fw-medium d-inline-block" *ngIf="element.status.active">
+                        {{element.status.active}}
+                    </span>
+                    <span class="trinta-badge fw-medium pending d-inline-block" *ngIf="element.status.pending">
+                        {{element.status.pending}}
+                    </span>
+                    <span class="trinta-badge fw-medium completed d-inline-block" *ngIf="element.status.completed">
+                        {{element.status.completed}}
+                    </span>
+                </td>
+            </ng-container>
+
+            <!-- Due Date Column -->
+            <ng-container matColumnDef="dueDate">
+                <th mat-header-cell *matHeaderCellDef>
+                    Due Date
+                </th>
+                <td mat-cell *matCellDef="let element">
+                    {{element.dueDate}}
+                </td>
+            </ng-container>
+
+            <!-- Action Column -->
+            <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef class="text-end pr-0"></th>
+                <td mat-cell *matCellDef="let element" class="text-end pr-0">
+                    <div class="action">
+                        <button type="button" mat-button class="p-0 min-w-auto lh-1 h-auto">
+                            <i class="{{element.action.edit}}"></i>
+                        </button>
+                        <button type="button" mat-button class="p-0 min-w-auto lh-1 h-auto">
+                            <i class="{{element.action.delete}}"></i>
+                        </button>
+                    </div>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        </table>
+    </div>
+    <mat-paginator [pageSizeOptions]="[8, 16, 24]"></mat-paginator>
+</div>

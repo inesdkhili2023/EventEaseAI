@@ -1,0 +1,267 @@
+.trinta-card {
+    &.lesson-preview-card {
+        .mat-mdc-card-content {
+            video {
+                width: 100%;
+                margin-bottom: 30px;
+                border-radius: 20px;
+            }
+            .content {
+                img {
+                    border-radius: 6px;
+                    margin-bottom: -4px;
+                }
+                h5 {
+                    font-size: 20px;
+                    margin-left: 15px;
+                }
+                p {
+                    max-width: 909px;
+                    margin-top: 22px;
+                }
+            }
+            .info {
+                text-align: end;
+
+                .item {
+                    text-align: start;
+                    margin-right: 35px;
+
+                    span {
+                        &:nth-child(1) {
+                            letter-spacing: 1px;
+                            margin-bottom: 8px;
+                        }
+                    }
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+::ng-deep {
+    .trinta-card {
+        &.lesson-preview-card {
+            .mat-mdc-card-content {
+                .content {
+                    .mat-mdc-button {
+                        height: auto;
+                        min-width: auto;
+                        margin-top: 8px;
+                        padding: 18px 25px;
+                        color: var(--whiteColor);
+                        background-color: var(--primaryColor);
+
+                        .mdc-button__label {
+                            display: block;
+                            padding-left: 32px;
+                            font: {
+                                size: 16px;
+                                weight: 500;
+                                family: var(--headingFontFamily);
+                            };
+                            i {
+                                transform: translateY(-50%);
+                                font-weight: normal;
+                                position: absolute;
+                                font-size: 30px;
+                                top: 50%;
+                                left: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    .trinta-card {
+        &.lesson-preview-card {
+            .mat-mdc-card-content {
+                video {
+                    margin-bottom: 15px;
+                    border-radius: 10px;
+                }
+                .content {
+                    h5 {
+                        font-size: 15px;
+                    }
+                    p {
+                        max-width: 100%;
+                        margin-top: 18px;
+                    }
+                }
+                .info {
+                    text-align: start;
+    
+                    .item {
+                        margin: {
+                            right: 20px;
+                            top: 20px;
+                        };
+                        span {
+                            &:nth-child(1) {
+                                margin-bottom: 6px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    ::ng-deep {
+        .trinta-card {
+            &.lesson-preview-card {
+                .mat-mdc-card-content {
+                    .content {
+                        .mat-mdc-button {
+                            margin-top: 2px;
+                            padding: 16px 25px;
+    
+                            .mdc-button__label {
+                                font-size: 14px;
+                                padding-left: 28px;
+
+                                i {
+                                    font-size: 25px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width : 576px) and (max-width : 767px) {}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+
+    .trinta-card {
+        &.lesson-preview-card {
+            .mat-mdc-card-content {
+                video {
+                    margin-bottom: 20px;
+                }
+                .content {
+                    h5 {
+                        font-size: 18px;
+                    }
+                    p {
+                        max-width: 100%;
+                    }
+                }
+                .info {
+                    text-align: start;
+                    margin-top: 20px;
+    
+                    .item {
+                        margin-right: 25px;
+                    }
+                }
+            }
+        }
+    }
+    ::ng-deep {
+        .trinta-card {
+            &.lesson-preview-card {
+                .mat-mdc-card-content {
+                    .content {
+                        .mat-mdc-button {
+                            margin-top: 5px;
+                            padding: 16px 25px;
+    
+                            .mdc-button__label {
+                                font-size: 15px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width : 992px) and (max-width : 1199px) {
+
+    .trinta-card {
+        &.lesson-preview-card {
+            .mat-mdc-card-content {
+                .content {
+                    p {
+                        max-width: 100%;
+                    }
+                }
+                .info {
+                    .item {
+                        margin-right: 25px;
+    
+                        span {
+                            &:nth-child(1) {
+                                letter-spacing: .5px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+
+    .trinta-card {
+        &.lesson-preview-card {
+            .mat-mdc-card-content {
+                .content {
+                    p {
+                        max-width: 100%;
+                    }
+                }
+                .info {
+                    .item {
+                        margin-right: 16px;
+    
+                        span {
+                            &:nth-child(1) {
+                                letter-spacing: .5px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {
+
+    .trinta-card {
+        &.lesson-preview-card {
+            .mat-mdc-card-content {
+                .info {
+                    .item {
+                        margin-right: 45px;
+                    }
+                }
+            }
+        }
+    }
+
+}

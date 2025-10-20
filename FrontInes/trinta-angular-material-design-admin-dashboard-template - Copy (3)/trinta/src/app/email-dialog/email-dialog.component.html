@@ -1,0 +1,84 @@
+<!-- email-dialog.component.html -->
+<div class="container">
+    <h2>Select email to send receipt</h2>
+    <form>
+        <div class="email-option">
+            <input type="radio" id="primary-email" name="email" value="primary" checked>
+            <label for="primary-email">Primary email : </label>
+            <p> inesdkhl.com</p>
+        </div>
+        <div class="email-option">
+            <input type="radio" id="business-email" name="email" value="business">
+            <label for="business-email">Business email : </label>
+            <p> inesdkhl.com</p> 
+        </div>
+        <div class="email-option">
+            <input type="radio" id="new-email" name="email" value="new">
+            <label for="new-email">New email address : </label>
+            <input type="email" id="new-email-address" name="new-email-address" [(ngModel)]="newEmail" placeholder="Enter new email">
+        </div>
+        <div class="keyboard">
+            <!-- Keyboard keys will go here -->
+            <div class="keyboard-row">
+                <button type="button" (click)="addKey('1')">1</button>
+                <button type="button" (click)="addKey('2')">2</button>
+                <button type="button" (click)="addKey('3')">3</button>
+                <button type="button" (click)="addKey('4')">4</button>
+                <button type="button" (click)="addKey('5')">5</button>
+                <button type="button" (click)="addKey('6')">6</button>
+                <button type="button" (click)="addKey('7')">7</button>
+                <button type="button" (click)="addKey('8')">8</button>
+                <button type="button" (click)="addKey('9')">9</button>
+                <button type="button" (click)="addKey('0')">0</button>
+                <button type="button" (click)="addKey('#')">#</button>
+                <button type="button" (click)="addKey(' ')">&nbsp;</button>
+            </div>
+            <div class="keyboard-row">
+                <button type="button" (click)="addKey('q')">q</button>
+                <button type="button" (click)="addKey('w')">w</button>
+                <button type="button" (click)="addKey('e')">e</button>
+                <button type="button" (click)="addKey('r')">r</button>
+                <button type="button" (click)="addKey('t')">t</button>
+                <button type="button" (click)="addKey('y')">y</button>
+                <button type="button" (click)="addKey('u')">u</button>
+                <button type="button" (click)="addKey('i')">i</button>
+                <button type="button" (click)="addKey('o')">o</button>
+                <button type="button" (click)="addKey('p')">p</button>
+                <button type="button" (click)="addKey('alt')">alt</button>
+                <button type="button" (click)="addKey('caps')">Caps</button>
+            </div>
+            <div class="keyboard-row">
+                <button type="button" (click)="addKey('a')">a</button>
+                <button type="button" (click)="addKey('s')">s</button>
+                <button type="button" (click)="addKey('d')">d</button>
+                <button type="button" (click)="addKey('f')">f</button>
+                <button type="button" (click)="addKey('g')">g</button>
+                <button type="button" (click)="addKey('h')">h</button>
+                <button type="button" (click)="addKey('j')">j</button>
+                <button type="button" (click)="addKey('k')">k</button>
+                <button type="button" (click)="addKey('l')">l</button>
+                <button type="button" (click)="addKey(';')">;</button>
+                <button type="button" (click)="addKey('+')">+</button>
+                <button type="button" (click)="clearLastCharacter()">Clear</button>
+            </div>
+            <div class="keyboard-row">
+                <button type="button" (click)="addKey('z')">z</button>
+                <button type="button" (click)="addKey('x')">x</button>
+                <button type="button" (click)="addKey('c')">c</button>
+                <button type="button" (click)="addKey('v')">v</button>
+                <button type="button" (click)="addKey('b')">b</button>
+                <button type="button" (click)="addKey('n')">n</button>
+                <button type="button" (click)="addKey('m')">m</button>
+                <button type="button" (click)="addKey('&')">&</button>
+                <button type="button" (click)="addKey(',')">,</button>
+                <button type="button" (click)="addKey('.')">.</button>
+                <button type="button" (click)="addKey('-')">-</button>
+                <button type="button" (click)="clearAll()">Clear all</button>
+            </div>
+        </div>
+        <div class="buttons">
+            <button type="submit" (click)="onSend()">Send</button>
+            <button type="button" (click)="onCancel()">Close</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,211 @@
+<div class="partnership-container">
+  <!-- Header avec bouton d'ajout -->
+  <div class="page-header">
+    <div class="header-content">
+      <div class="header-title">
+        <mat-icon>handshake</mat-icon>
+        <div>
+          <h1>Gestion des Partenariats</h1>
+          <p>Gérez vos partenaires et sponsors</p>
+        </div>
+      </div>
+      
+      <button mat-raised-button color="primary" class="add-btn" (click)="onAdd()">
+        <mat-icon>add</mat-icon>
+        Nouveau Partenariat
+      </button>
+    </div>
+  </div>
+
+  <!-- Stats Cards -->
+  <div class="stats-row">
+    <mat-card class="stat-card">
+      <div class="stat-icon primary">
+        <mat-icon>business</mat-icon>
+      </div>
+      <div class="stat-content">
+        <span class="stat-value">{{ partnerships.length }}</span>
+        <span class="stat-label">Total Partenariats</span>
+      </div>
+    </mat-card>
+
+    <mat-card class="stat-card">
+      <div class="stat-icon success">
+        <mat-icon>check_circle</mat-icon>
+      </div>
+      <div class="stat-content">
+        <span class="stat-value">{{ (partnerships | filter: 'active': true).length }}</span>
+        <span class="stat-label">Actifs</span>
+      </div>
+    </mat-card>
+
+    <mat-card class="stat-card">
+      <div class="stat-icon warning">
+        <mat-icon>pending</mat-icon>
+      </div>
+      <div class="stat-content">
+        <span class="stat-value">{{ (partnerships | filter: 'active': false).length }}</span>
+        <span class="stat-label">Inactifs</span>
+      </div>
+    </mat-card>
+
+    <mat-card class="stat-card">
+      <div class="stat-icon info">
+        <mat-icon>attach_money</mat-icon>
+      </div>
+      <div class="stat-content">
+        <span class="stat-value">{{ calculateTotalValue() | currency:'USD':'symbol':'1.0-0' }}</span>
+        <span class="stat-label">Valeur Totale</span>
+      </div>
+    </mat-card>
+  </div>
+
+  <!-- Liste des partenariats -->
+  <div class="partnerships-section">
+    <!-- Loading State -->
+    <div class="loading-state" *ngIf="isLoading">
+      <mat-spinner diameter="50"></mat-spinner>
+      <p>Chargement des partenariats...</p>
+    </div>
+
+    <!-- Partnerships Grid -->
+    <div class="partnerships-grid" *ngIf="!isLoading && partnerships.length > 0">
+      <div
+        class="partnership-card-wrapper"
+        *ngFor="let partnership of partnerships"
+      >
+        <mat-card class="partnership-card">
+          <!-- Image Section -->
+          <div class="card-image-wrapper">
+            <img
+              [src]="partnership.images?.[0] || 'assets/images/default.png'"
+              [alt]="partnership.name"
+              class="card-image"
+            />
+            <div class="image-overlay">
+              <mat-chip [color]="getStatusColor(partnership.active)" selected>
+                <mat-icon>{{ partnership.active ? 'check_circle' : 'cancel' }}</mat-icon>
+                {{ partnership.active ? 'Actif' : 'Inactif' }}
+              </mat-chip>
+            </div>
+            
+            <!-- Quick Actions Overlay -->
+            <div class="quick-actions">
+              <button mat-mini-fab color="primary" 
+                      matTooltip="Voir détails"
+                      (click)="viewDetails(partnership)">
+                <mat-icon>visibility</mat-icon>
+              </button>
+              <button mat-mini-fab color="accent" 
+                      matTooltip="Modifier"
+                      (click)="onEdit(partnership)">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-mini-fab color="warn" 
+                      matTooltip="Supprimer"
+                      (click)="onDelete(partnership)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          </div>
+
+          <mat-card-header>
+            <mat-card-title>{{ partnership.name }}</mat-card-title>
+            <mat-card-subtitle>
+              <mat-icon>category</mat-icon>
+              {{ partnership.type }}
+            </mat-card-subtitle>
+            
+            <button
+              mat-icon-button
+              class="card-menu-btn"
+              [matMenuTriggerFor]="cardMenu"
+            >
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            
+            <mat-menu #cardMenu="matMenu">
+              <button mat-menu-item (click)="viewDetails(partnership)">
+                <mat-icon>visibility</mat-icon>
+                <span>Voir détails</span>
+              </button>
+              <button mat-menu-item (click)="onEdit(partnership)">
+                <mat-icon>edit</mat-icon>
+                <span>Modifier</span>
+              </button>
+              <button mat-menu-item (click)="onAssignEvent(partnership)">
+                <mat-icon>event</mat-icon>
+                <span>Assigner à un événement</span>
+              </button>
+              <mat-divider></mat-divider>
+              <button mat-menu-item (click)="onDelete(partnership)" class="delete-menu-item">
+                <mat-icon>delete</mat-icon>
+                <span>Supprimer</span>
+              </button>
+            </mat-menu>
+          </mat-card-header>
+
+          <mat-card-content>
+            <p class="description">
+              {{ partnership.description || 'Aucune description disponible' }}
+            </p>
+
+            <div class="info-grid">
+              <div class="info-item">
+                <mat-icon>attach_money</mat-icon>
+                <div class="info-content">
+                  <span class="info-value">{{ formatCurrency(partnership.contractValue) }}</span>
+                  <span class="info-label">Valeur du contrat</span>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <mat-icon>event</mat-icon>
+                <div class="info-content">
+                  <span class="info-value">{{ formatDate(partnership.startDate) }}</span>
+                  <span class="info-label">Date de début</span>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <mat-icon>event_available</mat-icon>
+                <div class="info-content">
+                  <span class="info-value">{{ formatDate(partnership.endDate) }}</span>
+                  <span class="info-label">Date de fin</span>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+
+          <mat-card-actions>
+            <button mat-button color="primary" (click)="viewDetails(partnership)">
+              <mat-icon>info</mat-icon>
+              Détails
+            </button>
+            <button mat-button (click)="onEdit(partnership)">
+              <mat-icon>edit</mat-icon>
+              Modifier
+            </button>
+            <button mat-button (click)="onAssignEvent(partnership)">
+              <mat-icon>event</mat-icon>
+              Assigner
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+
+    <!-- Empty State -->
+    <div class="empty-state" *ngIf="!isLoading && partnerships.length === 0">
+      <div class="empty-icon">
+        <mat-icon>inbox</mat-icon>
+      </div>
+      <h3>Aucun partenariat</h3>
+      <p>Commencez par créer votre premier partenariat</p>
+      <button mat-raised-button color="primary" (click)="onAdd()">
+        <mat-icon>add</mat-icon>
+        Créer un partenariat
+      </button>
+    </div>
+  </div>
+</div>

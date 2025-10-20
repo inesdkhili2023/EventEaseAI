@@ -1,0 +1,110 @@
+<div class="in-progress-projects-table">
+  <div class="table-responsive">
+    <div class="search-container">
+      <div class="search-bar">
+        <input type="text" placeholder="Search" [(ngModel)]="searchText" (ngModelChange)="applyFilter()" />
+        <i class="search-icon material-icons">search</i>
+      </div>
+      <div class="header-content"></div>
+      <mat-card-subtitle>
+        <button type="button" mat-button class="card-header-menu-btn" [matMenuTriggerFor]="cardHeaderMenu">
+          This Week
+        </button>
+        <mat-menu #cardHeaderMenu="matMenu" class="card-header-menu" xPosition="before">
+          <button mat-menu-item>This Day</button>
+          <button mat-menu-item>Tomorrow</button>
+        </mat-menu>
+      </mat-card-subtitle>
+    </div>
+
+    <table mat-table [dataSource]="dataSource">
+
+      <!-- Checkbox Column -->
+      <ng-container matColumnDef="checkbox">
+        <th mat-header-cell *matHeaderCellDef> </th>
+        <td mat-cell *matCellDef="let element">
+          <mat-checkbox color="primary" (change)="onCheckboxChange($event,element)"></mat-checkbox>
+        </td>
+      </ng-container>
+
+      <!-- ID Token Column -->
+      <ng-container matColumnDef="idtoken">
+        <th mat-header-cell *matHeaderCellDef>ID Token</th>
+        <td mat-cell *matCellDef="let element">{{ element.idtoken }}</td>
+      </ng-container>
+
+      <!-- Customer Column -->
+      <ng-container matColumnDef="Customer">
+        <th mat-header-cell *matHeaderCellDef>Customer</th>
+        <td mat-cell *matCellDef="let element">{{ element.customer.name }}</td>
+      </ng-container>
+
+      <!-- Address Column -->
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef>Address</th>
+        <td mat-cell *matCellDef="let element">{{ element.customer.address || 'N/A' }}</td>
+      </ng-container>
+
+      <!-- Zip Code Column -->
+      <ng-container matColumnDef="zipCode">
+        <th mat-header-cell *matHeaderCellDef>Zip Code</th>
+        <td mat-cell *matCellDef="let element">{{ element.zipCode }}</td>
+      </ng-container>
+
+      <!-- Status Column -->
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>Status</th>
+        <td mat-cell *matCellDef="let element">{{ element.status }}</td>
+      </ng-container>
+
+      <!-- Needed On Column -->
+      <ng-container matColumnDef="NeededOn">
+        <th mat-header-cell *matHeaderCellDef>Needed On</th>
+        <td mat-cell *matCellDef="let element">{{ element.NeededOn }}</td>
+      </ng-container>
+
+      <!-- Total Amount Column -->
+      <ng-container matColumnDef="totalamount">
+        <th mat-header-cell *matHeaderCellDef>Total Amount</th>
+        <td mat-cell *matCellDef="let element">{{ element.totalamount }}</td>
+      </ng-container>
+
+      <!-- Due Amount Column -->
+      <ng-container matColumnDef="dueamount">
+        <th mat-header-cell *matHeaderCellDef>Due Amount</th>
+        <td mat-cell *matCellDef="let element">{{ element.dueamount }}</td>
+      </ng-container>
+
+      <!-- Due Date Column -->
+      <ng-container matColumnDef="driver">
+        <th mat-header-cell *matHeaderCellDef>
+            Driver
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.driver }}</td>
+    </ng-container>
+
+      <!-- Out At Column -->
+      <ng-container matColumnDef="outat">
+        <th mat-header-cell *matHeaderCellDef>Out At</th>
+        <td mat-cell *matCellDef="let element">{{ element.outat }}</td>
+      </ng-container>
+  <!-- Action Column -->
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef class="text-end pr-0"></th>
+    <td mat-cell *matCellDef="let element" class="text-end pr-0">
+      <div class="action">
+        <button type="button" mat-button class="p-0 min-w-auto lh-1 h-auto" (click)="deleteRow(element)">
+          <i class="{{ element.action.delete }}"></i>
+        </button>
+      </div>
+    </td>
+  </ng-container>
+      <!-- Header and Row Definitions -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onRowClick(row)"></tr>
+    </table>
+
+    <!-- Pagination -->
+    <mat-paginator [pageSizeOptions]="[8, 16, 24]"></mat-paginator>
+  </div>
+</div>

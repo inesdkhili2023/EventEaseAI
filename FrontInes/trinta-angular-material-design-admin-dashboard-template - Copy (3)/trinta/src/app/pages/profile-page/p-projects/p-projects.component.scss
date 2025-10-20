@@ -1,0 +1,112 @@
+::ng-deep {
+    .trinta-card {
+      &.all-projects-card {
+        .mat-mdc-card-content {
+          .mat-mdc-tab-group {
+            display: block;
+  
+            .mat-mdc-tab-header {
+              display: block;
+  
+              .mat-mdc-tab-label-container {
+                display: block;
+                border: 0;
+  
+                .mat-mdc-tab-labels {
+                  background-color: #fceabd; /* Background color for tabs */
+                  display: flex;
+                  gap: 1px; /* Space between tabs */
+  
+                  .mat-mdc-tab {
+                    flex-grow: 1;
+                    min-width: auto;
+                    color: #db613a; /* Tab text color */
+                    transition: var(--transition);
+                    padding: {
+                      left: 15px;
+                      top: 15.5px;
+                      right: 15px;
+                      bottom: 15.5px;
+                    };
+  
+                    .mdc-tab__text-label {
+                      color: var(#4f1410);
+                      transition: var(--transition);
+                      font-weight: 500;
+                      font-size: var(--fontSize);
+                    }
+  
+                    &.mdc-tab--active {
+                      background-color: #db613a; /* Active tab background color */
+  
+                      .mdc-tab__text-label {
+                        color: #4f1410; /* Active tab text color */
+                      }
+                    }
+  
+                    .mdc-tab-indicator {
+                      display: none;
+                    }
+  
+                    &:not(.mdc-tab--stacked) {
+                      height: auto;
+                    }
+                  }
+                }
+              }
+  
+              .mat-mdc-tab-header-pagination {
+                display: none;
+              }
+            }
+  
+            .mat-mdc-tab-body-wrapper {
+              display: block;
+              margin-top: 25px;
+  
+              .mat-mdc-tab-body {
+                overflow: hidden;
+  
+                .mat-mdc-tab-body-content {
+                  height: auto;
+                  overflow: hidden;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  
+    
+    /* Responsive styles */
+    @media only screen and (max-width: 767px) {
+      .trinta-card.all-projects-card .mat-mdc-card-content .mat-mdc-tab-group .mat-mdc-tab-header .mat-mdc-tab-label-container .mat-mdc-tab-labels {
+        display: block;
+      }
+      .trinta-card.all-projects-card .mat-mdc-card-content .mat-mdc-tab-group .mat-mdc-tab-header .mat-mdc-tab-label-container .mat-mdc-tab {
+        padding-top: 15px;
+        padding-bottom: 15px;
+      }
+      .trinta-card.all-projects-card .mat-mdc-card-content .mat-mdc-tab-group .mat-mdc-tab-body-wrapper {
+        margin-top: 20px;
+      }
+    }
+  
+    @media only screen and (min-width: 576px) and (max-width: 767px) {
+      .trinta-card.all-projects-card .mat-mdc-card-content .mat-mdc-tab-group .mat-mdc-tab-header .mat-mdc-tab-label-container .mat-mdc-tab-labels {
+        display: flex;
+      }
+    }
+  
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+      .trinta-card.all-projects-card .mat-mdc-card-content .mat-mdc-tab-group .mat-mdc-tab-header .mat-mdc-tab-label-container .mat-mdc-tab {
+        padding-top: 15px;
+        padding-bottom: 15px;
+      }
+      .trinta-card.all-projects-card .mat-mdc-card-content .mat-mdc-tab-group .mat-mdc-tab-body-wrapper {
+        margin-top: 22px;
+      }
+    }
+  }
+  

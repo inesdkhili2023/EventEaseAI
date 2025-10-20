@@ -1,0 +1,41 @@
+.user-profile-card {
+  width: 100%;/* Adjust width as needed */
+    height: 300px; /* Adjust height as needed */
+    background: url('/assets/images/pizzapos/ddd6.png') no-repeat center center !important;
+  
+    background-size: cover;
+}
+
+
+
+.user-profile-card .btn-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Distribute buttons evenly */
+    gap: 10px; /* Add space between buttons */
+    padding: 20px; /* Add some padding to give more room around the buttons */
+}
+
+.user-profile-card .btn-box button,
+.user-profile-card .btn-box a[mat-button] {
+    border-radius: 12px;
+    padding: 10px 20px;
+    min-width: 120px; /* Make buttons slightly wider */
+    text-align: center;
+    background: rgba(255, 255, 255, 0.2); /* Transparent background */
+    color: #ffffff;
+    margin-bottom: 10px;
+    margin-top: 20px; /* Ajustez l'espacement entre les lignes selon vos besoins */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: none;
+    backdrop-filter: blur(8px); /* Blur effect */
+}
+
+
+.user-profile-card .btn-box button:hover,
+.user-profile-card .btn-box a[mat-button]:hover {
+    background: rgba(255, 255, 255, 0.3); /* Slightly more opaque on hover */
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15), 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}

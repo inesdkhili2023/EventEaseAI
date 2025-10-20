@@ -1,0 +1,80 @@
+.order-info-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f2f2f2;
+}
+
+.order-receipt {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 350px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.header {
+    text-align: center;
+}
+
+.logo {
+    width: 50px;
+    height: auto;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.details, .items, .summary, .total, .footer {
+    font-size: 14px;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 10px 0;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.buttons {
+    display: flex; /* Aligne les boutons horizontalement */
+    justify-content: center; /* Centre les boutons horizontalement */
+    flex-wrap: wrap; /* Permet aux boutons de passer à la ligne suivante si l'espace est insuffisant */
+    gap: 10px; /* Espacement entre les boutons */
+    margin-top: 20px;
+}
+
+button {
+    background: #d18501; /* Couleur de fond uniforme */
+    border: none;
+    color: white;
+    padding: 8px 16px; /* Padding ajusté pour des boutons plus petits */
+    font-size: 12px; /* Taille de la police réduite */
+    border-radius: 25px; /* Coins arrondis pour un effet moderne */
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Ombre subtile pour un effet 3D */
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Transitions douces */
+    display: inline-flex; /* Utilisé pour aligner le texte au centre */
+    align-items: center; /* Centre le texte verticalement */
+    justify-content: center; /* Centre le texte horizontalement */
+}
+
+button:hover {
+    background: #8d1b06; /* Couleur de fond plus sombre au survol */
+    transform: translateY(-2px); /* Effet d'élévation au survol */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre plus marquée au survol */
+}
+
+button:active {
+    transform: translateY(1px); /* Effet de dépression au clic */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); /* Ombre réduite au clic */
+}

@@ -1,0 +1,127 @@
+.trinta-card {
+    &.connected-accounts-card {
+        ul {
+            li {
+                border-bottom: 1px solid #edeff5;
+                padding: {
+                    top: 20px;
+                    bottom: 20px;
+                };
+                img {
+                    margin-right: 17px;
+                }
+                h6 {
+                    font-size: 15px;
+                    margin-bottom: 8px;
+                }
+                &:first-child {
+                    padding-top: 0;
+                }
+                &:last-child {
+                    padding-bottom: 0;
+                    border-bottom-width: 0;
+                }
+            }
+        }
+    }
+}
+::ng-deep {
+    .trinta-card {
+        &.add-new-connection-card {
+            .save-info-btn {
+                .mat-mdc-button {
+                    height: auto;
+                    min-width: auto;
+                    border-radius: 6px;
+                    padding: 18px 25px;
+                    letter-spacing: 0.16px;
+                    color: var(--whiteColor);
+                    background-color: var(--primaryColor);
+                    font: {
+                        size: 16px;
+                        weight: 600;
+                        family: var(--headingFontFamily);
+                    };
+                }
+            }
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    .trinta-card {
+        &.connected-accounts-card {
+            ul {
+                li {
+                    padding: {
+                        top: 15px;
+                        bottom: 15px;
+                    };
+                    img {
+                        margin-right: 12px;
+                    }
+                    .d-flex {
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+        }
+    }
+    ::ng-deep {
+        .trinta-card {
+            &.add-new-connection-card {
+                .save-info-btn {
+                    .mat-mdc-button {
+                        padding: 15px 25px;
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width : 576px) and (max-width : 767px) {}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+
+    .trinta-card {
+        &.connected-accounts-card {
+            ul {
+                li {
+                    padding: {
+                        top: 17px;
+                        bottom: 17px;
+                    };
+                }
+            }
+        }
+    }
+    ::ng-deep {
+        .trinta-card {
+            &.add-new-connection-card {
+                .save-info-btn {
+                    .mat-mdc-button {
+                        padding: 15px 25px;
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width : 992px) and (max-width : 1199px) {}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {}

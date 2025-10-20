@@ -1,0 +1,76 @@
+<!-- Breadcrumb -->
+<div class="breadcrumb-card mb-25 d-md-flex align-items-center justify-content-between">
+    <h5 class="mb-0">
+        Radio
+    </h5>
+    <ol class="breadcrumb list-unstyled mt-0 mb-0 pl-0">
+        <li class="breadcrumb-item position-relative">
+            <a routerLink="/" class="d-inline-block position-relative">
+                <i class="ri-home-8-line"></i>
+                Dashboard
+            </a>
+        </li>
+        <li class="breadcrumb-item position-relative">
+            UI Elements
+        </li>
+        <li class="breadcrumb-item position-relative">
+            Radio
+        </li>
+    </ol>
+</div>
+
+<!-- Radio -->
+<div class="row">
+    <div class="col-md-6">
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Basic Radios
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="example1">
+                <mat-radio-group aria-label="Select an option">
+                    <mat-radio-button value="1">Option 1</mat-radio-button>
+                    <mat-radio-button value="2">Option 2</mat-radio-button>
+                </mat-radio-group>
+            </mat-card-content>
+        </mat-card>
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Color Radios
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="example2">
+                <mat-radio-group aria-label="Select an option">
+                    <mat-radio-button value="1">Primary</mat-radio-button>
+                    <mat-radio-button value="2" class="secondary">Secondary</mat-radio-button>
+                    <mat-radio-button value="3" class="success">Success</mat-radio-button>
+                    <mat-radio-button value="4" class="info">Info</mat-radio-button>
+                    <mat-radio-button value="5" class="warning">Warning</mat-radio-button>
+                    <mat-radio-button value="6" class="danger">Danger</mat-radio-button>
+                    <mat-radio-button value="7" class="light">Light</mat-radio-button>
+                    <mat-radio-button value="8" class="dark">Dark</mat-radio-button>
+                </mat-radio-group>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-md-6">
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Radios with ngModel
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <app-radios-with-ngmodel></app-radios-with-ngmodel>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

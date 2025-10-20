@@ -1,0 +1,45 @@
+<mat-card class="trinta-card user-profile-card mb-25 bg-dark border-none d-block">
+    <mat-card-content>
+      <div class="user d-md-flex align-items-center justify-content-between ml-auto mr-auto">
+        <div class="btn-box">
+            <button mat-button (click)="openOrderInfoModal()">
+              <mat-icon>info</mat-icon> Order Info
+            </button>
+            <a mat-button (click)="onNewOrderClick()">
+              <mat-icon>add_shopping_cart</mat-icon> New Order
+            </a>
+            
+            <a  mat-button>
+              <mat-icon>edit</mat-icon> Edit Order
+            </a>
+            <a mat-button (click)="onDeliveryInfoClick($event)">
+              <mat-icon>local_shipping</mat-icon> Delivery Info
+            </a>
+            
+            <button type="button" mat-button (click)="openAssignDriverDialog()">
+              <mat-icon>drive_eta</mat-icon> Assign Driver
+            </button>
+            <button type="button" mat-button (click)="openUnassignDriverDialog()">
+              <mat-icon>remove_circle</mat-icon> Unassign Driver
+            </button>
+            <button mat-button (click)="openDialog()">
+              <mat-icon>send</mat-icon> Send
+            </button>
+            <button  mat-button (click)="openKitchenStatusDialog()">
+              <mat-icon>kitchen</mat-icon> Kitchen Status
+            </button>
+            <button type="button" mat-button>
+              <mat-icon>attach_money</mat-icon> Tips
+            </button>
+            <button type="button" mat-button>
+              <mat-icon>attach_money</mat-icon> Settle
+            </button>
+            <button type="button" mat-button>
+              <mat-icon>visibility</mat-icon> Driver View
+            </button>
+        </div>
+      </div>
+    </mat-card-content>
+</mat-card>
+
+<router-outlet></router-outlet>

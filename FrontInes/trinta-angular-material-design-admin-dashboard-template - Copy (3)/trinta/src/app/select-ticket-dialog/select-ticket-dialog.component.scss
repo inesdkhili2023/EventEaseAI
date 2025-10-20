@@ -1,0 +1,37 @@
+.dialog-title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #8d1b06; /* Darker color for the title */
+    text-align: center;
+    padding: 16px 0;
+    border-bottom: 1px solid #eee; /* Light border for separation */
+  }
+  
+  .dialog-content {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #333; /* Darker text color for better readability */
+    padding: 16px;
+    background-color: #f8f8f8; /* Light background to keep the focus on content */
+    border-radius: 8px;
+  }
+  
+  .dialog-actions {
+    display: flex;
+    justify-content: center;
+    padding: 16px;
+    border-top: 1px solid #eee; /* Light border for separation */
+  }
+  
+  .custom-button {
+    background-color: #d18501; /* Primary color */
+    color: #fff;
+    font-size: 1.2rem; /* Larger text for readability */
+    padding: 12px 24px; /* Larger padding for a bigger button */
+    border-radius: 50px; /* Round button */
+    text-transform: uppercase; /* Uppercase text for emphasis */
+    &:hover {
+      background-color: #b56e01; /* Slightly darker shade for hover effect */
+    }
+  }
+  

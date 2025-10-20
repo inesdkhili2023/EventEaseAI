@@ -1,0 +1,30 @@
+<mat-card
+    class="trinta-card annual-profit-card mb-25 bg-white border-none d-block"
+>
+    <mat-card-content>
+        <span class="sub-title text-gray d-block">
+            Annual Profit
+        </span>
+        <h3>
+            $258k
+        </h3>
+        <span class="trending d-inline-block fw-medium position-relative">
+            1.70% <i class="ri-arrow-up-s-line"></i>
+        </span>
+        <div class="chart">
+            <apx-chart
+                [series]="chartOptions.series!"
+                [chart]="chartOptions.chart!"
+                [dataLabels]="chartOptions.dataLabels!"
+                [colors]="chartOptions.colors!"
+                [markers]="chartOptions.markers!"
+                [xaxis]="chartOptions.xaxis!"
+                [grid]="chartOptions.grid!"
+                [fill]="chartOptions.fill!"
+                [yaxis]="chartOptions.yaxis!"
+                [stroke]="chartOptions.stroke!"
+                [title]="chartOptions.title!"
+            ></apx-chart>
+        </div>
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,120 @@
+<mat-card
+    class="trinta-card customer-satisfaction-card mb-25 bg-white border-none d-block"
+>
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Customer Satisfaction
+            </h5>
+        </mat-card-title>
+        <mat-card-subtitle>
+            <button type="button" mat-button class="card-header-menu-btn" [matMenuTriggerFor]="cardHeaderMenu">
+                This Year
+            </button>
+            <mat-menu #cardHeaderMenu="matMenu" class="card-header-menu" xPosition="before">
+                <button mat-menu-item>
+                    This Day
+                </button>
+                <button mat-menu-item>
+                    This Week
+                </button>
+                <button mat-menu-item>
+                    This Month
+                </button>
+                <button mat-menu-item>
+                    This Year
+                </button>
+            </mat-menu>
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-12">
+                <div class="chart">
+                    <apx-chart
+                        [series]="chartOptions.series!"
+                        [grid]="chartOptions.grid!"
+                        [chart]="chartOptions.chart!"
+                        [labels]="chartOptions.labels!"
+                        [colors]="chartOptions.colors!"
+                        [fill]="chartOptions.fill!"
+                        [stroke]="chartOptions.stroke!"
+                        [legend]="chartOptions.legend!"
+                    ></apx-chart>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="customer-satisfaction-list d-flex">
+                    <div>
+                        <ul class="list p-0 m-0 list-unstyled">
+                            <li class="position-relative">
+                                <div class="dot"></div>
+                                <span class="d-block text-body">
+                                    Active Ticket
+                                </span>
+                                <h6 class="mt-0 mb-0 position-relative fw-medium">
+                                    <i class="ri-arrow-up-line"></i>
+                                    5.21k
+                                </h6>
+                            </li>
+                            <li class="position-relative">
+                                <div class="dot closed"></div>
+                                <span class="d-block text-body">
+                                    Closed Ticket
+                                </span>
+                                <h6 class="mt-0 mb-0 position-relative fw-medium">
+                                    <i class="ri-arrow-up-line"></i>
+                                    4k
+                                </h6>
+                            </li>
+                            <li class="position-relative">
+                                <div class="dot critical"></div>
+                                <span class="d-block text-body">
+                                    Critical Ticket
+                                </span>
+                                <h6 class="mt-0 down mb-0 position-relative fw-medium">
+                                    <i class="ri-arrow-down-line"></i>
+                                    1.6k
+                                </h6>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul class="list p-0 m-0 list-unstyled">
+                            <li class="position-relative">
+                                <div class="dot solved"></div>
+                                <span class="d-block text-body">
+                                    Solved Ticket
+                                </span>
+                                <h6 class="mt-0 mb-0 position-relative fw-medium">
+                                    <i class="ri-arrow-up-line"></i>
+                                    32k
+                                </h6>
+                            </li>
+                            <li class="position-relative">
+                                <div class="dot open"></div>
+                                <span class="d-block text-body">
+                                    Open Ticket
+                                </span>
+                                <h6 class="mt-0 mb-0 position-relative fw-medium">
+                                    <i class="ri-arrow-up-line"></i>
+                                    18k
+                                </h6>
+                            </li>
+                            <li class="position-relative">
+                                <div class="dot high"></div>
+                                <span class="d-block text-body">
+                                    High Ticket
+                                </span>
+                                <h6 class="mt-0 mb-0 position-relative fw-medium">
+                                    <i class="ri-arrow-up-line"></i>
+                                    3.7k
+                                </h6>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

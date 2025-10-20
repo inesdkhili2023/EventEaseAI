@@ -1,0 +1,207 @@
+.trinta-card {
+    &.transactions-history-card {
+        .transactions-history-table {
+            .mat-mdc-table {
+                width: 100%;
+                overflow: hidden;
+                background-color: transparent;
+
+                .mat-mdc-header-row {
+                    height: auto;
+                    line-height: initial;
+                    letter-spacing: 0.14px;
+                    color: var(--darkColor);
+                    background: transparent;
+                    font: {
+                        weight: 500;
+                        size: var(--fontSize);
+                        family: var(--fontFamily);
+                    };
+                    .mat-mdc-header-cell {
+                        border: none;
+                        overflow: unset;
+                        text-align: start;
+                        white-space: nowrap;
+                        line-height: initial;
+                        padding: 0 15px 15px;
+                        letter-spacing: normal;
+                        background: transparent;
+                        border-bottom: 2px solid #edeff5;
+                    }
+                }
+                .mat-mdc-row, .mdc-data-table__content {
+                    line-height: initial;
+                    background: transparent;
+                    font: {
+                        weight: normal;
+                        size: var(--fontSize);
+                        family: var(--fontFamily);
+                    };
+                }
+                .mat-mdc-row {
+                    height: auto;
+                    color: var(--blackColor);
+
+                    &:first-child {
+                        .mat-mdc-cell {
+                            padding-top: 0;
+                        }
+                    }
+                }
+                .mat-mdc-cell {
+                    border: none;
+                    padding: 15px;
+                    overflow: hidden;
+                    text-align: start;
+                    white-space: nowrap;
+                    line-height: initial;
+                    letter-spacing: 0.14px;
+                    background: transparent;
+                    border-bottom: 1px solid #edeff5;
+
+                    .user {
+                        img {
+                            border-radius: 6px;
+                            width: 57px;
+                        }
+                        span {
+                            margin-left: 15px;
+                            font: {
+                                size: 15px;
+                                family: var(--headingFontFamily);
+                            };
+                        }
+                    }
+                    .date {
+                        max-width: 63px;
+                        margin-left: auto;
+                        white-space: normal;
+                    }
+                }
+            }
+            .mat-mdc-paginator {
+                padding-top: 15px;
+            }
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    .trinta-card {
+        &.transactions-history-card {
+            .transactions-history-table {
+                .mat-mdc-table {
+                    .mat-mdc-header-row {
+                        font-size: 13px;
+                    }
+                    .mat-mdc-row, .mdc-data-table__content {
+                        font-size: 13px;
+                    }
+                    .mat-mdc-cell {
+                        .user {
+                            img {
+                                width: 50px;
+                            }
+                            span {
+                                font-size: 13px;
+                                margin: {
+                                    left: 0;
+                                    top: 8px;
+                                };
+                            }
+                        }
+                        .date {
+                            max-width: 100%;
+                            white-space: nowrap;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width : 576px) and (max-width : 767px) {
+
+    .trinta-card {
+        &.transactions-history-card {
+            .transactions-history-table {
+                .mat-mdc-table {
+                    .mat-mdc-cell {
+                        .user {
+                            span {
+                                margin: {
+                                    left: 12px;
+                                    top: 0;
+                                };
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+
+    .trinta-card {
+        &.transactions-history-card {
+            .transactions-history-table {
+                .mat-mdc-table {
+                    .mat-mdc-cell {
+                        .user {
+                            span {
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width : 992px) and (max-width : 1199px) {
+
+    .trinta-card {
+        &.transactions-history-card {
+            .transactions-history-table {
+                .mat-mdc-table {
+                    .mat-mdc-cell {
+                        padding: 13px 15px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+
+    .trinta-card {
+        &.transactions-history-card {
+            .transactions-history-table {
+                .mat-mdc-table {
+                    .mat-mdc-cell {
+                        padding: 13px 15px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {}

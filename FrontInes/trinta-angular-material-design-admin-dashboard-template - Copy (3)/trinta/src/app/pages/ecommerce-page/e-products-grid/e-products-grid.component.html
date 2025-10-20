@@ -1,0 +1,967 @@
+<!-- Products Filter -->
+<mat-card
+    class="trinta-card products-filter-card mb-25 bg-white border-none d-block"
+>
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Filter
+            </h5>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form>
+            <div class="filters-top row">
+                <div class="col-sm-6 col-lg-2/5">
+                    <mat-form-field>
+                        <mat-label>
+                            <i class="material-symbols-outlined">
+                                stacks
+                            </i>
+                            Categories
+                        </mat-label>
+                        <mat-select multiple>
+                            <mat-option value="1">
+                                Furniture
+                            </mat-option>
+                            <mat-option value="2">
+                                Bicycle
+                            </mat-option>
+                            <mat-option value="3">
+                                Shoe
+                            </mat-option>
+                            <mat-option value="4">
+                                Bag
+                            </mat-option>
+                            <mat-option value="5">
+                                Fashion
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-6 col-lg-2/5">
+                    <mat-form-field>
+                        <mat-label>
+                            <i class="material-symbols-outlined">
+                                monetization_on
+                            </i>
+                            Price Range
+                        </mat-label>
+                        <mat-select>
+                            <mat-option value="1">
+                                $0 - $100
+                            </mat-option>
+                            <mat-option value="2">
+                                $101 - $200
+                            </mat-option>
+                            <mat-option value="3">
+                                $201 - $300
+                            </mat-option>
+                            <mat-option value="4">
+                                $301 - $400
+                            </mat-option>
+                            <mat-option value="5">
+                                $401 - $500
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-6 col-lg-2/5">
+                    <mat-form-field>
+                        <mat-label>
+                            <i class="material-symbols-outlined">
+                                equalizer
+                            </i>
+                            Customer Ratings
+                        </mat-label>
+                        <mat-select>
+                            <mat-option value="1">
+                                5 Star
+                            </mat-option>
+                            <mat-option value="2">
+                                4 Star
+                            </mat-option>
+                            <mat-option value="3">
+                                3 Star
+                            </mat-option>
+                            <mat-option value="4">
+                                2 Star
+                            </mat-option>
+                            <mat-option value="5">
+                                1 Star
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-6 col-lg-2/5">
+                    <mat-form-field>
+                        <mat-label>
+                            <i class="material-symbols-outlined">
+                                category
+                            </i>
+                            Brands
+                        </mat-label>
+                        <mat-select multiple>
+                            <mat-option value="1">
+                                Amazon
+                            </mat-option>
+                            <mat-option value="2">
+                                Walmart
+                            </mat-option>
+                            <mat-option value="3">
+                                Nike
+                            </mat-option>
+                            <mat-option value="4">
+                                Vans
+                            </mat-option>
+                            <mat-option value="5">
+                                Chanel
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-12 col-lg-2/5">
+                    <mat-form-field>
+                        <mat-label>
+                            <i class="material-symbols-outlined">
+                                percent
+                            </i>
+                            Discount
+                        </mat-label>
+                        <mat-select>
+                            <mat-option value="1">
+                                10%
+                            </mat-option>
+                            <mat-option value="2">
+                                15%
+                            </mat-option>
+                            <mat-option value="3">
+                                20%
+                            </mat-option>
+                            <mat-option value="4">
+                                25%
+                            </mat-option>
+                            <mat-option value="5">
+                                30%
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="filters-bottom d-md-flex align-items-center justify-content-between">
+                <div class="selected-filters d-lg-flex align-items-center">
+                    <ul class="p-0 mb-0 mt-0">
+                        <li class="d-inline-block position-relative fw-medium text-primary">
+                            Furniture
+                            <button type="button" class="p-0 bg-transparent border-none cursor-pointer">
+                                <i class="ri-close-fill"></i>
+                            </button>
+                        </li>
+                        <li class="d-inline-block position-relative fw-medium text-primary">
+                            T-Shirt
+                            <button type="button" class="p-0 bg-transparent border-none cursor-pointer">
+                                <i class="ri-close-fill"></i>
+                            </button>
+                        </li>
+                        <li class="d-inline-block position-relative fw-medium text-primary">
+                            $100
+                            <button type="button" class="p-0 bg-transparent border-none cursor-pointer">
+                                <i class="ri-close-fill"></i>
+                            </button>
+                        </li>
+                        <li class="d-inline-block position-relative fw-medium text-primary">
+                            20% Off
+                            <button type="button" class="p-0 bg-transparent border-none cursor-pointer">
+                                <i class="ri-close-fill"></i>
+                            </button>
+                        </li>
+                        <li class="d-inline-block position-relative fw-medium text-primary">
+                            Color
+                            <button type="button" class="p-0 bg-transparent border-none cursor-pointer">
+                                <i class="ri-close-fill"></i>
+                            </button>
+                        </li>
+                    </ul>
+                    <button mat-button type="button">
+                        Clear All
+                    </button>
+                </div>
+                <div class="search-btn">
+                    <button mat-button type="button">
+                        Search
+                    </button>
+                </div>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>
+
+<!-- Products Grid -->
+<div class="row">
+    <div class="col-sm-6 col-lg-4 col-xxl-3">
+        <mat-card
+            class="trinta-card product-card mb-25 bg-white border-none d-block"
+        >
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0 fw-normal text-primary">
+                        Furniture
+                    </h5>
+                </mat-card-title>
+                <mat-card-subtitle>
+                    <button type="button" mat-button class="card-header-dot-btn lh-1 p-0 min-w-auto h-auto" [matMenuTriggerFor]="cardHeaderMenu">
+                        <i class="ri-more-2-fill"></i>
+                    </button>
+                    <mat-menu #cardHeaderMenu="matMenu" class="card-header-menu" xPosition="before">
+                        <button mat-menu-item>
+                            View
+                        </button>
+                        <button mat-menu-item>
+                            Edit
+                        </button>
+                        <button mat-menu-item>
+                            Delete
+                        </button>
+                    </mat-menu>
+                </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <a routerLink="/ecommerce-page/product-details" class="image">
+                    <img src="assets/images/products/product3.png" alt="product-image">
+                </a>
+                <div class="content">
+                    <h5>
+                        <a routerLink="/ecommerce-page/product-details">
+                            Comforta Armchair
+                        </a>
+                    </h5>
+                    <div class="ratings lh-1 d-flex align-items-center justify-content-center">
+                        <div class="star">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-line"></i>
+                        </div>
+                        <span class="d-block text-body position-relative">
+                            (3,250)
+                        </span>
+                    </div>
+                    <div class="price lh-1 d-flex justify-content-center align-items-center">
+                        <span class="d-block text-decoration-line-through text-body">
+                            $350
+                        </span>
+                        <span class="d-block fw-semibold text-black heading-font-family">
+                            $310
+                        </span>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-sm-6 col-lg-4 col-xxl-3">
+        <mat-card
+            class="trinta-card product-card mb-25 bg-white border-none d-block"
+        >
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0 fw-normal text-primary">
+                        Bicycle
+                    </h5>
+                </mat-card-title>
+                <mat-card-subtitle>
+                    <button type="button" mat-button class="card-header-dot-btn lh-1 p-0 min-w-auto h-auto" [matMenuTriggerFor]="cardHeaderMenu">
+                        <i class="ri-more-2-fill"></i>
+                    </button>
+                    <mat-menu #cardHeaderMenu="matMenu" class="card-header-menu" xPosition="before">
+                        <button mat-menu-item>
+                            View
+                        </button>
+                        <button mat-menu-item>
+                            Edit
+                        </button>
+                        <button mat-menu-item>
+                            Delete
+                        </button>
+                    </mat-menu>
+                </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <a routerLink="/ecommerce-page/product-details" class="image">
+                    <img src="assets/images/products/product4.png" alt="product-image">
+                </a>
+                <div class="content">
+                    <h5>
+                        <a routerLink="/ecommerce-page/product-details">
+                            Electric Bicycle
+                        </a>
+                    </h5>
+                    <div class="ratings lh-1 d-flex align-items-center justify-content-center">
+                        <div class="star">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-line"></i>
+                            <i class="ri-star-line"></i>
+                        </div>
+                        <span class="d-block text-body position-relative">
+                            (215)
+                        </span>
+                    </div>
+                    <div class="price lh-1 d-flex justify-content-center align-items-center">
+                        <span class="d-block text-decoration-line-through text-body">
+                            $2500
+                        </span>
+                        <span class="d-block fw-semibold text-black heading-font-family">
+                            $2300
+                        </span>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-sm-6 col-lg-4 col-xxl-3">
+        <mat-card
+            class="trinta-card product-card mb-25 bg-white border-none d-block"
+        >
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0 fw-normal text-primary">
+                        Shoe
+                    </h5>
+                </mat-card-title>
+                <mat-card-subtitle>
+                    <button type="button" mat-button class="card-header-dot-btn lh-1 p-0 min-w-auto h-auto" [matMenuTriggerFor]="cardHeaderMenu">
+                        <i class="ri-more-2-fill"></i>
+                    </button>
+                    <mat-menu #cardHeaderMenu="matMenu" class="card-header-menu" xPosition="before">
+                        <button mat-menu-item>
+                            View
+                        </button>
+                        <button mat-menu-item>
+                            Edit
+                        </button>
+                        <button mat-menu-item>
+                            Delete
+                        </button>
+                    </mat-menu>
+                </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <a routerLink="/ecommerce-page/product-details" class="image">
+                    <img src="assets/images/products/product5.png" alt="product-image">
+                </a>
+                <div class="content">
+                    <h5>
+                        <a routerLink="/ecommerce-page/product-details">
+                            Sport Shoes
+                        </a>
+                    </h5>
+                    <div class="ratings lh-1 d-flex align-items-center justify-content-center">
+                        <div class="star">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-line"></i>
+                            <i class="ri-star-line"></i>
+                            <i class="ri-star-line"></i>
+                        </div>
+                        <span class="d-block text-body position-relative">
+                            (6)
+                        </span>
+                    </div>
+                    <div class="price lh-1 d-flex justify-content-center align-items-center">
+                        <span class="d-block text-decoration-line-through text-body">
+                            $350
+                        </span>
+                        <span class="d-block fw-semibold text-black heading-font-family">
+                            $315
+                        </span>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-sm-6 col-lg-4 col-xxl-3">
+        <mat-card
+            class="trinta-card product-card mb-25 bg-white border-none d-block"
+        >
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0 fw-normal text-primary">
+                        Bag
+                    </h5>
+                </mat-card-title>
+                <mat-card-subtitle>
+                    <button type="button" mat-button class="card-header-dot-btn lh-1 p-0 min-w-auto h-auto" [matMenuTriggerFor]="cardHeaderMenu">
+                        <i class="ri-more-2-fill"></i>
+                    </button>
+                    <mat-menu #cardHeaderMenu="matMenu" class="card-header-menu" xPosition="before">
+                        <button mat-menu-item>
+                            View
+                        </button>
+                        <button mat-menu-item>
+                            Edit
+                        </button>
+                        <button mat-menu-item>
+                            Delete
+                        </button>
+                    </mat-menu>
+                </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <a routerLink="/ecommerce-page/product-details" class="image">
+                    <img src="assets/images/products/product6.png" alt="product-image">
+                </a>
+                <div class="content">
+                    <h5>
+                        <a routerLink="/ecommerce-page/product-details">
+                            Urban Carry
+                        </a>
+                    </h5>
+                    <div class="ratings lh-1 d-flex align-items-center justify-content-center">
+                        <div class="star">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <span class="d-block text-body position-relative">
+                            (504)
+                        </span>
+                    </div>
+                    <div class="price lh-1 d-flex justify-content-center align-items-center">
+                        <span class="d-block text-decoration-line-through text-body">
+                            $560
+                        </span>
+                        <span class="d-block fw-semibold text-black heading-font-family">
+                            $480
+                        </span>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-sm-6 col-lg-4 col-xxl-3">
+        <mat-card
+            class="trinta-card product-card mb-25 bg-white border-none d-block"
+        >
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0 fw-normal text-primary">
+                        Fashion
+                    </h5>
+                </mat-card-title>
+                <mat-card-subtitle>
+                    <button type="button" mat-button class="card-header-dot-btn lh-1 p-0 min-w-auto h-auto" [matMenuTriggerFor]="cardHeaderMenu">
+                        <i class="ri-more-2-fill"></i>
+                    </button>
+                    <mat-menu #cardHeaderMenu="matMenu" class="card-header-menu" xPosition="before">
+                        <button mat-menu-item>
+                            View
+                        </button>
+                        <button mat-menu-item>
+                            Edit
+                        </button>
+                        <button mat-menu-item>
+                            Delete
+                        </button>
+                    </mat-menu>
+                </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <a routerLink="/ecommerce-page/product-details" class="image">
+                    <img src="assets/images/products/product7.png" alt="product-image">
+                </a>
+                <div class="content">
+                    <h5>
+                        <a routerLink="/ecommerce-page/product-details">
+                            Straw Hat
+                        </a>
+                    </h5>
+                    <div class="ratings lh-1 d-flex align-items-center justify-content-center">
+                        <div class="star">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-half-line"></i>
+                        </div>
+                        <span class="d-block text-body position-relative">
+                            (48)
+                        </span>
+                    </div>
+                    <div class="price lh-1 d-flex justify-content-center align-items-center">
+                        <span class="d-block text-decoration-line-through text-body">
+                            $240
+                        </span>
+                        <span class="d-block fw-semibold text-black heading-font-family">
+                            $195
+                        </span>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-sm-6 col-lg-4 col-xxl-3">
+        <mat-card
+            class="trinta-card product-card mb-25 bg-white border-none d-block"
+        >
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0 fw-normal text-primary">
+                        Furniture
+                    </h5>
+                </mat-card-title>
+                <mat-card-subtitle>
+                    <button type="button" mat-button class="card-header-dot-btn lh-1 p-0 min-w-auto h-auto" [matMenuTriggerFor]="cardHeaderMenu">
+                        <i class="ri-more-2-fill"></i>
+                    </button>
+                    <mat-menu #cardHeaderMenu="matMenu" class="card-header-menu" xPosition="before">
+                        <button mat-menu-item>
+                            View
+                        </button>
+                        <button mat-menu-item>
+                            Edit
+                        </button>
+                        <button mat-menu-item>
+                            Delete
+                        </button>
+                    </mat-menu>
+                </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <a routerLink="/ecommerce-page/product-details" class="image">
+                    <img src="assets/images/products/product8.png" alt="product-image">
+                </a>
+                <div class="content">
+                    <h5>
+                        <a routerLink="/ecommerce-page/product-details">
+                            Comforta Sofa EDM
+                        </a>
+                    </h5>
+                    <div class="ratings lh-1 d-flex align-items-center justify-content-center">
+                        <div class="star">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <span class="d-block text-body position-relative">
+                            (280)
+                        </span>
+                    </div>
+                    <div class="price lh-1 d-flex justify-content-center align-items-center">
+                        <span class="d-block text-decoration-line-through text-body">
+                            $1200
+                        </span>
+                        <span class="d-block fw-semibold text-black heading-font-family">
+                            $1080
+                        </span>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-sm-6 col-lg-4 col-xxl-3">
+        <mat-card
+            class="trinta-card product-card mb-25 bg-white border-none d-block"
+        >
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0 fw-normal text-primary">
+                        Fashion
+                    </h5>
+                </mat-card-title>
+                <mat-card-subtitle>
+                    <button type="button" mat-button class="card-header-dot-btn lh-1 p-0 min-w-auto h-auto" [matMenuTriggerFor]="cardHeaderMenu">
+                        <i class="ri-more-2-fill"></i>
+                    </button>
+                    <mat-menu #cardHeaderMenu="matMenu" class="card-header-menu" xPosition="before">
+                        <button mat-menu-item>
+                            View
+                        </button>
+                        <button mat-menu-item>
+                            Edit
+                        </button>
+                        <button mat-menu-item>
+                            Delete
+                        </button>
+                    </mat-menu>
+                </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <a routerLink="/ecommerce-page/product-details" class="image">
+                    <img src="assets/images/products/product9.png" alt="product-image">
+                </a>
+                <div class="content">
+                    <h5>
+                        <a routerLink="/ecommerce-page/product-details">
+                            Urban Chic Pants
+                        </a>
+                    </h5>
+                    <div class="ratings lh-1 d-flex align-items-center justify-content-center">
+                        <div class="star">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-half-line"></i>
+                            <i class="ri-star-line"></i>
+                        </div>
+                        <span class="d-block text-body position-relative">
+                            (52)
+                        </span>
+                    </div>
+                    <div class="price lh-1 d-flex justify-content-center align-items-center">
+                        <span class="d-block text-decoration-line-through text-body">
+                            $40
+                        </span>
+                        <span class="d-block fw-semibold text-black heading-font-family">
+                            $26
+                        </span>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-sm-6 col-lg-4 col-xxl-3">
+        <mat-card
+            class="trinta-card product-card mb-25 bg-white border-none d-block"
+        >
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0 fw-normal text-primary">
+                        Furniture
+                    </h5>
+                </mat-card-title>
+                <mat-card-subtitle>
+                    <button type="button" mat-button class="card-header-dot-btn lh-1 p-0 min-w-auto h-auto" [matMenuTriggerFor]="cardHeaderMenu">
+                        <i class="ri-more-2-fill"></i>
+                    </button>
+                    <mat-menu #cardHeaderMenu="matMenu" class="card-header-menu" xPosition="before">
+                        <button mat-menu-item>
+                            View
+                        </button>
+                        <button mat-menu-item>
+                            Edit
+                        </button>
+                        <button mat-menu-item>
+                            Delete
+                        </button>
+                    </mat-menu>
+                </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <a routerLink="/ecommerce-page/product-details" class="image">
+                    <img src="assets/images/products/product10.png" alt="product-image">
+                </a>
+                <div class="content">
+                    <h5>
+                        <a routerLink="/ecommerce-page/product-details">
+                            Sofa Sculpt
+                        </a>
+                    </h5>
+                    <div class="ratings lh-1 d-flex align-items-center justify-content-center">
+                        <div class="star">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-line"></i>
+                            <i class="ri-star-line"></i>
+                            <i class="ri-star-line"></i>
+                        </div>
+                        <span class="d-block text-body position-relative">
+                            (102)
+                        </span>
+                    </div>
+                    <div class="price lh-1 d-flex justify-content-center align-items-center">
+                        <span class="d-block text-decoration-line-through text-body">
+                            $350
+                        </span>
+                        <span class="d-block fw-semibold text-black heading-font-family">
+                            $260
+                        </span>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-sm-6 col-lg-4 col-xxl-3">
+        <mat-card
+            class="trinta-card product-card mb-25 bg-white border-none d-block"
+        >
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0 fw-normal text-primary">
+                        Fashion
+                    </h5>
+                </mat-card-title>
+                <mat-card-subtitle>
+                    <button type="button" mat-button class="card-header-dot-btn lh-1 p-0 min-w-auto h-auto" [matMenuTriggerFor]="cardHeaderMenu">
+                        <i class="ri-more-2-fill"></i>
+                    </button>
+                    <mat-menu #cardHeaderMenu="matMenu" class="card-header-menu" xPosition="before">
+                        <button mat-menu-item>
+                            View
+                        </button>
+                        <button mat-menu-item>
+                            Edit
+                        </button>
+                        <button mat-menu-item>
+                            Delete
+                        </button>
+                    </mat-menu>
+                </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <a routerLink="/ecommerce-page/product-details" class="image">
+                    <img src="assets/images/products/product11.png" alt="product-image">
+                </a>
+                <div class="content">
+                    <h5>
+                        <a routerLink="/ecommerce-page/product-details">
+                            Style Stride
+                        </a>
+                    </h5>
+                    <div class="ratings lh-1 d-flex align-items-center justify-content-center">
+                        <div class="star">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <span class="d-block text-body position-relative">
+                            (1,450)
+                        </span>
+                    </div>
+                    <div class="price lh-1 d-flex justify-content-center align-items-center">
+                        <span class="d-block text-decoration-line-through text-body">
+                            $170
+                        </span>
+                        <span class="d-block fw-semibold text-black heading-font-family">
+                            $145
+                        </span>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-sm-6 col-lg-4 col-xxl-3">
+        <mat-card
+            class="trinta-card product-card mb-25 bg-white border-none d-block"
+        >
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0 fw-normal text-primary">
+                        Shoe
+                    </h5>
+                </mat-card-title>
+                <mat-card-subtitle>
+                    <button type="button" mat-button class="card-header-dot-btn lh-1 p-0 min-w-auto h-auto" [matMenuTriggerFor]="cardHeaderMenu">
+                        <i class="ri-more-2-fill"></i>
+                    </button>
+                    <mat-menu #cardHeaderMenu="matMenu" class="card-header-menu" xPosition="before">
+                        <button mat-menu-item>
+                            View
+                        </button>
+                        <button mat-menu-item>
+                            Edit
+                        </button>
+                        <button mat-menu-item>
+                            Delete
+                        </button>
+                    </mat-menu>
+                </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <a routerLink="/ecommerce-page/product-details" class="image">
+                    <img src="assets/images/products/product12.png" alt="product-image">
+                </a>
+                <div class="content">
+                    <h5>
+                        <a routerLink="/ecommerce-page/product-details">
+                            Elegance Steps
+                        </a>
+                    </h5>
+                    <div class="ratings lh-1 d-flex align-items-center justify-content-center">
+                        <div class="star">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-half-line"></i>
+                            <i class="ri-star-line"></i>
+                        </div>
+                        <span class="d-block text-body position-relative">
+                            (130)
+                        </span>
+                    </div>
+                    <div class="price lh-1 d-flex justify-content-center align-items-center">
+                        <span class="d-block text-decoration-line-through text-body">
+                            $560
+                        </span>
+                        <span class="d-block fw-semibold text-black heading-font-family">
+                            $520
+                        </span>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-sm-6 col-lg-4 col-xxl-3">
+        <mat-card
+            class="trinta-card product-card mb-25 bg-white border-none d-block"
+        >
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0 fw-normal text-primary">
+                        Bag
+                    </h5>
+                </mat-card-title>
+                <mat-card-subtitle>
+                    <button type="button" mat-button class="card-header-dot-btn lh-1 p-0 min-w-auto h-auto" [matMenuTriggerFor]="cardHeaderMenu">
+                        <i class="ri-more-2-fill"></i>
+                    </button>
+                    <mat-menu #cardHeaderMenu="matMenu" class="card-header-menu" xPosition="before">
+                        <button mat-menu-item>
+                            View
+                        </button>
+                        <button mat-menu-item>
+                            Edit
+                        </button>
+                        <button mat-menu-item>
+                            Delete
+                        </button>
+                    </mat-menu>
+                </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <a routerLink="/ecommerce-page/product-details" class="image">
+                    <img src="assets/images/products/product13.png" alt="product-image">
+                </a>
+                <div class="content">
+                    <h5>
+                        <a routerLink="/ecommerce-page/product-details">
+                            Trendy Traverse
+                        </a>
+                    </h5>
+                    <div class="ratings lh-1 d-flex align-items-center justify-content-center">
+                        <div class="star">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-half-line"></i>
+                        </div>
+                        <span class="d-block text-body position-relative">
+                            (23)
+                        </span>
+                    </div>
+                    <div class="price lh-1 d-flex justify-content-center align-items-center">
+                        <span class="d-block text-decoration-line-through text-body">
+                            $280
+                        </span>
+                        <span class="d-block fw-semibold text-black heading-font-family">
+                            $225
+                        </span>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-sm-6 col-lg-4 col-xxl-3">
+        <mat-card
+            class="trinta-card product-card mb-25 bg-white border-none d-block"
+        >
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0 fw-normal text-primary">
+                        Shoe
+                    </h5>
+                </mat-card-title>
+                <mat-card-subtitle>
+                    <button type="button" mat-button class="card-header-dot-btn lh-1 p-0 min-w-auto h-auto" [matMenuTriggerFor]="cardHeaderMenu">
+                        <i class="ri-more-2-fill"></i>
+                    </button>
+                    <mat-menu #cardHeaderMenu="matMenu" class="card-header-menu" xPosition="before">
+                        <button mat-menu-item>
+                            View
+                        </button>
+                        <button mat-menu-item>
+                            Edit
+                        </button>
+                        <button mat-menu-item>
+                            Delete
+                        </button>
+                    </mat-menu>
+                </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <a routerLink="/ecommerce-page/product-details" class="image">
+                    <img src="assets/images/products/product14.png" alt="product-image">
+                </a>
+                <div class="content">
+                    <h5>
+                        <a routerLink="/ecommerce-page/product-details">
+                            Moda Motion
+                        </a>
+                    </h5>
+                    <div class="ratings lh-1 d-flex align-items-center justify-content-center">
+                        <div class="star">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <span class="d-block text-body position-relative">
+                            (35)
+                        </span>
+                    </div>
+                    <div class="price lh-1 d-flex justify-content-center align-items-center">
+                        <span class="d-block text-decoration-line-through text-body">
+                            $670
+                        </span>
+                        <span class="d-block fw-semibold text-black heading-font-family">
+                            $590
+                        </span>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+
+<!-- Pagination -->
+<div class="pagination-card mb-25 d-md-flex align-items-center justify-content-between">
+    <p class="mb-0 text-black">
+        Showing 1 to 12 of 102 results 
+    </p>
+    <ol class="pagination list-unstyled mt-0 mb-0 p-0">
+        <li class="pagination-item d-inline-block">
+            <a mat-button routerLink="/ecommerce-page">
+                <i class="ri-arrow-left-line"></i>
+            </a>
+        </li>
+        <li class="pagination-item d-inline-block">
+            <a mat-button routerLink="/ecommerce-page" class="active">
+                1
+            </a>
+        </li>
+        <li class="pagination-item d-inline-block">
+            <a mat-button routerLink="/ecommerce-page">
+                2
+            </a>
+        </li>
+        <li class="pagination-item d-inline-block">
+            <a mat-button routerLink="/ecommerce-page">
+                3
+            </a>
+        </li>
+        <li class="pagination-item d-inline-block">
+            <a mat-button routerLink="/ecommerce-page">
+                <i class="ri-arrow-right-line"></i>
+            </a>
+        </li>
+    </ol>
+</div>
