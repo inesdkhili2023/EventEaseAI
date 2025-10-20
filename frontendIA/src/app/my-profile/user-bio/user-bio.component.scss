@@ -1,0 +1,174 @@
+.trinta-card {
+    &.user-bio-card {
+        .mat-mdc-card-content {
+            h5 {
+                font-size: 18px;
+                margin-bottom: 17px;
+
+                &:not(:first-child) {
+                    margin-top: 30px;
+                }
+            }
+            p {
+                font-size: 16px;
+            }
+            .skills {
+                margin-bottom: -10px;
+
+                div {
+                    font-size: 12px;
+                    border-radius: 2px;
+                    letter-spacing: 1px;
+                    padding: 3px 10px 3px 25px;
+                    color: var(--primaryColor);
+                    background: rgba(55, 97, 238, 0.10);
+                    margin: {
+                        right: 10px;
+                        bottom: 10px;
+                    };
+                    button {
+                        top: 50%;
+                        left: 8px;
+                        position: absolute;
+                        color: var(--primaryColor);
+                        transform: translateY(-50%);
+                        transition: var(--transition);
+
+                        &:hover {
+                            color: red;
+                        }
+                    }
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
+            }
+            .contact-info {
+                li {
+                    margin-bottom: 17px;
+                    padding-left: 28px;
+
+                    i-feather {
+                        left: 0;
+                        top: 50%;
+                        width: 18px;
+                        height: 18px;
+                        position: absolute;
+                        color: var(--bodyColor);
+                        transform: translateY(-50%);
+                    }
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+            .social-profiles {
+                li {
+                    margin-right: 15px;
+
+                    a {
+                        width: 41px;
+                        height: 44px;
+                        font-size: 20px;
+                        border-radius: 3px;
+                        color: var(--primaryColor);
+                        border: 1px solid #e2e8f0;
+
+                        &:hover {
+                            color: var(--whiteColor);
+                            border-color: var(--primaryColor);
+                            background-color: var(--primaryColor);
+                        }
+                    }
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    .trinta-card {
+        &.user-bio-card {
+            .mat-mdc-card-content {
+                h5 {
+                    font-size: 16px;
+                    margin-bottom: 13px;
+    
+                    &:not(:first-child) {
+                        margin-top: 20px;
+                    }
+                }
+                p {
+                    font-size: 13px;
+                }
+                .skills {
+                    div {
+                        font-size: 11px;
+                    }
+                }
+                .contact-info {
+                    li {
+                        margin-bottom: 13px;
+                    }
+                }
+                .social-profiles {
+                    li {
+                        margin-right: 10px;
+    
+                        a {
+                            width: 40px;
+                            height: 40px;
+                            font-size: 18px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width : 576px) and (max-width : 767px) {}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+
+    .trinta-card {
+        &.user-bio-card {
+            .mat-mdc-card-content {
+                h5 {
+                    font-size: 17px;
+                    margin-bottom: 15px;
+    
+                    &:not(:first-child) {
+                        margin-top: 25px;
+                    }
+                }
+                p {
+                    font-size: 14px;
+                }
+                .contact-info {
+                    li {
+                        margin-bottom: 15px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width : 992px) and (max-width : 1199px) {}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {}

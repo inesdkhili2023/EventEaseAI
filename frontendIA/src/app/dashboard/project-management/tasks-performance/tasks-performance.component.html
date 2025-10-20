@@ -1,0 +1,73 @@
+<mat-card
+    class="trinta-card tasks-performance-card mb-25 bg-white border-none d-block"
+>
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Tasks Performance
+            </h5>
+        </mat-card-title>
+        <mat-card-subtitle>
+            <button type="button" mat-button class="card-header-dot-btn lh-1 p-0 min-w-auto h-auto" [matMenuTriggerFor]="cardHeaderMenu">
+                <i class="ri-more-2-fill"></i>
+            </button>
+            <mat-menu #cardHeaderMenu="matMenu" class="card-header-menu" xPosition="before">
+                <button mat-menu-item>
+                    Last Day
+                </button>
+                <button mat-menu-item>
+                    Last Week
+                </button>
+                <button mat-menu-item>
+                    Last Month
+                </button>
+                <button mat-menu-item>
+                    Last Year
+                </button>
+            </mat-menu>
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="chart">
+            <apx-chart
+                [series]="chartOptions.series!"
+                [chart]="chartOptions.chart!"
+                [legend]="chartOptions.legend!"
+                [colors]="chartOptions.colors!"
+                [labels]="chartOptions.labels!"
+                [grid]="chartOptions.grid!"
+                [fill]="chartOptions.fill!"
+                [stroke]="chartOptions.stroke!"
+            ></apx-chart>
+        </div>
+        <ul class="list m-0 list-unstyled d-flex align-items-center justify-content-between">
+            <li>
+                <span class="d-block text-body">
+                    Target
+                </span>
+                <h6 class="mt-0 mb-0 position-relative">
+                    <i class="ri-arrow-up-line"></i>
+                    18k
+                </h6>
+            </li>
+            <li>
+                <span class="d-block text-body">
+                    Last Week
+                </span>
+                <h6 class="mt-0 down mb-0 position-relative">
+                    <i class="ri-arrow-down-line"></i>
+                    5.21k
+                </h6>
+            </li>
+            <li>
+                <span class="d-block text-body">
+                    Last Month
+                </span>
+                <h6 class="mt-0 mb-0 position-relative">
+                    <i class="ri-arrow-up-line"></i>
+                    32k
+                </h6>
+            </li>
+        </ul>
+    </mat-card-content>
+</mat-card>

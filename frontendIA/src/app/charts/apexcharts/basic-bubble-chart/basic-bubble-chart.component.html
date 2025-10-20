@@ -1,0 +1,22 @@
+<mat-card class="trinta-card mb-25 bg-white border-none d-block">
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Basic Bubble Chart
+            </h5>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <apx-chart
+            [series]="chartOptions.series!"
+            [chart]="chartOptions.chart!"
+            [xaxis]="chartOptions.xaxis!"
+            [fill]="chartOptions.fill!"
+            [dataLabels]="chartOptions.dataLabels!"
+            [title]="chartOptions.title!"
+            [legend]="chartOptions.legend!"
+            [yaxis]="chartOptions.yaxis!"
+            [grid]="chartOptions.grid!"
+        ></apx-chart>
+    </mat-card-content>
+</mat-card>

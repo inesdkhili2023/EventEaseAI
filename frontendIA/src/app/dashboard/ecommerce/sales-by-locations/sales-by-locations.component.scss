@@ -1,0 +1,120 @@
+.trinta-card {
+    &.sales-by-locations-card {
+        .mat-mdc-card-content {
+            .map-image {
+                margin-bottom: 10px;
+            }
+            ul {
+                li {
+                    border-radius: 6px;
+                    padding: 21px 25px;
+                    margin-bottom: 10px;
+                    background-color: #f7faff;
+
+                    span {
+                        &:first-child {
+                            font-size: 15px;
+                            min-width: 100px;
+
+                            img {
+                                margin-right: 12px;
+                            }
+                        }
+                        &:last-child {
+                            font-size: 15px;
+                        }
+                    }
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    .trinta-card {
+        &.sales-by-locations-card {
+            .mat-mdc-card-content {
+                .map-image {
+                    margin-bottom: 5px;
+                }
+                ul {
+                    li {
+                        padding: 15px;
+    
+                        span {
+                            &:first-child {
+                                font-size: 13px;
+                                min-width: 90px;
+    
+                                img {
+                                    margin-right: 10px;
+                                }
+                            }
+                            &:last-child {
+                                font-size: 13px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width : 576px) and (max-width : 767px) {}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+
+    .trinta-card {
+        &.sales-by-locations-card {
+            .mat-mdc-card-content {
+                ul {
+                    li {
+                        padding: 20px;
+    
+                        span {
+                            &:first-child {
+                                font-size: 14px;
+                            }
+                            &:last-child {
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width : 992px) and (max-width : 1199px) {}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+
+    .trinta-card {
+        &.sales-by-locations-card {
+            .mat-mdc-card-content {
+                ul {
+                    li {
+                        margin-bottom: 13px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {}

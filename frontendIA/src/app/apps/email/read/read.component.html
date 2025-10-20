@@ -1,0 +1,114 @@
+<mat-card
+    class="trinta-card read-email-card mb-25 bg-white border-none d-block"
+>
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Share request for "SEO Digital Marketing landing page.psd"
+            </h5>
+        </mat-card-title>
+        <mat-card-subtitle>
+            <div class="info-buttons-list d-flex align-items-center">
+                <button mat-button>
+                    <i class="material-symbols-outlined">
+                        refresh
+                    </i>
+                </button>
+                <button mat-button>
+                    <i class="material-symbols-outlined">
+                        print
+                    </i>
+                </button>
+                <button mat-button>
+                    <i class="material-symbols-outlined">
+                        report_gmailerrorred
+                    </i>
+                </button>
+                <button mat-button>
+                    <i class="material-symbols-outlined">
+                        delete
+                    </i>
+                </button>
+                <button type="button" mat-button [matMenuTriggerFor]="emailHeaderMenu">
+                    <i class="material-symbols-outlined">
+                        more_horiz
+                    </i>
+                </button>
+                <mat-menu #emailHeaderMenu="matMenu" class="card-header-menu" xPosition="before">
+                    <button mat-menu-item>
+                        Recent
+                    </button>
+                    <button mat-menu-item>
+                        Unread
+                    </button>
+                    <button mat-menu-item>
+                        Mark All Read
+                    </button>
+                    <button mat-menu-item>
+                        Spam
+                    </button>
+                    <button mat-menu-item>
+                        Delete All
+                    </button>
+                </mat-menu>
+            </div>
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="user d-flex align-items-center">
+            <img src="assets/images/users/user11.jpg" class="rounded-circle" alt="user-image">
+            <div>
+                <h6>
+                    Oliver Jenkins
+                </h6>
+                <span class="d-block text-body">
+                    From: oliver&#64;domain.com
+                </span>
+            </div>
+        </div>
+        <div class="content">
+            <div class="title d-flex align-items-center justify-content-between">
+                <h6 class="m-0 text-primary">
+                    Can Now Use Your Storage
+                </h6>
+                <span class="d-block text-body">
+                    20 May, 2024
+                </span>
+            </div>
+            <p class="text-black fs-16">
+                Praesent dui ex, dapibus eget mauris ut, finibus vestibulum enim. Quisque arcu leo, facilisis in fringilla id, luctus in tortor. Nunc vestibulum est quis orci varius viverra. Curabitur dictum volutpat massa vulputate molestie. In at felis ac velit maximus convallis.
+            </p>
+            <p class="text-black fs-16">
+                Sed elementum turpis eu lorem interdum, sed porttitor eros commodo. Nam eu venenatis tortor, id lacinia diam. Sed aliquam in dui et porta. Sed bibendum orci non tincidunt ultrices. Vivamus fringilla, mi lacinia dapibus condimentum, ipsum urna lacinia lacus, vel tincidunt mi nibh sit amet lorem.
+            </p>
+            <div class="files d-md-flex align-items-center">
+                <div class="box text-center">
+                    <img src="assets/images/icons/pdf.svg" alt="pdf">
+                    <span class="d-block text-black fw-medium">
+                        Integrations.pdf
+                    </span>
+                </div>
+                <div class="box text-center">
+                    <img src="assets/images/icons/txt.svg" alt="txt">
+                    <span class="d-block text-black fw-medium">
+                        contact &#64;32
+                    </span>
+                </div>
+            </div>
+            <span class="d-block text-body">
+                Regards,
+            </span>
+            <span class="d-block fw-medium text-black fs-15 mt-5">
+                Oliver Jenk
+            </span>
+        </div>
+        <div class="btn-box">
+            <button mat-button type="button">
+                Reply
+            </button>
+            <button mat-button type="button">
+                Forward
+            </button>
+        </div>
+    </mat-card-content>
+</mat-card>

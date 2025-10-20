@@ -1,0 +1,8 @@
+export enum EventCategory {
+  SPORTIF = 'SPORTIF',
+  CULTUREL = 'CULTUREL',
+  EDUCATIF = 'EDUCATIF',
+  TECHNOLOGIQUE = 'TECHNOLOGIQUE',
+  SOCIAL = 'SOCIAL',
+  AUTRE = 'AUTRE'
+}

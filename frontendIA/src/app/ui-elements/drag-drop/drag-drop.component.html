@@ -1,0 +1,261 @@
+<!-- Breadcrumb -->
+<div class="breadcrumb-card mb-25 d-md-flex align-items-center justify-content-between">
+    <h5 class="mb-0">
+        Drag & Drop
+    </h5>
+    <ol class="breadcrumb list-unstyled mt-0 mb-0 pl-0">
+        <li class="breadcrumb-item position-relative">
+            <a routerLink="/" class="d-inline-block position-relative">
+                <i class="ri-home-8-line"></i>
+                Dashboard
+            </a>
+        </li>
+        <li class="breadcrumb-item position-relative">
+            UI Elements
+        </li>
+        <li class="breadcrumb-item position-relative">
+            Drag & Drop
+        </li>
+    </ol>
+</div>
+
+<!-- Basic Drag & Drop -->
+<mat-card
+    class="trinta-card mb-25 bg-white border-none d-block"
+>
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Basic Drag & Drop
+            </h5>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="example-box bg-white border-radius d-flex align-items-center text-center position-relative justify-content-center" cdkDrag>
+            Drag me around
+        </div>
+    </mat-card-content>
+</mat-card>
+
+<!-- Drag & Drop Position Locking -->
+<mat-card
+    class="trinta-card mb-25 bg-white border-none d-block"
+>
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Drag & Drop Position Locking
+            </h5>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="d-md-flex align-items-center">
+        <div class="example-box bg-white border-radius d-flex align-items-center text-center position-relative justify-content-center" cdkDragLockAxis="y" cdkDrag>
+            I can only be dragged up/down
+        </div>
+        <div class="example-box bg-white border-radius d-flex align-items-center text-center position-relative justify-content-center" cdkDragLockAxis="x" cdkDrag>
+            I can only be dragged left/right
+        </div>
+    </mat-card-content>
+</mat-card>
+
+<!-- Drag & Drop Boundary -->
+<mat-card
+    class="trinta-card mb-25 bg-white border-none d-block"
+>
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Drag & Drop Boundary
+            </h5>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="example-boundary">
+            <div class="example-box bg-white border-radius d-flex align-items-center text-center position-relative justify-content-center" cdkDragBoundary=".example-boundary" cdkDrag>
+                I can only be dragged within the dotted container
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>
+
+<!-- Drag & Drop Connected Sorting Group -->
+<mat-card class="trinta-card mb-25 bg-white border-none d-block">
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Drag & Drop Connected Sorting Group
+            </h5>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <app-dd-connected-sorting-group></app-dd-connected-sorting-group>
+    </mat-card-content>
+</mat-card>
+
+<!-- Drag & Drop Connected Sorting -->
+<mat-card class="trinta-card mb-25 bg-white border-none d-block">
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Drag & Drop Connected Sorting
+            </h5>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <app-dd-connected-sorting></app-dd-connected-sorting>
+    </mat-card-content>
+</mat-card>
+
+<!-- Drag & Drop Custom Placeholder -->
+<mat-card
+    class="trinta-card mb-25 bg-white border-none d-block"
+>
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Drag & Drop Custom Placeholder
+            </h5>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <app-dd-custom-placeholder></app-dd-custom-placeholder>
+    </mat-card-content>
+</mat-card>
+
+<!-- Drag & Drop Custom Preview -->
+<mat-card
+    class="trinta-card mb-25 bg-white border-none d-block"
+>
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Drag & Drop Custom Preview
+            </h5>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <app-dd-custom-preview></app-dd-custom-preview>
+    </mat-card-content>
+</mat-card>
+
+<!-- Delayed Dragging -->
+<mat-card
+    class="trinta-card mb-25 bg-white border-none d-block"
+>
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Delayed Dragging
+            </h5>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="example-box bg-white border-radius d-flex align-items-center text-center position-relative justify-content-center" cdkDrag [cdkDragStartDelay]="1000">
+            Dragging starts after one second
+        </div>
+    </mat-card-content>
+</mat-card>
+
+<!-- Drag & Drop Disabled Sorting -->
+<mat-card
+    class="trinta-card mb-25 bg-white border-none d-block"
+>
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Drag & Drop Disabled Sorting
+            </h5>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <app-dd-disabled-sorting></app-dd-disabled-sorting>
+    </mat-card-content>
+</mat-card>
+
+<!-- Drag & Drop Enter Predicate -->
+<mat-card
+    class="trinta-card mb-25 bg-white border-none d-block"
+>
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Drag & Drop Enter Predicate
+            </h5>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <app-dd-enter-predicate></app-dd-enter-predicate>
+    </mat-card-content>
+</mat-card>
+
+<!-- Drag & Drop With a Handle -->
+<mat-card
+    class="trinta-card mb-25 bg-white border-none d-block"
+>
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Drag & Drop With a Handle
+            </h5>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="example-box bg-white border-radius d-flex align-items-center text-center position-relative justify-content-center" cdkDrag>
+            I can only be dragged using the handle
+            <div class="example-handle" cdkDragHandle>
+                <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"></path>
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                </svg>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>
+
+<!-- Drag & Drop Horizontal Sorting -->
+<mat-card
+    class="trinta-card mb-25 bg-white border-none d-block"
+>
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Drag & Drop Horizontal Sorting
+            </h5>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <app-dd-horizontal-sorting></app-dd-horizontal-sorting>
+    </mat-card-content>
+</mat-card>
+
+<!-- Drag & Drop Open a Draggable Dialog -->
+<mat-card
+    class="trinta-card mb-25 bg-white border-none d-block"
+>
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Drag & Drop Open a Draggable Dialog
+            </h5>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <app-dd-open-draggable-dialog></app-dd-open-draggable-dialog>
+    </mat-card-content>
+</mat-card>
+
+<!-- Drag & Drop Sorting -->
+<mat-card
+    class="trinta-card mb-25 bg-white border-none d-block"
+>
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Drag & Drop Sorting
+            </h5>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <app-dd-sorting></app-dd-sorting>
+    </mat-card-content>
+</mat-card>

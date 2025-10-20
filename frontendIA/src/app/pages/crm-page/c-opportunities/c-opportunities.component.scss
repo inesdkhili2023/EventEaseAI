@@ -1,0 +1,255 @@
+.trinta-card {
+    &.opportunities-card {
+        padding: 40px 45px;
+
+        .mat-mdc-card-content {
+            .info {
+                .title {
+                    margin-left: 33px;
+
+                    h6 {
+                        font-size: 16px;
+                        margin-bottom: 9px;
+                    }
+                    span {
+                        font-size: 13px;
+                    }
+                }
+            }
+            .email {
+                padding: {
+                    left: 10px;
+                    right: 35px;
+                };
+                span {
+                    letter-spacing: 1px;
+                    margin-bottom: 8px;
+                }
+            }
+            .phone {
+                margin-left: -35px;
+
+                span {
+                    letter-spacing: 1px;
+                    margin-bottom: 8px;
+                }
+            }
+            .action {
+                .dot {
+                    width: 12px;
+                    height: 12px;
+                    border-radius: 50%;
+                    background: var(--infoColor);
+
+                    &.bg-c767dc {
+                        background: #c767dc;
+                    }
+                    &.bg-6771dc {
+                        background: #6771dc;
+                    }
+                    &.bg-a367dc {
+                        background: #a367dc;
+                    }
+                }
+                .mat-mdc-button {
+                    color: #818093;
+                    margin-left: 15px;
+
+                    i-feather {
+                        width: 18px;
+                        height: 18px;
+                    }
+                }
+            }
+        }
+    }
+    &.order-statistics-card {
+        .mat-mdc-card-content {
+            .chart {
+                margin-bottom: 10px;
+            }
+            ul {
+                li {
+                    padding-left: 22px;
+                    text-align: start;
+                    margin: {
+                        left: 20px;
+                        right: 20px;
+                    };
+                    .dot {
+                        left: 0;
+                        top: 4.5px;
+                        width: 12px;
+                        height: 12px;
+                        position: absolute;
+                        border-radius: 50%;
+                        background: var(--infoColor);
+                    }
+                    span {
+                        font-size: 13px;
+                        margin-bottom: 4px;
+                        letter-spacing: 1px;
+                    }
+                    h6 {
+                        font-size: 16px;
+                        letter-spacing: 1px;
+                    }
+                    &:nth-child(2) {
+                        .dot {
+                            background: #c767dc;
+                        }
+                    }
+                    &:nth-child(3) {
+                        .dot {
+                            background: #6771dc;
+                        }
+                    }
+                    &:nth-child(4) {
+                        .dot {
+                            background: #a367dc;
+                        }
+                    }
+                    &:first-child {
+                        margin-left: 0;
+                    }
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    .trinta-card {
+        &.opportunities-card {
+            padding: 20px;
+    
+            .mat-mdc-card-content {
+                .info {
+                    .title {
+                        margin-left: 15px;
+    
+                        h6 {
+                            font-size: 14px;
+                            margin-bottom: 8px;
+                        }
+                    }
+                }
+                .email {
+                    padding: {
+                        left: 0;
+                        right: 0;
+                    };
+                    margin: {
+                        top: 15px;
+                        bottom: 15px;
+                    };
+                    span {
+                        margin-bottom: 7px;
+                    }
+                }
+                .phone {
+                    margin-left: 0;
+    
+                    span {
+                        margin-bottom: 7px;
+                    }
+                }
+                .action {
+                    margin-top: 15px;
+                }
+            }
+        }
+        &.order-statistics-card {
+            .mat-mdc-card-content {
+                .chart {
+                    margin-bottom: 0;
+                }
+                ul {
+                    li {
+                        padding-left: 18px;
+                        margin: {
+                            top: 10px;
+                            left: 10px;
+                            right: 10px;
+                        };
+                        .dot {
+                            top: 4px;
+                            width: 10px;
+                            height: 10px;
+                        }
+                        h6 {
+                            font-size: 15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width : 576px) and (max-width : 767px) {}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+
+    .trinta-card {
+        &.opportunities-card {
+            padding: 25px 20px;
+    
+            .mat-mdc-card-content {
+                .info {
+                    .title {
+                        margin-left: 20px;
+    
+                        h6 {
+                            font-size: 15px;
+                        }
+                    }
+                }
+                .email {
+                    padding: {
+                        left: 0;
+                        right: 5px;
+                    };
+                }
+                .phone {
+                    margin-left: -5px;
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width : 992px) and (max-width : 1199px) {}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+
+    .trinta-card {
+        &.opportunities-card {
+            .mat-mdc-card-content {
+                .email {
+                    padding: {
+                        right: 25px;
+                    };
+                }
+                .phone {
+                    margin-left: -25px;
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {}

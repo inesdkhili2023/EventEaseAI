@@ -1,0 +1,83 @@
+.trinta-card {
+    &.activity-card {
+        .mat-mdc-card-content {
+            ul {
+                li {
+                    border-bottom: 1px solid #edeff5;
+                    padding: {
+                        top: 20px;
+                        left: 52px;
+                        bottom: 20px;
+                    };
+                    .number {
+                        left: 0;
+                        top: 20px;
+                        width: 36px;
+                        height: 36px;
+                        position: absolute;
+                    }
+                    h6 {
+                        margin-bottom: 8px;
+                        line-height: 1.5;
+                        font-size: 15px;
+                    }
+                    &:first-child {
+                        padding-top: 0;
+
+                        .number {
+                            top: 0;
+                        }
+                    }
+                    &:last-child {
+                        padding-bottom: 0;
+                        border-bottom-width: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    .trinta-card {
+        &.activity-card {
+            .mat-mdc-card-content {
+                ul {
+                    li {
+                        padding: {
+                            top: 15px;
+                            left: 42px;
+                            bottom: 15px;
+                        };
+                        .number {
+                            top: 15px;
+                            width: 30px;
+                            height: 30px;
+                        }
+                        h6 {
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width : 576px) and (max-width : 767px) {}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width : 768px) and (max-width : 991px) {}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width : 992px) and (max-width : 1199px) {}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {}

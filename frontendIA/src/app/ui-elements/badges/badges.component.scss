@@ -1,0 +1,23 @@
+.mat-badges {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+    .demo-section {
+        margin-top: 10px;
+    }
+    .demo-section + .demo-section {
+        margin-top: 20px;
+    }
+}
+.example-badges {
+    margin-bottom: -15px;
+    
+    .badge {
+        display: inline-block;
+        margin: {
+            right: 15px;
+            bottom: 15px;
+        };
+    }
+}

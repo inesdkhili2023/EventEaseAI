@@ -1,0 +1,89 @@
+<!-- Breadcrumb -->
+<div class="breadcrumb-card mb-25 d-md-flex align-items-center justify-content-between">
+    <h5 class="mb-0">
+        Tooltip
+    </h5>
+    <ol class="breadcrumb list-unstyled mt-0 mb-0 pl-0">
+        <li class="breadcrumb-item position-relative">
+            <a routerLink="/" class="d-inline-block position-relative">
+                <i class="ri-home-8-line"></i>
+                Dashboard
+            </a>
+        </li>
+        <li class="breadcrumb-item position-relative">
+            UI Elements
+        </li>
+        <li class="breadcrumb-item position-relative">
+            Tooltip
+        </li>
+    </ol>
+</div>
+
+<!-- Tooltip -->
+<div class="row">
+    <div class="col-md-6">
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Basic Tooltip
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <button mat-flat-button color="primary" matTooltip="Info about the action" aria-label="Button that displays a tooltip when focused or hovered over">
+                    Action
+                </button>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-md-6">
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Tooltip that can have a custom class applied
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <button mat-flat-button color="primary" matTooltip="Info about action" matTooltipClass="example-tooltip-uppercase" aria-label="Button that shows a red tooltip" class="example-button">
+                    Uppercase-tooltip Action
+                </button>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-md-6">
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Positioned Tooltips
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="example-buttons">
+                <button mat-flat-button matTooltip="Info about the action" matTooltipPosition="after">After</button>
+                <button mat-flat-button color="accent" matTooltip="Info about the action" matTooltipPosition="before">Before</button>
+                <button mat-flat-button color="primary" matTooltip="Info about the action" matTooltipPosition="above">Above</button>
+                <button mat-flat-button color="accent" matTooltip="Info about the action" matTooltipPosition="below">Below</button>
+                <button mat-flat-button color="warn" matTooltip="Info about the action" matTooltipPosition="left">Left</button>
+                <button mat-flat-button matTooltip="Info about the action" matTooltipPosition="right">Right</button>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-md-6">
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Tooltip with a Show & Hide Delay
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <app-twa-show-hide-delay></app-twa-show-hide-delay>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

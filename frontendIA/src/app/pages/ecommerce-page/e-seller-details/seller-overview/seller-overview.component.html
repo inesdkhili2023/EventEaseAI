@@ -1,0 +1,77 @@
+<mat-card
+    class="trinta-card seller-overview-card mb-25 bg-white border-none d-block"
+>
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Seller Overview
+            </h5>
+        </mat-card-title>
+        <mat-card-subtitle>
+            <button type="button" mat-button class="card-header-menu-btn" [matMenuTriggerFor]="cardHeaderMenu">
+                This Week
+            </button>
+            <mat-menu #cardHeaderMenu="matMenu" class="card-header-menu" xPosition="before">
+                <button mat-menu-item>
+                    This Day
+                </button>
+                <button mat-menu-item>
+                    This Week
+                </button>
+                <button mat-menu-item>
+                    This Month
+                </button>
+                <button mat-menu-item>
+                    This Year
+                </button>
+            </mat-menu>
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <ul class="list p-0 m-0 list-unstyled d-sm-flex justify-content-center">
+            <li class="position-relative">
+                <div class="dot new"></div>
+                <span class="d-block text-body">
+                    New Issues
+                </span>
+                <h6 class="mt-0 down mb-0 position-relative fw-medium">
+                    <i class="ri-arrow-down-line"></i>
+                    32k
+                </h6>
+            </li>
+            <li class="position-relative">
+                <div class="dot closed"></div>
+                <span class="d-block text-body">
+                    Closed Issues
+                </span>
+                <h6 class="mt-0 mb-0 position-relative fw-medium">
+                    <i class="ri-arrow-up-line"></i>
+                    5.21k
+                </h6>
+            </li>
+            <li class="position-relative">
+                <div class="dot"></div>
+                <span class="d-block text-body">
+                    Fixed Issues
+                </span>
+                <h6 class="mt-0 mb-0 position-relative fw-medium">
+                    <i class="ri-arrow-up-line"></i>
+                    18k
+                </h6>
+            </li>
+        </ul>
+        <div class="chart">
+            <apx-chart
+                [series]="chartOptions.series!"
+                [chart]="chartOptions.chart!"
+                [colors]="chartOptions.colors!"
+                [plotOptions]="chartOptions.plotOptions!"
+                [grid]="chartOptions.grid!"
+                [dataLabels]="chartOptions.dataLabels!"
+                [xaxis]="chartOptions.xaxis!"
+                [yaxis]="chartOptions.yaxis!"
+                [legend]="chartOptions.legend!"
+            ></apx-chart>
+        </div>
+    </mat-card-content>
+</mat-card>

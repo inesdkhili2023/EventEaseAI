@@ -1,0 +1,91 @@
+<div class="row">
+    <div class="col-lg-8 col-md-12">
+
+        <!-- My Tasks -->
+        <app-my-tasks />
+
+    </div>
+    <div class="col-lg-4 col-md-12">
+        
+        <!-- Tasks Performance -->
+        <app-tasks-performance />
+
+        <!-- Team -->
+        <mat-card
+            class="trinta-card team-card mb-25 bg-white border-none d-block"
+        >
+            <mat-card-content>
+                <div class="d-flex align-items-center justify-content-between">
+                    <h6 class="m-0">
+                        On ReactJS Team
+                    </h6>
+                    <div class="action">
+                        <button type="button" mat-button class="p-0 min-w-auto lh-1 h-auto">
+                            <i-feather name="edit-3"></i-feather>
+                        </button>
+                        <button type="button" mat-button class="p-0 min-w-auto lh-1 h-auto">
+                            <i-feather name="trash-2"></i-feather>
+                        </button>
+                    </div>
+                </div>
+                <p class="fs-15">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+                <div class="users d-flex align-items-center">
+                    <div class="user position-relative">
+                        <img src="assets/images/users/user16.jpg" class="rounded-circle" alt="user-image">
+                        <div class="dot bg-primary rounded-circle"></div>
+                    </div>
+                    <div class="user position-relative">
+                        <img src="assets/images/users/user5.jpg" class="rounded-circle" alt="user-image">
+                    </div>
+                    <div class="user position-relative">
+                        <img src="assets/images/users/user10.jpg" class="rounded-circle" alt="user-image">
+                    </div>
+                    <div class="user position-relative">
+                        <img src="assets/images/users/user24.jpg" class="rounded-circle" alt="user-image">
+                        <div class="dot bg-primary rounded-circle"></div>
+                    </div>
+                    <div class="number rounded-circle d-flex align-items-center justify-content-center">
+                        +5
+                    </div>
+                </div>
+                <ul class="list p-0 m-0 list-unstyled">
+                    <li class="d-inline-block">
+                        <span class="d-block heading-font-family fw-medium">
+                            Task Completed
+                        </span>
+                        <span class="d-block text-body fw-semibold">
+                            123
+                        </span>
+                    </li>
+                    <li class="d-inline-block">
+                        <span class="d-block heading-font-family fw-medium">
+                            Task Running
+                        </span>
+                        <span class="d-block text-body fw-semibold">
+                            2
+                        </span>
+                    </li>
+                </ul>
+                <div class="info d-xxxl-flex align-items-center justify-content-between">
+                    <div class="user d-flex align-items-center">
+                        <img src="assets/images/users/user24.jpg" class="rounded-circle" alt="user-image">
+                        <div>
+                            <h6>
+                                Charlotte Lee
+                            </h6>
+                            <span class="d-block text-body">
+                                Team Lead
+                            </span>
+                        </div>
+                    </div>
+                    <a routerLink="/project-management-page/teams" class="default-btn" mat-button>
+                        View Details
+                    </a>
+                </div>
+            </mat-card-content>
+        </mat-card>
+        
+    </div>
+</div>

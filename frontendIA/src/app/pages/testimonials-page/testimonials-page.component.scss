@@ -1,0 +1,152 @@
+.mat-mdc-card {
+    &.trinta-card {
+        &.testimonial-card {
+            .mat-mdc-card-content {
+                .testimonial-item {
+                    padding: 25px;
+                    border-radius: 6px;
+                    background: #f6f7fb;
+
+                    h6 {
+                        margin: {
+                            top: 12px;
+                            bottom: 12px;
+                        };
+                    }
+                    .ratings {
+                        color: var(--warningColor);
+                        margin: {
+                            top: 15px;
+                            bottom: 20px;
+                        };
+                        i {
+                            font-size: 17px;
+                            margin: {
+                                left: 2px;
+                                right: 2px;
+                            };
+                            &:first-child {
+                                margin-left: 0;
+                            }
+                            &:last-child {
+                                margin-right: 0;
+                            }
+                        }
+                    }
+                    .user {
+                        margin-bottom: 18px;
+
+                        .img {
+                            img {
+                                margin-bottom: -4px;
+                            }
+                        }
+                        .title {
+                            margin-left: 15px;
+
+                            h6 {
+                                margin-bottom: 8px;
+                            }
+                            .ratings {
+                                margin: {
+                                    bottom: 0;
+                                    top: 12px;
+                                };
+                            }
+                        }
+                    }
+                }
+                .testimonials-list {
+                    margin-bottom: -25px;
+                }
+            }
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    .mat-mdc-card {
+        &.trinta-card {
+            &.testimonial-card {
+                .mat-mdc-card-content {
+                    .testimonial-item {
+                        padding: 15px;
+    
+                        .ratings {
+                            margin: {
+                                top: 10px;
+                                bottom: 10px;
+                            };
+                            i {
+                                font-size: 15px;
+                            }
+                        }
+                        .user {
+                            margin-bottom: 15px;
+                            
+                            .title {
+                                margin-left: 12px;
+
+                                .ratings {
+                                    margin-top: 11px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width : 576px) and (max-width : 767px) {
+
+    .mat-mdc-card {
+        &.trinta-card {
+            &.testimonial-card {
+                .mat-mdc-card-content {
+                    .testimonial-item {
+                        padding: 20px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+
+    .mat-mdc-card {
+        &.trinta-card {
+            &.testimonial-card {
+                .mat-mdc-card-content {
+                    .testimonial-item {
+                        padding: 20px;
+
+                        .ratings {
+                            i {
+                                font-size: 16px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width : 992px) and (max-width : 1199px) {}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {}

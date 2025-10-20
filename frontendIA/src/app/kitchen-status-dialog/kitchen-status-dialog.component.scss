@@ -1,0 +1,36 @@
+.center {
+  display: flex;
+  justify-content: center;
+}
+.red-card {
+  background-color: #ffcccc; /* Light red */
+}
+.yellow-card {
+  background-color: #ffffcc; /* Light yellow */
+}
+.green-card {
+  background-color: #ccffcc; /* Light green */
+}
+
+.timer-info, .ticket-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.timer-text {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.server-info {
+  margin-top: 5px;
+}
+.button{
+border: none;
+background-color: green;
+color: white;
+border-radius: 6px;
+}

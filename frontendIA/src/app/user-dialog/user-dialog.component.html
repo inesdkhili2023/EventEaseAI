@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Confirm Action</h1>
+<div mat-dialog-content>
+  Are you sure you want to save and proceed?
+</div>
+<div mat-dialog-actions style="justify-content: center;">
+  <button mat-button class="green-button"  [mat-dialog-close]="true">Yes</button>
+  <button mat-button class="red-button" style="border-radius: 6px;" [mat-dialog-close]="false">No</button>
+</div>

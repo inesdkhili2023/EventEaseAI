@@ -1,0 +1,27 @@
+<mat-card
+    class="trinta-card user-profile-card mb-25 bg-dark border-none d-block"
+>
+    <mat-card-content>
+        <div class="user d-md-flex align-items-center justify-content-between ml-auto mr-auto">
+            <div class="d-flex align-items-center">
+              
+            </div>
+            <div class="btn-box">
+                <button mat-button (click)="openOrderInfoModal()">Order Info</button>
+                <a routerLink="/ecommerce-page/customers-list" mat-button>New Order</a>
+                <a routerLink="/profile/teams" mat-button>Edit Order</a>
+                <a routerLink="/users/add-user" mat-button>Delivery Info</a>
+                <button type="button" mat-button  (click)="openAssignDriverDialog()">Assign Driver</button>
+                <button type="button" mat-button (click)="openUnassignDriverDialog()">Unassign Driver</button>
+                <button type="button" mat-button>Send</button>
+                <button type="button" mat-button (click)="openKitchenStatusDialog()">Kitchen Status</button>
+                <button type="button" mat-button>Tips</button>
+                <button type="button" mat-button>Settle</button>
+                <button type="button" mat-button>Close Order</button>
+                <button type="button" mat-button>Driver View</button>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>
+
+<router-outlet></router-outlet>

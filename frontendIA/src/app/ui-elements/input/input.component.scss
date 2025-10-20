@@ -1,0 +1,14 @@
+::ng-deep {
+    .inputs-with-ps-card {
+        .mat-mdc-form-field-flex {
+            position: relative;
+        }
+        .mat-mdc-form-field-infix {
+            position: unset;
+        }
+        .mat-mdc-form-field-text-prefix {
+            position: relative;
+            top: -6px;
+        }
+    }
+}

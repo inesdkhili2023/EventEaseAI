@@ -1,0 +1,145 @@
+<!-- Breadcrumb -->
+<div class="breadcrumb-card mb-25 d-md-flex align-items-center justify-content-between">
+    <h5 class="mb-0">
+        Button Toggle
+    </h5>
+    <ol class="breadcrumb list-unstyled mt-0 mb-0 pl-0">
+        <li class="breadcrumb-item position-relative">
+            <a routerLink="/" class="d-inline-block position-relative">
+                <i class="ri-home-8-line"></i>
+                Dashboard
+            </a>
+        </li>
+        <li class="breadcrumb-item position-relative">
+            UI Elements
+        </li>
+        <li class="breadcrumb-item position-relative">
+            Button Toggle
+        </li>
+    </ol>
+</div>
+
+<!-- Button Toggle -->
+<div class="row">
+    <div class="col-lg-6">
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Basic Button Toggle
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+                    <mat-button-toggle value="bold">Bold</mat-button-toggle>
+                    <mat-button-toggle value="italic">Italic</mat-button-toggle>
+                    <mat-button-toggle value="underline">Underline</mat-button-toggle>
+                </mat-button-toggle-group>
+            </mat-card-content>
+        </mat-card>
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Exclusive Selection
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-button-toggle-group #group="matButtonToggleGroup">
+                    <mat-button-toggle value="left" aria-label="Text align left">
+                        <mat-icon>format_align_left</mat-icon>
+                    </mat-button-toggle>
+                    <mat-button-toggle value="center" aria-label="Text align center">
+                        <mat-icon>format_align_center</mat-icon>
+                    </mat-button-toggle>
+                    <mat-button-toggle value="right" aria-label="Text align right">
+                        <mat-icon>format_align_right</mat-icon>
+                    </mat-button-toggle>
+                    <mat-button-toggle value="justify" disabled aria-label="Text align justify">
+                        <mat-icon>format_align_justify</mat-icon>
+                    </mat-button-toggle>
+                </mat-button-toggle-group>
+                <div class="example-selected-value">Selected value: {{group.value}}</div>
+            </mat-card-content>
+        </mat-card>
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Button Toggle Selection Mode
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <h6>Single selection</h6>
+                <mat-button-toggle-group name="favoriteColor" aria-label="Favorite Color">
+                    <mat-button-toggle value="red">Red</mat-button-toggle>
+                    <mat-button-toggle value="green">Green</mat-button-toggle>
+                    <mat-button-toggle value="blue">Blue</mat-button-toggle>
+                </mat-button-toggle-group>
+                <h6 style="margin-top: 20px;">Multiple selection</h6>
+                <mat-button-toggle-group name="ingredients" aria-label="Ingredients" multiple>
+                    <mat-button-toggle value="flour">Flour</mat-button-toggle>
+                    <mat-button-toggle value="eggs">Eggs</mat-button-toggle>
+                    <mat-button-toggle value="sugar">Sugar</mat-button-toggle>
+                </mat-button-toggle-group>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-lg-6">
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Button Toggle Appearance
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p>
+                    Default appearance:
+                    <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+                        <mat-button-toggle value="bold">Bold</mat-button-toggle>
+                        <mat-button-toggle value="italic">Italic</mat-button-toggle>
+                        <mat-button-toggle value="underline">Underline</mat-button-toggle>
+                    </mat-button-toggle-group>
+                </p>
+                <p>
+                    Legacy appearance:
+                    <mat-button-toggle-group appearance="legacy" name="fontStyle" aria-label="Font Style">
+                        <mat-button-toggle value="bold">Bold</mat-button-toggle>
+                        <mat-button-toggle value="italic">Italic</mat-button-toggle>
+                        <mat-button-toggle value="underline">Underline</mat-button-toggle>
+                    </mat-button-toggle-group>
+                </p>
+            </mat-card-content>
+        </mat-card>
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Button Toggle with Forms
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <h6>Button Toggle inside of a Template-driven form</h6>
+                <mat-button-toggle-group [(ngModel)]="fontStyle" aria-label="Font Style">
+                    <mat-button-toggle value="bold">Bold</mat-button-toggle>
+                    <mat-button-toggle value="italic">Italic</mat-button-toggle>
+                    <mat-button-toggle value="underline">Underline</mat-button-toggle>
+                </mat-button-toggle-group>
+                <p class="example-selected-value">Chosen value is <span class="text-black">{{fontStyle}}</span></p>
+                <h6>Button Toggle inside of a Reactive form</h6>
+                <mat-button-toggle-group [formControl]="fontStyleControl" aria-label="Font Style">
+                    <mat-button-toggle value="bold">Bold</mat-button-toggle>
+                    <mat-button-toggle value="italic">Italic</mat-button-toggle>
+                    <mat-button-toggle value="underline">Underline</mat-button-toggle>
+                </mat-button-toggle-group>
+                <p class="example-selected-value">Chosen value is <span class="text-black">{{fontStyleControl.value}}</span></p>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

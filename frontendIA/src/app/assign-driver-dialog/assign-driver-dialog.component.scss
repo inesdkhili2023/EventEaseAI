@@ -1,0 +1,38 @@
+.trinta-badge {
+  font-size: 12px;
+  color: #00b69b;
+  border-radius: 2px;
+  padding: 1.5px 7px;
+  letter-spacing: 1px;
+  background: rgba(0, 182, 155, 0.10);
+
+  &.deactive {
+      color:red ;
+      background: rgba(111, 1, 23, 0.1);
+  }
+  
+}
+.custom-button {
+  background-color: green;
+  color: white;
+  margin-right: 10px;
+  border: none; 
+  border-radius: 6px;
+}
+
+.custom-close-button {
+  background-color: red;
+  border: none; 
+  color: white;
+  border-radius: 6px;
+
+}
+.custom-button:hover{
+  background-color: darken(green, 10%);
+}
+.custom-close-button:hover {
+  background-color: darken(red, 10%);
+}
+.button-container {
+  justify-content: flex-end; /* Align buttons to the right */
+}

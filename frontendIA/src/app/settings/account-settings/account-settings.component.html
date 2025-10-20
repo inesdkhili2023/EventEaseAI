@@ -1,0 +1,176 @@
+<mat-card
+    class="trinta-card account-settings-card mb-25 bg-white border-none d-block"
+>
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Settings
+            </h5>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form>
+            <div class="row">
+                <div class="col-lg-6">
+                    <label class="label d-block fw-medium mb-10">
+                        First Name
+                    </label>
+                    <mat-form-field>
+                        <i-feather name="user"></i-feather>
+                        <mat-label>Enter name</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-6">
+                    <label class="label d-block fw-medium mb-10">
+                        Last Name
+                    </label>
+                    <mat-form-field>
+                        <i-feather name="user"></i-feather>
+                        <mat-label>Enter name</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-6">
+                    <label class="label d-block fw-medium mb-10">
+                        Email Address
+                    </label>
+                    <mat-form-field>
+                        <i-feather name="mail"></i-feather>
+                        <mat-label>Enter email address</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-6">
+                    <label class="label d-block fw-medium mb-10">
+                        Contact Number
+                    </label>
+                    <mat-form-field>
+                        <i-feather name="phone"></i-feather>
+                        <mat-label>Enter phone number</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-6">
+                    <label class="label d-block fw-medium mb-10">
+                        Date of Birth
+                    </label>
+                    <mat-form-field>
+                        <i-feather name="calendar"></i-feather>
+                        <mat-label>Enter the date</mat-label>
+                        <input matInput [matDatepicker]="dobPicker">
+                        <mat-datepicker-toggle matIconSuffix [for]="dobPicker"></mat-datepicker-toggle>
+                        <mat-datepicker #dobPicker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-6">
+                    <label class="label d-block fw-medium mb-10">
+                        Gender
+                    </label>
+                    <mat-form-field>
+                        <i-feather name="meh"></i-feather>
+                        <mat-label>Select</mat-label>
+                        <mat-select>
+                            <mat-option value="Male">Male</mat-option>
+                            <mat-option value="Female">Female</mat-option>
+                            <mat-option value="Custom">Custom</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-12">
+                    <label class="label d-block fw-medium mb-10">
+                        Address
+                    </label>
+                    <mat-form-field>
+                        <i-feather name="map-pin"></i-feather>
+                        <mat-label>Your location</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-12">
+                    <label class="label d-block fw-medium mb-10">
+                        Select Country
+                    </label>
+                    <mat-form-field>
+                        <i-feather name="map-pin"></i-feather>
+                        <mat-label>Select</mat-label>
+                        <mat-select>
+                            <mat-option value="Germany">Germany</mat-option>
+                            <mat-option value="United States of America">United States of America</mat-option>
+                            <mat-option value="Canada">Canada</mat-option>
+                            <mat-option value="United Kingdom">United Kingdom</mat-option>
+                            <mat-option value="Sweden">Sweden</mat-option>
+                            <mat-option value="Netherlands">Netherlands</mat-option>
+                            <mat-option value="Japan">Japan</mat-option>
+                            <mat-option value="Switzerland">Switzerland</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-4">
+                    <label class="label d-block fw-medium mb-10">
+                        Town/City
+                    </label>
+                    <mat-form-field>
+                        <i-feather name="loader"></i-feather>
+                        <mat-label>City name</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-4">
+                    <label class="label d-block fw-medium mb-10">
+                        State
+                    </label>
+                    <mat-form-field>
+                        <i-feather name="more-vertical"></i-feather>
+                        <mat-label>State name</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-4">
+                    <label class="label d-block fw-medium mb-10">
+                        Zip Code
+                    </label>
+                    <mat-form-field>
+                        <i-feather name="list"></i-feather>
+                        <mat-label>Enter zip code</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-12">
+                    <label class="label d-block fw-medium mb-10">
+                        Your Skills
+                    </label>
+                    <mat-form-field>
+                        <i-feather name="tag"></i-feather>
+                        <mat-label>Select</mat-label>
+                        <mat-select multiple>
+                            <mat-option value="Communication">Communication</mat-option>
+                            <mat-option value="Data Analysis">Data Analysis</mat-option>
+                            <mat-option value="Project Management">Project Management</mat-option>
+                            <mat-option value="Leadership">Leadership</mat-option>
+                            <mat-option value="User Experience">User Experience</mat-option>
+                            <mat-option value="SEO">SEO</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-12">
+                    <label class="label d-block fw-medium mb-10">
+                        About Info
+                    </label>
+                    <div class="NgxEditor__Wrapper">
+                        <ngx-editor-menu [editor]="editor" [toolbar]="toolbar"></ngx-editor-menu>
+                        <ngx-editor [editor]="editor" [ngModel]="html" name="html" [disabled]="false" [placeholder]="'Some demo text...'"></ngx-editor>
+                    </div>
+                </div>
+            </div>
+            <div class="save-profile-btn">
+                <button mat-button type="button">
+                    Cancel
+                </button>
+                <button mat-button type="button">
+                    Update Profile
+                </button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

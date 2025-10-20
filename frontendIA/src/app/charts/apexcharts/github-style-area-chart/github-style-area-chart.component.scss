@@ -1,0 +1,17 @@
+.mat-mdc-card-content>:last-child {
+    &:not(.mat-mdc-card-footer) {
+        margin-bottom: -20px;
+    }
+}
+.github-user {
+    .title {
+        margin-left: 13px;
+
+        span {
+            &:not(:first-child) {
+                font-size: 14px;
+                margin-top: 4px;
+            }
+        }
+    }
+}
