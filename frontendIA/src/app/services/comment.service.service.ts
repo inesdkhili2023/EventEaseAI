@@ -9,6 +9,8 @@ export interface Comment {
   content: string;
   rating: number;
   createdDate?: string;
+  isHidden?: boolean;
+  moderationReason?: string;
   event?: any; 
 }
 
@@ -101,6 +103,27 @@ addComment(comment: Comment): Observable<Comment> {
 
   getAllEventComments(idEvent: number): Observable<Comment[]> {
     return this.http.get<Comment[]>(`${this.baseUrl}/All-event-comments/${idEvent}`)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  getVisibleEventComments(idEvent: number): Observable<Comment[]> {
+    return this.http.get<Comment[]>(`${this.baseUrl}/visible-event-comments/${idEvent}`)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  getHiddenComments(): Observable<Comment[]> {
+    return this.http.get<Comment[]>(`${this.baseUrl}/hidden-comments`)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  toggleCommentVisibility(idComment: number): Observable<Comment> {
+    return this.http.put<Comment>(`${this.baseUrl}/toggle-visibility/${idComment}`, {}, this.httpOptions)
       .pipe(
         catchError(this.handleError)
       );

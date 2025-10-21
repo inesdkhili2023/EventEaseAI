@@ -1,0 +1,95 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+        <mat-card-header>
+          <mat-card-title>
+            <h4 class="mt-0 mb-0">Comment Moderation</h4>
+            <p class="text-muted">Review and approve hidden comments</p>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          
+          <!-- Hidden Comments Table -->
+          <div class="table-responsive" *ngIf="hiddenComments.length > 0">
+            <table mat-table [dataSource]="dataSource" class="w-100">
+              
+              <!-- Content Column -->
+              <ng-container matColumnDef="content">
+                <th mat-header-cell *matHeaderCellDef>Comment Content</th>
+                <td mat-cell *matCellDef="let comment" class="text-wrap" style="max-width: 300px;">
+                  <div class="comment-content">
+                    {{ comment.content }}
+                  </div>
+                </td>
+              </ng-container>
+
+              <!-- Rating Column -->
+              <ng-container matColumnDef="rating">
+                <th mat-header-cell *matHeaderCellDef>Rating</th>
+                <td mat-cell *matCellDef="let comment">
+                  <div class="rating-display">
+                    <i *ngFor="let star of [1,2,3,4,5]" 
+                       class="ri-star-fill" 
+                       [class.text-warning]="star <= comment.rating"
+                       [class.text-muted]="star > comment.rating">
+                    </i>
+                    <span class="ms-1">{{ comment.rating }}/5</span>
+                  </div>
+                </td>
+              </ng-container>
+
+              <!-- Moderation Reason Column -->
+              <ng-container matColumnDef="moderationReason">
+                <th mat-header-cell *matHeaderCellDef>Moderation Reason</th>
+                <td mat-cell *matCellDef="let comment">
+                  <span [class]="getModerationReasonClass(comment.moderationReason || '')">
+                    {{ comment.moderationReason || 'No reason provided' }}
+                  </span>
+                </td>
+              </ng-container>
+
+              <!-- Created Date Column -->
+              <ng-container matColumnDef="createdDate">
+                <th mat-header-cell *matHeaderCellDef>Created Date</th>
+                <td mat-cell *matCellDef="let comment">
+                  {{ formatDate(comment.createdDate || '') }}
+                </td>
+              </ng-container>
+
+              <!-- Actions Column -->
+              <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef class="text-center">Actions</th>
+                <td mat-cell *matCellDef="let comment" class="text-center">
+                  <button mat-button 
+                          class="btn btn-success btn-sm me-2"
+                          (click)="approveComment(comment)"
+                          matTooltip="Approve and make visible">
+                    <i class="ri-check-line me-1"></i>
+                    Approve
+                  </button>
+                </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            </table>
+            
+            <mat-paginator [pageSizeOptions]="[5, 10, 25]" showFirstLastButtons></mat-paginator>
+          </div>
+
+          <!-- No hidden comments message -->
+          <div *ngIf="hiddenComments.length === 0" class="text-center py-5">
+            <div class="empty-state">
+              <i class="ri-shield-check-line text-success" style="font-size: 4rem;"></i>
+              <h5 class="mt-3">No Hidden Comments</h5>
+              <p class="text-muted">All comments are currently visible. Great job!</p>
+            </div>
+          </div>
+
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

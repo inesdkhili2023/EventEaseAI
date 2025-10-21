@@ -25,6 +25,8 @@ public class Comment {
     private String content;
     private double rating;
     private LocalDateTime createdDate;
+    private boolean isHidden = false;
+    private String moderationReason;
 
     @OneToMany(mappedBy = "comment", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonIgnore

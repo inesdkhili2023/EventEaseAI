@@ -62,5 +62,20 @@ public class CommentController {
     public List<Comment> getAllEventComment(@PathVariable Long idEvent) {
         return commentService.getCommentsByEventId(idEvent);
     }
+    
+    @GetMapping("visible-event-comments/{idEvent}")
+    public List<Comment> getVisibleEventComments(@PathVariable Long idEvent) {
+        return commentService.getVisibleCommentsByEventId(idEvent);
+    }
+    
+    @GetMapping("/hidden-comments")
+    public List<Comment> getHiddenComments() {
+        return commentService.getHiddenComments();
+    }
+    
+    @PutMapping("/toggle-visibility/{idComment}")
+    public Comment toggleCommentVisibility(@PathVariable Long idComment) {
+        return commentService.toggleCommentVisibility(idComment);
+    }
 
 }

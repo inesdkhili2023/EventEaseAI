@@ -83,7 +83,8 @@ export class ReviewsComponent implements OnInit, OnChanges {
 
     loadEventComments() {
         if (this.eventId && this.eventId > 0) {
-            this.commentService.getAllEventComments(this.eventId).subscribe({
+            // Load only visible comments (filtered by moderation)
+            this.commentService.getVisibleEventComments(this.eventId).subscribe({
                 next: (comments) => {
                     this.comments = comments;
                     this.updateDataSource();
@@ -190,8 +191,15 @@ export class ReviewsComponent implements OnInit, OnChanges {
 
         this.commentService.assignCommentToEvent(this.eventId, newComment).subscribe({
             next: (comment) => {
-                this.comments.push(comment);
-                this.updateDataSource();
+                // Only add the comment to the display if it's not hidden
+                if (!comment.isHidden) {
+                    this.comments.push(comment);
+                    this.updateDataSource();
+                } else {
+                    // Show a message that the comment was moderated
+                    alert('Your comment has been submitted and is under review.');
+                }
+                
                 // Clear the form
                 const textarea = document.querySelector('textarea') as HTMLTextAreaElement;
                 if (textarea) {

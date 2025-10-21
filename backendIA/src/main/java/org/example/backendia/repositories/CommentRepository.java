@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface CommentRepository extends JpaRepository<Comment,Long> {
     List<Comment> findByEventId(Long id);
+    List<Comment> findByEventIdAndIsHiddenFalse(Long id);
+    List<Comment> findByIsHiddenTrue();
 }

@@ -18,8 +18,21 @@ public class CommentService {
     CommentRepository commentRepo;
     @Autowired
     EventRepository eventRepo;
+    @Autowired
+    CommentModerationService moderationService;
 
     public Comment saveComment(Comment comment) {
+        // Moderate the comment before saving
+        CommentModerationService.ModerationResult moderationResult = moderationService.moderateComment(comment.getContent());
+        
+        // Set moderation results
+        comment.setHidden(moderationResult.isToxic());
+        comment.setModerationReason(moderationResult.getModerationReason());
+        
+        System.out.println("Saving comment - Content: " + comment.getContent() + 
+                          ", Hidden: " + comment.isHidden() + 
+                          ", Reason: " + comment.getModerationReason());
+        
         return commentRepo.save(comment);
     }
     public Comment findcommentById(Long idComment) {
@@ -44,17 +57,42 @@ public class CommentService {
     public Comment AssignCommentToEvent(Long idEvent,Comment commentRequest) {
         Event event = eventRepo.findById(idEvent)
                 .orElseThrow(() -> new RuntimeException("Comment not found with id: " + idEvent));
+        
+        // Moderate the comment before saving
+        CommentModerationService.ModerationResult moderationResult = moderationService.moderateComment(commentRequest.getContent());
+        
         Comment comment = Comment.builder()
                 .content(commentRequest.getContent())
                 .rating(commentRequest.getRating())
                 .createdDate(LocalDateTime.now())
+                .isHidden(moderationResult.isToxic())
+                .moderationReason(moderationResult.getModerationReason())
                 .event(event)
                 .build();
+        
+        System.out.println("Assigning comment to event - Content: " + comment.getContent() + 
+                          ", Hidden: " + comment.isHidden() + 
+                          ", Reason: " + comment.getModerationReason());
+        
         return commentRepo.save(comment);
     }
 
     public List<Comment> getCommentsByEventId(Long idEvent) {
         return commentRepo.findByEventId(idEvent);
+    }
+    
+    public List<Comment> getVisibleCommentsByEventId(Long idEvent) {
+        return commentRepo.findByEventIdAndIsHiddenFalse(idEvent);
+    }
+    
+    public List<Comment> getHiddenComments() {
+        return commentRepo.findByIsHiddenTrue();
+    }
+    
+    public Comment toggleCommentVisibility(Long commentId) {
+        Comment comment = findcommentById(commentId);
+        comment.setHidden(!comment.isHidden());
+        return commentRepo.save(comment);
     }
 
 }
