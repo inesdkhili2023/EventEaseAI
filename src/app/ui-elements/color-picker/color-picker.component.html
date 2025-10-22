@@ -1,0 +1,173 @@
+<!-- Breadcrumb -->
+<div class="breadcrumb-card mb-25 d-md-flex align-items-center justify-content-between">
+    <h5 class="mb-0">
+        Color Picker
+    </h5>
+    <ol class="breadcrumb list-unstyled mt-0 mb-0 pl-0">
+        <li class="breadcrumb-item position-relative">
+            <a routerLink="/" class="d-inline-block position-relative">
+                <i class="ri-home-8-line"></i>
+                Dashboard
+            </a>
+        </li>
+        <li class="breadcrumb-item position-relative">
+            UI Elements
+        </li>
+        <li class="breadcrumb-item position-relative">
+            Color Picker
+        </li>
+    </ol>
+</div>
+
+<!-- Color Picker -->
+<div class="row">
+    <div class="col-xl-3 col-lg-4 col-sm-6">
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Basic Picker
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <input [(colorPicker)]="color" [style.background]="color" [style.border]="color" />
+                <span class="d-block text-body"><i>Click in the input field.</i></span>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-xl-3 col-lg-4 col-sm-6">
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Grayscale Color Mode
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <input [(colorPicker)]="color2" [cpColorMode]="'grayscale'" [style.background]="color2" />
+                <span class="d-block text-body"><i>Click in the input field.</i></span>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-xl-3 col-lg-4 col-sm-6">
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Color Code Input Field
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <input [style.background]="color3" [(colorPicker)]="color3" [style.border]="color3" />
+                <span class="d-block text-body"><i>Click in the input field.</i></span>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-xl-3 col-lg-4 col-sm-6">
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        RGB Color Input Field
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <input [style.background]="color4" [cpOutputFormat]="'rgba'" [(colorPicker)]="color4" [style.border]="color4" />
+                <span class="d-block text-body"><i>Click in the input field.</i></span>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-xl-3 col-lg-4 col-sm-6">
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Changing Dialog Position
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <input [style.background]="color5" [cpPosition]="'top-right'" [(colorPicker)]="color5" [style.border]="color5" />
+                <span class="d-block text-body"><i>Click in the input field.</i></span>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-xl-3 col-lg-4 col-sm-6">
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Show OK Button
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <input [style.background]="color7" [cpOKButton]="true" [(colorPicker)]="color7" [style.border]="color7" />
+                <span class="d-block text-body"><i>Click in the input field.</i></span>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-xl-3 col-lg-4 col-sm-6">
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Show Cancel Button
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <input [style.background]="color8" [cpCancelButton]="true" [(colorPicker)]="color8"[style.border]="color8" />
+                <span class="d-block text-body"><i>Click in the input field.</i></span>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-xl-3 col-lg-4 col-sm-6">
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Enable Eye Dropper
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <input [style.background]="color9" [cpEyeDropper]="true" [cpSaveClickOutside]="false" [(colorPicker)]="color9"[style.border]="color9" />
+                <span class="d-block text-body"><i>Click in the input field.</i></span>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-xl-3 col-lg-4 col-sm-6">
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        With Preset Colors
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <input [style.background]="color10" [cpPresetColors]="['#fff', '#000', '#2889e9', '#e920e9', '#fff500', 'rgb(236,64,64)']" [(colorPicker)]="color10"[style.border]="color10" />
+                <span class="d-block text-body"><i>Click in the input field.</i></span>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-xl-3 col-lg-4 col-sm-6">
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        HTML Element
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <span [style.color]="color6" class="fw-medium cursor-pointer" [cpPosition]="'bottom'" [cpPositionOffset]="'50%'" [cpPositionRelativeToArrow]="true" [(colorPicker)]="color6">Change me!</span>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

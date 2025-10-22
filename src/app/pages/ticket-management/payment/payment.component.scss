@@ -1,0 +1,240 @@
+.payment-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 24px;
+
+  .payment-card {
+    margin-bottom: 24px;
+
+    .ticket-summary {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 24px;
+      border-left: 4px solid #2196f3;
+
+      h3 {
+        margin: 0 0 8px 0;
+        color: #333;
+        font-weight: 500;
+      }
+
+      .ticket-description {
+        margin: 0 0 16px 0;
+        color: #666;
+        font-size: 0.875rem;
+      }
+
+      .ticket-details {
+        .detail-item {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 8px 0;
+          border-bottom: 1px solid #e0e0e0;
+
+          &:last-child {
+            border-bottom: none;
+          }
+
+          &.total {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #2196f3;
+            border-top: 2px solid #2196f3;
+            margin-top: 8px;
+            padding-top: 12px;
+          }
+
+          .label {
+            color: #666;
+          }
+
+          .value {
+            color: #333;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+
+    .payment-form {
+      .form-section {
+        margin-bottom: 24px;
+
+        h4 {
+          margin: 0 0 16px 0;
+          color: #333;
+          font-weight: 500;
+          font-size: 1.1rem;
+        }
+
+        .full-width {
+          width: 100%;
+          margin-bottom: 16px;
+        }
+
+        .quantity-field {
+          width: 120px;
+        }
+
+        .card-element-container {
+          margin-bottom: 16px;
+
+          label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+          }
+
+          .card-element {
+            padding: 12px;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            background: white;
+            transition: border-color 0.2s ease;
+
+            &:focus {
+              border-color: #2196f3;
+              box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.2);
+            }
+          }
+
+          .card-errors {
+            color: #f44336;
+            font-size: 0.875rem;
+            margin-top: 8px;
+            min-height: 20px;
+          }
+        }
+
+        .terms-field {
+          width: 100%;
+          margin-bottom: 16px;
+
+          .error-message {
+            color: #f44336;
+            font-size: 0.75rem;
+            margin-top: 4px;
+          }
+        }
+      }
+
+      .security-notice {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 16px;
+        background: #e8f5e8;
+        border-radius: 8px;
+        margin-bottom: 24px;
+
+        mat-icon {
+          color: #4caf50;
+          margin-top: 2px;
+        }
+
+        p {
+          margin: 0;
+          color: #2e7d32;
+          font-size: 0.875rem;
+          line-height: 1.4;
+        }
+      }
+
+      .payment-actions {
+        display: flex;
+        justify-content: center;
+        margin-top: 24px;
+
+        .payment-button {
+          min-width: 200px;
+          height: 48px;
+          font-size: 1rem;
+          font-weight: 500;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+
+          &[disabled] {
+            opacity: 0.6;
+          }
+        }
+      }
+    }
+  }
+
+  .payment-methods-info {
+    .payment-methods {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 16px;
+
+      .payment-method {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        padding: 16px;
+        background: #f8f9fa;
+        border-radius: 8px;
+        min-width: 120px;
+        text-align: center;
+
+        mat-icon {
+          color: #2196f3;
+          font-size: 32px;
+        }
+
+        span {
+          font-size: 0.875rem;
+          color: #666;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .payment-container {
+    padding: 16px;
+
+    .payment-card {
+      .ticket-summary {
+        padding: 16px;
+
+        .ticket-details {
+          .detail-item {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 4px;
+          }
+        }
+      }
+
+      .payment-form {
+        .form-section {
+          .quantity-field {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    .payment-methods-info {
+      .payment-methods {
+        flex-direction: column;
+        align-items: center;
+
+        .payment-method {
+          width: 100%;
+          max-width: 200px;
+        }
+      }
+    }
+  }
+}

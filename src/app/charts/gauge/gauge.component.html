@@ -1,0 +1,203 @@
+<div class="row">
+    <div class="col-xxl-4">
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Intelligent Defaults
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="text-center">
+                    <!-- default gauge -->
+                    <ngx-gauge [size]="210" [value]="68.2"></ngx-gauge>
+                </div>
+            </mat-card-content>
+            <p style="margin-top: 7px;">
+                To know, checkout <a href="https://ashish-chopra.github.io/ngx-gauge/#documentation" target="_blank" class="text-primary">documentation</a>.
+            </p>
+        </mat-card>
+    </div>
+    <div class="col-xxl-8">
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Gauge Types: Full (default), Semi, & Arch
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <!-- full type gauge -->
+                        <ngx-gauge type="full" [value]="68" [thick]="5" [size]="210" label="Speed" append="mph"></ngx-gauge>
+                    </div>
+                    <div class="col-md-4">
+                        <!-- semi type gauge -->
+                        <ngx-gauge type="semi" [value]="68" [thick]="5" [size]="210" label="Speed" append="mph"></ngx-gauge>
+                    </div>
+                    <div class="col-md-4">
+                        <!-- arch type gauge -->
+                        <ngx-gauge type="arch" [value]="68" [thick]="5" [size]="210" label="Speed" append="mph"></ngx-gauge>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-lg-6">
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Gauge Styles: Butt (default) , & Round
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="row text-center">
+                    <div class="col-md-6">
+                        <!-- butt style gauge -->
+                        <ngx-gauge [size]="210" type="arch" [thick]="15" [value]="68" cap="butt" label="Speed" append="mph"></ngx-gauge>
+                    </div>
+                    <div class="col-md-6">
+                        <!-- round style gauge -->
+                        <ngx-gauge [size]="210" type="arch" [thick]="15" [value]="68" cap="round" label="Speed" append="mph"></ngx-gauge>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-lg-6">
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Gauge Thickness
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="row text-center">
+                    <div class="col-md-6">
+                        <!-- thickness = 5 -->
+                        <ngx-gauge type="arch" [value]="68" [thick]="5" [size]="210" label="Speed" append="mph"></ngx-gauge>
+                    </div>
+                    <div class="col-md-6">
+                        <!-- thickness = 10 -->
+                        <ngx-gauge type="arch" [value]="68" [thick]="10" [size]="210" label="Speed" append="mph"></ngx-gauge>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-lg-4">
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Gauge's Scale
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="text-center">
+                    <ngx-gauge [size]="250" type="arch" [thick]="10" [min]="0" [max]="250" [value]="105.8" cap="butt" label="Speed" append="mph"></ngx-gauge>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-lg-4">
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Dynamic Gauge Value
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="text-center">
+                    <ngx-gauge [value]="dynamicGaugeDemoValue" type="arch" [thick]="13" cap="round" [size]="225" label="I/O Utilization" append="%"></ngx-gauge>
+                    <div>
+                        <button (click)="onUpdateClick()" type="button" mat-button class="p-0 text-primary fs-14 fw-semibold border-none bg-transparent heading-font-family cursor-pointer">
+                            Update
+                        </button>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-lg-4">
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Adding Markers to the Gauge
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="text-center">
+                    <ngx-gauge [size]="250" type="arch" [thick]="10" [value]="68.2" cap="butt" label="Revenue" append="%" [markers]="markerConfig"></ngx-gauge>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-xxl-6">
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Gauge Themes
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <!--blue theme -->
+                        <ngx-gauge [size]="180" type="arch" [thick]="7" [value]="68.2" cap="round" label="Speed" append="mph" foregroundColor="#2980b9" backgroundColor="#ecf0f1"></ngx-gauge>
+                    </div>
+                    <div class="col-md-4">
+                        <!-- green theme -->
+                        <ngx-gauge [size]="180" type="arch" [thick]="7" [value]="68.2" cap="round" label="Speed" append="mph" foregroundColor="#2ecc71" backgroundColor="#ecf0f1"></ngx-gauge>
+                    </div>
+                    <div class="col-md-4">
+                        <!-- red theme -->
+                        <ngx-gauge [size]="180" type="arch" [thick]="7" [value]="68.2" cap="round" label="Speed" append="mph" foregroundColor="#e74c3c" backgroundColor="#ecf0f1"></ngx-gauge>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-lg-4">
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Custom Directive for Display
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="text-center">
+                    <ngx-gauge
+                        [size]="180"
+                        type="arch"
+                        [thick]="7" 
+                        [value]="68.2"
+                        cap="round" 
+                        label="Revenue"
+                        append="%"
+                    >
+                        <ngx-gauge-prepend>
+                            <i class="ri-arrow-up-s-fill" style="color: green"></i>
+                        </ngx-gauge-prepend>
+                    </ngx-gauge>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

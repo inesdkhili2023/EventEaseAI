@@ -1,0 +1,189 @@
+<mat-card class="trinta-card add-user-card mb-25 bg-white border-none d-block">
+    <mat-card-header>
+      <mat-card-title>
+        <h5 class="mt-0 mb-0">
+          Delivery Information
+        </h5>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="deliveryForm">
+        <div class="row">
+          <div class="col-lg-6">
+            <label class="label d-block fw-medium mb-10">
+              First Name
+            </label>
+            <mat-form-field style="margin-bottom: 10px;">
+              <i-feather name="user"></i-feather>
+              <mat-label>Enter firstname</mat-label>
+              <input matInput formControlName="firstName">
+              <mat-error *ngIf="deliveryForm.get('firstName')?.hasError('required') && deliveryForm.get('firstName')?.touched">
+    First name is required.
+  </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-lg-6">
+            <label class="label d-block fw-medium mb-10">
+              Last Name
+            </label>
+            <mat-form-field style="margin-bottom: 10px;">
+              <i-feather name="user"></i-feather>
+              <mat-label>Enter lastname</mat-label>
+              <input matInput formControlName="lastName">
+              <mat-error *ngIf="deliveryForm.get('lastName')?.hasError('required') && deliveryForm.get('lastName')?.touched">
+                Last name is required.
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-lg-6">
+            <label class="label d-block fw-medium mb-10">
+              Email Address
+            </label>
+            <mat-form-field >
+              <i-feather name="mail"></i-feather>
+              <mat-label>Enter email address</mat-label>
+              <input matInput formControlName="emailAddress">
+              <mat-error *ngIf="deliveryForm.get('emailAddress')?.hasError('required') && deliveryForm.get('emailAddress')?.touched">
+                Email is required.
+              </mat-error>
+              <mat-error *ngIf="deliveryForm.get('emailAddress')?.hasError('email') && deliveryForm.get('emailAddress')?.touched">
+                Please enter a valid email address.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-lg-6">
+            <label class="label d-block fw-medium mb-10">
+              Contact Number
+            </label>
+            <mat-form-field>
+              <i-feather name="phone"></i-feather>
+              <mat-label>Enter phone number</mat-label>
+              <input matInput formControlName="contactNumber">
+              <mat-error *ngIf="deliveryForm.get('contactNumber')?.hasError('required') && deliveryForm.get('contactNumber')?.touched">
+                Contact number is required.
+              </mat-error>
+              <mat-error *ngIf="deliveryForm.get('contactNumber')?.hasError('pattern') && deliveryForm.get('contactNumber')?.touched">
+                Please enter a valid 10-digit phone number.
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-lg-6 d-flex align-items-center">
+            <button mat-button type="button" style="background-color: #FF9B05; color: white;margin-top: 10px;">
+              Select customer
+            </button>
+          </div>
+          <div class="col-lg-6 d-flex align-items-center">
+            <input type="checkbox" id="customerPickup" formControlName="customerPickup" class="me-2">
+            <label for="customerPickup" class="mb-0">Customer will pick up</label>
+          </div>
+        </div>
+        <br>
+  
+        <div class="col-lg-12">
+          <label class="label d-block fw-medium mb-10">
+            Delivery Time
+          </label>
+          <mat-radio-group formControlName="deliveryTime" (change)="onDeliveryTimeChange($event)">
+            <mat-radio-button value="ASAP" class="mr-4">ASAP</mat-radio-button>
+            <mat-radio-button value="Later" class="mr-4">Later</mat-radio-button>
+          </mat-radio-group>
+        </div>
+  
+        <div *ngIf="showDeliveryDateTime" class="row mt-3 ">
+          <div class="col-lg-6">
+            <label class="label d-block fw-medium mb-10">Delivery Date</label>
+            <mat-form-field>
+              <mat-label>Select date</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="deliveryDate">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div class="col-lg-6">
+            <label class="label d-block fw-medium mb-10">Delivery Time</label>
+            <div class="d-flex align-items-center">
+              <mat-form-field class="me-2">
+                <mat-label>Hour</mat-label>
+                <mat-select formControlName="deliveryHour">
+                  <mat-option *ngFor="let hour of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]" [value]="hour">{{ hour }}</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field class="me-2">
+                <mat-label>Minute</mat-label>
+                <mat-select formControlName="deliveryMinute">
+                  <mat-option *ngFor="let minute of ['00', '15', '30', '45']" [value]="minute">{{ minute }}</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>AM/PM</mat-label>
+                <mat-select formControlName="amPm">
+                  <mat-option value="AM">AM</mat-option>
+                  <mat-option value="PM">PM</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-12 mt-3">
+          <label class="label d-block fw-medium mb-10">
+            Delivery Address
+          </label>
+  
+          <mat-form-field>
+            <i-feather name="map-pin"></i-feather>
+            <mat-label>Your location</mat-label>
+            <input matInput formControlName="deliveryAddress">
+          </mat-form-field>
+        </div>
+        <div class="col-lg-12">
+          <label class="label d-block fw-medium mb-10">Extra instruction</label>
+          <div class="NgxEditor__Wrapper">
+            <ngx-editor-menu [editor]="editor" [toolbar]="toolbar"></ngx-editor-menu>
+            <ngx-editor [editor]="editor" formControlName="comment" [placeholder]="'Some demo text...'"></ngx-editor>
+          </div>
+        </div>
+        <div class="delivery-charge-container d-flex align-items-center mb-3">
+            <label class="label d-block fw-medium mb-10">Delivery Charge</label>
+            <mat-form-field class="delivery-charge-input me-2 mb-0">
+              <input matInput placeholder="Enter charge" formControlName="deliveryCharge">
+            </mat-form-field>
+            <mat-form-field class="delivery-charge-select me-2 mb-0">
+              <mat-label>Select</mat-label>
+              <mat-select formControlName="selectArea">
+                <mat-option value="Vermont">AREA 1</mat-option>
+                <mat-option value="Minnesota">AREA 2</mat-option>
+                <mat-option value="Washington">AREA 3</mat-option>
+                <mat-option value="Idaho">AREA 4</mat-option>
+                <mat-option value="Florida">AREA 5</mat-option>
+                <mat-option value="Iowa">AREA 6</mat-option>
+                <mat-option value="New Hampshire">AREA 7</mat-option>
+                <mat-option value="Nebraska">AREA 8</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <button mat-button type="button" style="background-color: #FF9B05; color: white; margin-right: 10px;margin-top: -20px;"  (click)="openDistanceDialog()">Set range</button>
+          </div>
+          
+        <br>
+        <!-- Location Selection Section -->
+        <div class="d-flex align-items-center mb-3">
+          <label class="label d-block fw-medium me-2 mb-0" style="margin-right: 10px;">Map</label>
+        </div>
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+          <mat-card-content>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48374.312678948365!2d-74.21707476084916!3d40.73134319969024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2538cdf40ffff%3A0xdc3c46d2765f6a68!2sPerfect%20Near%20NYC!5e0!3m2!1sen!2sbd!4v1678355353682!5m2!1sen!2sbd" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="width: 100%; height: 250px;"></iframe>
+          </mat-card-content>
+        </mat-card>
+        <!-- Save and Cancel Buttons -->
+        <div class="save-user-btn d-flex justify-content-center">
+          <button mat-button type="submit" style="background-color: #FF9B05; color: white; margin-right: 10px;" (click)="openConfirmationDialog()">Save and proceed</button>
+          <button mat-button type="button" style="background-color: #d72d30; color: white;" >Cancel</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  

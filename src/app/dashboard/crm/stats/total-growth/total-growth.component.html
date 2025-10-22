@@ -1,0 +1,32 @@
+<mat-card
+    class="trinta-card total-growth-card mb-25 bg-white border-none d-block"
+>
+    <mat-card-content>
+        <span class="sub-title text-gray d-block">
+            Total Growth
+        </span>
+        <h3>
+            $37.4k
+        </h3>
+        <span class="trending down d-inline-block fw-medium position-relative">
+            2.50% <i class="ri-arrow-down-s-line"></i>
+        </span>
+        <div class="chart">
+            <apx-chart
+                [series]="chartOptions.series!"
+                [chart]="chartOptions.chart!"
+                [dataLabels]="chartOptions.dataLabels!"
+                [plotOptions]="chartOptions.plotOptions!"
+                [colors]="chartOptions.colors!"
+                [grid]="chartOptions.grid!"
+                [yaxis]="chartOptions.yaxis!"
+                [legend]="chartOptions.legend!"
+                [markers]="chartOptions.markers!"
+                [fill]="chartOptions.fill!"
+                [stroke]="chartOptions.stroke!"
+                [tooltip]="chartOptions.tooltip!"
+                [xaxis]="chartOptions.xaxis!"
+            ></apx-chart>
+        </div>
+    </mat-card-content>
+</mat-card>

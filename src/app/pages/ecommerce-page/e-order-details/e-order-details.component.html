@@ -1,0 +1,101 @@
+<!-- Order Details -->
+<mat-card
+    class="trinta-card order-details-card mb-25 border-none d-block"
+>
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0 text-white">
+                Order Details
+            </h5>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="d-md-flex align-items-center justify-content-between">
+            <div class="info">
+                <span class="d-block fw-medium text-body">
+                    Order ID
+                </span>
+                <h5 class="mb-0 fw-medium text-white">
+                    A3655
+                </h5>
+            </div>
+            <div class="tracking-info text-md-center">
+                <ul class="p-0 m-0 list-unstyled">
+                    <li class="order-placed position-relative d-md-inline-block">
+                        <div class="icon rounded-circle d-flex align-items-center justify-content-center">
+                            <i class="ri-check-line"></i>
+                        </div>
+                        <span class="d-block text-white fw-medium">
+                            Order Placed
+                        </span>
+                    </li>
+                    <li class="packed position-relative d-md-inline-block">
+                        <div class="icon rounded-circle d-flex align-items-center justify-content-center">
+                            <i class="ri-survey-line"></i>
+                        </div>
+                        <span class="d-block text-white fw-medium">
+                            Packed
+                        </span>
+                    </li>
+                    <li class="shipped position-relative d-md-inline-block">
+                        <div class="icon rounded-circle d-flex align-items-center justify-content-center">
+                            <i class="ri-truck-line"></i>
+                        </div>
+                        <span class="d-block text-white fw-medium">
+                            Shipped
+                        </span>
+                    </li>
+                    <li class="delivered position-relative d-md-inline-block">
+                        <div class="icon rounded-circle d-flex align-items-center justify-content-center">
+                            <i class="ri-check-double-line"></i>
+                        </div>
+                        <span class="d-block text-white fw-medium">
+                            Delivered
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <div class="info text-md-end">
+                <span class="d-block fw-medium text-body">
+                    Tracking ID
+                </span>
+                <h5 class="mb-0 fw-medium text-white">
+                    100 5412 4125
+                </h5>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>
+
+<div class="row">
+    <div class="col-lg-8">
+
+        <!-- Items From Order -->
+        <app-items-from-order />
+
+    </div>
+    <div class="col-lg-4">
+
+        <!-- Order Summary -->
+        <app-order-summary />
+        
+    </div>
+    <div class="col-xxl-4 col-md-6">
+
+        <!-- Shipping Information -->
+        <app-shipping-information />
+
+    </div>
+    <div class="col-xxl-4 col-md-6">
+
+        <!-- Billing Information -->
+        <app-billing-information />
+
+    </div>
+    <div class="col-xxl-4 col-md-6">
+
+        <!-- Delivery Info -->
+        <app-delivery-info />
+
+    </div>
+</div>

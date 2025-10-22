@@ -1,0 +1,103 @@
+<div class="ticket-management-container">
+  <!-- Header -->
+  <div class="page-header">
+    <div class="header-content">
+      <div class="header-info">
+        <h1>Gestion des Paiements et Billets</h1>
+        <p>Gérez vos plans de billets, suivez les ventes et assistez vos clients</p>
+      </div>
+      <div class="header-actions">
+        <button mat-raised-button color="primary">
+          <mat-icon>add</mat-icon>
+          Nouveau Plan
+        </button>
+        <button mat-button>
+          <mat-icon>settings</mat-icon>
+          Configuration
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <mat-tab-group 
+      [(selectedIndex)]="selectedTab" 
+      (selectedIndexChange)="onTabChange($event)"
+      class="management-tabs">
+      
+      <!-- Plans de Billets Tab -->
+      <mat-tab label="Plans de Billets">
+        <div class="tab-content">
+          <app-ticket-list></app-ticket-list>
+        </div>
+      </mat-tab>
+
+      <!-- Analytiques Tab -->
+      <mat-tab label="Analytiques">
+        <div class="tab-content">
+          <app-sales-analytics></app-sales-analytics>
+        </div>
+      </mat-tab>
+
+      <!-- Assistant Tab -->
+      <mat-tab label="Assistant IA">
+        <div class="tab-content">
+          <div class="chatbot-section">
+            <mat-card class="chatbot-info-card">
+              <mat-card-header>
+                <mat-card-title>Assistant Virtuel Intelligent</mat-card-title>
+                <mat-card-subtitle>Votre chatbot IA pour l'assistance client</mat-card-subtitle>
+              </mat-card-header>
+              <mat-card-content>
+                <div class="chatbot-features">
+                  <div class="feature-item">
+                    <mat-icon>question_answer</mat-icon>
+                    <div>
+                      <h4>Réponses Automatiques</h4>
+                      <p>Répond aux questions fréquentes sur les prix, lieux, dates et disponibilité</p>
+                    </div>
+                  </div>
+                  <div class="feature-item">
+                    <mat-icon>shopping_cart</mat-icon>
+                    <div>
+                      <h4>Guide d'Achat</h4>
+                      <p>Guide les utilisateurs dans le processus d'achat de billets</p>
+                    </div>
+                  </div>
+                  <div class="feature-item">
+                    <mat-icon>support_agent</mat-icon>
+                    <div>
+                      <h4>Support 24/7</h4>
+                      <p>Disponible en permanence pour assister vos clients</p>
+                    </div>
+                  </div>
+                  <div class="feature-item">
+                    <mat-icon>language</mat-icon>
+                    <div>
+                      <h4>Multi-plateforme</h4>
+                      <p>Intégration future avec WhatsApp et Facebook Messenger</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="chatbot-actions">
+                  <button mat-raised-button color="primary" (click)="openChatbot()">
+                    <mat-icon>chat</mat-icon>
+                    Tester l'Assistant
+                  </button>
+                  <button mat-button>
+                    <mat-icon>settings</mat-icon>
+                    Configuration
+                  </button>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+
+  <!-- Chatbot Widget -->
+  <app-chatbot></app-chatbot>
+</div>

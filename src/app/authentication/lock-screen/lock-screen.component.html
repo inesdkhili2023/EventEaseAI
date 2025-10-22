@@ -1,0 +1,50 @@
+<div class="lock-screen-area">
+    <div class="d-table">
+        <div class="d-table-cell">
+            <div
+                class="trinta-form ml-auto mr-auto bg-white border-radius"
+            >
+                <div class="title text-center">
+                    <h3>
+                        Welcome
+                    </h3>
+                    <p class="text-black fs-15">
+                        Good day! Enter your password to unlock the screen
+                    </p>
+                </div>
+                <div class="user text-center">
+                    <img src="assets/images/admin.jpg" class="rounded-circle" alt="admin-image">
+                    <span class="d-block fs-16 fw-semibold heading-font-family">
+                        Marcus Davis
+                    </span>
+                </div>
+                <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <label class="label d-block fw-medium">
+                            Your Password
+                        </label>
+                        <mat-form-field>
+                            <i-feather name="lock"></i-feather>
+                            <mat-label>Enter your password</mat-label>
+                            <input matInput [type]="hide ? 'password' : 'text'" id="password" formControlName="password">
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                <span class="material-symbols-outlined">
+                                    {{hide ? 'visibility_off' : 'visibility'}}
+                                </span>
+                            </button>
+                        </mat-form-field>
+                        <div class="error text-danger" *ngIf="authForm.get('password')!.hasError('required') && authForm.get('password')!.touched">
+                            Password is required.
+                        </div>
+                        <div class="error text-danger" *ngIf="authForm.get('password')!.hasError('minlength') && authForm.get('password')!.touched">
+                            Password must be at least 8 characters long.
+                        </div>
+                    </div>
+                    <button mat-button type="submit" [disabled]="authForm.invalid">
+                        Sign In
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

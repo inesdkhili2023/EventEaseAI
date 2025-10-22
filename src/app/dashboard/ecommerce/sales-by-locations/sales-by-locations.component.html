@@ -1,0 +1,71 @@
+<mat-card
+    class="trinta-card sales-by-locations-card mb-25 bg-white border-none d-block"
+>
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Sales By Locations
+            </h5>
+        </mat-card-title>
+        <mat-card-subtitle>
+            <button type="button" mat-button class="card-header-menu-btn" [matMenuTriggerFor]="cardHeaderMenu">
+                Sales Report
+            </button>
+            <mat-menu #cardHeaderMenu="matMenu" class="card-header-menu" xPosition="before">
+                <button mat-menu-item>
+                    Last Day
+                </button>
+                <button mat-menu-item>
+                    Last Week
+                </button>
+                <button mat-menu-item>
+                    Last Month
+                </button>
+                <button mat-menu-item>
+                    Last Year
+                </button>
+            </mat-menu>
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="text-center">
+        <img src="assets/images/vector-map.png" class="map-image" alt="map-image">
+        <ul class="p-0 m-0 list-unstyled">
+            <li class="d-flex align-items-center justify-content-between">
+                <span class="d-flex align-items-center heading-font-family fw-medium">
+                    <img src="assets/images/icons/box1.svg" alt="icon">
+                    Canada
+                </span>
+                <span class="d-block text-black">
+                    75k Sale
+                </span>
+                <span class="d-block fw-medium heading-font-family">
+                    $18.5k
+                </span>
+            </li>
+            <li class="d-flex align-items-center justify-content-between">
+                <span class="d-flex align-items-center heading-font-family fw-medium">
+                    <img src="assets/images/icons/box2.svg" alt="icon">
+                    Australia
+                </span>
+                <span class="d-block text-black">
+                    10k Sale
+                </span>
+                <span class="d-block fw-medium heading-font-family">
+                    $12.5k
+                </span>
+            </li>
+            <li class="d-flex align-items-center justify-content-between">
+                <span class="d-flex align-items-center heading-font-family fw-medium">
+                    <img src="assets/images/icons/box3.svg" alt="icon">
+                    USA
+                </span>
+                <span class="d-block text-black">
+                    8.2k Sale
+                </span>
+                <span class="d-block fw-medium heading-font-family">
+                    $4.5k
+                </span>
+            </li>
+        </ul>
+    </mat-card-content>
+</mat-card>

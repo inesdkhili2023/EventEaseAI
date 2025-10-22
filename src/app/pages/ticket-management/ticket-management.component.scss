@@ -1,0 +1,172 @@
+.ticket-management-container {
+  min-height: 100vh;
+  background: #fafafa;
+
+  .page-header {
+    background: white;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 24px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+
+      .header-info {
+        h1 {
+          margin: 0 0 8px 0;
+          color: #333;
+          font-weight: 500;
+          font-size: 2rem;
+        }
+
+        p {
+          margin: 0;
+          color: #666;
+          font-size: 1rem;
+        }
+      }
+
+      .header-actions {
+        display: flex;
+        gap: 12px;
+
+        button {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+      }
+    }
+  }
+
+  .main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
+
+    .management-tabs {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      overflow: hidden;
+
+      .tab-content {
+        padding: 24px;
+        min-height: 600px;
+      }
+    }
+  }
+
+  .chatbot-section {
+    .chatbot-info-card {
+      max-width: 800px;
+      margin: 0 auto;
+
+      .chatbot-features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 24px;
+        margin: 24px 0;
+
+        .feature-item {
+          display: flex;
+          align-items: flex-start;
+          gap: 16px;
+          padding: 16px;
+          background: #f8f9fa;
+          border-radius: 8px;
+          border-left: 4px solid #2196f3;
+
+          mat-icon {
+            color: #2196f3;
+            font-size: 24px;
+            margin-top: 4px;
+          }
+
+          h4 {
+            margin: 0 0 8px 0;
+            color: #333;
+            font-weight: 500;
+          }
+
+          p {
+            margin: 0;
+            color: #666;
+            font-size: 0.875rem;
+            line-height: 1.4;
+          }
+        }
+      }
+
+      .chatbot-actions {
+        display: flex;
+        gap: 16px;
+        margin-top: 24px;
+        padding-top: 24px;
+        border-top: 1px solid #e0e0e0;
+
+        button {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+      }
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .ticket-management-container {
+    .page-header {
+      padding: 16px;
+
+      .header-content {
+        flex-direction: column;
+        gap: 16px;
+        align-items: stretch;
+
+        .header-actions {
+          justify-content: center;
+        }
+      }
+    }
+
+    .main-content {
+      padding: 16px;
+
+      .management-tabs {
+        .tab-content {
+          padding: 16px;
+        }
+      }
+    }
+
+    .chatbot-section {
+      .chatbot-info-card {
+        .chatbot-features {
+          grid-template-columns: 1fr;
+          gap: 16px;
+
+          .feature-item {
+            padding: 12px;
+          }
+        }
+
+        .chatbot-actions {
+          flex-direction: column;
+          gap: 12px;
+
+          button {
+            width: 100%;
+            justify-content: center;
+          }
+        }
+      }
+    }
+  }
+}

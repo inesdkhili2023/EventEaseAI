@@ -1,0 +1,55 @@
+<mat-card
+    class="trinta-card basic-form mb-25 bg-white border-none d-block"
+>
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Basic Form
+            </h5>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form>
+            <label class="label d-block fw-medium mb-10">
+                Name
+            </label>
+            <mat-form-field>
+                <i-feather name="user"></i-feather>
+                <mat-label>Enter name</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <label class="label d-block fw-medium mb-10">
+                Email Address
+            </label>
+            <mat-form-field>
+                <i-feather name="mail"></i-feather>
+                <mat-label>Enter email address</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <label class="label d-block fw-medium mb-10">
+                Password
+            </label>
+            <mat-form-field>
+                <i-feather name="lock"></i-feather>
+                <mat-label>Enter password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <span class="material-symbols-outlined">
+                        {{hide ? 'visibility_off' : 'visibility'}}
+                    </span>
+                </button>
+            </mat-form-field>
+            <div class="info d-flex justify-content-between align-items-center">
+                <mat-checkbox color="primary">
+                    Remember me
+                </mat-checkbox>
+                <a routerLink="/authentication/forgot-password" class="d-inline-block text-primary">
+                    Forgot your password?
+                </a>
+            </div>
+            <button mat-button type="submit">
+                Sign In
+            </button>
+        </form>
+    </mat-card-content>
+</mat-card>

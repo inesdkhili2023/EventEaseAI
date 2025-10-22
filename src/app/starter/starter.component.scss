@@ -1,0 +1,309 @@
+.trinta-card {
+    &.starter-card {
+        padding: {
+            top: 80px;
+            bottom: 80px;
+        };
+        .mat-mdc-card-content {
+            h2 {
+                font-size: 32px;
+                margin: {
+                    top: 22px;
+                    bottom: 18px;
+                };
+            }
+            p {
+                font-size: 16px;
+                max-width: 600px;
+                margin: {
+                    left: auto;
+                    right: auto;
+                };
+            }
+            .shape1 {
+                top: 45px;
+                left: 45px;
+                z-index: -1;
+                position: absolute;
+            }
+            .shape2 {
+                top: 45px;
+                left: 145px;
+                z-index: -1;
+                position: absolute;
+            }
+            .shape3 {
+                top: 45px;
+                z-index: -1;
+                right: 145px;
+                position: absolute;
+            }
+            .shape4 {
+                top: 45px;
+                right: 45px;
+                z-index: -1;
+                position: absolute;
+            }
+        }
+    }
+    &.key-features-card {
+        .mat-mdc-card-content {
+            .features-list {
+                li {
+                    font-size: 16px;
+                    line-height: 1.8;
+                    padding-left: 30px;
+                    margin-bottom: 12px;
+                    
+                    i-feather {
+                        left: 0;
+                        top: 4px;
+                        width: 20px;
+                        height: 20px;
+                        color: #00b69b;
+                        position: absolute;
+                    }
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                    &.close {
+                        i-feather {
+                            color: red;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+::ng-deep {
+    .trinta-card {
+        &.starter-card {
+            .mat-mdc-card-content {
+                .mat-mdc-button {
+                    height: auto;
+                    min-width: auto;
+                    margin-top: 12px;
+                    padding: 21px 62px;
+                    color: var(--whiteColor);
+                    background-color: var(--primaryColor);
+
+                    .mdc-button__label {
+                        display: block;
+                        padding-right: 35px;
+                        font: {
+                            size: 16px;
+                            weight: 500;
+                            family: var(--headingFontFamily);
+                        };
+                        i {
+                            transform: translateY(-50%);
+                            font-weight: normal;
+                            position: absolute;
+                            font-size: 25px;
+                            top: 50%;
+                            right: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    .trinta-card {
+        &.starter-card {
+            padding: {
+                top: 40px;
+                bottom: 40px;
+            };
+            .mat-mdc-card-content {
+                h2 {
+                    font-size: 24px;
+                    margin: {
+                        top: 15px;
+                        bottom: 12px;
+                    };
+                }
+                p {
+                    font-size: 14px;
+                    max-width: 100%;
+                }
+                .shape2 {
+                    display: none;
+                }
+                .shape3 {
+                    display: none;
+                }
+            }
+        }
+        &.key-features-card {
+            .mat-mdc-card-content {
+                .features-list {
+                    li {
+                        font-size: 13px;
+                        padding-left: 25px;
+                        
+                        i-feather {
+                            top: 4px;
+                            width: 18px;
+                            height: 18px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    ::ng-deep {
+        .trinta-card {
+            &.starter-card {
+                .mat-mdc-card-content {
+                    .mat-mdc-button {
+                        margin-top: 3px;
+                        padding: 15px 35px;
+    
+                        .mdc-button__label {
+                            padding-right: 30px;
+                            font-size: 13px;
+
+                            i {
+                                font-size: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width : 576px) and (max-width : 767px) {}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+
+    .trinta-card {
+        &.starter-card {
+            padding: {
+                top: 50px;
+                bottom: 50px;
+            };
+            .mat-mdc-card-content {
+                h2 {
+                    font-size: 28px;
+                    margin: {
+                        top: 20px;
+                        bottom: 15px;
+                    };
+                }
+                p {
+                    font-size: 14px;
+                    max-width: 100%;
+                }
+            }
+        }
+        &.key-features-card {
+            .mat-mdc-card-content {
+                .features-list {
+                    li {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+    ::ng-deep {
+        .trinta-card {
+            &.starter-card {
+                .mat-mdc-card-content {
+                    .mat-mdc-button {
+                        margin-top: 8px;
+                        padding: 17px 40px;
+    
+                        .mdc-button__label {
+                            padding-right: 30px;
+                            font-size: 14px;
+
+                            i {
+                                font-size: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width : 992px) and (max-width : 1199px) {
+
+    .trinta-card {
+        &.starter-card {
+            .mat-mdc-card-content {
+                p {
+                    font-size: 15px;
+                    max-width: 550px;
+                }
+            }
+        }
+        &.key-features-card {
+            .mat-mdc-card-content {
+                .features-list {
+                    li {
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+    }
+    ::ng-deep {
+        .trinta-card {
+            &.starter-card {
+                .mat-mdc-card-content {
+                    .mat-mdc-button {
+                        margin-top: 10px;
+                        padding: 18px 50px;
+    
+                        .mdc-button__label {
+                            font-size: 15px;
+
+                            i {
+                                font-size: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {
+
+    .trinta-card {
+        &.key-features-card {
+            padding-bottom: 101px;
+    
+            .mat-mdc-card-content {
+                .features-list {
+                    li {
+                        padding-right: 10px;
+                    }
+                }
+            }
+        }
+    }
+
+}

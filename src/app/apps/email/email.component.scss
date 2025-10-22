@@ -1,0 +1,169 @@
+.trinta-card {
+    &.sidebar-card {
+        .mat-mdc-card-content {
+            .mat-mdc-button {
+                height: auto;
+                display: block;
+                min-width: auto;
+                text-align: center;
+                padding: 18px 25px;
+                margin-bottom: 23px;
+                color: var(--whiteColor);
+                background-color: var(--primaryColor);
+                font: {
+                    size: 16px;
+                    weight: 600;
+                    family: var(--headingFontFamily);
+                };
+            }
+            .sidebar-list {
+                margin: {
+                    top: 19px;
+                    bottom: 34px;
+                };
+                li {
+                    margin-bottom: 24px;
+
+                    a {
+                        padding-left: 28px;
+
+                        i-feather {
+                            left: 0;
+                            top: 50%;
+                            width: 16px;
+                            height: 16px;
+                            margin-top: -1px;
+                            position: absolute;
+                            color: var(--bodyColor);
+                            transform: translateY(-50%);
+                        }
+                        span {
+                            font-size: 13px;
+                        }
+                        &.active {
+                            color: var(--primaryColor);
+
+                            i-feather {
+                                color: var(--primaryColor);
+                            }
+                        }
+                    }
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    .trinta-card {
+        &.sidebar-card {
+            .mat-mdc-card-content {
+                .mat-mdc-button {
+                    margin-bottom: 20px;
+                    padding: 15px 25px;
+                    font-size: 13px;
+                }
+                .sidebar-list {
+                    margin: {
+                        top: 18px;
+                        bottom: 25px;
+                    };
+                    li {
+                        margin-bottom: 17px;
+    
+                        a {
+                            padding-left: 26px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width : 576px) and (max-width : 767px) {}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+
+    .trinta-card {
+        &.sidebar-card {
+            .mat-mdc-card-content {
+                .mat-mdc-button {
+                    margin-bottom: 20px;
+                    padding: 16px 25px;
+                    font-size: 14px;
+                }
+                .sidebar-list {
+                    margin: {
+                        top: 18px;
+                        bottom: 25px;
+                    };
+                    li {
+                        margin-bottom: 20px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width : 992px) and (max-width : 1199px) {
+
+    .trinta-card {
+        &.sidebar-card {
+            .mat-mdc-card-content {
+                .mat-mdc-button {
+                    font-size: 15px;
+                    padding: 17px 25px;
+                }
+                .sidebar-list {
+                    margin: {
+                        top: 18px;
+                        bottom: 25px;
+                    };
+                    li {
+                        margin-bottom: 20px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+
+    .trinta-card {
+        &.sidebar-card {
+            .mat-mdc-card-content {
+                .sidebar-list {
+                    margin: {
+                        top: 18px;
+                        bottom: 25px;
+                    };
+                    li {
+                        margin-bottom: 20px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {}

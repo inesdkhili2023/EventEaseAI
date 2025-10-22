@@ -1,0 +1,135 @@
+.trinta-card {
+    &.tasks-performance-card {
+        .mat-mdc-card-content {
+            .chart {
+                margin: {
+                    top: -10px;
+                    bottom: -20px;
+                };
+            }
+            .list {
+                padding: {
+                    left: 0;
+                    right: 0;
+                };
+                li {
+                    span {
+                        font-size: 13px;
+                        margin-bottom: 8px;
+                        letter-spacing: 1px;
+                    }
+                    h6 {
+                        letter-spacing: 1px;
+                        padding-left: 25px;
+                        font-size: 20px;
+
+                        i {
+                            left: 0;
+                            top: 50%;
+                            color: #00b69b;
+                            margin-top: -1px;
+                            position: absolute;
+                            font-weight: normal;
+                            transform: translateY(-50%);
+                        }
+                        &.down {
+                            i {
+                                color: var(--dangerColor);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    .trinta-card {
+        &.tasks-performance-card {
+            .mat-mdc-card-content {
+                .list {
+                    li {
+                        span {
+                            margin-bottom: 8px;
+                        }
+                        h6 {
+                            padding-left: 23px;
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width : 576px) and (max-width : 767px) {}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+
+    .trinta-card {
+        &.tasks-performance-card {
+            .mat-mdc-card-content {
+                .chart {
+                    margin-bottom: -30px;
+                }
+                .list {
+                    justify-content: center !important;
+
+                    li {
+                        margin: {
+                            left: 35px;
+                            right: 35px;
+                        };
+                        h6 {
+                            font-size: 18px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width : 992px) and (max-width : 1199px) {}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+
+    .trinta-card {
+        &.tasks-performance-card {
+            .mat-mdc-card-content {
+                .chart {
+                    margin-bottom: -85px;
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {
+
+    .trinta-card {
+        &.tasks-performance-card {
+            .mat-mdc-card-content {
+                .list {
+                    padding: {
+                        left: 35px;
+                        right: 35px;
+                    };
+                }
+            }
+        }
+    }
+
+}

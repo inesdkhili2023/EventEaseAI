@@ -1,0 +1,293 @@
+.trinta-card {
+    &.tables-of-content-card {
+        .mat-mdc-card-content {
+            .tables-of-content-list {
+                margin-bottom: 25px;
+
+                .number {
+                    width: 29px;
+                    height: 29px;
+                    font-size: 16px;
+                    margin-right: 15px;
+                }
+                h4 {
+                    font-size: 16px;
+                }
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+            .unlock-library-box {
+                border-radius: 3px;
+                padding: 50px;
+                
+                h5 {
+                    font-size: 20px;
+                    margin-bottom: 12px;
+                }
+                p {
+                    color: #e3eaef;
+                }
+                .mat-mdc-button {
+                    height: auto;
+                    min-width: auto;
+                    padding: 18px 25px;
+                    margin-bottom: 15px;
+                    color: var(--whiteColor);
+                    background: rgba(255, 255, 255, 0.08);
+                    font: {
+                        size: 15px;
+                        weight: 600;
+                        family: var(--headingFontFamily);
+                    };
+                }
+            }
+        }
+    }
+}
+::ng-deep {
+    .trinta-card {
+        &.tables-of-content-card {
+            .mat-mdc-card-content {
+                .tables-of-content-list {
+                    .mat-accordion {
+                        display: block;
+                        margin-top: 20px;
+                        padding-left: 44px;
+
+                        .mat-expansion-panel {
+                            margin: 0 0 10px;
+                            box-shadow: unset;
+                            border-radius: 3px;
+                            background: #f7faff;
+
+                            .mat-expansion-panel-header {
+                                height: auto;
+                                padding: 20px;
+                                line-height: initial;
+
+                                .mat-expansion-panel-header-title {
+                                    display: block;
+                                    margin-right: 0;
+                                    color: var(--darkColor);
+                                    font: {
+                                        size: 15px;
+                                        weight: 600;
+                                        family: var(--headingFontFamily);
+                                    };
+                                }
+                            }
+                            .mat-expansion-panel-content {
+                                .mat-expansion-panel-body {
+                                    padding: 0 20px 20px;
+
+                                    ul {
+                                        li {
+                                            border-bottom: 1px solid #edeff5;
+                                            padding: {
+                                                top: 14px;
+                                                bottom: 14px;
+                                            };
+                                            span {
+                                                position: relative;
+                                                
+                                                &:nth-child(1) {
+                                                    padding-left: 30px;
+
+                                                    i-feather {
+                                                        left: 0;
+                                                        top: 50%;
+                                                        width: 20px;
+                                                        height: 20px;
+                                                        margin-top: -1.5px;
+                                                        position: absolute;
+                                                        color: var(--primaryColor);
+                                                        transform: translateY(-50%);
+                                                    }
+                                                }
+                                            }
+                                            &:first-child {
+                                                padding-top: 0;
+                                            }
+                                            &:last-child {
+                                                padding-bottom: 0;
+                                                border-bottom-width: 0;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            &:last-child {
+                                margin-bottom: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    .trinta-card {
+        &.tables-of-content-card {
+            .mat-mdc-card-content {
+                .tables-of-content-list {
+                    margin-bottom: 20px;
+    
+                    .number {
+                        width: 25px;
+                        height: 25px;
+                    }
+                    h4 {
+                        font-size: 14px;
+                    }
+                }
+                .unlock-library-box {
+                    padding: 20px;
+                    margin-top: 15px;
+                    
+                    h5 {
+                        font-size: 15px;
+                        margin-bottom: 10px;
+                    }
+                    .mat-mdc-button {
+                        padding: 15px 20px;
+                        font-size: 13px;
+                    }
+                }
+            }
+        }
+    }
+    ::ng-deep {
+        .trinta-card {
+            &.tables-of-content-card {
+                .mat-mdc-card-content {
+                    .tables-of-content-list {
+                        .mat-accordion {
+                            margin-top: 15px;
+                            padding-left: 0;
+    
+                            .mat-expansion-panel {
+                                .mat-expansion-panel-header {
+                                    padding: 15px;
+    
+                                    .mat-expansion-panel-header-title {
+                                        font-size: 14px;
+                                    }
+                                }
+                                .mat-expansion-panel-content {
+                                    .mat-expansion-panel-body {
+                                        padding: 0 15px 15px;
+    
+                                        ul {
+                                            li {
+                                                padding: {
+                                                    top: 13px;
+                                                    bottom: 13px;
+                                                };
+                                                span {
+                                                    &:nth-child(1) {
+                                                        padding-left: 28px;
+                                                        margin-bottom: 7px;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width : 576px) and (max-width : 767px) {}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+
+    .trinta-card {
+        &.tables-of-content-card {
+            .mat-mdc-card-content {
+                .tables-of-content-list {
+                    h4 {
+                        font-size: 15px;
+                    }
+                }
+                .unlock-library-box {
+                    padding: 30px;
+                    margin-top: 20px;
+                    
+                    .mat-mdc-button {
+                        padding: 16px 25px;
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width : 992px) and (max-width : 1199px) {
+
+    .trinta-card {
+        &.tables-of-content-card {
+            .mat-mdc-card-content {
+                .unlock-library-box {
+                    margin-top: 25px;
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+
+    .trinta-card {
+        &.tables-of-content-card {
+            .mat-mdc-card-content {
+                .unlock-library-box {
+                    margin-top: 25px;
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {
+
+    .trinta-card {
+        &.tables-of-content-card {
+            .mat-mdc-card-content {
+                .tables-of-content-list {
+                    padding-right: 120px;
+                }
+                .unlock-library-box {
+                    margin: {
+                        right: 85px;
+                        left: -30px;
+                    };
+                    .mat-mdc-button {
+                        padding: 18px 25px;
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+    }
+
+}

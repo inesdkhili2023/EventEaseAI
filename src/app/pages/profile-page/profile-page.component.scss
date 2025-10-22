@@ -1,0 +1,25 @@
+.user-profile-card {
+    background-color: #fceabd; /* Set your desired background color */
+}
+
+.user-profile-card .btn-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.user-profile-card .btn-box button,
+.user-profile-card .btn-box a[mat-button] {
+    border-radius: 5px;
+    padding: 10px 20px;
+    min-width: 100px;
+    text-align: center;
+    background-color: #d18501;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.user-profile-card .btn-box button {
+    background-color: #d18501;
+}

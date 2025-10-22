@@ -1,0 +1,21 @@
+.green-button {
+  background-color: green;
+  color: white;
+  border: none;
+  margin-right: 10px;
+  border-radius: 6px;
+}
+
+.red-button {
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 6px;
+}
+
+.green-button:hover{
+  background-color: darken(green, 10%);
+}
+.red-button:hover {
+  background-color: darken(red, 10%);
+}
