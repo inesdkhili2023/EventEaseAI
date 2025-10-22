@@ -34,7 +34,7 @@
         <mat-icon>check_circle</mat-icon>
       </div>
       <div class="stat-content">
-        <span class="stat-value">{{ (partnerships | filter: 'active': true).length }}</span>
+        <span class="stat-value">{{ getActivePartnerships() }}</span>
         <span class="stat-label">Actifs</span>
       </div>
     </mat-card>
@@ -44,7 +44,7 @@
         <mat-icon>pending</mat-icon>
       </div>
       <div class="stat-content">
-        <span class="stat-value">{{ (partnerships | filter: 'active': false).length }}</span>
+        <span class="stat-value">{{ getInactivePartnerships() }}</span>
         <span class="stat-label">Inactifs</span>
       </div>
     </mat-card>
@@ -70,10 +70,7 @@
 
     <!-- Partnerships Grid -->
     <div class="partnerships-grid" *ngIf="!isLoading && partnerships.length > 0">
-      <div
-        class="partnership-card-wrapper"
-        *ngFor="let partnership of partnerships"
-      >
+      <div class="partnership-card-wrapper" *ngFor="let partnership of partnerships">
         <mat-card class="partnership-card">
           <!-- Image Section -->
           <div class="card-image-wrapper">
@@ -120,25 +117,26 @@
               mat-icon-button
               class="card-menu-btn"
               [matMenuTriggerFor]="cardMenu"
+              (click)="selectedPartnership = partnership"
             >
               <mat-icon>more_vert</mat-icon>
             </button>
             
             <mat-menu #cardMenu="matMenu">
-              <button mat-menu-item (click)="viewDetails(partnership)">
+              <button mat-menu-item (click)="viewDetails(selectedPartnership!)">
                 <mat-icon>visibility</mat-icon>
                 <span>Voir détails</span>
               </button>
-              <button mat-menu-item (click)="onEdit(partnership)">
+              <button mat-menu-item (click)="onEdit(selectedPartnership!)">
                 <mat-icon>edit</mat-icon>
                 <span>Modifier</span>
               </button>
-              <button mat-menu-item (click)="onAssignEvent(partnership)">
+              <button mat-menu-item (click)="onAssignEvent(selectedPartnership!)">
                 <mat-icon>event</mat-icon>
                 <span>Assigner à un événement</span>
               </button>
               <mat-divider></mat-divider>
-              <button mat-menu-item (click)="onDelete(partnership)" class="delete-menu-item">
+              <button mat-menu-item (click)="onDelete(selectedPartnership!)" class="delete-menu-item">
                 <mat-icon>delete</mat-icon>
                 <span>Supprimer</span>
               </button>
@@ -187,7 +185,7 @@
               Modifier
             </button>
             <button mat-button (click)="onAssignEvent(partnership)">
-              <mat-icon>event</mat-icon>
+              <mat-icon>psychology</mat-icon>
               Assigner
             </button>
           </mat-card-actions>

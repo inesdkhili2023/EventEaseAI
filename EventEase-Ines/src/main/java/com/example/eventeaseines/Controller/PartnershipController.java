@@ -7,15 +7,15 @@ import com.example.eventeaseines.Repository.PartnershipRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
+
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/partnerships")
-@CrossOrigin(origins = "*")
+
 public class PartnershipController {
 
     private final PartnershipRepository partnershipRepo;
@@ -120,6 +120,29 @@ public class PartnershipController {
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("Error assigning partnership: " + e.getMessage());
+        }
+    }
+    @GetMapping("/{partnershipId}/recommended-events")
+    public ResponseEntity<?> getRecommendedEvents(@PathVariable Long partnershipId) {
+        try {
+            // Appeler le service Python Flask
+            String pythonServiceUrl = "http://localhost:5000/api/recommendations/" + partnershipId;
+
+            RestTemplate restTemplate = new RestTemplate();
+            ResponseEntity<Map> response = restTemplate.getForEntity(pythonServiceUrl, Map.class);
+
+            if (response.getStatusCode() == HttpStatus.OK) {
+                Map<String, Object> body = response.getBody();
+                return ResponseEntity.ok(body.get("recommendations"));
+            } else {
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                        .body("Error getting recommendations from AI service");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Error: " + e.getMessage());
         }
     }
 

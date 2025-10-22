@@ -26,9 +26,17 @@ export class PartnershipService {
   constructor(private http: HttpClient) { }
 
   // 🔹 Créer un nouveau partenaire
-  create(partnership: Partnership): Observable<Partnership> {
-    return this.http.post<Partnership>(this.baseUrl, partnership);
-  }
+create(partnership: any): Observable<any> {
+return this.http.post(
+  this.baseUrl,
+  partnership,
+  { headers: { 'Content-Type': 'application/json' } } // obligatoire
+);
+}
+
+
+
+
 
   // 🔹 Récupérer tous les partenaires
   getAll(): Observable<Partnership[]> {
@@ -50,8 +58,13 @@ export class PartnershipService {
     return this.http.delete<void>(`${this.baseUrl}/${id}`);
   }
 
-  // 🔹 Optionnel : Affecter un partenaire à un événement
-  assignToEvent(partnershipId: number, eventId: number): Observable<Partnership> {
-    return this.http.post<Partnership>(`${this.baseUrl}/${partnershipId}/assign/${eventId}`, {});
+assignToEvent(partnershipId: number, eventId: number): Observable<any> {
+  return this.http.post<any>(`${this.baseUrl}/${partnershipId}/assign-event/${eventId}`, {});
+}
+
+
+    // 🔹 Nouvelle méthode : Obtenir les recommandations d'événements pour un partenaire
+  getRecommendedEvents(partnershipId: number): Observable<Event[]> {
+    return this.http.get<Event[]>(`${this.baseUrl}/${partnershipId}/recommended-events`);
   }
 }

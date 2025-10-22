@@ -1,6 +1,7 @@
 package com.example.eventeaseines.Entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -40,7 +41,9 @@ public class Partnership {
 
     @ManyToMany(mappedBy = "partnerships")
     @JsonBackReference
+    @JsonIgnore
     private Set<Event> events = new HashSet<>();
+
 
 
     @PrePersist
