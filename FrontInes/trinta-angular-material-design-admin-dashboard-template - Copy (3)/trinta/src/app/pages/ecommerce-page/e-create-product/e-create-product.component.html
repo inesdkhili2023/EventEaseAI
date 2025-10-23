@@ -1,64 +1,207 @@
-<mat-card class="trinta-card add-partnership-card mb-25 bg-white border-none d-block">
-  <mat-card-header>
-    <mat-card-title>
-      <h5>Ajouter un sponsor / partenaire</h5>
-    </mat-card-title>
-  </mat-card-header>
+<div class="partnership-form-container">
+  <div class="form-wrapper">
+    
+    <!-- Header avec gradient -->
+    <div class="form-header">
+      <div class="header-icon">
+        <i-feather name="users" class="icon-large"></i-feather>
+      </div>
+      <h1>Nouveau Partenariat</h1>
+      <p>Ajoutez un sponsor ou partenaire stratégique</p>
+    </div>
 
-  <mat-card-content>
-    <form (ngSubmit)="createPartnership()">
-      <div class="row">
-        <div class="col-lg-12">
-          <label class="label d-block fw-medium mb-10">Nom du partenaire</label>
-          <mat-form-field>
-            <i-feather name="edit-3"></i-feather>
-            <mat-label>Nom</mat-label>
-            <input matInput [(ngModel)]="partnership.name" name="name" required>
-          </mat-form-field>
+    <!-- Formulaire moderne -->
+    <mat-card class="modern-card">
+      <form (ngSubmit)="createPartnership()">
+        
+        <!-- Section 1: Informations principales -->
+        <div class="form-section">
+          <div class="section-header">
+            <i-feather name="briefcase"></i-feather>
+            <h3>Informations Générales</h3>
+          </div>
+
+          <div class="row g-4">
+            <div class="col-lg-12">
+              <div class="modern-field">
+                <label class="modern-label">
+                  <i-feather name="edit-3"></i-feather>
+                  Nom du Partenaire
+                </label>
+                <mat-form-field appearance="outline" class="full-width">
+                  <input matInput 
+                         [(ngModel)]="partnership.name" 
+                         name="name" 
+                         placeholder="Ex: Coca-Cola, Microsoft..."
+                         required>
+                  <mat-icon matPrefix>business</mat-icon>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="modern-field">
+                <label class="modern-label">
+                  <i-feather name="tag"></i-feather>
+                  Type de Partenariat
+                </label>
+                <!-- CHAMP NORMAL POUR ÉCRIRE -->
+                <mat-form-field appearance="outline" class="full-width">
+                  <input matInput 
+                         [(ngModel)]="partnership.type" 
+                         name="type"
+                         placeholder="Ex: Sponsor, Partenaire Commercial..."
+                         required>
+                  <mat-icon matPrefix>category</mat-icon>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="modern-field">
+                <label class="modern-label">
+                  <i-feather name="dollar-sign"></i-feather>
+                  Valeur du Contrat
+                </label>
+                <mat-form-field appearance="outline" class="full-width">
+                  <input matInput 
+                         type="number" 
+                         [(ngModel)]="partnership.contractValue" 
+                         name="contractValue"
+                         placeholder="0.00"
+                         required>
+                  <span matPrefix>DT&nbsp;</span>
+                  <mat-icon matSuffix>attach_money</mat-icon>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="col-lg-12">
+              <div class="modern-field">
+                <label class="modern-label">
+                  <i-feather name="file-text"></i-feather>
+                  Description
+                </label>
+                <!-- CHAMP TEXTAREA NORMAL -->
+                <mat-form-field appearance="outline" class="full-width">
+                  <textarea matInput 
+                            [(ngModel)]="partnership.description" 
+                            name="description"
+                            placeholder="Décrivez les détails du partenariat..."
+                            rows="5"></textarea>
+                  <mat-icon matPrefix>description</mat-icon>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="col-lg-12">
-          <label class="label d-block fw-medium mb-10">Description</label>
-          <ngx-editor-menu [editor]="editor" [toolbar]="toolbar"></ngx-editor-menu>
-          <ngx-editor [(ngModel)]="html" [editor]="editor" name="description"></ngx-editor>
-        </div>
-
-        <div class="col-lg-6">
-          <label class="label d-block fw-medium mb-10">Valeur du contrat</label>
-          <mat-form-field>
-            <i-feather name="dollar-sign"></i-feather>
-            <mat-label>Montant</mat-label>
-            <input matInput type="number" [(ngModel)]="partnership.contractValue" name="contractValue" required>
-          </mat-form-field>
-        </div>
-
-        <div class="col-lg-6">
-          <label class="label d-block fw-medium mb-10">Dates du contrat</label>
-          <mat-form-field>
+        <!-- Section 2: Dates -->
+        <div class="form-section">
+          <div class="section-header">
             <i-feather name="calendar"></i-feather>
-            <mat-label>Date de début</mat-label>
-            <input matInput [matDatepicker]="startPicker" [(ngModel)]="partnership.startDate" name="startDate">
-            <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
-            <mat-datepicker #startPicker></mat-datepicker>
-          </mat-form-field>
+            <h3>Période du Contrat</h3>
+          </div>
 
-          <mat-form-field>
-            <mat-label>Date de fin</mat-label>
-            <input matInput [matDatepicker]="endPicker" [(ngModel)]="partnership.endDate" name="endDate">
-            <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
-            <mat-datepicker #endPicker></mat-datepicker>
-          </mat-form-field>
+          <div class="row g-4">
+            <div class="col-lg-6">
+              <div class="modern-field">
+                <label class="modern-label">
+                  <i-feather name="calendar"></i-feather>
+                  Date de Début
+                </label>
+                <mat-form-field appearance="outline" class="full-width">
+                  <input matInput 
+                         [matDatepicker]="startPicker" 
+                         [(ngModel)]="partnership.startDate" 
+                         name="startDate"
+                         placeholder="Choisir une date"
+                         required>
+                  <mat-datepicker-toggle matSuffix [for]="startPicker">
+                    <mat-icon matDatepickerToggleIcon>event</mat-icon>
+                  </mat-datepicker-toggle>
+                  <mat-datepicker #startPicker></mat-datepicker>
+                  <mat-icon matPrefix>event</mat-icon>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="modern-field">
+                <label class="modern-label">
+                  <i-feather name="calendar"></i-feather>
+                  Date de Fin
+                </label>
+                <mat-form-field appearance="outline" class="full-width">
+                  <input matInput 
+                         [matDatepicker]="endPicker" 
+                         [(ngModel)]="partnership.endDate" 
+                         name="endDate"
+                         placeholder="Choisir une date"
+                         required>
+                  <mat-datepicker-toggle matSuffix [for]="endPicker">
+                    <mat-icon matDatepickerToggleIcon>event</mat-icon>
+                  </mat-datepicker-toggle>
+                  <mat-datepicker #endPicker></mat-datepicker>
+                  <mat-icon matPrefix>event_available</mat-icon>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="col-lg-12">
-          <label class="label d-block fw-medium mb-10">Images du partenaire</label>
-          <file-upload (onSelectFiles)="uploadImages($event)" class="file-uploader"></file-upload>
-        </div>
-      </div>
+        <!-- Section 3: Images -->
+        <div class="form-section">
+          <div class="section-header">
+            <i-feather name="image"></i-feather>
+            <h3>Logo & Images</h3>
+          </div>
 
-      <div class="create-partnership-btn mt-3">
-        <button mat-raised-button color="primary" type="submit">Créer le partenaire</button>
-      </div>
-    </form>
-  </mat-card-content>
-</mat-card>
+          <div class="upload-zone">
+            <file-upload (onSelectFiles)="uploadImages($event)" class="modern-uploader">
+              <div class="upload-content">
+                <i-feather name="upload-cloud" class="upload-icon"></i-feather>
+                <h4>Glissez-déposez ou cliquez</h4>
+                <p>PNG, JPG jusqu'à 10MB</p>
+              </div>
+            </file-upload>
+          </div>
+        </div>
+
+        <!-- Section 4: Statut - CHECKBOX -->
+        <div class="form-section">
+          <div class="section-header">
+            <i-feather name="check-circle"></i-feather>
+            <h3>Statut</h3>
+          </div>
+
+          <div class="status-checkbox">
+            <mat-checkbox 
+              [(ngModel)]="partnership.active" 
+              name="active"
+              color="primary"
+              class="modern-checkbox">
+              <span class="checkbox-label">
+                <mat-icon>{{ partnership.active ? 'check_circle' : 'cancel' }}</mat-icon>
+                {{ partnership.active ? 'Partenariat Actif' : 'Partenariat Inactif' }}
+              </span>
+            </mat-checkbox>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="form-actions">
+          <button mat-stroked-button type="button" class="btn-cancel">
+            <mat-icon>close</mat-icon>
+            Annuler
+          </button>
+          <button mat-raised-button color="primary" type="submit" class="btn-submit">
+            <mat-icon>check</mat-icon>
+            Créer le Partenariat
+          </button>
+        </div>
+
+      </form>
+    </mat-card>
+  </div>
+</div>

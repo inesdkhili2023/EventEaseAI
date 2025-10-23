@@ -14,6 +14,7 @@ import { FileUploadModule } from '@iplab/ngx-file-upload';
 import { MatSelectModule } from '@angular/material/select';
 import { PartnershipService } from '../../../services/partnership.service';
 import { Partnership } from '../../../models/partnership.model';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-create-partnership',
@@ -31,6 +32,7 @@ import { Partnership } from '../../../models/partnership.model';
     MatDatepickerModule,
     FileUploadModule,
     MatSelectModule,
+     MatIconModule
   ],
   providers: [provideNativeDateAdapter()],
   templateUrl: './e-create-product.component.html',
