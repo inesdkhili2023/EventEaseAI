@@ -102,6 +102,28 @@
               </ng-container>
             </td>
           </ng-container>
+
+          <!-- Fraud Score Column -->
+  <ng-container matColumnDef="fraud">
+  <th mat-header-cell *matHeaderCellDef>Fraud Score</th>
+  <td mat-cell *matCellDef="let event; let i = index">
+    <ng-container *ngIf="fraudScores[i]; else loading">
+      <span [ngStyle]="{
+              color: fraudScores[i].fraud_score >= 0.7 ? 'red' :
+                     fraudScores[i].fraud_score >= 0.4 ? 'orange' : 'green',
+              fontWeight: 'bold'
+            }">
+        {{ (fraudScores[i].fraud_score * 100) | number:'1.0-0' }}%
+        <span *ngIf="fraudScores[i]">⚠️</span>
+        <span *ngIf="!fraudScores[i]">✅</span>
+      </span>
+    </ng-container>
+    <ng-template #loading>
+      <span style="color:gray; font-style: italic;">Loading...</span>
+    </ng-template>
+  </td>
+</ng-container>
+
           <!-- Action Column -->
 <ng-container matColumnDef="action">
   <th mat-header-cell *matHeaderCellDef class="text-end">Action</th>

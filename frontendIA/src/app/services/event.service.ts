@@ -71,4 +71,13 @@ export interface Event {
   organizerId: number;
   images: string[];
   price: number;
+  partnerships?: Partnership[]; // 🔹 Added for ManyToMany relation
+
+  fraud_score?: number; // 🔹 Ajouté ici
+
+}
+export interface Partnership {
+  id: number;
+  name: string;
+  logoUrl?: string; // optional, if you have a logo or other details
 }

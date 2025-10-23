@@ -105,6 +105,11 @@
                                 </h4>
                             </div>
                         </div>
+                        <div *ngFor="let p of event?.partnerships || []">
+  <span>{{ p.name }}</span>
+  <img *ngIf="p.logoUrl" [src]="p.logoUrl" alt="{{p.name}}" width="30">
+</div>
+
                       <!-- <div class="box d-flex align-items-center">
                             <div class="icon d-flex align-items-center justify-content-center rounded-circle text-white">
                                 <i-feather name="check-circle"></i-feather>

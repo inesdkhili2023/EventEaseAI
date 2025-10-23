@@ -8,11 +8,12 @@ import { RouterLink } from '@angular/router';
 import { LeadsStaticsComponent } from './leads-statics/leads-statics.component';
 import { StatsComponent } from './stats/stats.component';
 import { NgIf } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
     selector: 'app-c-leads',
     standalone: true,
-    imports: [LeadsStaticsComponent, StatsComponent, RouterLink, MatCardModule, MatButtonModule, MatMenuModule, MatPaginatorModule, MatTableModule, NgIf],
+    imports: [MatIconModule,LeadsStaticsComponent, StatsComponent, RouterLink, MatCardModule, MatButtonModule, MatMenuModule, MatPaginatorModule, MatTableModule, NgIf],
     templateUrl: './c-leads.component.html',
     styleUrl: './c-leads.component.scss'
 })

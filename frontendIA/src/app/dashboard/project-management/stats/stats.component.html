@@ -8,10 +8,10 @@
                     <i-feather name="layers"></i-feather>
                 </div>
                 <span class="d-block text-gray">
-                    Total Projects
+                    Total Events
                 </span>
                 <h5>
-                    4,258
+                    {{totalEvents}}
                 </h5>
                 <div class="info d-flex align-items-center justify-content-between">
                     <span class="d-block text-body">
@@ -24,6 +24,7 @@
             </mat-card-content>
         </mat-card>
     </div>
+    
     <div class="col-xxxl-2 col-sm-6 col-md-4">
         <mat-card
             class="trinta-card pm-stat-card mb-25 bg-white border-none d-block text-center"
@@ -33,10 +34,10 @@
                     <i-feather name="pie-chart"></i-feather>
                 </div>
                 <span class="d-block text-gray">
-                    Active Projects
+                    Upcoming Events
                 </span>
                 <h5>
-                    58
+                    {{upcomingEvents}}
                 </h5>
                 <div class="info d-flex align-items-center justify-content-between">
                     <span class="d-block text-body">
@@ -58,10 +59,10 @@
                     <i-feather name="clock"></i-feather>
                 </div>
                 <span class="d-block text-gray">
-                    Hours Spent
+                    Past Events
                 </span>
                 <h5>
-                    271h 30m
+                    {{pastEvents}}
                 </h5>
                 <div class="info d-flex align-items-center justify-content-between">
                     <span class="d-block text-body">
@@ -74,6 +75,40 @@
             </mat-card-content>
         </mat-card>
     </div>
+
+<div class="col-xxxl-2 col-sm-6 col-md-4">
+  <mat-card class="trinta-card pm-stat-card mb-25 bg-white border-none d-block text-center">
+    <mat-card-content>
+      <!-- Icon -->
+      <div class="icon d-flex align-items-center justify-content-center ml-auto mr-auto">
+        <i-feather name="dollar-sign"></i-feather>
+      </div>
+
+      <!-- Label -->
+      <span class="d-block text-gray">
+        Average Price
+      </span>
+
+      <!-- Value -->
+      <h5>
+        {{ averagePrice | number:'1.0-2' }} DT
+      </h5>
+
+      <!-- Optional info / trending -->
+      <div class="info d-flex align-items-center justify-content-between">
+        <span class="d-block text-body">
+          This Month
+        </span>
+        <span class="trending d-block text-body position-relative">
+          2.5% <i class="material-symbols-outlined">trending_up</i>
+        </span>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+
+
     <div class="col-xxxl-2 col-sm-6 col-md-4">
         <mat-card
             class="trinta-card pm-stat-card mb-25 bg-white border-none d-block text-center"

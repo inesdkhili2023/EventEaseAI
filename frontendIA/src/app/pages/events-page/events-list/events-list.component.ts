@@ -9,11 +9,13 @@ import { Event, EventService } from '../../../services/event.service';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
+import { FraudResult, FraudService } from '../../../services/fraud.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-events-list',
   standalone: true,
-  providers: [EventService],
+  providers: [EventService, FraudService],
   imports: [
     CommonModule,
     FormsModule,
@@ -24,6 +26,8 @@ import { FormsModule } from '@angular/forms';
     MatTableModule,
     MatPaginatorModule,
     MatIconModule,
+    HttpClientModule
+
   ],
   templateUrl: './events-list.component.html',
   styleUrl: './events-list.component.scss'
@@ -31,16 +35,17 @@ import { FormsModule } from '@angular/forms';
 export class EventsListComponent implements OnInit {
   displayedColumns: string[] = [
     'title', 'category', 'location', 'address', 'startDate',
-    'endDate', 'capacity', 'price', 'images', 'action'
+    'endDate', 'capacity', 'price', 'images','fraud', 'action'
   ];
 
   dataSource = new MatTableDataSource<Event>();
   events: Event[] = []; // 🔹 Liste complète des événements
   searchQuery: string = ''; // 🔹 Pour la recherche
-
+  fraudScores: { [key: number]: FraudResult} = {};
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private eventService: EventService, private router: Router) {}
+  constructor(private eventService: EventService, private router: Router,private fraudService: FraudService, private http:HttpClient
+) {}
 
   ngOnInit(): void {
     this.loadEvents();
@@ -51,15 +56,28 @@ export class EventsListComponent implements OnInit {
   }
 
   loadEvents(): void {
-    this.eventService.getEvents().subscribe({
-      next: (events) => {
-        this.events = events;
-        this.dataSource.data = events;
-        this.dataSource.paginator = this.paginator;
-      },
-      error: (err) => console.error('Error loading events:', err)
+  this.eventService.getEvents().subscribe({
+    next: (events) => {
+      this.events = events;
+      this.dataSource.data = events;
+      this.dataSource.paginator = this.paginator;
+
+      // Call fraud service for each event
+     this.events.forEach((event, i) => {
+  this.http.get<any[]>('http://localhost:8090/api/events').subscribe(events => {
+      this.events = events;
+      this.fraudService.checkFraudForEvents(this.events).subscribe(scores => {
+        this.fraudScores = scores;
+      });
     });
-  }
+  });
+    },
+    error: (err) => {
+      console.error('Error loading events', err);
+    }
+  });   
+}
+
 
   // 🔹 Barre de recherche
   applyFilter(): void {

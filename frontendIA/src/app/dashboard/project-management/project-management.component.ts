@@ -15,7 +15,7 @@ import { HttpClientModule } from '@angular/common/http'; // <-- obligatoire
     selector: 'app-project-management',
     standalone: true,
     providers:[EventService],
-    imports: [CommonModule,StatsComponent,HttpClientModule, AllProjectsComponent, ToDoListComponent, IssuesSummaryComponent, TasksPerformanceComponent, TasksOverviewComponent, CalendarComponent],
+    imports: [CommonModule, StatsComponent, HttpClientModule, AllProjectsComponent, ToDoListComponent, IssuesSummaryComponent, TasksPerformanceComponent, TasksOverviewComponent, CalendarComponent, EventsListComponent],
     templateUrl: './project-management.component.html',
     styleUrl: './project-management.component.scss'
 })
