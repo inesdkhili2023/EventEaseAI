@@ -103,24 +103,54 @@
             </td>
           </ng-container>
 
-          <!-- Fraud Score Column -->
-  <ng-container matColumnDef="fraud">
+<!-- Fraud Score Column -->
+<ng-container matColumnDef="fraud">
   <th mat-header-cell *matHeaderCellDef>Fraud Score</th>
   <td mat-cell *matCellDef="let event; let i = index">
-    <ng-container *ngIf="fraudScores[i]; else loading">
-      <span [ngStyle]="{
-              color: fraudScores[i].fraud_score >= 0.7 ? 'red' :
-                     fraudScores[i].fraud_score >= 0.4 ? 'orange' : 'green',
-              fontWeight: 'bold'
-            }">
+    
+    <!-- Bouton Calculer -->
+    <button 
+      *ngIf="shouldShowButton(i)" 
+      mat-raised-button 
+      color="primary" 
+      (click)="calculateFraudScore(i, event)"
+      class="calculate-btn">
+      <mat-icon>psychology</mat-icon>
+      Calculer avec IA
+    </button>
+    
+    <!-- Animation Loading IA -->
+    <div *ngIf="isLoading(i)" class="ai-loading">
+      <div class="ai-brain">
+        <mat-icon class="brain-icon">psychology</mat-icon>
+        <div class="pulse-ring"></div>
+        <div class="pulse-ring delay-1"></div>
+        <div class="pulse-ring delay-2"></div>
+      </div>
+      <span class="loading-text">Analyse IA en cours</span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    
+    <!-- Score calculé avec animation -->
+    <div *ngIf="hasScore(i)" class="score-result">
+      <span 
+        class="score-badge"
+        [ngClass]="{
+          'score-high': fraudScores[i].fraud_score >= 0.7,
+          'score-medium': fraudScores[i].fraud_score >= 0.4 && fraudScores[i].fraud_score < 0.7,
+          'score-low': fraudScores[i].fraud_score < 0.4
+        }">
+        <mat-icon class="score-icon">
+          {{ fraudScores[i].fraud_score >= 0.7 ? 'warning' : 
+             fraudScores[i].fraud_score >= 0.4 ? 'error_outline' : 'check_circle' }}
+        </mat-icon>
         {{ (fraudScores[i].fraud_score * 100) | number:'1.0-0' }}%
-        <span *ngIf="fraudScores[i]">⚠️</span>
-        <span *ngIf="!fraudScores[i]">✅</span>
       </span>
-    </ng-container>
-    <ng-template #loading>
-      <span style="color:gray; font-style: italic;">Loading...</span>
-    </ng-template>
+    </div>
   </td>
 </ng-container>
 

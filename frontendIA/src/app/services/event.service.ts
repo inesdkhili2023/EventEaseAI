@@ -79,5 +79,5 @@ export interface Event {
 export interface Partnership {
   id: number;
   name: string;
-  logoUrl?: string; // optional, if you have a logo or other details
+  imageUrl?: string; // optional, if you have a logo or other details
 }

@@ -106,9 +106,13 @@
                                 </h4>
                             </div>
                         </div>
+                        
                         <div *ngFor="let p of event?.partnerships || []">
+                            <span class="d-block text-gray">
+                                    Partnership
+                                </span>
   <span>{{ p.name }}</span>
-  <img *ngIf="p.logoUrl" [src]="p.logoUrl" alt="{{p.name}}" width="30">
+  <img *ngIf="p.imageUrl" [src]="p.imageUrl" alt="{{p.name}}" width="30">
 </div>
 
                       <!-- <div class="box d-flex align-items-center">

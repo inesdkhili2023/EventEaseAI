@@ -103,9 +103,9 @@ export class SignInComponent implements OnInit, OnDestroy {
         localStorage.removeItem('userEmail');
       }
 
-      this.showMessage(`Welcome back, ${user.email}!`, 'success');
+      this.showMessage(`Welcome back, ${user.user_email}!`, 'success');
       await this.redirectByRole(user.user_role);
-    console.log('User after login:', user.role);
+    console.log('User after login:', user);
 
     } catch (error: any) {
       console.error('Sign in error:', error);

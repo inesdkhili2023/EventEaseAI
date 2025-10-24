@@ -207,6 +207,12 @@
                         </ul>
                 </mat-menu>
             </li>
+<!-- Sign In button (only if no user is connected) -->
+<li *ngIf="!connectedUser">
+  <button mat-raised-button color="primary" routerLink="/authentication/login">
+    Sign In
+  </button>
+</li>
             <li>
                 <button mat-button [matMenuTriggerFor]="profileMenu" class="profile-menu-btn">
                     <img src="assets/images/admin.jpg" class="rounded-circle" alt="admin-image">

@@ -39,13 +39,19 @@ export class EventsListComponent implements OnInit {
   ];
 
   dataSource = new MatTableDataSource<Event>();
-  events: Event[] = []; // 🔹 Liste complète des événements
-  searchQuery: string = ''; // 🔹 Pour la recherche
-  fraudScores: { [key: number]: FraudResult} = {};
+  events: Event[] = [];
+  searchQuery: string = '';
+  fraudScores: { [key: number]: FraudResult } = {}; // 🔹 Initialisé comme objet vide
+  loadingScores: { [key: number]: boolean } = {}; // 🔹 État de chargement séparé
+  
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private eventService: EventService, private router: Router,private fraudService: FraudService, private http:HttpClient
-) {}
+  constructor(
+    private eventService: EventService, 
+    private router: Router,
+    private fraudService: FraudService, 
+    private http: HttpClient
+  ) {}
 
   ngOnInit(): void {
     this.loadEvents();
@@ -56,37 +62,62 @@ export class EventsListComponent implements OnInit {
   }
 
   loadEvents(): void {
-  this.eventService.getEvents().subscribe({
-    next: (events) => {
-      this.events = events;
-      this.dataSource.data = events;
-      this.dataSource.paginator = this.paginator;
+    this.eventService.getEvents().subscribe({
+      next: (events) => {
+        this.events = events;
+        this.dataSource.data = events;
+        this.dataSource.paginator = this.paginator;
+        console.log('Events loaded:', events.length); // 🔹 Debug
+      },
+      error: (err) => {
+        console.error('Error loading events', err);
+      }
+    });   
+  }
 
-      // Call fraud service for each event
-     this.events.forEach((event, i) => {
-  this.http.get<any[]>('http://localhost:8090/api/events').subscribe(events => {
-      this.events = events;
-      this.fraudService.checkFraudForEvents(this.events).subscribe(scores => {
-        this.fraudScores = scores;
-      });
+  // 🔹 Méthode pour vérifier si le bouton doit s'afficher
+  shouldShowButton(index: number): boolean {
+    return !this.fraudScores[index] && !this.loadingScores[index];
+  }
+
+  // 🔹 Méthode pour vérifier si on doit afficher le loading
+  isLoading(index: number): boolean {
+    return this.loadingScores[index] === true;
+  }
+
+  // 🔹 Méthode pour vérifier si on doit afficher le score
+  hasScore(index: number): boolean {
+    return !!this.fraudScores[index] && !this.loadingScores[index];
+  }
+
+  calculateFraudScore(index: number, event: Event): void {
+    console.log('Calculating fraud score for index:', index, event); // 🔹 Debug
+    
+    // Mettre l'état en "loading"
+    this.loadingScores[index] = true;
+    
+    this.fraudService.checkFraudForEvents([event]).subscribe({
+      next: (scores) => {
+        console.log('Fraud scores received:', scores); // 🔹 Debug
+        if (scores[0]) {
+          this.fraudScores[index] = scores[0];
+        }
+        this.loadingScores[index] = false;
+      },
+      error: (error) => {
+        console.error('Erreur lors du calcul du fraud score:', error);
+        this.loadingScores[index] = false;
+      }
     });
-  });
-    },
-    error: (err) => {
-      console.error('Error loading events', err);
-    }
-  });   
-}
+  }
 
-
-  // 🔹 Barre de recherche
   applyFilter(): void {
     this.dataSource.filter = this.searchQuery.trim().toLowerCase();
   }
 
   clearAll(): void {
     this.searchQuery = '';
-    this.dataSource.filter = ''; // réinitialise le filtre
+    this.dataSource.filter = '';
   }
 
   editEvent(event: Event): void {
@@ -94,7 +125,13 @@ export class EventsListComponent implements OnInit {
   }
 
   deleteEvent(event: Event) {
-    console.log('Delete event', event);
+    this.eventService.deleteEvent(event.id).subscribe({
+      next: () => {
+        this.events = this.events.filter(e => e.id !== event.id);
+        this.dataSource.data = this.events;
+      },
+      error: (err) => console.error('Error deleting event', err)
+    });
   }
 }
 
