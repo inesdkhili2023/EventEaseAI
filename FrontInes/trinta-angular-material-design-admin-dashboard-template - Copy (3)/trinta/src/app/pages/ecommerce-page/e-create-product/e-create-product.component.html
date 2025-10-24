@@ -75,24 +75,24 @@
                 </mat-form-field>
               </div>
             </div>
-
-            <div class="col-lg-12">
-              <div class="modern-field">
-                <label class="modern-label">
-                  <i-feather name="file-text"></i-feather>
-                  Description
-                </label>
-                <!-- CHAMP TEXTAREA NORMAL -->
-                <mat-form-field appearance="outline" class="full-width">
-                  <textarea matInput 
-                            [(ngModel)]="partnership.description" 
-                            name="description"
-                            placeholder="Décrivez les détails du partenariat..."
-                            rows="5"></textarea>
-                  <mat-icon matPrefix>description</mat-icon>
-                </mat-form-field>
-              </div>
-            </div>
+<div class="col-lg-12">
+  <div class="modern-field">
+    <label class="modern-label">
+      <i-feather name="file-text"></i-feather>
+      Description
+    </label>
+    <!-- TEXTAREA SIMPLE -->
+    <mat-form-field appearance="outline" class="full-width">
+      <textarea matInput 
+                [(ngModel)]="partnership.description" 
+                name="description"
+                placeholder="Décrivez les détails du partenariat..."
+                rows="6"
+                required></textarea>
+      <mat-icon matPrefix>description</mat-icon>
+    </mat-form-field>
+  </div>
+</div>
           </div>
         </div>
 
@@ -158,13 +158,14 @@
           </div>
 
           <div class="upload-zone">
-            <file-upload (onSelectFiles)="uploadImages($event)" class="modern-uploader">
-              <div class="upload-content">
-                <i-feather name="upload-cloud" class="upload-icon"></i-feather>
-                <h4>Glissez-déposez ou cliquez</h4>
-                <p>PNG, JPG jusqu'à 10MB</p>
-              </div>
-            </file-upload>
+<input type="file" 
+       (change)="onFileSelected($event)" 
+       accept="image/png, image/jpeg" 
+       required>
+<img *ngIf="previewImage" [src]="previewImage" alt="Preview" width="150">
+
+
+            
           </div>
         </div>
 
@@ -190,16 +191,25 @@
         </div>
 
         <!-- Actions -->
-        <div class="form-actions">
-          <button mat-stroked-button type="button" class="btn-cancel">
-            <mat-icon>close</mat-icon>
-            Annuler
-          </button>
-          <button mat-raised-button color="primary" type="submit" class="btn-submit">
-            <mat-icon>check</mat-icon>
-            Créer le Partenariat
-          </button>
-        </div>
+<!-- Dans les form-actions -->
+<div class="form-actions">
+  <button mat-stroked-button 
+          type="button" 
+          class="btn-cancel" 
+          (click)="onCancel()"
+          [disabled]="isSubmitting">
+    <mat-icon>close</mat-icon>
+    Annuler
+  </button>
+  <button mat-raised-button 
+          color="primary" 
+          type="submit" 
+          class="btn-submit"
+          [disabled]="isSubmitting">
+    <mat-icon>{{ isSubmitting ? 'hourglass_empty' : 'check' }}</mat-icon>
+    {{ isSubmitting ? 'Création en cours...' : 'Créer le Partenariat' }}
+  </button>
+</div>
 
       </form>
     </mat-card>

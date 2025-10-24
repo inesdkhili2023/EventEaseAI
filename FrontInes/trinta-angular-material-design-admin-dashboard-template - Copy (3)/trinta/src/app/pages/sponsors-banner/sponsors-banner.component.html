@@ -8,15 +8,17 @@
     <div class="sponsors-track" [style.animation-duration]="animationDuration">
       <!-- Premier set de logos -->
       <div class="sponsor-item" *ngFor="let sponsor of activeSponsors">
-        <img [src]="sponsor.images?.[0] || 'assets/images/default-sponsor.png'" 
+        <img [src]="getImageUrl(sponsor)" 
              [alt]="sponsor.name"
-             [title]="sponsor.name">
+             [title]="sponsor.name"
+             (error)="onImageError($event)">
       </div>
       <!-- Dupliquer pour l'effet infini -->
       <div class="sponsor-item" *ngFor="let sponsor of activeSponsors">
-        <img [src]="sponsor.images?.[0] || 'assets/images/default-sponsor.png'" 
+        <img [src]="getImageUrl(sponsor)" 
              [alt]="sponsor.name"
-             [title]="sponsor.name">
+             [title]="sponsor.name"
+             (error)="onImageError($event)">
       </div>
     </div>
   </div>

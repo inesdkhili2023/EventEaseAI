@@ -27,10 +27,8 @@ public class Partnership {
     private Date startDate;
     private Date endDate;
     private Boolean active;
-    @ElementCollection
-    @CollectionTable(name = "partnership_images", joinColumns = @JoinColumn(name = "partnership_id"))
-    @Column(name = "image_url")
-    private List<String> images = new ArrayList<>();
+    private String imageUrl;
+
 
 
     @Temporal(TemporalType.TIMESTAMP)

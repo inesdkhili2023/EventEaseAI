@@ -439,3 +439,46 @@
     }
   }
 }
+// Styles pour les Snackbars
+.snackbar-success {
+  background-color: #4caf50 !important;
+  color: white !important;
+  
+  .mat-mdc-snack-bar-label {
+    color: white !important;
+  }
+  
+  .mat-mdc-button {
+    color: white !important;
+  }
+}
+
+.snackbar-error {
+  background-color: #f44336 !important;
+  color: white !important;
+  white-space: pre-line !important; // Pour afficher les \n
+  
+  .mat-mdc-snack-bar-label {
+    color: white !important;
+  }
+  
+  .mat-mdc-button {
+    color: white !important;
+  }
+}
+
+.snackbar-info {
+  background-color: #2196f3 !important;
+  color: white !important;
+  
+  .mat-mdc-snack-bar-label {
+    color: white !important;
+  }
+}
+.preview-img {
+  max-width: 200px;
+  max-height: 200px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-top: 10px;
+}

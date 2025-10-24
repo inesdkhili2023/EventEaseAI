@@ -66,6 +66,7 @@ export class ESellersComponent implements OnInit {
     partnerships: Partnership[] = [];
     isLoading = false;
     selectedPartnership: Partnership | null = null;
+    private backendUrl = 'http://localhost:8081'; // ✅ URL du backend
 
     constructor(
         private partnershipService: PartnershipService,
@@ -83,7 +84,11 @@ export class ESellersComponent implements OnInit {
         this.isLoading = true;
         this.partnershipService.getAll().subscribe({
             next: (data) => {
-                this.partnerships = data;
+                // ✅ Mapper les données pour convertir image_url en imageUrl
+                this.partnerships = data.map(p => ({
+                    ...p,
+                    imageUrl: (p as any).image_url || p.imageUrl || null
+                }));
                 this.isLoading = false;
             },
             error: (error) => {
@@ -212,12 +217,51 @@ export class ESellersComponent implements OnInit {
     calculateTotalValue(): number {
         return this.partnerships.reduce((sum, p) => sum + (p.contractValue || 0), 0);
     }
-            getActivePartnerships(): number {
+            
+    getActivePartnerships(): number {
         return this.partnerships.filter(p => p.active).length;
     }
 
     getInactivePartnerships(): number {
         return this.partnerships.filter(p => !p.active).length;
+    }
+
+    // ✅ Nouvelle méthode utilitaire pour obtenir l'URL de l'image
+    getImageUrl(partnership: Partnership): string {
+        // Vérifier d'abord si l'objet a image_url (snake_case du backend)
+        const backendUrl = (partnership as any).image_url;
+        if (backendUrl && typeof backendUrl === 'string') {
+            // Si l'URL commence par /uploads, ajouter le baseUrl
+            if (backendUrl.startsWith('/uploads')) {
+                return this.backendUrl + backendUrl;
+            }
+            return backendUrl;
+        }
+        
+        // Si imageUrl est une chaîne directement
+        if (partnership.imageUrl && typeof partnership.imageUrl === 'string') {
+            if (partnership.imageUrl.startsWith('/uploads')) {
+                return this.backendUrl + partnership.imageUrl;
+            }
+            return partnership.imageUrl;
+        }
+        
+        // Si images est un tableau
+        if (partnership.images && partnership.images.length > 0) {
+            const imgUrl = partnership.images[0];
+            if (imgUrl.startsWith('/uploads')) {
+                return this.backendUrl + imgUrl;
+            }
+            return imgUrl;
+        }
+        
+        // Image par défaut si aucune image n'est disponible
+        return 'https://via.placeholder.com/400x200/667eea/ffffff?text=No+Image';
+    }
+    onImageError(event: any): void {
+        if (event.target) {
+            event.target.src = 'https://via.placeholder.com/400x200/667eea/ffffff?text=No+Image';
+        }
     }
 }
 
@@ -468,12 +512,16 @@ export class DeleteConfirmDialog {
 })
 export class EditPartnershipDialog {
     partnershipForm: FormGroup;
+    private backendUrl = 'http://localhost:8081'; // ✅ URL du backend
 
     constructor(
         public dialogRef: MatDialogRef<EditPartnershipDialog>,
         @Inject(MAT_DIALOG_DATA) public data: Partnership,
         private fb: FormBuilder
     ) {
+        // ✅ Correction : gérer imageUrl ou images
+        const imageUrlValue = this.getImageUrl(data);
+        
         this.partnershipForm = this.fb.group({
             name: [data.name, Validators.required],
             type: [data.type, Validators.required],
@@ -481,9 +529,36 @@ export class EditPartnershipDialog {
             contractValue: [data.contractValue, [Validators.required, Validators.min(0)]],
             startDate: [new Date(data.startDate), Validators.required],
             endDate: [new Date(data.endDate), Validators.required],
-            imageUrl: [data.images?.[0] || ''],
+            imageUrl: [imageUrlValue],
             active: [data.active]
         });
+    }
+
+    // ✅ Méthode utilitaire pour obtenir l'URL de l'image
+    getImageUrl(partnership: Partnership): string {
+        // Vérifier d'abord si l'objet a image_url (snake_case du backend)
+        const backendUrl = (partnership as any).image_url;
+        if (backendUrl && typeof backendUrl === 'string') {
+            if (backendUrl.startsWith('/uploads')) {
+                return this.backendUrl + backendUrl;
+            }
+            return backendUrl;
+        }
+        
+        if (partnership.imageUrl && typeof partnership.imageUrl === 'string') {
+            if (partnership.imageUrl.startsWith('/uploads')) {
+                return this.backendUrl + partnership.imageUrl;
+            }
+            return partnership.imageUrl;
+        }
+        if (partnership.images && partnership.images.length > 0) {
+            const imgUrl = partnership.images[0];
+            if (imgUrl.startsWith('/uploads')) {
+                return this.backendUrl + imgUrl;
+            }
+            return imgUrl;
+        }
+        return 'https://via.placeholder.com/400x200/667eea/ffffff?text=No+Image';
     }
 
     onCancel(): void {
@@ -501,7 +576,7 @@ export class EditPartnershipDialog {
                 startDate: formValue.startDate,
                 endDate: formValue.endDate,
                 active: formValue.active,
-                images: formValue.imageUrl ? [formValue.imageUrl] : []
+                imageUrl: formValue.imageUrl || ''
             };
             this.dialogRef.close(partnership);
         }
@@ -518,7 +593,7 @@ export class EditPartnershipDialog {
     template: `
         <div class="details-dialog">
             <div class="dialog-header">
-                <img [src]="data.images?.[0] || 'assets/images/default.png'" 
+                <img [src]="getImageUrl()" 
                      [alt]="data.name" 
                      class="header-image" />
                 <div class="header-overlay">
@@ -695,10 +770,39 @@ export class EditPartnershipDialog {
     `]
 })
 export class PartnershipDetailsDialog {
+    private backendUrl = 'http://localhost:8081'; // ✅ URL du backend
+
     constructor(
         public dialogRef: MatDialogRef<PartnershipDetailsDialog>,
         @Inject(MAT_DIALOG_DATA) public data: Partnership
     ) {}
+
+    // ✅ Méthode pour obtenir l'URL de l'image
+    getImageUrl(): string {
+        // Vérifier d'abord si l'objet a image_url (snake_case du backend)
+        const backendUrl = (this.data as any).image_url;
+        if (backendUrl && typeof backendUrl === 'string') {
+            if (backendUrl.startsWith('/uploads')) {
+                return this.backendUrl + backendUrl;
+            }
+            return backendUrl;
+        }
+        
+        if (this.data.imageUrl && typeof this.data.imageUrl === 'string') {
+            if (this.data.imageUrl.startsWith('/uploads')) {
+                return this.backendUrl + this.data.imageUrl;
+            }
+            return this.data.imageUrl;
+        }
+        if (this.data.images && this.data.images.length > 0) {
+            const imgUrl = this.data.images[0];
+            if (imgUrl.startsWith('/uploads')) {
+                return this.backendUrl + imgUrl;
+            }
+            return imgUrl;
+        }
+        return 'https://via.placeholder.com/700x200/667eea/ffffff?text=No+Image';
+    }
 
     onClose(): void {
         this.dialogRef.close();

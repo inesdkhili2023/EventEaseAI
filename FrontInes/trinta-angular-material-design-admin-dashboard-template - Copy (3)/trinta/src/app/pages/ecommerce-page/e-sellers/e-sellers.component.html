@@ -73,18 +73,20 @@
       <div class="partnership-card-wrapper" *ngFor="let partnership of partnerships">
         <mat-card class="partnership-card">
           <!-- Image Section -->
-          <div class="card-image-wrapper">
-            <img
-              [src]="partnership.images?.[0] || 'assets/images/default.png'"
-              [alt]="partnership.name"
-              class="card-image"
-            />
-            <div class="image-overlay">
-              <mat-chip [color]="getStatusColor(partnership.active)" selected>
-                <mat-icon>{{ partnership.active ? 'check_circle' : 'cancel' }}</mat-icon>
-                {{ partnership.active ? 'Actif' : 'Inactif' }}
-              </mat-chip>
-            </div>
+<!-- Image Section -->
+<div class="card-image-wrapper">
+  <img
+    [src]="getImageUrl(partnership)"
+    [alt]="partnership.name"
+    class="card-image"
+    (error)="onImageError($event)"
+  />
+  <div class="image-overlay">
+    <mat-chip [color]="getStatusColor(partnership.active)" selected>
+      <mat-icon>{{ partnership.active ? 'check_circle' : 'cancel' }}</mat-icon>
+      {{ partnership.active ? 'Actif' : 'Inactif' }}
+    </mat-chip>
+  </div>
             
             <!-- Quick Actions Overlay -->
             <div class="quick-actions">

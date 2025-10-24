@@ -13,6 +13,7 @@ export interface Partnership {
   endDate: Date;
   active: boolean;
   images?: string[];
+  imageUrl?: string;
 }
 
 @Injectable({
@@ -26,13 +27,11 @@ export class PartnershipService {
   constructor(private http: HttpClient) { }
 
   // 🔹 Créer un nouveau partenaire
-create(partnership: any): Observable<any> {
-return this.http.post(
-  this.baseUrl,
-  partnership,
-  { headers: { 'Content-Type': 'application/json' } } // obligatoire
-);
+create(partnership: FormData): Observable<any> {
+  // Angular gère automatiquement multipart/form-data
+  return this.http.post(this.baseUrl, partnership);
 }
+
 
 
 
