@@ -1,0 +1,193 @@
+.trinta-card {
+    &.issues-summary-card {
+        .mat-mdc-card-content {
+            .list {
+                li {
+                    padding-left: 24px;
+                    margin: {
+                        top: 6.5px;
+                        right: 45px;
+                    };
+                    .dot {
+                        left: 0;
+                        top: 2.5px;
+                        width: 12px;
+                        height: 12px;
+                        border-radius: 50%;
+                        position: absolute;
+                        background: #f0e5fc;
+
+                        &.closed {
+                            background: #c893fd;
+                        }
+                        &.new {
+                            background: var(--primaryColor);
+                        }
+                    }
+                    span {
+                        font-size: 13px;
+                        letter-spacing: 1px;
+                        margin-bottom: 10px;
+                    }
+                    h6 {
+                        letter-spacing: 1px;
+                        padding-left: 24px;
+                        margin-left: -24px;
+                        font-size: 20px;
+
+                        i {
+                            left: 0;
+                            top: 50%;
+                            color: #00b69b;
+                            margin-top: -1px;
+                            position: absolute;
+                            font-weight: normal;
+                            transform: translateY(-50%);
+                        }
+                        &.down {
+                            i {
+                                color: var(--dangerColor);
+                            }
+                        }
+                    }
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
+            }
+            .chart {
+                margin: {
+                    bottom: -25px;
+                    left: -15px;
+                };
+            }
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    .trinta-card {
+        &.issues-summary-card {
+            .mat-mdc-card-content {
+                .list {
+                    li {
+                        padding-left: 22px;
+                        margin: {
+                            top: 0;
+                            right: 0;
+                            bottom: 17px;
+                        };
+                        span {
+                            margin-bottom: 8px;
+                        }
+                        h6 {
+                            padding-left: 22px;
+                            margin-left: -22px;
+                            font-size: 16px;
+                        }
+                        &:last-child {
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width : 576px) and (max-width : 767px) {
+
+    .trinta-card {
+        &.issues-summary-card {
+            .mat-mdc-card-content {
+                .list {
+                    li {
+                        margin-right: 25px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+
+    .trinta-card {
+        &.issues-summary-card {
+            .mat-mdc-card-content {
+                .list {
+                    li {
+                        margin: {
+                            top: 6px;
+                            right: 35px;
+                        };
+                        h6 {
+                            font-size: 18px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width : 992px) and (max-width : 1199px) {
+
+    .trinta-card {
+        &.issues-summary-card {
+            .mat-mdc-card-content {
+                .list {
+                    li {
+                        margin-right: 25px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+
+    .trinta-card {
+        &.issues-summary-card {
+            .mat-mdc-card-content {
+                .list {
+                    li {
+                        margin-right: 20px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {
+
+    .trinta-card {
+        &.issues-summary-card {
+            .mat-mdc-card-content {
+                .list {
+                    li {
+                        margin: {
+                            top: 0;
+                            bottom: 0;
+                        };
+                    }
+                }
+            }
+        }
+    }
+
+}

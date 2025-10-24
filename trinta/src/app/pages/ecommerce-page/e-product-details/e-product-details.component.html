@@ -1,0 +1,145 @@
+<!-- Product Details Card -->
+<mat-card
+    class="trinta-card product-details-card mb-25 bg-white border-none d-block"
+>
+    <mat-card-content>
+        <div class="row align-items-center">
+            <div class="col-xxxl-5 col-lg-6 col-md-12">
+                <div class="product-details-image">
+                    <div class="product-gallery__featured">
+                        <owl-carousel-o [options]="{items: 1, dots: false, animateIn: 'fadeIn', animateOut: 'fadeOut'}" #owlCar>
+                            <ng-container *ngFor="let image of productImages">
+                                <ng-template carouselSlide [id]="image.url">
+                                    <img [src]="image.url" [alt]="image.url" class="border-radius">
+                                </ng-template>
+                            </ng-container>
+                        </owl-carousel-o>
+                    </div>
+                    <div class="product-gallery__carousel">
+                        <owl-carousel-o [options]="{dots: false, margin: 10, autoWidth: true}">
+                            <ng-container *ngFor="let image of productImages; let i = index">
+                                <ng-template carouselSlide [id]="image.url+i" [width]="100">
+                                    <a (click)="owlCar.to(image.url); changeimage(image.url+i)" class="border-radius">
+                                        <img [src]="image.url" [alt]="image.url" class="border-radius">
+                                    </a>
+                                </ng-template>
+                            </ng-container>
+                        </owl-carousel-o>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xxxl-7 col-lg-6 col-md-12">
+                <div class="product-details-content">
+                    <div class="title d-flex align-items-center justify-content-between">
+                        <h3 class="mb-0">
+                            Comforta Armchair
+                        </h3>
+                        <div class="action d-flex align-items-center">
+                            <a routerLink="/ecommerce-page/product-details" class="d-inline-block">
+                                <i-feather name="edit-3"></i-feather>
+                            </a>
+                            <a routerLink="/ecommerce-page/product-details" class="d-inline-block">
+                                <i-feather name="trash-2"></i-feather>
+                            </a>
+                        </div>
+                    </div>
+                    <span class="category text-body d-block">
+                        Furniture
+                    </span>
+                    <div class="ratings lh-1 d-flex align-items-center">
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-line"></i>
+                        <span class="d-block fs-14 text-primary">
+                            (3250 reviews)
+                        </span>
+                    </div>
+                    <span class="sub-title d-block fs-14 fw-medium">
+                        Description :
+                    </span>
+                    <p class="fs-15 text-black">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim adlino minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                    <ul class="list p-0 list-unstyled">
+                        <li class="d-flex align-items-center fs-14">
+                            <span class="d-block fw-medium">
+                                Color :
+                            </span>
+                            <div class="colors">
+                                <img src="assets/images/colors.png" alt="colors">
+                            </div>
+                        </li>
+                        <li class="d-flex align-items-center fs-14">
+                            <span class="d-block fw-medium">
+                                Availability :
+                            </span>
+                            <span class="d-block availability">
+                                in stock <span class="fw-semibold fs-15">2,508</span> Pics 
+                            </span>
+                        </li>
+                        <li class="d-flex align-items-center fs-14">
+                            <span class="d-block fw-medium">
+                                Category :
+                            </span>
+                            <span class="text-black">
+                                Furniture
+                            </span>
+                        </li>
+                        <li class="d-flex align-items-center fs-14">
+                            <span class="d-block fw-medium">
+                                SKU :
+                            </span>
+                            <span class="d-block text-black">
+                                Demo Model-12
+                            </span>
+                        </li>
+                        <li class="d-flex align-items-center fs-14">
+                            <span class="d-block fw-medium">
+                                Vendor :
+                            </span>
+                            <span class="d-block text-black">
+                                Lereve Mad
+                            </span>
+                        </li>
+                    </ul>
+                    <div class="d-md-flex align-items-center">
+                        <div class="box d-flex align-items-center">
+                            <div class="icon d-flex align-items-center justify-content-center rounded-circle text-white">
+                                <i-feather name="dollar-sign"></i-feather>
+                            </div>
+                            <div>
+                                <span class="d-block text-gray">
+                                    Total revenue
+                                </span>
+                                <h4 class="mb-0 fw-medium">
+                                    $80.5k
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="box d-flex align-items-center">
+                            <div class="icon d-flex align-items-center justify-content-center rounded-circle text-white">
+                                <i-feather name="check-circle"></i-feather>
+                            </div>
+                            <div>
+                                <span class="d-block text-gray">
+                                    Total order
+                                </span>
+                                <h4 class="mb-0 fw-medium">
+                                    20.9k
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>
+
+<!-- Reviews -->
+<app-reviews />
+
+<!-- Outlets Details -->
+<app-outlets-details />

@@ -1,0 +1,140 @@
+<mat-card class="trinta-card create-an-event-card mb-25 bg-white border-none d-block">
+  <mat-card-header>
+    <mat-card-title>
+      <h5 class="mt-0 mb-0">Create / Edit Event</h5>
+    </mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <form [formGroup]="eventForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+
+        <!-- Title -->
+        <div class="col-lg-12">
+          <label class="label d-block fw-medium mb-10">Event Title</label>
+          <mat-form-field>
+            <i-feather name="edit-3"></i-feather>
+            <mat-label>Title</mat-label>
+            <input matInput formControlName="title" placeholder="Enter event title">
+          </mat-form-field>
+        </div>
+
+        <!-- Category -->
+        <div class="col-lg-6">
+          <label class="label d-block fw-medium mb-10">Category</label>
+          <mat-form-field>
+            <i-feather name="grid"></i-feather>
+            <mat-label>Select category</mat-label>
+            <mat-select formControlName="category">
+              <mat-option *ngFor="let cat of eventCategories" [value]="cat">{{ cat }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <!-- Price -->
+        <div class="col-lg-6">
+          <label class="label d-block fw-medium mb-10">Price</label>
+          <mat-form-field>
+            <i-feather name="dollar-sign"></i-feather>
+            <mat-label>Ticket price</mat-label>
+            <input matInput type="number" formControlName="price" placeholder="Enter price">
+          </mat-form-field>
+        </div>
+
+        <!-- Location -->
+        <div class="col-lg-6">
+          <label class="label d-block fw-medium mb-10">Location</label>
+          <mat-form-field>
+            <i-feather name="map-pin"></i-feather>
+            <mat-label>Location</mat-label>
+            <input matInput formControlName="location" placeholder="Enter location (city)">
+          </mat-form-field>
+        </div>
+
+        <!-- Address -->
+        <div class="col-lg-6">
+          <label class="label d-block fw-medium mb-10">Address</label>
+          <mat-form-field>
+            <i-feather name="map"></i-feather>
+            <mat-label>Address</mat-label>
+            <input matInput formControlName="address" placeholder="Enter detailed address">
+          </mat-form-field>
+        </div>
+
+        <!-- Dates -->
+        <div class="col-lg-6">
+          <label class="label d-block fw-medium mb-10">Start Date</label>
+          <mat-form-field>
+            <i-feather name="calendar"></i-feather>
+            <mat-label>Start Date</mat-label>
+            <input matInput [matDatepicker]="picker1" formControlName="startDate">
+            <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+        <div class="col-lg-6">
+          <label class="label d-block fw-medium mb-10">End Date</label>
+          <mat-form-field>
+            <i-feather name="calendar"></i-feather>
+            <mat-label>End Date</mat-label>
+            <input matInput [matDatepicker]="picker2" formControlName="endDate">
+            <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+        <!-- Capacity -->
+        <div class="col-lg-6">
+          <label class="label d-block fw-medium mb-10">Capacity</label>
+          <mat-form-field>
+            <i-feather name="users"></i-feather>
+            <mat-label>Number of participants</mat-label>
+            <input matInput type="number" formControlName="capacity">
+          </mat-form-field>
+        </div>
+
+        <!-- Organizer -->
+        <div class="col-lg-6">
+          <label class="label d-block fw-medium mb-10">Organizer ID</label>
+          <mat-form-field>
+            <i-feather name="user"></i-feather>
+            <mat-label>Organizer ID</mat-label>
+            <input matInput type="number" formControlName="organizerId">
+          </mat-form-field>
+        </div>
+
+        <!-- Description -->
+        <div class="col-lg-12">
+          <label class="label d-block fw-medium mb-10">Description</label>
+          <mat-form-field appearance="fill">
+            <i-feather name="file-text"></i-feather>
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description" rows="4"></textarea>
+          </mat-form-field>
+        </div>
+
+        <!-- Images -->
+        <div class="col-lg-12">
+          <label class="label d-block fw-medium mb-10">Images (URLs)</label>
+          <mat-form-field>
+            <i-feather name="image"></i-feather>
+            <mat-label>Enter image URLs (comma separated)</mat-label>
+            <input matInput formControlName="images">
+          </mat-form-field>
+        </div>
+
+      </div>
+
+      <!-- Buttons -->
+      <div class="save-event-btn mt-3">
+        <button mat-raised-button color="primary" type="submit">
+          <i-feather name="save"></i-feather> Publish Event
+        </button>
+        <button mat-button type="button" color="warn" (click)="goBack()">
+          <i-feather name="x"></i-feather> Cancel
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

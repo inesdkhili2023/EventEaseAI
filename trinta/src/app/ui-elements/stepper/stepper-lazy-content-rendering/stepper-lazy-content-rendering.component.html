@@ -1,0 +1,22 @@
+<mat-stepper orientation="vertical">
+    <mat-step>
+        <ng-template matStepLabel>Step 1</ng-template>
+        <ng-template matStepContent>
+            <p>This content was rendered lazily</p>
+            <button mat-flat-button color="primary" matStepperNext>Next</button>
+        </ng-template>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>Step 2</ng-template>
+        <ng-template matStepContent>
+            <p>This content was also rendered lazily</p>
+            <button mat-button matStepperPrevious class="mr-15" color="warn">Back</button>
+            <button mat-flat-button matStepperNext color="primary">Next</button>
+        </ng-template>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>Step 3</ng-template>
+        <p>This content was rendered eagerly</p>
+        <button mat-button matStepperPrevious color="warn">Back</button>
+    </mat-step>
+</mat-stepper>

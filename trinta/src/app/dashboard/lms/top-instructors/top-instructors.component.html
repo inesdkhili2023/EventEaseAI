@@ -1,0 +1,91 @@
+<mat-card
+    class="trinta-card top-instructors-card mb-25 bg-white border-none d-block"
+>
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Top Instructors
+            </h5>
+        </mat-card-title>
+        <mat-card-subtitle>
+            <button type="button" mat-button class="card-header-menu-btn" [matMenuTriggerFor]="cardHeaderMenu">
+                Top Rating
+            </button>
+            <mat-menu #cardHeaderMenu="matMenu" class="card-header-menu" xPosition="before">
+                <button mat-menu-item>
+                    5 Star
+                </button>
+                <button mat-menu-item>
+                    4 Star
+                </button>
+                <button mat-menu-item>
+                    3 Star
+                </button>
+                <button mat-menu-item>
+                    2 Star
+                </button>
+                <button mat-menu-item>
+                    1 Star
+                </button>
+            </mat-menu>
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="top-instructors-table">
+            <div class="table-responsive">
+                <table mat-table [dataSource]="dataSource">
+
+                    <!-- Instructor Column -->
+                    <ng-container matColumnDef="instructor">
+                        <th mat-header-cell *matHeaderCellDef class="pl-0">
+                            Instructor
+                        </th>
+                        <td mat-cell *matCellDef="let element" class="pl-0">
+                            <div class="instructor d-sm-flex align-items-center">
+                                <div class="image flex-shrink-0">
+                                    <img [src]="element.instructor.img" alt="instructor-image">
+                                </div>
+                                <a routerLink="/" class="d-block fw-semibold flex-grow-1">
+                                    {{element.instructor.name}}
+                                </a>
+                            </div>
+                        </td>
+                    </ng-container>
+
+                    <!-- Ratings Column -->
+                    <ng-container matColumnDef="ratings">
+                        <th mat-header-cell *matHeaderCellDef>
+                            Ratings
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            <div class="ratings lh-1">
+                                <i class="{{element.ratings.star1}}"></i>
+                                <i class="{{element.ratings.star2}}"></i>
+                                <i class="{{element.ratings.star3}}"></i>
+                                <i class="{{element.ratings.star4}}"></i>
+                                <i class="{{element.ratings.star5}}"></i>
+                            </div>
+                        </td>
+                    </ng-container>
+
+                    <!-- Designation Column -->
+                    <ng-container matColumnDef="designation">
+                        <th mat-header-cell *matHeaderCellDef class="text-end pr-0">
+                            Designation
+                        </th>
+                        <td mat-cell *matCellDef="let element" class="text-body pr-0">
+                            <span class="designation d-block">
+                                {{element.designation}}
+                            </span>
+                        </td>
+                    </ng-container>
+
+                    <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr> -->
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                </table>
+            </div>
+            <mat-paginator [pageSizeOptions]="[5, 10, 15]"></mat-paginator>
+        </div>
+    </mat-card-content>
+</mat-card>

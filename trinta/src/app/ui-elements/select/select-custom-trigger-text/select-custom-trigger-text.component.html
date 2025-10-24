@@ -1,0 +1,17 @@
+<mat-form-field>
+    <i-feather name="list"></i-feather>
+    <mat-label>Toppings</mat-label>
+    <mat-select [formControl]="toppings" multiple>
+        <mat-select-trigger>
+            {{toppings.value?.[0] || ''}}
+            @if ((toppings.value?.length || 0) > 1) {
+                <span>
+                    (+{{(toppings.value?.length || 0) - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
+                </span>
+            }
+        </mat-select-trigger>
+        @for (topping of toppingList; track topping) {
+            <mat-option [value]="topping">{{topping}}</mat-option>
+        }
+    </mat-select>
+</mat-form-field>

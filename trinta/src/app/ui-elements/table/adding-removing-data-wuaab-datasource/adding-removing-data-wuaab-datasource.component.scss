@@ -1,0 +1,29 @@
+.demo-button-container {
+    padding-bottom: 20px;
+
+    button {
+        margin-right: 15px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    .demo-button-container {
+        padding-bottom: 15px;
+    }
+    
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width : 576px) and (max-width : 767px) {
+
+    .demo-button-container {
+        padding-bottom: 20px;
+    }
+
+}

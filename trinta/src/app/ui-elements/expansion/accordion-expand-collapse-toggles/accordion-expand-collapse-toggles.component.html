@@ -1,0 +1,71 @@
+<mat-card class="trinta-card mb-25 bg-white border-none d-block">
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Accordion with Expand/Collapse all Toggles
+            </h5>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="example-action-buttons">
+            <button mat-flat-button color="primary" class="mr-15" (click)="accordion.openAll()">Expand All</button>
+            <button mat-flat-button color="warn" (click)="accordion.closeAll()">Collapse All</button>
+        </div>
+        <mat-accordion class="example-headers-align" multi>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Personal data
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Type your name and age
+                        <mat-icon>account_circle</mat-icon>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <mat-form-field class="mb-20">
+                    <i-feather name="list"></i-feather>
+                    <mat-label>First name</mat-label>
+                    <input matInput>
+                </mat-form-field>
+                <mat-form-field>
+                    <i-feather name="list"></i-feather>
+                    <mat-label>Age</mat-label>
+                    <input matInput type="number" min="1">
+                </mat-form-field>
+            </mat-expansion-panel>
+            <mat-expansion-panel disabled>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Destination
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Type the country name
+                        <mat-icon>map</mat-icon>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <mat-form-field>
+                    <i-feather name="list"></i-feather>
+                    <mat-label>Country</mat-label>
+                    <input matInput>
+                </mat-form-field>
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Day of the trip
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Inform the date you wish to travel
+                        <mat-icon>date_range</mat-icon>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <mat-form-field>
+                    <i-feather name="list"></i-feather>
+                    <mat-label>Date</mat-label>
+                    <input matInput [matDatepicker]="picker" (focus)="picker.open()" readonly>
+                </mat-form-field>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </mat-card-content>
+</mat-card>

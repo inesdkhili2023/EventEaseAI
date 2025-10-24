@@ -1,0 +1,136 @@
+<div class="row">
+    <div class="col-lg-4">
+        <app-shopping-cart />
+    </div>
+    <div class="col-lg-8">
+        <mat-card
+            class="trinta-card billing-info-card mb-25 bg-white border-none d-block"
+        >
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Billing Information
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <form>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <label class="label d-block fw-medium mb-10">
+                                First Name
+                            </label>
+                            <mat-form-field>
+                                <i-feather name="user"></i-feather>
+                                <mat-label>Enter name</mat-label>
+                                <input matInput>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-lg-6">
+                            <label class="label d-block fw-medium mb-10">
+                                Last Name
+                            </label>
+                            <mat-form-field>
+                                <i-feather name="user"></i-feather>
+                                <mat-label>Enter name</mat-label>
+                                <input matInput>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-lg-6">
+                            <label class="label d-block fw-medium mb-10">
+                                Email Address
+                            </label>
+                            <mat-form-field>
+                                <i-feather name="mail"></i-feather>
+                                <mat-label>Enter email address</mat-label>
+                                <input matInput>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-lg-6">
+                            <label class="label d-block fw-medium mb-10">
+                                Contact Number
+                            </label>
+                            <mat-form-field>
+                                <i-feather name="phone"></i-feather>
+                                <mat-label>Enter phone number</mat-label>
+                                <input matInput>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-lg-12">
+                            <label class="label d-block fw-medium mb-10">
+                                Address
+                            </label>
+                            <mat-form-field>
+                                <i-feather name="map-pin"></i-feather>
+                                <mat-label>Your location</mat-label>
+                                <input matInput>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-lg-12">
+                            <label class="label d-block fw-medium mb-10">
+                                Select Country
+                            </label>
+                            <mat-form-field>
+                                <i-feather name="map"></i-feather>
+                                <mat-label>Country name</mat-label>
+                                <mat-select>
+                                    <mat-option value="us">United States of America</mat-option>
+                                    <mat-option value="switzerland">Switzerland</mat-option>
+                                    <mat-option value="germany">Germany</mat-option>
+                                    <mat-option value="new-zealand">New Zealand</mat-option>
+                                    <mat-option value="sweden">Sweden</mat-option>
+                                    <mat-option value="canada">Canada</mat-option>
+                                    <mat-option value="netherlands">Netherlands</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-lg-4">
+                            <label class="label d-block fw-medium mb-10">
+                                Town/City
+                            </label>
+                            <mat-form-field>
+                                <i-feather name="loader"></i-feather>
+                                <mat-label>City name</mat-label>
+                                <input matInput>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-lg-4">
+                            <label class="label d-block fw-medium mb-10">
+                                State
+                            </label>
+                            <mat-form-field>
+                                <i-feather name="more-vertical"></i-feather>
+                                <mat-label>State name</mat-label>
+                                <input matInput>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-lg-4">
+                            <label class="label d-block fw-medium mb-10">
+                                Zip Code
+                            </label>
+                            <mat-form-field>
+                                <i-feather name="list"></i-feather>
+                                <mat-label>Enter zip code</mat-label>
+                                <input matInput>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-lg-12">
+                            <label class="label d-block fw-medium mb-10">
+                                Order Notes
+                            </label>
+                            <div class="NgxEditor__Wrapper mb-0">
+                                <ngx-editor-menu [editor]="editor" [toolbar]="toolbar"></ngx-editor-menu>
+                                <ngx-editor [editor]="editor" [ngModel]="html" name="html" [disabled]="false" [placeholder]="'Some demo text...'"></ngx-editor>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="procced-shipping-btn">
+                        <button mat-button type="button">
+                            Procced to Shipping
+                        </button>
+                    </div>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

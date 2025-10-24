@@ -1,0 +1,80 @@
+<mat-card
+    class="trinta-card outlets-details-card mb-25 bg-white border-none d-block"
+>
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Outlets Details
+            </h5>
+        </mat-card-title>
+        <mat-card-subtitle>
+            <a routerLink="/ecommerce-page/product-details" class="default-btn" mat-button>
+                <i class="ri-add-line"></i> Add New
+            </a>
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="outlets-details-table">
+            <div class="table-responsive">
+                <table mat-table [dataSource]="dataSource">
+
+                    <!-- Outlets Column -->
+                    <ng-container matColumnDef="outlets">
+                        <th mat-header-cell *matHeaderCellDef class="pl-0">
+                            Outlets
+                        </th>
+                        <td mat-cell *matCellDef="let element" class="text-dark pl-0">
+                            <span class="fw-semibold heading-font-family">
+                                {{element.outlets}}
+                            </span>
+                        </td>
+                    </ng-container>
+
+                    <!-- Total Orders Column -->
+                    <ng-container matColumnDef="totalOrders">
+                        <th mat-header-cell *matHeaderCellDef>
+                            Total Orders
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            {{element.totalOrders}}
+                        </td>
+                    </ng-container>
+
+                    <!-- Price Column -->
+                    <ng-container matColumnDef="price">
+                        <th mat-header-cell *matHeaderCellDef>
+                            Price
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            {{element.price}}
+                        </td>
+                    </ng-container>
+
+                    <!-- Stock Column -->
+                    <ng-container matColumnDef="stock">
+                        <th mat-header-cell *matHeaderCellDef>
+                            Stock
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            {{element.stock}}
+                        </td>
+                    </ng-container>
+
+                    <!-- Revenue Column -->
+                    <ng-container matColumnDef="revenue">
+                        <th mat-header-cell *matHeaderCellDef class="pr-0">
+                            Revenue
+                        </th>
+                        <td mat-cell *matCellDef="let element" class="text-primary pr-0">
+                            {{element.revenue}}
+                        </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                </table>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

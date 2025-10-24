@@ -1,0 +1,28 @@
+<mat-card
+    class="trinta-card user-activity-card mb-25 bg-primary border-none d-block"
+>
+    <mat-card-content>
+        <h3 class="text-white">
+            Users Activity
+        </h3>
+        <span class="trending d-block text-white position-relative">
+            <i class="material-symbols-outlined">trending_up</i> Total <span class="fw-semibold">30.5%</span> Conversion Rate
+        </span>
+        <div class="chart bg-white">
+            <div class="inner">
+                <apx-chart
+                    [series]="chartOptions.series!"
+                    [chart]="chartOptions.chart!"
+                    [dataLabels]="chartOptions.dataLabels!"
+                    [plotOptions]="chartOptions.plotOptions!"
+                    [yaxis]="chartOptions.yaxis!"
+                    [xaxis]="chartOptions.xaxis!"
+                    [grid]="chartOptions.grid!"
+                    [colors]="chartOptions.colors!"
+                    [fill]="chartOptions.fill!"
+                    [title]="chartOptions.title!"
+                ></apx-chart>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

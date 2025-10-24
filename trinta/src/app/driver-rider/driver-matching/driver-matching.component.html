@@ -1,0 +1,88 @@
+<!-- driver-matching.component.html -->
+<div class="container">
+  <h2>🔍 Trouver un Chauffeur</h2>
+
+  <!-- Formulaire utilisateur -->
+  <div class="rider-form card">
+    <h3>Vos informations</h3>
+    <div class="form-group">
+      <label>Nombre de passagers:</label>
+      <input type="number" [(ngModel)]="rider.passengerCount" min="1" max="8">
+    </div>
+    
+    <div class="form-group">
+      <label>Besoins spéciaux:</label>
+      <select [(ngModel)]="rider.specialNeeds">
+        <option value="">Aucun</option>
+        <option value="PMR">PMR</option>
+        <option value="child_seat">Siège enfant</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Urgence:</label>
+      <select [(ngModel)]="rider.urgencyLevel">
+        <option value="low">Faible</option>
+        <option value="medium">Moyenne</option>
+        <option value="high">Élevée</option>
+      </select>
+    </div>
+
+    <button (click)="findBestMatches()" [disabled]="isLoading" class="btn-primary">
+      {{ isLoading ? 'Recherche...' : '🔍 Trouver des chauffeurs' }}
+    </button>
+  </div>
+
+  <!-- Résultats -->
+  <div *ngIf="matches.length" class="results-section">
+    <h3>🏆 Chauffeurs Recommandés</h3>
+    
+    <div class="matches-grid">
+      <div *ngFor="let match of matches" class="match-card" [style.border-color]="getScoreColor(match.score)">
+        <div class="match-header">
+          <h4>{{ match.driverName }}</h4>
+          <span class="score-badge" [style.background]="getScoreColor(match.score)">
+            {{ match.score }}/100
+          </span>
+        </div>
+
+        <div class="match-details">
+          <div class="detail">
+            <span>🚗 {{ match.vehicleType }}</span>
+            <span>👥 {{ match.capacity }} places</span>
+          </div>
+          
+          <div class="detail">
+            <span>📍 {{ match.distance }} km</span>
+            <span>⏱️ {{ match.travelTime }} min</span>
+          </div>
+          
+          <div class="detail">
+            <span>⭐ {{ match.rating }}/5</span>
+            <span>💰 {{ match.pricePerKm }} TND/km</span>
+          </div>
+          
+          <div class="detail">
+            <span>📞 {{ match.phoneNumber }}</span>
+            <span>🕒 Réponse: {{ match.responseTime }} min</span>
+          </div>
+        </div>
+
+        <button (click)="contactDriver(match.phoneNumber)" class="btn-contact">
+          📞 Contacter
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading -->
+  <div *ngIf="isLoading" class="loading">
+    <div class="spinner"></div>
+    <p>Recherche des meilleurs chauffeurs...</p>
+  </div>
+
+  <!-- Error -->
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+</div>

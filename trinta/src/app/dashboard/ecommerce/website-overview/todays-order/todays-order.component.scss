@@ -1,0 +1,110 @@
+.todays-order-box {
+    padding: 20px;
+    margin-top: 25px;
+    border-radius: 6px;
+
+    h5 {
+        font-size: 15px;
+        margin-bottom: 23px;
+    }
+    .info {
+        padding-left: 70px;
+        margin-bottom: 6px;
+        
+        .chart {
+            top: 50%;
+            left: -123px;
+            position: absolute;
+            transform: translateY(-50%);
+        }
+        h6 {
+            font-size: 14px;
+            margin-bottom: 7px;
+            letter-spacing: 1px;
+        }
+        span {
+            font-size: 13px;
+            letter-spacing: 1px;
+            padding-right: 18px;
+
+            i {
+                top: 50%;
+                right: -5px;
+                font-size: 18px;
+                margin-top: -1px;
+                position: absolute;
+                transform: translateY(-50%);
+            }
+        }
+    }
+}
+::ng-deep {
+    .todays-order-box {
+        .info {
+            .chart {
+                .apexcharts-radialbar {
+                    .apexcharts-text {
+                        &.apexcharts-datalabel-value {
+                            fill: var(--darkColor);
+                            letter-spacing: 1px;
+                            font: {
+                                size: 14px;
+                                weight: 600;
+                            };
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    .todays-order-box {
+        padding: 15px;
+        margin-top: 20px;
+    
+        h5 {
+            font-size: 14px;
+            margin-bottom: 22px;
+        }
+        .info {
+            span {
+                padding-right: 17px;
+            }
+        }
+    }
+    ::ng-deep {
+        .todays-order-box {
+            .info {
+                .chart {
+                    .apexcharts-radialbar {
+                        .apexcharts-text {
+                            &.apexcharts-datalabel-value {
+                                font-size: 12px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width : 576px) and (max-width : 767px) {}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width : 768px) and (max-width : 991px) {}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width : 992px) and (max-width : 1199px) {}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {}

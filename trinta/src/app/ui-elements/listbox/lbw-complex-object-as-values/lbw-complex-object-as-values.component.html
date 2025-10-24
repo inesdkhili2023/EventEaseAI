@@ -1,0 +1,21 @@
+<div class="example-listbox-container mb-10">
+    <label class="example-listbox-label fw-medium" id="example-appointment-label">
+        Appointment Time
+    </label>
+    <ul cdkListbox
+        [cdkListboxValue]="appointment"
+        [cdkListboxCompareWith]="compareDate"
+        (cdkListboxValueChange)="appointment = $event.value"
+        aria-labelledby="example-appointment-label"
+        class="example-listbox"
+    >
+        @for (time of slots; track time) {
+            <li [cdkOption]="time" class="example-option text-black">{{formatTime(time)}}</li>
+        }
+    </ul>
+</div>
+@if (appointment[0]) {
+    <p>
+        Your appointment is scheduled for <strong class="fw-semibold text-black">{{formatAppointment() | json}}</strong>&nbsp;
+    </p>
+}

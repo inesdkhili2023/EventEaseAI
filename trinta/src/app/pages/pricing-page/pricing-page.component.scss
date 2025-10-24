@@ -1,0 +1,183 @@
+.trinta-card {
+    &.pricing-card {
+        .mat-mdc-card-content {
+            h3 {
+                font-size: 18px;
+                margin-bottom: 9px;
+            }
+            .price {
+                font-size: 32px;
+                letter-spacing: 0.32px;
+                margin: {
+                    top: 27px;
+                    bottom: 35px;
+                };
+                span {
+                    letter-spacing: 0.14px;
+                    margin-left: 2px;
+                }
+            }
+            .mat-mdc-button {
+                width: 100%;
+                height: auto;
+                display: block;
+                min-width: auto;
+                padding: 18px 25px;
+                color: var(--whiteColor);
+                background-color: var(--primaryColor);
+                font: {
+                    size: 16px;
+                    weight: 600;
+                    family: var(--headingFontFamily);
+                };
+            }
+            .features-list {
+                margin-top: 35px;
+
+                li {
+                    font-size: 16px;
+                    padding-left: 30px;
+                    margin-bottom: 15px;
+
+                    i-feather {
+                        left: 0;
+                        top: 2px;
+                        width: 20px;
+                        height: 20px;
+                        color: #00b69b;
+                        position: absolute;
+                    }
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                    &.close {
+                        i-feather {
+                            color: red;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    .trinta-card {
+        &.pricing-card {
+            .mat-mdc-card-content {
+                h3 {
+                    font-size: 16px;
+                    margin-bottom: 8px;
+                }
+                .price {
+                    font-size: 24px;
+                    margin: {
+                        top: 18px;
+                        bottom: 22px;
+                    };
+                    span {
+                        margin-left: 0;
+                    }
+                }
+                .mat-mdc-button {
+                    padding: 15px 25px;
+                    font-size: 14px;
+                }
+                .features-list {
+                    margin-top: 18px;
+    
+                    li {
+                        font-size: 13px;
+                        padding-left: 26px;
+                        margin-bottom: 10px;
+    
+                        i-feather {
+                            top: 2px;
+                            width: 17px;
+                            height: 17px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width : 576px) and (max-width : 767px) {}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+
+    .trinta-card {
+        &.pricing-card {
+            .mat-mdc-card-content {
+                h3 {
+                    font-size: 18px;
+                    margin-bottom: 8px;
+                }
+                .price {
+                    font-size: 28px;
+                    margin: {
+                        top: 22px;
+                        bottom: 25px;
+                    };
+                    span {
+                        margin-left: 0;
+                    }
+                }
+                .mat-mdc-button {
+                    padding: 16px 25px;
+                    font-size: 14px;
+                }
+                .features-list {
+                    margin-top: 20px;
+    
+                    li {
+                        font-size: 14px;
+                        padding-left: 28px;
+                        margin-bottom: 13px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width : 992px) and (max-width : 1199px) {
+
+    .trinta-card {
+        &.pricing-card {
+            .mat-mdc-card-content {
+                .price {
+                    margin: {
+                        top: 25px;
+                        bottom: 35px;
+                    };
+                }
+                .mat-mdc-button {
+                    font-size: 15px;
+                }
+                .features-list {
+                    margin-top: 25px;
+    
+                    li {
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {}

@@ -1,0 +1,146 @@
+.trinta-card {
+    &.user-profile-activity-card {
+        .mat-mdc-card-content {
+            ul {
+                li {
+                    padding: 30px 20px;
+                    border-radius: 6px;
+                    margin-bottom: 15px;
+                    background: #f6f7fb;
+
+                    img {
+                        width: 50px;
+                        height: 50px;
+                        margin-right: 15px;
+                    }
+                    h6 {
+                        font-size: 15px;
+                        margin-bottom: 10px;
+                    }
+                    p {
+                        font-size: 16px;
+                        padding-left: 30px;
+
+                        i {
+                            left: 0;
+                            top: -2px;
+                            font-size: 18px;
+                            position: absolute;
+                            color: var(--primaryColor);
+                        }
+                    }
+                    .time {
+                        padding-left: 27px;
+
+                        i {
+                            left: 0;
+                            top: 50%;
+                            font-size: 18px;
+                            position: absolute;
+                            color: var(--bodyColor);
+                            transform: translateY(-50%);
+                        }
+                        span {
+                            margin-left: 5px;
+                        }
+                    }
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    .trinta-card {
+        &.user-profile-activity-card {
+            .mat-mdc-card-content {
+                ul {
+                    li {
+                        padding: 20px;
+    
+                        img {
+                            margin: {
+                                right: 0;
+                                bottom: 8px;
+                            };
+                        }
+                        h6 {
+                            font-size: 14px;
+                            margin-bottom: 8px;
+                        }
+                        p {
+                            font-size: 13px;
+                            padding-left: 0;
+                            margin-bottom: 10px;
+    
+                            i {
+                                display: none;
+                            }
+                        }
+                        .time {
+                            padding-left: 24px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width : 576px) and (max-width : 767px) {}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+
+    .trinta-card {
+        &.user-profile-activity-card {
+            .mat-mdc-card-content {
+                ul {
+                    li {
+                        p {
+                            font-size: 14px;
+                            padding-left: 25px;
+    
+                            i {
+                                font-size: 16px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width : 992px) and (max-width : 1199px) {
+
+    .trinta-card {
+        &.user-profile-activity-card {
+            .mat-mdc-card-content {
+                ul {
+                    li {
+                        p {
+                            font-size: 15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {}

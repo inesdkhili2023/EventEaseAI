@@ -1,0 +1,46 @@
+<mat-card
+    class="trinta-card new-email-card mb-25 bg-white border-none d-block"
+>
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                New Email
+            </h5>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form>
+            <label class="label d-block fw-medium mb-10">
+                To
+            </label>
+            <mat-form-field>
+                <i-feather name="mail"></i-feather>
+                <mat-label>Enter email address</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <label class="label d-block fw-medium mb-10">
+                Subject
+            </label>
+            <mat-form-field>
+                <i-feather name="edit-3"></i-feather>
+                <mat-label>Enter subject</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <label class="label d-block fw-medium mb-10">
+                Your Email
+            </label>
+            <div class="NgxEditor__Wrapper">
+                <ngx-editor-menu [editor]="editor" [toolbar]="toolbar"></ngx-editor-menu>
+                <ngx-editor [editor]="editor" [ngModel]="html" name="html" [disabled]="false" [placeholder]="'Some demo text...'"></ngx-editor>
+            </div>
+            <div class="btn-box">
+                <button mat-button type="button">
+                    Discard
+                </button>
+                <button mat-button type="button">
+                    Send Mail
+                </button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

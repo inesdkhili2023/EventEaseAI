@@ -1,0 +1,122 @@
+<!-- Breadcrumb -->
+<div class="breadcrumb-card mb-25 d-md-flex align-items-center justify-content-between">
+    <h5 class="mb-0">
+        Checkbox
+    </h5>
+    <ol class="breadcrumb list-unstyled mt-0 mb-0 pl-0">
+        <li class="breadcrumb-item position-relative">
+            <a routerLink="/" class="d-inline-block position-relative">
+                <i class="ri-home-8-line"></i>
+                Dashboard
+            </a>
+        </li>
+        <li class="breadcrumb-item position-relative">
+            UI Elements
+        </li>
+        <li class="breadcrumb-item position-relative">
+            Checkbox
+        </li>
+    </ol>
+</div>
+
+<!-- Checkbox -->
+<div class="row">
+    <div class="col-md-6 col-lg-4">
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Basic Checkbox
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-checkbox color="primary"></mat-checkbox>
+                <mat-checkbox color="primary" [disabled]="true"></mat-checkbox>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-md-6 col-lg-4">
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Checkbox with Text
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-checkbox color="primary">Check me!</mat-checkbox>
+                <mat-checkbox color="primary" [disabled]="true">Check me!</mat-checkbox>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-md-6 col-lg-4">
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Color Checkbox
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-checkbox color="primary"></mat-checkbox>
+                <mat-checkbox></mat-checkbox>
+                <mat-checkbox class="secondary"></mat-checkbox>
+                <mat-checkbox class="success"></mat-checkbox>
+                <mat-checkbox class="info"></mat-checkbox>
+                <mat-checkbox color="warn"></mat-checkbox>
+                <mat-checkbox class="danger"></mat-checkbox>
+                <mat-checkbox class="light"></mat-checkbox>
+                <mat-checkbox class="dark"></mat-checkbox>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-md-6 col-lg-6">
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Indeterminate Checkbox
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-checkbox [checked]="allComplete" [color]="task.color" [indeterminate]="someComplete()" (change)="setAll($event.checked)">
+                    {{task.name}}
+                </mat-checkbox>
+                <ul class="mb-0 mt-5 list-unstyled">
+                    <li *ngFor="let subtask of task.subtasks">
+                        <mat-checkbox [(ngModel)]="subtask.completed" [color]="subtask.color" (ngModelChange)="updateAllComplete()">
+                            {{subtask.name}}
+                        </mat-checkbox>
+                    </li>
+                </ul>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-md-6 col-lg-6">
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Checkboxes with Reactive Forms
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div [formGroup]="toppings">
+                    <h6 class="mb-15">Select your toppings:</h6>
+                    <mat-checkbox color="primary" formControlName="pepperoni">Pepperoni</mat-checkbox>
+                    <mat-checkbox color="primary" formControlName="extracheese">Extra Cheese</mat-checkbox>
+                    <mat-checkbox color="primary" formControlName="mushroom">Mushroom</mat-checkbox>
+                </div>
+                <div class="mt-15" [formGroup]="toppings">
+                    <h6 class="mb-15">You choose:</h6>
+                    {{toppings.value | json}}
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

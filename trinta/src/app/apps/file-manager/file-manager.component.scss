@@ -1,0 +1,466 @@
+.trinta-card {
+    &.sidebar-card {
+        .mat-mdc-card-content {
+            .search-box {
+                .input-search {
+                    height: 56px;
+                    font-size: 15px;
+                    border-radius: 6px;
+                    background: #f5f7fa;
+                    color: var(--blackColor);
+                    padding: {
+                        left: 20px;
+                        right: 20px;
+                    };
+                    &::placeholder {
+                        font-weight: 300;
+                        color: var(--bodyColor);
+                        transition: var(--transition);
+                    }
+                    &:focus {
+                        &::placeholder {
+                            color: transparent;
+                        }
+                    }
+                }
+                button {
+                    top: 50%;
+                    right: 20px;
+                    line-height: 1;
+                    font-size: 24px;
+                    position: absolute;
+                    transform: translateY(-50%);
+                }
+            }
+            .sidebar-list {
+                margin: {
+                    top: 30px;
+                    bottom: 180px;
+                };
+                li {
+                    margin-bottom: 25px;
+
+                    a {
+                        padding-left: 28px;
+                        
+                        i {
+                            transform: translateY(-50%);
+                            color: var(--bodyColor);
+                            position: absolute;
+                            margin-top: -.5px;
+                            font-size: 18px;
+                            top: 50%;
+                            left: 0;
+                        }
+                        &.active {
+                            color: var(--primaryColor);
+                        }
+                    }
+                    ul {
+                        padding-left: 28px;
+                        margin: {
+                            top: 17px;
+                            bottom: 30px;
+                        };
+                        li {
+                            margin-bottom: 15px;
+
+                            a {
+                                padding-left: 17px;
+                                color: var(--blackColor);
+
+                                &::before {
+                                    left: 0;
+                                    top: 50%;
+                                    width: 5px;
+                                    content: '';
+                                    height: 5px;
+                                    border-radius: 50%;
+                                    position: absolute;
+                                    background: #a9a9c8;
+                                    transform: translateY(-50%);
+                                    transition: var(--transition);
+                                }
+                                &.active, &:hover {
+                                    color: var(--primaryColor);
+
+                                    &::before {
+                                        background: var(--primaryColor);
+                                    }
+                                }
+                            }
+                            &:last-child {
+                                margin-bottom: 0;
+                            }
+                        }
+                    }
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+            .storage-status {
+                h6 {
+                    font-size: 15px;
+                    margin-bottom: 13px;
+                }
+                .mat-mdc-progress-bar {
+                    margin-bottom: 12px;
+                    --mdc-linear-progress-track-height: 5px;
+                    --mdc-linear-progress-active-indicator-height: 5px;
+                }
+            }
+        }
+    }
+    &.folder-card {
+        .mat-mdc-card-content {
+            .action {
+                .mat-mdc-button {
+                    height: auto;
+                    line-height: 1;
+                    min-width: auto;
+                    font-size: 18px;
+                    color: #a9a9c8;
+                }
+            }
+            .folder {
+                margin: {
+                    top: 55px;
+                    bottom: 55px;
+                };
+                i-feather {
+                    width: 56px;
+                    height: 56px;
+                    color: #ee8336;
+                }
+                h6 {
+                    font-size: 15px;
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+    &.recent-files-card {
+        .mat-mdc-card-content {
+            .recent-files-table {
+                .mat-mdc-table {
+                    width: 100%;
+                    overflow: hidden;
+                    background-color: transparent;
+
+                    .mat-mdc-header-row {
+                        height: auto;
+                        line-height: initial;
+                        letter-spacing: 0.14px;
+                        color: var(--darkColor);
+                        background: transparent;
+                        font: {
+                            weight: 500;
+                            size: var(--fontSize);
+                            family: var(--fontFamily);
+                        };
+                        .mat-mdc-header-cell {
+                            border: none;
+                            overflow: unset;
+                            text-align: start;
+                            white-space: nowrap;
+                            line-height: initial;
+                            padding: 0 15px 15px;
+                            letter-spacing: normal;
+                            background: transparent;
+                            border-bottom: 2px solid #edeff5;
+                        }
+                    }
+                    .mat-mdc-row, .mdc-data-table__content {
+                        line-height: initial;
+                        background: transparent;
+                        font: {
+                            weight: normal;
+                            size: var(--fontSize);
+                            family: var(--fontFamily);
+                        };
+                    }
+                    .mat-mdc-row {
+                        height: auto;
+                        color: var(--blackColor);
+                    }
+                    .mat-mdc-cell {
+                        border: none;
+                        overflow: hidden;
+                        text-align: start;
+                        padding: 20px 15px;
+                        white-space: nowrap;
+                        line-height: initial;
+                        letter-spacing: 0.14px;
+                        background: transparent;
+                        border-bottom: 1px solid #edeff5;
+
+                        .file-name {
+                            padding-left: 35px;
+
+                            .mat-mdc-checkbox {
+                                left: 0;
+                                top: 50%;
+                                margin-top: -1.3px;
+                                position: absolute;
+                                transform: translateY(-50%);
+                            }
+                            h6 {
+                                display: flex;
+                                align-items: center;
+                                font: {
+                                    size: 15px;
+                                    weight: 500;
+                                };
+                                i-feather {
+                                    margin-right: 10px;
+                                    color: #ee8336;
+                                }
+                            }
+                        }
+                        .action {
+                            .mat-mdc-button {
+                                width: 30px;
+                                height: 30px;
+                                min-width: auto;
+                                font-size: 22px;
+                                color: #a9a9c8;
+                                background-color: #3761ee1a;
+                            }
+                        }
+                    }
+                }
+                .mat-mdc-paginator {
+                    padding-top: 15px;
+                }
+            }
+        }
+    }
+}
+::ng-deep {
+    .trinta-card {
+        &.folder-card {
+            .mat-mdc-card-content {
+                .mdc-checkbox {
+                    padding: 0;
+                    margin: 0;
+
+                    .mdc-checkbox__native-control {
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        width: 100%;
+                        height: 100%;
+                    }
+                    .mdc-checkbox__background {
+                        top: 0;
+                        left: 0;
+                        border-radius: 5px;
+                    }
+                    .mat-mdc-checkbox-ripple, .mdc-checkbox__ripple {
+                        border-radius: 5px;
+                    }
+                    .mat-mdc-checkbox-touch-target {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+        }
+        &.recent-files-card {
+            .mat-mdc-card-content {
+                .recent-files-table {
+                    .mat-mdc-table {
+                        .mat-mdc-cell {
+                            .mdc-checkbox {
+                                padding: 0;
+                                margin: 0;
+        
+                                .mdc-checkbox__native-control {
+                                    top: 0;
+                                    left: 0;
+                                    right: 0;
+                                    bottom: 0;
+                                    width: 100%;
+                                    height: 100%;
+                                }
+                                .mdc-checkbox__background {
+                                    top: 0;
+                                    left: 0;
+                                    border-radius: 5px;
+                                }
+                                .mat-mdc-checkbox-ripple, .mdc-checkbox__ripple {
+                                    border-radius: 5px;
+                                }
+                                .mat-mdc-checkbox-touch-target {
+                                    width: 100%;
+                                    height: 100%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    .trinta-card {
+        &.sidebar-card {
+            .mat-mdc-card-content {
+                .search-box {
+                    .input-search {
+                        height: 45px;
+                        font-size: 13px;
+                        padding: {
+                            left: 15px;
+                            right: 15px;
+                        };
+                    }
+                    button {
+                        right: 15px;
+                        font-size: 20px;
+                    }
+                }
+                .sidebar-list {
+                    margin: {
+                        top: 20px;
+                        bottom: 25px;
+                    };
+                    li {
+                        margin-bottom: 20px;
+    
+                        a {
+                            padding-left: 25px;
+                        }
+                        ul {
+                            padding-left: 25px;
+                            margin: {
+                                top: 17px;
+                                bottom: 23px;
+                            };
+                            li {
+                                margin-bottom: 13px;
+    
+                                a {
+                                    padding-left: 15px;
+                                }
+                            }
+                        }
+                    }
+                }
+                .storage-status {
+                    h6 {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+        &.folder-card {
+            .mat-mdc-card-content {
+                .folder {
+                    margin: {
+                        top: 25px;
+                        bottom: 25px;
+                    };
+                    h6 {
+                        font-size: 14px;
+                        margin-top: 15px;
+                    }
+                }
+            }
+        }
+        &.recent-files-card {
+            .mat-mdc-card-content {
+                .recent-files-table {
+                    .mat-mdc-table {
+                        .mat-mdc-header-row {
+                            font-size: 13px;
+                        }
+                        .mat-mdc-row, .mdc-data-table__content {
+                            font-size: 13px;
+                        }
+                        .mat-mdc-cell {
+                            padding: 15px;
+    
+                            .file-name {
+                                h6 {
+                                    font-size: 13px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width : 576px) and (max-width : 767px) {}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+
+    .trinta-card {
+        &.sidebar-card {
+            .mat-mdc-card-content {
+                .search-box {
+                    .input-search {
+                        height: 55px;
+                        font-size: 14px;
+                    }
+                    button {
+                        font-size: 22px;
+                    }
+                }
+                .sidebar-list {
+                    margin: {
+                        top: 30px;
+                        bottom: 30px;
+                    };
+                    li {
+                        margin-bottom: 22px;
+    
+                        ul {
+                            margin: {
+                                top: 17px;
+                                bottom: 25px;
+                            };
+                        }
+                    }
+                }
+            }
+        }
+        &.recent-files-card {
+            .mat-mdc-card-content {
+                .recent-files-table {
+                    .mat-mdc-table {
+                        .mat-mdc-cell {
+                            .file-name {
+                                h6 {
+                                    font-size: 14px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width : 992px) and (max-width : 1199px) {}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {}
