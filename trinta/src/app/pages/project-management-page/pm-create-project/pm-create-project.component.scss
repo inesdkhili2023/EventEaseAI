@@ -1,0 +1,146 @@
+.trinta-card {
+    &.add-project-card {
+        max-width: 850px;
+        margin: {
+            left: auto;
+            right: auto;
+        };
+    }
+}
+::ng-deep {
+    .trinta-card {
+        &.add-project-card {
+            .users {
+                margin: {
+                    bottom: 23px;
+                    top: -5px;
+                };
+                .user {
+                    margin-right: 8px;
+
+                    img {
+                        margin-bottom: -6px;
+                        height: 38px;
+                        width: 38px;
+                    }
+                    .dot {
+                        top: 0;
+                        left: 0;
+                        width: 12px;
+                        height: 12px;
+                        position: absolute;
+                        border: 2px solid var(--whiteColor);
+                    }
+                }
+                .number {
+                    background-color: rgba(55, 97, 238, 0.10);
+                    color: var(--primaryColor);
+                    font-size: 18px;
+                    height: 38px;
+                    width: 38px;
+                }
+            }
+            .create-project-btn {
+                text-align: end;
+                margin-top: 25px;
+
+                .mat-mdc-button {
+                    height: auto;
+                    min-width: auto;
+                    border-radius: 6px;
+                    padding: 18px 25px;
+                    letter-spacing: 0.16px;
+                    color: var(--whiteColor);
+                    background-color: var(--primaryColor);
+                    font: {
+                        size: 16px;
+                        weight: 600;
+                        family: var(--headingFontFamily);
+                    };
+                }
+            }
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    .trinta-card {
+        &.add-project-card {
+            max-width: 100%;
+        }
+    }
+    ::ng-deep {
+        .trinta-card {
+            &.add-project-card {
+                .create-project-btn {
+                    .mat-mdc-button {
+                        padding: 15px 25px;
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width : 576px) and (max-width : 767px) {}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+
+    .trinta-card {
+        &.add-project-card {
+            max-width: 100%;
+        }
+    }
+    ::ng-deep {
+        .trinta-card {
+            &.add-project-card {
+                .create-project-btn {
+                    .mat-mdc-button {
+                        padding: 15px 25px;
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width : 992px) and (max-width : 1199px) {
+
+    .trinta-card {
+        &.add-project-card {
+            max-width: 100%;
+        }
+    }
+
+}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+
+    .trinta-card {
+        &.add-project-card {
+            max-width: 100%;
+        }
+    }
+
+}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {
+
+    .trinta-card {
+        &.add-project-card {
+            max-width: 1064px;
+        }
+    }
+
+}

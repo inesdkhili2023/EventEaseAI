@@ -1,0 +1,290 @@
+<div
+    class="row"
+    cdkDropListGroup
+>
+    <div class="col-sm-6 col-lg-4 col-xxxl-2/5">
+        <mat-card
+            class="trinta-card kanban-board-card mb-25 bg-white border-none d-block"
+        >
+            <mat-card-content>
+                <div class="info text-center">
+                    <span class="number d-block text-gray fw-medium">
+                        47
+                    </span>
+                    <h5>
+                        New Project
+                    </h5>
+                    <div class="bottom d-flex align-items-center justify-content-between">
+                        <span class="d-block text-body">
+                            This Month
+                        </span>
+                        <span class="d-block position-relative text-body">
+                            3.60% <i class="material-symbols-outlined">trending_up</i>
+                        </span>
+                    </div>
+                </div>
+                <div
+                    class="kanban-board-list bg-white"
+                    cdkDropList
+                    [cdkDropListData]="newProject"
+                    (cdkDropListDropped)="drop($event)"
+                >
+                    @for (item of newProject; track item) {
+                        <div class="kanban-board-item" cdkDrag>
+                            <div class="top d-flex align-items-center justify-content-between">
+                                <mat-checkbox color="primary"></mat-checkbox>
+                                <div class="action position-relative">
+                                    <button type="button" mat-button class="p-0 min-w-auto lh-1 h-auto">
+                                        <i-feather name="edit-3"></i-feather>
+                                    </button>
+                                    <button type="button" mat-button class="p-0 min-w-auto lh-1 h-auto">
+                                        <i-feather name="trash-2"></i-feather>
+                                    </button>
+                                </div>
+                            </div>
+                            <h6>
+                                {{item.title}}
+                            </h6>
+                            <div class="bottom d-flex align-items-center justify-content-between">
+                                <span class="d-block text-body">
+                                    {{item.category}}
+                                </span>
+                                <span class="d-block position-relative text-black">
+                                    <i-feather name="list"></i-feather> {{item.completedTask}}/{{item.totalTask}}
+                                </span>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-sm-6 col-lg-4 col-xxxl-2/5">
+        <mat-card
+            class="trinta-card kanban-board-card mb-25 bg-white border-none d-block"
+        >
+            <mat-card-content>
+                <div class="info text-center">
+                    <span class="number d-block text-gray fw-medium">
+                        53
+                    </span>
+                    <h5>
+                        To Do
+                    </h5>
+                    <div class="bottom d-flex align-items-center justify-content-between">
+                        <span class="d-block text-body">
+                            This Month
+                        </span>
+                        <span class="down d-block position-relative text-body">
+                            1.38% <i class="material-symbols-outlined">trending_down</i>
+                        </span>
+                    </div>
+                </div>
+                <div
+                    class="kanban-board-list"
+                    cdkDropList
+                    [cdkDropListData]="toDo"
+                    (cdkDropListDropped)="drop($event)"
+                >
+                    @for (item of toDo; track item) {
+                        <div class="kanban-board-item" cdkDrag>
+                            <div class="top d-flex align-items-center justify-content-between">
+                                <mat-checkbox color="primary"></mat-checkbox>
+                                <div class="action position-relative">
+                                    <button type="button" mat-button class="p-0 min-w-auto lh-1 h-auto">
+                                        <i-feather name="edit-3"></i-feather>
+                                    </button>
+                                    <button type="button" mat-button class="p-0 min-w-auto lh-1 h-auto">
+                                        <i-feather name="trash-2"></i-feather>
+                                    </button>
+                                </div>
+                            </div>
+                            <h6>
+                                {{item.title}}
+                            </h6>
+                            <div class="bottom d-flex align-items-center justify-content-between">
+                                <span class="d-block text-body">
+                                    {{item.category}}
+                                </span>
+                                <span class="d-block position-relative text-black">
+                                    <i-feather name="list"></i-feather> {{item.completedTask}}/{{item.totalTask}}
+                                </span>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-sm-6 col-lg-4 col-xxxl-2/5">
+        <mat-card
+            class="trinta-card kanban-board-card mb-25 bg-white border-none d-block"
+        >
+            <mat-card-content>
+                <div class="info text-center">
+                    <span class="number d-block text-gray fw-medium">
+                        23
+                    </span>
+                    <h5>
+                        In Progress
+                    </h5>
+                    <div class="bottom d-flex align-items-center justify-content-between">
+                        <span class="d-block text-body">
+                            This Month
+                        </span>
+                        <span class="d-block position-relative text-body">
+                            2.50% <i class="material-symbols-outlined">trending_up</i>
+                        </span>
+                    </div>
+                </div>
+                <div
+                    class="kanban-board-list"
+                    cdkDropList
+                    [cdkDropListData]="inProgress"
+                    (cdkDropListDropped)="drop($event)"
+                >
+                    @for (item of inProgress; track item) {
+                        <div class="kanban-board-item" cdkDrag>
+                            <div class="top d-flex align-items-center justify-content-between">
+                                <mat-checkbox color="primary"></mat-checkbox>
+                                <div class="action position-relative">
+                                    <button type="button" mat-button class="p-0 min-w-auto lh-1 h-auto">
+                                        <i-feather name="edit-3"></i-feather>
+                                    </button>
+                                    <button type="button" mat-button class="p-0 min-w-auto lh-1 h-auto">
+                                        <i-feather name="trash-2"></i-feather>
+                                    </button>
+                                </div>
+                            </div>
+                            <h6>
+                                {{item.title}}
+                            </h6>
+                            <div class="bottom d-flex align-items-center justify-content-between">
+                                <span class="d-block text-body">
+                                    {{item.category}}
+                                </span>
+                                <span class="d-block position-relative text-black">
+                                    <i-feather name="list"></i-feather> {{item.completedTask}}/{{item.totalTask}}
+                                </span>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-sm-6 col-lg-4 col-xxxl-2/5">
+        <mat-card
+            class="trinta-card kanban-board-card mb-25 bg-white border-none d-block"
+        >
+            <mat-card-content>
+                <div class="info text-center">
+                    <span class="number d-block text-gray fw-medium">
+                        10
+                    </span>
+                    <h5>
+                        On Review
+                    </h5>
+                    <div class="bottom d-flex align-items-center justify-content-between">
+                        <span class="d-block text-body">
+                            This Month
+                        </span>
+                        <span class="down d-block position-relative text-body">
+                            1.98% <i class="material-symbols-outlined">trending_down</i>
+                        </span>
+                    </div>
+                </div>
+                <div
+                    class="kanban-board-list"
+                    cdkDropList
+                    [cdkDropListData]="onReview"
+                    (cdkDropListDropped)="drop($event)"
+                >
+                    @for (item of onReview; track item) {
+                        <div class="kanban-board-item" cdkDrag>
+                            <div class="top d-flex align-items-center justify-content-between">
+                                <mat-checkbox color="primary"></mat-checkbox>
+                                <div class="action position-relative">
+                                    <button type="button" mat-button class="p-0 min-w-auto lh-1 h-auto">
+                                        <i-feather name="edit-3"></i-feather>
+                                    </button>
+                                    <button type="button" mat-button class="p-0 min-w-auto lh-1 h-auto">
+                                        <i-feather name="trash-2"></i-feather>
+                                    </button>
+                                </div>
+                            </div>
+                            <h6>
+                                {{item.title}}
+                            </h6>
+                            <div class="bottom d-flex align-items-center justify-content-between">
+                                <span class="d-block text-body">
+                                    {{item.category}}
+                                </span>
+                                <span class="d-block position-relative text-black">
+                                    <i-feather name="list"></i-feather> {{item.completedTask}}/{{item.totalTask}}
+                                </span>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-sm-6 col-lg-4 col-xxxl-2/5">
+        <mat-card
+            class="trinta-card kanban-board-card mb-25 bg-white border-none d-block"
+        >
+            <mat-card-content>
+                <div class="info text-center">
+                    <span class="number d-block text-gray fw-medium">
+                        55
+                    </span>
+                    <h5>
+                        Completed
+                    </h5>
+                    <div class="bottom d-flex align-items-center justify-content-between">
+                        <span class="d-block text-body">
+                            This Month
+                        </span>
+                        <span class="d-block position-relative text-body">
+                            3.48% <i class="material-symbols-outlined">trending_up</i>
+                        </span>
+                    </div>
+                </div>
+                <div
+                    class="kanban-board-list"
+                    cdkDropList
+                    [cdkDropListData]="completed"
+                    (cdkDropListDropped)="drop($event)"
+                >
+                    @for (item of completed; track item) {
+                        <div class="kanban-board-item" cdkDrag>
+                            <div class="top d-flex align-items-center justify-content-between">
+                                <mat-checkbox color="primary"></mat-checkbox>
+                                <div class="action position-relative">
+                                    <button type="button" mat-button class="p-0 min-w-auto lh-1 h-auto">
+                                        <i-feather name="edit-3"></i-feather>
+                                    </button>
+                                    <button type="button" mat-button class="p-0 min-w-auto lh-1 h-auto">
+                                        <i-feather name="trash-2"></i-feather>
+                                    </button>
+                                </div>
+                            </div>
+                            <h6>
+                                {{item.title}}
+                            </h6>
+                            <div class="bottom d-flex align-items-center justify-content-between">
+                                <span class="d-block text-body">
+                                    {{item.category}}
+                                </span>
+                                <span class="d-block position-relative text-black">
+                                    <i-feather name="list"></i-feather> {{item.completedTask}}/{{item.totalTask}}
+                                </span>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

@@ -1,0 +1,257 @@
+<mat-card
+    class="trinta-card create-an-event-card mb-25 bg-white border-none d-block"
+>
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Create/Edit An Event
+            </h5>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form>
+            <div class="row">
+                <div class="col-lg-12">
+                    <label class="label d-block fw-medium mb-10">
+                        Event Name
+                    </label>
+                    <mat-form-field>
+                        <i-feather name="edit-3"></i-feather>
+                        <mat-label>Event name</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-6">
+                    <label class="label d-block fw-medium mb-10">
+                        Select Event Type
+                    </label>
+                    <mat-form-field>
+                        <i-feather name="coffee"></i-feather>
+                        <mat-label>Select</mat-label>
+                        <mat-select>
+                            <mat-option value="Conferences">Conferences</mat-option>
+                            <mat-option value="Product Launches">Product Launches</mat-option>
+                            <mat-option value="Seminars">Seminars</mat-option>
+                            <mat-option value="Trade">Trade</mat-option>
+                            <mat-option value="Party">Party</mat-option>
+                            <mat-option value="Sports">Sports</mat-option>
+                            <mat-option value="Exhibitions">Exhibitions</mat-option>
+                            <mat-option value="Fundraiser">Fundraiser</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-6">
+                    <label class="label d-block fw-medium mb-10">
+                        Event Topic
+                    </label>
+                    <mat-form-field>
+                        <i-feather name="flag"></i-feather>
+                        <mat-label>Select</mat-label>
+                        <mat-select>
+                            <mat-option value="Fashion">Fashion</mat-option>
+                            <mat-option value="Networking">Networking</mat-option>
+                            <mat-option value="Conferences">Conferences</mat-option>
+                            <mat-option value="Escape Rooms">Escape Rooms</mat-option>
+                            <mat-option value="Speed Events">Speed Events</mat-option>
+                            <mat-option value="Awards">Awards</mat-option>
+                            <mat-option value="Festival">Festival</mat-option>
+                            <mat-option value="Scavenger">Scavenger</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-12">
+                    <label class="label d-block fw-medium mb-10">
+                        Event Ticket
+                    </label>
+                    <mat-radio-group>
+                        <mat-radio-button value="1">
+                            Online
+                        </mat-radio-button>
+                        <mat-radio-button value="2">
+                            Offline
+                        </mat-radio-button>
+                        <mat-radio-button value="3">
+                            Both
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </div>
+                <div class="col-lg-12">
+                    <label class="label d-block fw-medium mb-10">
+                        Event Venue
+                    </label>
+                    <mat-form-field>
+                        <i-feather name="map"></i-feather>
+                        <mat-label>Event Venue</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-4">
+                    <label class="label d-block fw-medium mb-10">
+                        Select Country
+                    </label>
+                    <mat-form-field>
+                        <i-feather name="map-pin"></i-feather>
+                        <mat-label>Select</mat-label>
+                        <mat-select>
+                            <mat-option value="Germany">Germany</mat-option>
+                            <mat-option value="United States of America">United States of America</mat-option>
+                            <mat-option value="Canada">Canada</mat-option>
+                            <mat-option value="United Kingdom">United Kingdom</mat-option>
+                            <mat-option value="Sweden">Sweden</mat-option>
+                            <mat-option value="Netherlands">Netherlands</mat-option>
+                            <mat-option value="Japan">Japan</mat-option>
+                            <mat-option value="Switzerland">Switzerland</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-4">
+                    <label class="label d-block fw-medium mb-10">
+                        Select State
+                    </label>
+                    <mat-form-field>
+                        <i-feather name="map-pin"></i-feather>
+                        <mat-label>Select</mat-label>
+                        <mat-select>
+                            <mat-option value="Vermont">Vermont</mat-option>
+                            <mat-option value="Minnesota">Minnesota</mat-option>
+                            <mat-option value="Washington">Washington</mat-option>
+                            <mat-option value="Idaho">Idaho</mat-option>
+                            <mat-option value="Florida">Florida</mat-option>
+                            <mat-option value="Iowa">Iowa</mat-option>
+                            <mat-option value="New Hampshire">New Hampshire</mat-option>
+                            <mat-option value="Nebraska">Nebraska</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-4">
+                    <label class="label d-block fw-medium mb-10">
+                        Select City
+                    </label>
+                    <mat-form-field>
+                        <i-feather name="map-pin"></i-feather>
+                        <mat-label>Select</mat-label>
+                        <mat-select>
+                            <mat-option value="Tokyo">Tokyo</mat-option>
+                            <mat-option value="Beijing">Beijing</mat-option>
+                            <mat-option value="Seoul">Seoul</mat-option>
+                            <mat-option value="London">London</mat-option>
+                            <mat-option value="Paris">Paris</mat-option>
+                            <mat-option value="São Paulo">São Paulo</mat-option>
+                            <mat-option value="Osaka">Osaka</mat-option>
+                            <mat-option value="Barcelona">Barcelona</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-6">
+                    <label class="label d-block fw-medium mb-10">
+                        Start Date
+                    </label>
+                    <mat-form-field>
+                        <i-feather name="calendar"></i-feather>
+                        <mat-label>Enter start date</mat-label>
+                        <input matInput [matDatepicker]="picker">
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-6">
+                    <label class="label d-block fw-medium mb-10">
+                        End Date
+                    </label>
+                    <mat-form-field>
+                        <i-feather name="calendar"></i-feather>
+                        <mat-label>Enter end date</mat-label>
+                        <input matInput [matDatepicker]="picker2">
+                        <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+                        <mat-datepicker #picker2></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-6">
+                    <label class="label d-block fw-medium mb-10">
+                        Start Time
+                    </label>
+                    <mat-form-field>
+                        <i-feather name="clock"></i-feather>
+                        <mat-label>Start time</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-6">
+                    <label class="label d-block fw-medium mb-10">
+                        End Time
+                    </label>
+                    <mat-form-field>
+                        <i-feather name="clock"></i-feather>
+                        <mat-label>End time</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-12">
+                    <label class="label d-block fw-medium mb-10">
+                        Registration Deadline
+                    </label>
+                    <mat-form-field>
+                        <i-feather name="calendar"></i-feather>
+                        <mat-label>Select</mat-label>
+                        <input matInput [matDatepicker]="picker3">
+                        <mat-datepicker-toggle matIconSuffix [for]="picker3"></mat-datepicker-toggle>
+                        <mat-datepicker #picker3></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-12">
+                    <label class="label d-block fw-medium mb-10">
+                        Ticket Price
+                    </label>
+                    <mat-form-field>
+                        <i-feather name="dollar-sign"></i-feather>
+                        <mat-label>Enter price</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-12">
+                    <label class="label d-block fw-medium mb-10">
+                        Event Description
+                    </label>
+                    <div class="NgxEditor__Wrapper">
+                        <ngx-editor-menu [editor]="editor" [toolbar]="toolbar"></ngx-editor-menu>
+                        <ngx-editor [editor]="editor" [ngModel]="html" name="html" [disabled]="false" [placeholder]="'Some demo text...'"></ngx-editor>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <label class="label d-block fw-medium mb-10">
+                        Event Organizers
+                    </label>
+                    <mat-form-field>
+                        <i-feather name="globe"></i-feather>
+                        <mat-label>Enter name</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-6">
+                    <label class="label d-block fw-medium mb-10">
+                        Event Sponsors
+                    </label>
+                    <mat-form-field>
+                        <i-feather name="user-check"></i-feather>
+                        <mat-label>Enter name</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-12">
+                    <label class="label d-block fw-medium mb-10">
+                        Attached File
+                    </label>
+                    <file-upload class="file-uploader"></file-upload>
+                </div>
+            </div>
+            <div class="save-event-btn">
+                <button mat-button type="button">
+                    Publish Event
+                </button>
+                <button mat-button type="button">
+                    Cancel
+                </button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

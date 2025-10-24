@@ -1,0 +1,169 @@
+::ng-deep {
+    .trinta-card {
+        &.all-projects-card {
+            .mat-mdc-card-content {
+                .mat-mdc-tab-group {
+                    display: block;
+    
+                    .mat-mdc-tab-header {
+                        display: block;
+
+                        .mat-mdc-tab-label-container {
+                            display: block;
+                            border: 0;
+
+                            .mat-mdc-tab-labels {
+                                background-color: #f7faff;
+                            }
+                            .mat-mdc-tab {
+                                flex-grow: 1;
+                                min-width: auto;
+                                color: var(--blackColor);
+                                transition: var(--transition);
+                                padding: {
+                                    left: 15px;
+                                    top: 15.5px;
+                                    right: 15px;
+                                    bottom: 15.5px;
+                                };
+                                .mdc-tab__text-label {
+                                    color: var(--blackColor);
+                                    transition: var(--transition);
+                                    font: {
+                                        weight: 500;
+                                        size: var(--fontSize);
+                                    };
+                                }
+                                &.mdc-tab--active {
+                                    background-color: var(--primaryColor);
+
+                                    .mdc-tab__text-label {
+                                        color: var(--whiteColor);
+                                    }
+                                }
+                                .mdc-tab-indicator {
+                                    display: none;
+                                }
+                                &:not(.mdc-tab--stacked) {
+                                    height: auto;
+                                }
+                            }
+                        }
+                        .mat-mdc-tab-header-pagination {
+                            display: none;
+                        }
+                    }
+                    .mat-mdc-tab-body-wrapper {
+                        display: block;
+                        margin-top: 25px;
+
+                        .mat-mdc-tab-body {
+                            overflow: hidden;
+
+                            .mat-mdc-tab-body-content {
+                                height: auto;
+                                overflow: hidden;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    ::ng-deep {
+        .trinta-card {
+            &.all-projects-card {
+                .mat-mdc-card-content {
+                    .mat-mdc-tab-group {
+                        .mat-mdc-tab-header {
+                            .mat-mdc-tab-label-container {
+                                .mat-mdc-tab-labels {
+                                    display: block;
+                                }
+                                .mat-mdc-tab {
+                                    padding: {
+                                        top: 15px;
+                                        bottom: 15px;
+                                    };
+                                    .mdc-tab__text-label {
+                                        font-size: 13px;
+                                    }
+                                }
+                            }
+                        }
+                        .mat-mdc-tab-body-wrapper {
+                            margin-top: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width : 576px) and (max-width : 767px) {
+
+    ::ng-deep {
+        .trinta-card {
+            &.all-projects-card {
+                .mat-mdc-card-content {
+                    .mat-mdc-tab-group {
+                        .mat-mdc-tab-header {
+                            .mat-mdc-tab-label-container {
+                                .mat-mdc-tab-labels {
+                                    display: flex;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+
+    ::ng-deep {
+        .trinta-card {
+            &.all-projects-card {
+                .mat-mdc-card-content {
+                    .mat-mdc-tab-group {
+                        .mat-mdc-tab-header {
+                            .mat-mdc-tab-label-container {
+                                .mat-mdc-tab {
+                                    padding: {
+                                        top: 15px;
+                                        bottom: 15px;
+                                    };
+                                }
+                            }
+                        }
+                        .mat-mdc-tab-body-wrapper {
+                            margin-top: 22px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width : 992px) and (max-width : 1199px) {}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {}

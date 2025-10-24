@@ -1,0 +1,374 @@
+::ng-deep {
+    .trinta-card {
+        &.publish-post-card {
+            .mat-mdc-card-content {
+                .mat-mdc-tab-group {
+                    display: block;
+                    --mat-tab-header-inactive-label-text-color: var(--darkColor);
+
+                    .mat-mdc-tab-header {
+                        display: block;
+                        margin-bottom: 20px;
+
+                        .mat-mdc-tab-header-pagination {
+                            display: none;
+                        }
+                        .mat-mdc-tab-label-container {
+                            display: block;
+
+                            .mat-mdc-tab-list {
+                                .mat-mdc-tab-labels {
+                                    display: block;
+                                    font-weight: 500;
+                                    position: relative;
+
+                                    &::before {
+                                        left: 0;
+                                        right: 0;
+                                        bottom: 0;
+                                        height: 1px;
+                                        content: '';
+                                        position: absolute;
+                                        background: #edeff5;
+                                    }
+                                    .mat-mdc-tab {
+                                        height: auto;
+                                        min-width: auto;
+                                        padding: 0 0 15px;
+                                        margin-right: 35px;
+                                        display: inline-block;
+
+                                        &:last-child {
+                                            margin-right: 0;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .mat-mdc-tab-body-wrapper {
+                        display: block;
+
+                        .mat-mdc-tab-body {
+                            overflow: hidden;
+
+                            .mat-mdc-tab-body-content {
+                                overflow: hidden;
+                                height: auto;
+
+                                .btn-box {
+                                    .buttons-list {
+                                        top: 4px;
+                                        position: relative;
+
+                                        .mat-mdc-button {
+                                            padding: 0;
+                                            height: auto;
+                                            min-width: auto;
+                                            margin-left: 12px;
+                                            display: inline-block;
+                                            color: var(--blackColor);
+                                            transition: var(--transition);
+                
+                                            &:first-child {
+                                                margin-left: 0;
+                                            }
+                                        }
+                                    }
+                                    .mat-mdc-button {
+                                        &.btn {
+                                            height: auto;
+                                            min-width: auto;
+                                            text-align: center;
+                                            padding: 13px 35px;
+                                            display: inline-block;
+                                            color: var(--whiteColor);
+                                            background-color: var(--primaryColor);
+                                            font: {
+                                                size: 16px;
+                                                weight: 600;
+                                                family: var(--headingFontFamily);
+                                            };
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &.post-card {
+            .mat-mdc-card-header {
+                .user {
+                    img {
+                        width: 53px;
+                        height: 53px;
+                        margin-right: 15px;
+                    }
+                    h6 {
+                        font-size: 15px;
+                        margin-bottom: 8px;
+                    }
+                }
+            }
+            .mat-mdc-card-content {
+                border-top: 1px solid #edeff5;
+                margin: {
+                    left: -25px;
+                    right: -25px;
+                };
+                padding: {
+                    top: 25px;
+                    left: 25px;
+                    right: 25px;
+                };
+                .post-img {
+                    margin-bottom: 20px;
+                }
+                .post-info {
+                    padding: 15px 25px;
+                    border: {
+                        top: 1px solid #edeff5;
+                        bottom: 1px solid #edeff5;
+                    };
+                    margin: {
+                        left: -25px;
+                        right: -25px;
+                    };
+                    .mat-mdc-button {
+                        padding: 0;
+                        height: auto;
+                        min-width: auto;
+                        margin-right: 30px;
+                        color: var(--bodyColor);
+
+                        .mdc-button__label {
+                            padding-left: 23px;
+                            display: block;
+                        }
+                        i-feather {
+                            left: 0;
+                            top: 50%;
+                            width: 16px;
+                            height: 16px;
+                            margin-top: -1px;
+                            position: absolute;
+                            color: var(--blackColor);
+                            transform: translateY(-50%);
+                        }
+                        &:last-child {
+                            margin-right: 0;
+                        }
+                    }
+                }
+                .post-comment {
+                    margin-top: 25px;
+
+                    .img {
+                        margin-right: 15px;
+
+                        img {
+                            width: 36px;
+                            height: 36px;
+                        }
+                    }
+                    form {
+                        flex: 1 1 auto;
+                        padding-right: 63px;
+
+                        .mat-mdc-text-field-wrapper {
+                            padding: 0 30px;
+                            border-radius: 30px;
+                            background-color: var(--whiteColor);
+                        }
+                        .mat-mdc-button {
+                            right: 0;
+                            top: 50%;
+                            padding: 0;
+                            width: 48px;
+                            height: 48px;
+                            min-width: auto;
+                            border-radius: 50%;
+                            position: absolute;
+                            color: var(--whiteColor);
+                            transform: translateY(-50%);
+                            background-color: var(--primaryColor);
+
+                            i {
+                                font-size: 25px;
+                            }
+                            .mdc-button__label {
+                                left: 0;
+                                right: 0;
+                                top: 50%;
+                                margin-top: 2px;
+                                position: absolute;
+                                transform: translateY(-50%);
+                            }
+                        }
+                        .mat-mdc-form-field-subscript-wrapper {
+                            display: none;
+                        }
+                    }
+                    .buttons-list {
+                        top: 17px;
+                        right: 85px;
+                        position: absolute;
+
+                        .mat-mdc-button {
+                            padding: 0;
+                            height: auto;
+                            min-width: auto;
+                            margin-left: 12px;
+                            display: inline-block;
+                            color: var(--blackColor);
+                            transition: var(--transition);
+
+                            &:first-child {
+                                margin-left: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    ::ng-deep {
+        .trinta-card {
+            &.publish-post-card {
+                .mat-mdc-card-content {
+                    .mat-mdc-tab-group {
+                        .mat-mdc-tab-header {
+                            margin-bottom: 20px;
+    
+                            .mat-mdc-tab-label-container {
+                                .mat-mdc-tab-list {
+                                    .mat-mdc-tab-labels {
+                                        .mat-mdc-tab {
+                                            padding: 0 0 12px;
+                                            margin-right: 20px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .mat-mdc-tab-body-wrapper {
+                            .mat-mdc-tab-body {
+                                .mat-mdc-tab-body-content {
+                                    .btn-box {
+                                        .buttons-list {
+                                            top: 0;
+                                            margin-bottom: 15px;
+                                        }
+                                        .mat-mdc-button {
+                                            &.btn {
+                                                padding: 13px 25px;
+                                                font-size: 14px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &.post-card {
+                .mat-mdc-card-header {
+                    .user {
+                        img {
+                            width: 50px;
+                            height: 50px;
+                        }
+                        h6 {
+                            font-size: 14px;
+                        }
+                    }
+                }
+                .mat-mdc-card-content {
+                    margin: {
+                        left: -20px;
+                        right: -20px;
+                    };
+                    padding: {
+                        top: 20px;
+                        left: 20px;
+                        right: 20px;
+                    };
+                    .post-img {
+                        margin-bottom: 20px;
+                    }
+                    .post-info {
+                        padding: 5px 20px 15px;
+                        margin: {
+                            left: -20px;
+                            right: -20px;
+                        };
+                        .mat-mdc-button {
+                            margin: {
+                                right: 20px;
+                                top: 10px;
+                            };
+                            .mdc-button__label {
+                                padding-left: 22px;
+                            }
+                        }
+                    }
+                    .post-comment {
+                        margin-top: 25px;
+    
+                        .img {
+                            margin: {
+                                right: 0;
+                                bottom: 10px;
+                            };
+                        }
+                        form {
+                            padding-right: 55px;
+    
+                            .mat-mdc-text-field-wrapper {
+                                padding: 0 15px;
+                            }
+                            .mat-mdc-button {
+                                width: 45px;
+                                height: 45px;
+    
+                                i {
+                                    font-size: 24px;
+                                }
+                            }
+                        }
+                        .buttons-list {
+                            top: 0;
+                            right: 0;
+                            margin-top: 15px;
+                            position: relative;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width : 576px) and (max-width : 767px) {}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width : 768px) and (max-width : 991px) {}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width : 992px) and (max-width : 1199px) {}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {}

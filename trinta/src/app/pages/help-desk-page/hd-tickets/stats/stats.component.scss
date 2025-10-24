@@ -1,0 +1,279 @@
+.trinta-card {
+    &.hd-stat-card {
+        .mat-mdc-card-content {
+            .icon {
+                width: 67px;
+                height: 67px;
+                font-size: 30px;
+                margin-right: 20px;
+                display: none !important;
+                color: var(--primaryColor);
+                background: rgba(55, 97, 238, 0.10);
+
+                i {
+                    top: -1px;
+                    position: relative;
+                }
+            }
+            .title {
+                .sub-title {
+                    font-size: 15px;
+                    margin-bottom: 10px;
+                }
+                h5 {
+                    font-size: 20px;
+                    letter-spacing: 1px;
+                }
+                .info {
+                    margin-top: 30px;
+
+                    span {
+                        letter-spacing: .5px;
+
+                        &.trending {
+                            color: #00b69b;
+                            margin-right: 10px;
+                            padding-right: 20px;
+
+                            i {
+                                transform: translateY(-50%);
+                                position: absolute;
+                                margin-top: -1px;
+                                font-size: 18px;
+                                top: 50%;
+                                right: 0;
+                            }
+                            &.down {
+                                color: var(--dangerColor);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &:hover {
+            .mat-mdc-card-content {
+                .icon {
+                    color: var(--whiteColor);
+                    background: var(--primaryColor);
+                }
+            }
+        }
+    }
+}
+.row {
+    .col-sm-6 {
+        &:nth-child(2) {
+            .trinta-card {
+                &.hd-stat-card {
+                    .mat-mdc-card-content {
+                        .icon {
+                            color: var(--dangerColor);
+                            background: rgba(238, 54, 140, 0.10);
+                        }
+                    }
+                    &:hover {
+                        .mat-mdc-card-content {
+                            .icon {
+                                color: var(--whiteColor);
+                                background: var(--dangerColor);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &:nth-child(3) {
+            .trinta-card {
+                &.hd-stat-card {
+                    .mat-mdc-card-content {
+                        .icon {
+                            color: var(--infoColor);
+                            background: rgba(45, 182, 245, 0.10);
+                        }
+                    }
+                    &:hover {
+                        .mat-mdc-card-content {
+                            .icon {
+                                color: var(--whiteColor);
+                                background: var(--infoColor);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &:nth-child(4) {
+            .trinta-card {
+                &.hd-stat-card {
+                    .mat-mdc-card-content {
+                        .icon {
+                            color: #ee8336;
+                            background: rgba(238, 131, 54, 0.10);
+                        }
+                    }
+                    &:hover {
+                        .mat-mdc-card-content {
+                            .icon {
+                                color: var(--whiteColor);
+                                background: #ee8336;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    .trinta-card {
+        &.hd-stat-card {
+            border-right-width: 0 !important;
+    
+            .mat-mdc-card-content {
+                .icon {
+                    width: 65px;
+                    height: 65px;
+                    margin: {
+                        right: 0;
+                        bottom: 15px;
+                    };
+                }
+                .title {
+                    .sub-title {
+                        font-size: 13px;
+                        margin-bottom: 8px;
+                    }
+                    h5 {
+                        font-size: 16px;
+                    }
+                    .info {
+                        margin-top: 11px;
+    
+                        span {
+                            letter-spacing: 1px;
+    
+                            &.trending {
+                                margin-right: 12px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width : 576px) and (max-width : 767px) {}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+
+    .trinta-card {
+        &.hd-stat-card {
+            .mat-mdc-card-content {
+                .icon {
+                    margin-right: 17px;
+                }
+                .title {
+                    .sub-title {
+                        font-size: 14px;
+                    }
+                    h5 {
+                        font-size: 18px;
+                    }
+                    .info {
+                        margin-top: 20px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width : 992px) and (max-width : 1199px) {
+
+    .trinta-card {
+        &.hd-stat-card {
+            .mat-mdc-card-content {
+                .icon {
+                    margin: {
+                        right: 0;
+                        bottom: 20px;
+                    };
+                }
+                .title {
+                    .info {
+                        margin-top: 20px;
+    
+                        span {
+                            letter-spacing: 0.15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+
+    .trinta-card {
+        &.hd-stat-card {
+            .mat-mdc-card-content {
+                .icon {
+                    margin: {
+                        right: 0;
+                        bottom: 20px;
+                    };
+                }
+                .title {
+                    .info {
+                        margin-top: 10px;
+    
+                        span {
+                            letter-spacing: 0.15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {
+
+    .trinta-card {
+        &.hd-stat-card {
+            .mat-mdc-card-content {
+                .icon {
+                    display: flex !important;
+                }
+                .title {
+                    .info {
+                        span {
+                            letter-spacing: 1px;
+    
+                            &.trending {
+                                margin-right: 15px;
+                                padding-right: 22px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

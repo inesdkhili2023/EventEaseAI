@@ -1,0 +1,61 @@
+@use '../../../styles.scss' as *;
+
+.overview-box {
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+
+    .icon {
+        font-size: 40px;
+        margin-bottom: 10px;
+    }
+
+    h3 {
+        font-size: 24px;
+        margin-bottom: 5px;
+        color: white;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    &.bg-primary {
+        background-color: var(--primaryColor);
+    }
+
+    &.bg-success {
+        background-color: var(--successColor);
+    }
+
+    &.bg-warning {
+        background-color: var(--warningColor);
+    }
+}
+
+.table {
+    th {
+        background-color: var(--primaryColor);
+        color: white;
+        font-weight: 600;
+    }
+
+    .badge {
+        padding: 8px 12px;
+        border-radius: 4px;
+        font-weight: 500;
+    }
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+.quick-form {
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}

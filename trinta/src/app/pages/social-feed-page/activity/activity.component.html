@@ -1,0 +1,78 @@
+<mat-card
+    class="trinta-card activity-card mb-25 bg-white border-none d-block"
+>
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Activity
+            </h5>
+        </mat-card-title>
+        <mat-card-subtitle>
+            <button type="button" mat-button class="card-header-dot-btn lh-1 p-0 min-w-auto h-auto" [matMenuTriggerFor]="cardHeaderMenu">
+                <i class="ri-more-2-fill"></i>
+            </button>
+            <mat-menu #cardHeaderMenu="matMenu" class="card-header-menu" xPosition="before">
+                <button mat-menu-item>
+                    Last Day
+                </button>
+                <button mat-menu-item>
+                    Last Week
+                </button>
+                <button mat-menu-item>
+                    Last Month
+                </button>
+                <button mat-menu-item>
+                    Last Year
+                </button>
+            </mat-menu>
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <ul class="p-0 m-0 list-unstyled">
+            <li class="position-relative">
+                <div class="number fw-semibold d-flex align-items-center justify-content-center rounded-circle text-center bg-primary text-white">
+                    1
+                </div>
+                <h6>
+                    Beyond Boundaries: Exploring the Frontiers of Innovation
+                </h6>
+                <span class="d-block text-body">
+                    54 mins ago
+                </span>
+            </li>
+            <li class="position-relative">
+                <div class="number fw-semibold d-flex align-items-center justify-content-center rounded-circle text-center bg-primary text-white">
+                    2
+                </div>
+                <h6>
+                    A Glimpse into Tomorrow's Breakthroughs
+                </h6>
+                <span class="d-block text-body">
+                    59 mins ago
+                </span>
+            </li>
+            <li class="position-relative">
+                <div class="number fw-semibold d-flex align-items-center justify-content-center rounded-circle text-center bg-primary text-white">
+                    3
+                </div>
+                <h6>
+                    Pioneering the Next Wave of Progress
+                </h6>
+                <span class="d-block text-body">
+                    1 hour ago
+                </span>
+            </li>
+            <li class="position-relative">
+                <div class="number fw-semibold d-flex align-items-center justify-content-center rounded-circle text-center bg-primary text-white">
+                    4
+                </div>
+                <h6>
+                    Innovation Unleashed: Charting a Course for the Future
+                </h6>
+                <span class="d-block text-body">
+                    2 hours ago
+                </span>
+            </li>
+        </ul>
+    </mat-card-content>
+</mat-card>

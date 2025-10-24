@@ -1,0 +1,217 @@
+.trinta-card {
+    &.student-progress-card {
+        .student-progress-table {
+            .mat-mdc-table {
+                width: 100%;
+                overflow: hidden;
+                background-color: transparent;
+
+                .mat-mdc-header-row {
+                    height: auto;
+                    line-height: initial;
+                    letter-spacing: 0.14px;
+                    color: var(--darkColor);
+                    background: transparent;
+                    font: {
+                        weight: 500;
+                        size: var(--fontSize);
+                        family: var(--fontFamily);
+                    };
+                    .mat-mdc-header-cell {
+                        border: none;
+                        overflow: unset;
+                        text-align: start;
+                        white-space: nowrap;
+                        line-height: initial;
+                        padding: 0 15px 15px;
+                        letter-spacing: normal;
+                        background: transparent;
+                        border-bottom: 2px solid #edeff5;
+                    }
+                }
+                .mat-mdc-row, .mdc-data-table__content {
+                    line-height: initial;
+                    background: transparent;
+                    font: {
+                        weight: normal;
+                        size: var(--fontSize);
+                        family: var(--fontFamily);
+                    };
+                }
+                .mat-mdc-row {
+                    height: auto;
+                    color: var(--blackColor);
+
+                    &:first-child {
+                        .mat-mdc-cell {
+                            padding-top: 0;
+                        }
+                    }
+                }
+                .mat-mdc-cell {
+                    border: none;
+                    padding: 15px;
+                    overflow: hidden;
+                    text-align: start;
+                    white-space: nowrap;
+                    line-height: initial;
+                    letter-spacing: 0.14px;
+                    background: transparent;
+                    border-bottom: 1px solid #edeff5;
+
+                    .course {
+                        .image {
+                            img {
+                                border-radius: 6px;
+                                width: 52px;
+                            }
+                        }
+                        .info {
+                            --mdc-linear-progress-active-indicator-height: 5px;
+                            --mdc-linear-progress-track-height: 5px;
+                            margin: {
+                                left: 16px;
+                                top: 1.5px;
+                            };
+                            .title {
+                                font: {
+                                    size: 15px;
+                                    family: var(--headingFontFamily);
+                                };
+                            }
+                            .mat-mdc-progress-bar {
+                                margin-top: 15px;
+                            }
+                            .course-name {
+                                color: var(--bodyColor);
+                                padding-left: 22px;
+                                margin-top: 16px;
+
+                                i {
+                                    left: 0;
+                                    top: 50%;
+                                    font-size: 16px;
+                                    position: absolute;
+                                    transform: translateY(-50%);
+                                }
+                                &:hover {
+                                    color: var(--primaryColor);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .mat-mdc-paginator {
+                padding-top: 15px;
+            }
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    .trinta-card {
+        &.student-progress-card {
+            .student-progress-table {
+                .mat-mdc-table {
+                    .mat-mdc-header-row {
+                        font-size: 13px;
+                    }
+                    .mat-mdc-row, .mdc-data-table__content {
+                        font-size: 13px;
+                    }
+                    .mat-mdc-cell {
+                        .course {
+                            .image {
+                                img {
+                                    width: 50px;
+                                }
+                            }
+                            .info {
+                                margin: {
+                                    left: 12px;
+                                    top: 0;
+                                };
+                                .title {
+                                    font-size: 13px;
+                                }
+                                .mat-mdc-progress-bar {
+                                    margin-top: 12px;
+                                }
+                                .course-name {
+                                    margin-top: 12px;
+                                }
+                            }
+                        }
+                    }
+                }
+                .mat-mdc-paginator {
+                    padding-top: 15px;
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width : 576px) and (max-width : 767px) {}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+
+    .trinta-card {
+        &.student-progress-card {
+            .student-progress-table {
+                .mat-mdc-table {
+                    .mat-mdc-cell {
+                        .course {
+                            .info {
+                                margin-left: 15px;
+
+                                .title {
+                                    font-size: 14px;
+                                }
+                                .course-name {
+                                    margin-top: 13px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width : 992px) and (max-width : 1199px) {}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {
+
+    .trinta-card {
+        &.student-progress-card {
+            .student-progress-table {
+                .mat-mdc-table {
+                    .mat-mdc-cell {
+                        .course {
+                            .info {
+                                .course-name {
+                                    margin-top: 15px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

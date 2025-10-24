@@ -1,0 +1,32 @@
+<mat-card class="trinta-card mb-25 bg-white border-none d-block">
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Brush Line Chart
+            </h5>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <apx-chart
+            [series]="chartOptions1.series!"
+            [chart]="chartOptions1.chart!"
+            [xaxis]="chartOptions1.xaxis!"
+            [dataLabels]="chartOptions1.dataLabels!"
+            [colors]="chartOptions1.colors!"
+            [fill]="chartOptions1.fill!"
+            [grid]="chartOptions1.grid!"
+            [markers]="chartOptions1.markers!"
+            [stroke]="chartOptions1.stroke!"
+            [yaxis]="chartOptions2.yaxis!"
+        ></apx-chart>
+        <apx-chart
+            [series]="chartOptions2.series!"
+            [chart]="chartOptions2.chart!"
+            [xaxis]="chartOptions2.xaxis!"
+            [grid]="chartOptions1.grid!"
+            [colors]="chartOptions2.colors!"
+            [fill]="chartOptions2.fill!"
+            [yaxis]="chartOptions2.yaxis!"
+        ></apx-chart>
+    </mat-card-content>
+</mat-card>

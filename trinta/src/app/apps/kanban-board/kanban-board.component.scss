@@ -1,0 +1,173 @@
+.trinta-card {
+    &.kanban-board-card {
+        .mat-mdc-card-content {
+            .info {
+                h5 {
+                    font-size: 18px;
+                    margin: {
+                        top: 12px;
+                        bottom: 30px;
+                    };
+                }
+                .bottom {
+                    span {
+                        font-size: 13px;
+                        letter-spacing: 1px;
+
+                        &:nth-child(2) {
+                            padding-right: 25px;
+
+                            i {
+                                top: 50%;
+                                right: 0;
+                                font-size: 20px;
+                                color: #00b69b;
+                                margin-top: -1px;
+                                position: absolute;
+                                transform: translateY(-50%);
+                            }
+                            &.down {
+                                i {
+                                    color: var(--dangerColor);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .kanban-board-list {
+                margin-top: 25px;
+            }
+        }
+    }
+}
+::ng-deep {
+    .kanban-board-item {
+        padding: 20px;
+        border-radius: 6px;
+        margin-bottom: 15px;
+        background: #f6f7fb;
+
+        .top {
+            margin-bottom: 15px;
+            --mdc-checkbox-state-layer-size: 0;
+
+            .action {
+                top: 2px;
+
+                .mat-mdc-button {
+                    color: #818093;
+                    margin-right: 12px;
+
+                    i-feather {
+                        width: 18px;
+                        height: 18px;
+                    }
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+        h6 {
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 27px;
+        }
+        .bottom {
+            span {
+                &:nth-child(2) {
+                    padding-left: 25px;
+
+                    i-feather {
+                        transform: translateY(-50%);
+                        stroke: var(--infoColor);
+                        margin-top: -1.1px;
+                        position: absolute;
+                        height: 17px;
+                        width: 17px;
+                        top: 50%;
+                        left: 0;
+                    }
+                }
+            }
+        }
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    .trinta-card {
+        &.kanban-board-card {
+            .mat-mdc-card-content {
+                .info {
+                    h5 {
+                        font-size: 16px;
+                        margin: {
+                            top: 10px;
+                            bottom: 15px;
+                        };
+                    }
+                }
+                .kanban-board-list {
+                    margin-top: 15px;
+                }
+            }
+        }
+    }
+    ::ng-deep {
+        .kanban-board-item {
+            padding: 15px;
+   
+            h6 {
+                font-size: 14px;
+                margin-bottom: 15px;
+            }
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width : 576px) and (max-width : 767px) {}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+
+    .trinta-card {
+        &.kanban-board-card {
+            .mat-mdc-card-content {
+                .info {
+                    h5 {
+                        font-size: 17px;
+                        margin-bottom: 20px;
+                    }
+                }
+                .kanban-board-list {
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+    ::ng-deep {
+        .kanban-board-item {
+            h6 {
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width : 992px) and (max-width : 1199px) {}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {}

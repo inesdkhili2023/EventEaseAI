@@ -1,0 +1,78 @@
+.edit-dialog {
+  min-width: 600px;
+  max-width: 800px;
+}
+
+.edit-dialog h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #333;
+  margin-bottom: 0;
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.form-row {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.form-row mat-form-field {
+  flex: 1;
+}
+
+.form-row .full-width {
+  width: 100%;
+}
+
+.error-message {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  background-color: #ffebee;
+  border: 1px solid #f44336;
+  border-radius: 8px;
+  color: #d32f2f;
+  margin-top: 16px;
+}
+
+mat-dialog-actions {
+  padding: 16px 24px;
+  gap: 12px;
+}
+
+mat-dialog-actions button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .edit-dialog {
+    min-width: 95vw;
+    max-width: 95vw;
+  }
+  
+  .form-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  mat-dialog-actions {
+    flex-direction: column-reverse;
+  }
+  
+  mat-dialog-actions button {
+    width: 100%;
+    justify-content: center;
+  }
+}

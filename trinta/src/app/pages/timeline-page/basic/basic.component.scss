@@ -1,0 +1,133 @@
+.trinta-card {
+    &.basic-timeline-card {
+        .mat-mdc-card-content {
+            .timeline {
+                li {
+                    border-bottom: 1px solid #edeff5;
+                    padding: {
+                        top: 20px;
+                        left: 30px;
+                        bottom: 20px;
+                    };
+                    h6 {
+                        margin-bottom: 13px;
+                    }
+                    .time {
+                        margin-bottom: 10px;
+                    }
+                    .users {
+                        margin-top: 12px;
+    
+                        img {
+                            width: 50px;
+                            height: 50px;
+                            margin-right: -18px;
+                            border: 3px solid var(--whiteColor);
+                        }
+                        div {
+                            width: 50px;
+                            height: 50px;
+                            line-height: 44px;
+                            text-align: center;
+                            border: 3px solid var(--whiteColor);
+                        }
+                    }
+                    &::before {
+                        top: 0;
+                        left: 4px;
+                        bottom: 0;
+                        width: 1px;
+                        content: '';
+                        position: absolute;
+                        background: #edeff5;
+                    }
+                    &::after {
+                        left: 0;
+                        top: -6px;
+                        content: '';
+                        width: 10px;
+                        height: 10px;
+                        border-radius: 50%;
+                        position: absolute;
+                        background: var(--primaryColor);
+                    }
+                    &:nth-child(2), &:nth-child(8) {
+                        &::after {
+                            background: #796df6;
+                        }
+                    }
+                    &:nth-child(3), &:nth-child(9) {
+                        &::after {
+                            background: var(--successColor);
+                        }
+                    }
+                    &:nth-child(4), &:nth-child(10) {
+                        &::after {
+                            background: var(--warningColor);
+                        }
+                    }
+                    &:nth-child(5), &:nth-child(11) {
+                        &::after {
+                            background: #e74c3c;
+                        }
+                    }
+                    &:nth-child(6), &:nth-child(12) {
+                        &::after {
+                            background: #00cae3;
+                        }
+                    }
+                    &:first-child {
+                        &::after {
+                            top: 0;
+                        }
+                    }
+                    &:last-child {
+                        border-bottom-width: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    .trinta-card {
+        &.basic-timeline-card {
+            .mat-mdc-card-content {
+                .timeline {
+                    li {
+                        padding: {
+                            top: 15px;
+                            left: 22px;
+                            bottom: 15px;
+                        };
+                        h6 {
+                            margin-bottom: 10px;
+                        }
+                        .time {
+                            margin-bottom: 8px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width : 576px) and (max-width : 767px) {}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width : 768px) and (max-width : 991px) {}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width : 992px) and (max-width : 1199px) {}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {}

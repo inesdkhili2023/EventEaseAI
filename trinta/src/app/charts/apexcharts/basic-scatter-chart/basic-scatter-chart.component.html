@@ -1,0 +1,20 @@
+<mat-card class="trinta-card mb-25 bg-white border-none d-block">
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Basic Scatter Chart
+            </h5>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <apx-chart
+            [series]="chartOptions.series!"
+            [chart]="chartOptions.chart!"
+            [colors]="chartOptions.colors!"
+            [xaxis]="chartOptions.xaxis!"
+            [yaxis]="chartOptions.yaxis!"
+            [legend]="chartOptions.legend!"
+            [grid]="chartOptions.grid!"
+        ></apx-chart>
+    </mat-card-content>
+</mat-card>

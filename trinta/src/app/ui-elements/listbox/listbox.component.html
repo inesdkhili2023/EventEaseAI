@@ -1,0 +1,241 @@
+<!-- Breadcrumb -->
+<div class="breadcrumb-card mb-25 d-md-flex align-items-center justify-content-between">
+    <h5 class="mb-0">
+        Listbox
+    </h5>
+    <ol class="breadcrumb list-unstyled mt-0 mb-0 pl-0">
+        <li class="breadcrumb-item position-relative">
+            <a routerLink="/" class="d-inline-block position-relative">
+                <i class="ri-home-8-line"></i>
+                Dashboard
+            </a>
+        </li>
+        <li class="breadcrumb-item position-relative">
+            UI Elements
+        </li>
+        <li class="breadcrumb-item position-relative">
+            Listbox
+        </li>
+    </ol>
+</div>
+
+<!-- Listbox -->
+<div class="row">
+    <div class="col-md-6 col-xxl-4">
+        <mat-card
+            class="trinta-card mb-25 bg-white border-none d-block"
+        >
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Basic Listbox
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="example-listbox-container">
+                    <label class="example-listbox-label fw-medium" id="example-fav-color-label">
+                        Favorite color
+                    </label>
+                    <ul cdkListbox
+                        aria-labelledby="example-fav-color-label"
+                        class="example-listbox"
+                    >
+                        <li cdkOption="red" class="example-option text-black">Red</li>
+                        <li cdkOption="green" class="example-option text-black">Green</li>
+                        <li cdkOption="blue" class="example-option text-black">Blue</li>
+                    </ul>
+                </div>
+            </mat-card-content>
+        </mat-card>
+        <mat-card
+            class="trinta-card mb-25 bg-white border-none d-block"
+        >
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Listbox with Custom Typeahead
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="example-listbox-container">
+                    <label class="example-listbox-label fw-medium" id="example-satisfaction-label">
+                        How was your service?
+                    </label>
+                    <ul cdkListbox
+                        aria-labelledby="example-satisfaction-label"
+                        class="example-listbox"
+                    >
+                        <li [cdkOption]="1" cdkOptionTypeaheadLabel="great" class="example-option text-black">
+                            😀 Great
+                        </li>
+                        <li [cdkOption]="0" cdkOptionTypeaheadLabel="okay" class="example-option text-black">
+                            😐 Okay
+                        </li>
+                        <li [cdkOption]="-1" cdkOptionTypeaheadLabel="bad" class="example-option text-black">
+                            🙁 Bad
+                        </li>
+                    </ul>
+                </div>
+            </mat-card-content>
+        </mat-card>
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Horizontal Listbox
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <app-horizontal-listbox></app-horizontal-listbox>
+            </mat-card-content>
+        </mat-card>
+        <mat-card
+            class="trinta-card mb-25 bg-white border-none d-block"
+        >
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Listbox with Multiple Selection
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="example-listbox-container">
+                    <label class="example-listbox-label fw-medium" id="example-fav-cuisine-label">
+                        Favorite cuisines
+                    </label>
+                    <ul cdkListbox
+                        cdkListboxMultiple
+                        aria-labelledby="example-fav-cuisine-label"
+                        class="example-listbox"
+                    >
+                        <li cdkOption="chinese" class="example-option text-black">Chinese</li>
+                        <li cdkOption="french" class="example-option text-black">French</li>
+                        <li cdkOption="italian" class="example-option text-black">Italian</li>
+                        <li cdkOption="japanese" class="example-option text-black">Japanese</li>
+                    </ul>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-md-6 col-xxl-4">
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Listbox with Complex Object as Values
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <app-lbw-complex-object-as-values></app-lbw-complex-object-as-values>
+            </mat-card-content>
+        </mat-card>
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Listbox with Disabled Options
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <app-lbw-disabled-options></app-lbw-disabled-options>
+            </mat-card-content>
+        </mat-card>
+        <mat-card
+            class="trinta-card mb-25 bg-white border-none d-block"
+        >
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Listbox with Aria-Activedescendant
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="example-listbox-container">
+                    <label class="example-listbox-label fw-medium" id="example-spatula-label">
+                        Spatula Features
+                    </label>
+                    <ul cdkListbox
+                        cdkListboxMultiple
+                        cdkListboxUseActiveDescendant
+                        aria-labelledby="example-spatula-label"
+                        class="example-listbox"
+                    >
+                        @for (feature of features; track feature) {
+                            <li [cdkOption]="feature" class="example-option text-black">{{feature}}</li>
+                        }
+                    </ul>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-md-6 col-xxl-4">
+        <mat-card
+            class="trinta-card mb-25 bg-white border-none d-block"
+        >
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Listbox with Custom Keyboard Navigation Options
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="example-listbox-container">
+                    <label class="example-listbox-label fw-medium" id="example-flavor-label">
+                        Flavor
+                    </label>
+                    <ul cdkListbox
+                        cdkListboxNavigatesDisabledOptions
+                        cdkListboxNavigationWrapDisabled
+                        aria-labelledby="example-flavor-label"
+                        class="example-listbox"
+                    >
+                        <li cdkOption="chocolate" class="example-option text-black">
+                            Chocolate
+                        </li>
+                        <li cdkOption="pumpkin-spice" cdkOptionDisabled class="example-option text-black">
+                            Pumpkin Spice (seasonal)
+                        </li>
+                        <li cdkOption="strawberry" class="example-option text-black">
+                            Strawberry
+                        </li>
+                        <li cdkOption="vanilla" class="example-option text-black">
+                            Vanilla
+                        </li>
+                    </ul>
+                </div>
+            </mat-card-content>
+        </mat-card>
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Listbox with Forms Validation
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <app-lbw-forms-validation></app-lbw-forms-validation>
+            </mat-card-content>
+        </mat-card>
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Listbox with Reactive Forms
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <app-lbw-reactive-forms></app-lbw-reactive-forms>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

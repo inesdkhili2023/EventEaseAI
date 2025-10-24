@@ -1,0 +1,32 @@
+.example-box {
+    z-index: 1;
+    width: 200px;
+    height: 200px;
+    cursor: move;
+    padding: 10px;
+    margin-right: 25px;
+    border: solid 1px #eeeeee;
+    transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+    box-shadow: rgba(100, 100, 111, 0.05) 0px 7px 29px 0px;
+
+    &:active {
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+    &:last-child {
+        margin-right: 0;
+    }
+}
+.example-boundary {
+    height: 400px;
+    border-radius: 10px;
+    border: dotted #dae0ec 2px;
+}
+.example-handle {
+    top: 10px;
+    right: 10px;
+    width: 24px;
+    cursor: move;
+    height: 24px;
+    color: #cccccc;
+    position: absolute;
+}

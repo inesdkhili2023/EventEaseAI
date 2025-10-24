@@ -1,0 +1,51 @@
+::ng-deep {
+    .trinta-card {
+        &.ff-with-label-card {
+            .mat-mdc-card-content {
+                .mat-mdc-radio-button {
+                    margin-right: 10px;
+
+                    .mdc-radio {
+                        margin: 0;
+                    }
+                    .mdc-label {
+                        padding-left: 0;
+                        margin-left: -2px;
+                    }
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
+                .mat-mdc-checkbox {
+                    .mdc-checkbox {
+                        padding: 0;
+                        margin: 0;
+
+                        .mdc-checkbox__native-control {
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                            bottom: 0;
+                            width: 100%;
+                            height: 100%;
+                        }
+                        .mdc-checkbox__background {
+                            top: 0;
+                            left: 0;
+                        }
+                        .mat-mdc-checkbox-ripple, .mdc-checkbox__ripple {
+                            border-radius: 2px;
+                        }
+                        .mat-mdc-checkbox-touch-target {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                    .mdc-label {
+                        margin-left: 5px;
+                    }
+                }
+            }
+        }
+    }
+}

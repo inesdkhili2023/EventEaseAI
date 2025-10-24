@@ -1,0 +1,165 @@
+.trinta-card {
+    &.add-user-card {
+        max-width: 850px;
+        margin: {
+            left: auto;
+            right: auto;
+        };
+    }
+}
+::ng-deep {
+    .trinta-card {
+        &.add-user-card {
+            .save-user-btn {
+                .mat-mdc-button {
+                    height: auto;
+                    min-width: auto;
+                    border-radius: 6px;
+                    padding: 18px 25px;
+                    letter-spacing: 0.16px;
+                    color: var(--whiteColor);
+                    background-color: var(--primaryColor);
+                    font: {
+                        size: 16px;
+                        weight: 600;
+                        family: var(--headingFontFamily);
+                    };
+                    &:nth-child(2) {
+                        margin-left: 20px;
+                        color: var(--primaryColor);
+                        background: rgba(55, 97, 238, 0.10);
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    .trinta-card {
+        &.add-user-card {
+            max-width: 100%;
+        }
+    }
+    ::ng-deep {
+        .trinta-card {
+            &.add-user-card {
+                .save-user-btn {
+                    .mat-mdc-button {
+                        padding: 15px 25px;
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width : 576px) and (max-width : 767px) {}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+
+    .trinta-card {
+        &.add-user-card {
+            max-width: 100%;
+        }
+    }
+    ::ng-deep {
+        .trinta-card {
+            &.add-user-card {
+                .save-course-btn {
+                    .mat-mdc-button {
+                        padding: 15px 25px;
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+.mt-3 {
+    margin-top: 1rem !important; /* Adjust the value as needed */
+  }
+  .mr-4 {
+    margin-right: 1rem !important; /* Adjust the value as needed */
+  }
+/* Container for the delivery charge section */
+.delivery-charge-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens if needed */
+  }
+  
+  /* Label styling */
+  .delivery-charge-label {
+    margin-right: 10px; /* Space between label and input */
+  }
+  
+  /* Input styling */
+  .delivery-charge-input {
+    margin-right: 10px; /* Space between input and select */
+    flex: 1; /* Allows the input to grow */
+  }
+  
+  /* Select styling */
+  .delivery-charge-select {
+    margin-right: 10px; /* Space between select and button */
+    flex: 1; /* Allows the select to grow */
+  }
+  
+  mat-error {
+    font-size: 12px; /* Réduit la taille des messages d'erreur */
+    color: red; /* Assure que les erreurs sont visibles */
+     /* Ajoute un espace entre le champ et le message d'erreur */
+  }
+  .mat-form-field {
+    margin-bottom: 20px; // Ajustez selon vos besoins
+  }
+  .mat-form-field .mat-error {
+    margin-top: 5px; /* Ajustez selon vos besoins */
+  }
+  @media (max-width: 768px) {
+    .delivery-charge-container {
+      flex-direction: column;
+    }
+  }
+  
+  
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width : 992px) and (max-width : 1199px) {
+
+    .trinta-card {
+        &.add-user-card {
+            max-width: 100%;
+        }
+    }
+
+}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+
+    .trinta-card {
+        &.add-user-card {
+            max-width: 100%;
+        }
+    }
+
+}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {
+
+    .trinta-card {
+        &.add-user-card {
+            max-width: 1064px;
+        }
+    }
+
+}

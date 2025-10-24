@@ -1,0 +1,163 @@
+.predict-budget-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.prediction-card {
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.prediction-form {
+  margin-top: 20px;
+}
+
+.form-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+
+  mat-form-field {
+    flex: 1;
+
+    &.full-width {
+      flex: 1 1 100%;
+    }
+  }
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.predict-button, .test-button {
+  padding: 12px 32px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 8px;
+  min-width: 200px;
+
+  mat-icon {
+    margin-right: 8px;
+  }
+
+  mat-spinner {
+    margin: 0 8px;
+  }
+}
+
+.prediction-result {
+  margin-top: 30px;
+  animation: slideIn 0.3s ease-out;
+}
+
+.result-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 12px;
+
+  mat-card-header {
+    padding-bottom: 16px;
+
+    mat-card-title {
+      display: flex;
+      align-items: center;
+      color: white;
+
+      mat-icon {
+        margin-right: 8px;
+      }
+    }
+  }
+}
+
+.result-content {
+  text-align: center;
+  padding: 20px;
+}
+
+.budget-amount {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  margin-bottom: 16px;
+
+  .currency {
+    font-size: 24px;
+    font-weight: 500;
+    margin-right: 8px;
+    opacity: 0.9;
+  }
+
+  .amount {
+    font-size: 48px;
+    font-weight: 700;
+    color: #FFD700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.result-description {
+  font-size: 16px;
+  opacity: 0.9;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.error-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f44336;
+  background-color: #ffebee;
+  padding: 16px;
+  border-radius: 8px;
+  margin-top: 20px;
+  border: 1px solid #ffcdd2;
+
+  mat-icon {
+    margin-right: 8px;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .budget-amount .amount {
+    font-size: 36px;
+  }
+}
+
+// Dark theme support
+.dark-theme {
+  .prediction-card {
+    background-color: #2d2d2d;
+    color: white;
+  }
+
+  .error-message {
+    background-color: #4a2d2d;
+    border-color: #6d4c4c;
+  }
+}

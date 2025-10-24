@@ -1,0 +1,35 @@
+<mat-card class="trinta-card mb-25 bg-white border-none d-block">
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Chips with Form Control
+            </h5>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <button mat-raised-button (click)="formControl.disable()">Disable</button>
+        <button mat-raised-button (click)="formControl.enable()">Enable</button>
+        <p></p>
+        <p>
+            <em>Enter video keywords</em>
+        </p>
+        <mat-form-field class="example-form-field">
+            <i-feather name="list"></i-feather>
+            <mat-label>Video keywords</mat-label>
+            <mat-chip-grid #chipGrid aria-label="Enter keywords" [formControl]="formControl" >
+                @for (keyword of keywords; track keyword) {
+                    <mat-chip-row (removed)="removeKeyword(keyword)">
+                        {{keyword}}
+                        <button matChipRemove aria-label="'remove ' + keyword">
+                            <mat-icon>cancel</mat-icon>
+                        </button>
+                    </mat-chip-row>
+                }
+            </mat-chip-grid>
+            <input placeholder="New keyword..." [matChipInputFor]="chipGrid" (matChipInputTokenEnd)="add($event)"/>
+        </mat-form-field>
+        <p class="mt-10">
+            <strong class="fw-medium text-black">The following keywords are entered:</strong> {{formControl.value}}
+        </p>
+    </mat-card-content>
+</mat-card>

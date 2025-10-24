@@ -1,0 +1,134 @@
+<mat-card
+    class="trinta-card create-course-card mb-25 bg-white border-none d-block"
+>
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Create/Edit A Course
+            </h5>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form>
+            <div class="row">
+                <div class="col-lg-12">
+                    <label class="label d-block fw-medium mb-10">
+                        Course Title
+                    </label>
+                    <mat-form-field>
+                        <i-feather name="edit-3"></i-feather>
+                        <mat-label>Enter course name</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-12">
+                    <label class="label d-block fw-medium mb-10">
+                        Course Description
+                    </label>
+                    <div class="NgxEditor__Wrapper">
+                        <ngx-editor-menu [editor]="editor" [toolbar]="toolbar"></ngx-editor-menu>
+                        <ngx-editor [editor]="editor" [ngModel]="html" name="html" [disabled]="false" [placeholder]="'Some demo text...'"></ngx-editor>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <label class="label d-block fw-medium mb-10">
+                        Course Price
+                    </label>
+                    <mat-form-field>
+                        <i-feather name="dollar-sign"></i-feather>
+                        <mat-label>Enter price</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-6">
+                    <label class="label d-block fw-medium mb-10">
+                        Start Date
+                    </label>
+                    <mat-form-field>
+                        <i-feather name="calendar"></i-feather>
+                        <mat-label>Enter start date</mat-label>
+                        <input matInput [matDatepicker]="picker">
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-6">
+                    <label class="label d-block fw-medium mb-10">
+                        End Date
+                    </label>
+                    <mat-form-field>
+                        <i-feather name="calendar"></i-feather>
+                        <mat-label>Enter end date</mat-label>
+                        <input matInput [matDatepicker]="picker2">
+                        <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+                        <mat-datepicker #picker2></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-12">
+                    <label class="label d-block fw-medium mb-10">
+                        Instructor
+                    </label>
+                    <mat-form-field>
+                        <i-feather name="user"></i-feather>
+                        <mat-label>Select name</mat-label>
+                        <mat-select>
+                            <mat-option value="Marcus Davis">Marcus Davis</mat-option>
+                            <mat-option value="Charlotte Lee">Charlotte Lee</mat-option>
+                            <mat-option value="William Anderson">William Anderson</mat-option>
+                            <mat-option value="Sarah Rodriguez">Sarah Rodriguez</mat-option>
+                            <mat-option value="Emily Johnson">Emily Johnson</mat-option>
+                            <mat-option value="Thomas Johnson">Thomas Johnson</mat-option>
+                            <mat-option value="Martine Jeck">Martine Jeck</mat-option>
+                            <mat-option value="Benjamin Clark">Benjamin Clark</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-12">
+                    <label class="label d-block fw-medium mb-10">
+                        Course Avatar
+                    </label>
+                    <file-upload class="file-uploader"></file-upload>
+                </div>
+            </div>
+            <h5>
+                Course Overview
+            </h5>
+            <div class="row">
+                <div class="col-lg-12">
+                    <label class="label d-block fw-medium mb-10">
+                        Lesson Title
+                    </label>
+                    <mat-form-field>
+                        <i-feather name="edit-3"></i-feather>
+                        <mat-label>Enter lesson name</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-12">
+                    <label class="label d-block fw-medium mb-10">
+                        Lesson Description
+                    </label>
+                    <div class="NgxEditor__Wrapper">
+                        <ngx-editor-menu [editor]="editor" [toolbar]="toolbar"></ngx-editor-menu>
+                        <ngx-editor [editor]="editor" [ngModel]="html" name="html" [disabled]="false" [placeholder]="'Some demo text...'"></ngx-editor>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <label class="label d-block fw-medium mb-10">
+                        Lesson Time
+                    </label>
+                    <mat-form-field>
+                        <i-feather name="dollar-sign"></i-feather>
+                        <mat-label>Enter hours</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="save-course-btn">
+                <button mat-button type="button">
+                    Save Course
+                </button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

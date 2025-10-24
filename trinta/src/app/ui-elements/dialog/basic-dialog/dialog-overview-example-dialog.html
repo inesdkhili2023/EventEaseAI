@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>
+    Hi Mateo Luca
+</h1>
+<div mat-dialog-content>
+    <p>
+        What's your favorite animal?
+    </p>
+    <mat-form-field class="mb-20">
+        <mat-label>Favorite Animal</mat-label>
+        <input matInput>
+    </mat-form-field>
+</div>
+<div mat-dialog-actions class="mt-0">
+    <button mat-flat-button color="warn" (click)="onNoClick()">
+        No Thanks
+    </button>
+    <button mat-flat-button color="primary" [mat-dialog-close]="data.animal" cdkFocusInitial>
+        Ok
+    </button>
+</div>

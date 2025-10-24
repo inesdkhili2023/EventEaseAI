@@ -1,0 +1,310 @@
+html {
+    --mat-stepper-header-selected-state-icon-background-color: var(--primaryColor);
+    --mat-stepper-header-done-state-icon-background-color: var(--primaryColor);
+    --mat-stepper-header-edit-state-icon-background-color: var(--primaryColor);
+    --mat-datepicker-calendar-date-selected-state-background-color: var(--primaryColor);
+    --mat-datepicker-toggle-active-state-icon-color: var(--primaryColor);
+    --mat-badge-background-color: var(--primaryColor);
+    --mdc-circular-progress-active-indicator-color: var(--primaryColor);
+    --mdc-slider-handle-color: var(--primaryColor);
+    --mdc-slider-focus-handle-color: var(--primaryColor);
+    --mdc-slider-hover-handle-color: var(--primaryColor);
+    --mdc-slider-active-track-color: var(--primaryColor);
+    --mdc-slider-inactive-track-color: var(--primaryColor);
+    --mdc-slider-with-tick-marks-inactive-container-color: var(--primaryColor);
+    --mat-slider-ripple-color: var(--primaryColor);
+    --mdc-switch-selected-focus-state-layer-color: var(--primaryColor);
+    --mdc-switch-selected-handle-color: var(--primaryColor);
+    --mdc-switch-selected-hover-state-layer-color: var(--primaryColor);
+    --mdc-switch-selected-pressed-state-layer-color: var(--primaryColor);
+    --mdc-filled-text-field-caret-color: var(--primaryColor);
+    --mdc-filled-text-field-focus-active-indicator-color: var(--primaryColor);
+    --mdc-outlined-text-field-caret-color: var(--primaryColor);
+    --mdc-outlined-text-field-focus-outline-color: var(--primaryColor);
+    --mat-option-selected-state-label-text-color: var(--primaryColor);
+    --mat-datepicker-calendar-date-selected-disabled-state-background-color: rgba(55, 97, 238, 0.4);
+    --mat-datepicker-calendar-date-focus-state-background-color: rgba(55, 97, 238, 0.3);
+    --mat-datepicker-calendar-date-hover-state-background-color: rgba(55, 97, 238, 0.3);
+    --mat-datepicker-calendar-date-in-range-state-background-color: rgba(55, 97, 238, 0.2);
+    --mat-slider-hover-state-layer-color: rgba(55, 97, 238, 0.05);
+    --mat-slider-focus-state-layer-color: rgba(55, 97, 238, 0.2);
+    --mat-select-focused-arrow-color: rgba(55, 97, 238, 0.87);
+    --mdc-filled-text-field-focus-label-text-color: rgba(55, 97, 238, 0.87);
+    --mdc-outlined-text-field-focus-label-text-color: rgba(55, 97, 238, 0.87);
+    --mat-form-field-focus-select-arrow-color: rgba(55, 97, 238, 0.87);
+    --mdc-checkbox-disabled-selected-icon-color: rgba(0, 0, 0, 0.08);
+    --mdc-checkbox-disabled-unselected-icon-color: rgba(0, 0, 0, 0.08);
+    --mdc-checkbox-unselected-pressed-state-layer-opacity: 0.04;
+    --mdc-checkbox-unselected-focus-state-layer-color: transparent;
+    --mdc-checkbox-unselected-hover-state-layer-color: transparent;
+    --mdc-checkbox-unselected-hover-icon-color: rgba(55, 97, 238, 0.40);
+    --mdc-checkbox-unselected-focus-icon-color: rgba(55, 97, 238, 0.20);
+    --mdc-checkbox-unselected-icon-color: rgba(55, 97, 238, 0.20);
+    --mdc-checkbox-unselected-pressed-icon-color: rgba(55, 97, 238, 0.20);
+    --mdc-switch-selected-focus-handle-color: var(--primaryColor);
+    --mdc-switch-selected-hover-handle-color: var(--primaryColor);
+    --mdc-switch-selected-pressed-handle-color: var(--primaryColor);
+    --mdc-switch-selected-focus-track-color: #f4f6fc;
+    --mdc-switch-selected-hover-track-color: #f4f6fc;
+    --mdc-switch-selected-pressed-track-color: #f4f6fc;
+    --mdc-switch-selected-track-color: #f4f6fc;
+
+    .mat-mdc-icon-button {
+        &.mat-primary {
+            --mdc-icon-button-icon-color: var(--primaryColor);
+            --mat-icon-button-state-layer-color: var(--primaryColor);
+            --mat-icon-button-ripple-color: rgba(55, 97, 238, 0.1);
+        }
+    }
+    .mat-mdc-fab {
+        &.mat-primary {
+            --mdc-fab-container-color: var(--primaryColor);
+        }
+    }
+    .mat-mdc-mini-fab {
+        &.mat-primary {
+            --mdc-fab-small-container-color: var(--primaryColor);
+        }
+    }
+}
+.mat-primary {
+    --mat-full-pseudo-checkbox-selected-icon-color: var(--primaryColor);
+    --mat-minimal-pseudo-checkbox-selected-checkmark-color: var(--primaryColor);
+}
+.mat-mdc-tab-group, .mat-mdc-tab-nav-bar {
+    --mdc-tab-indicator-active-indicator-color: var(--primaryColor);
+    --mat-tab-header-active-label-text-color: var(--primaryColor);
+    --mat-tab-header-active-ripple-color: var(--primaryColor);
+    --mat-tab-header-inactive-ripple-color: var(--primaryColor);
+    --mat-tab-header-active-focus-label-text-color: var(--primaryColor);
+    --mat-tab-header-active-hover-label-text-color: var(--primaryColor);
+    --mat-tab-header-active-focus-indicator-color: var(--primaryColor);
+    --mat-tab-header-active-hover-indicator-color: var(--primaryColor);
+}
+.mat-mdc-progress-bar {
+    --mdc-linear-progress-active-indicator-color: var(--primaryColor);
+    --mdc-linear-progress-track-color: #e9effc;
+}
+.mat-mdc-radio-button {
+    &.mat-accent {
+        --mdc-radio-selected-focus-icon-color: var(--primaryColor);
+        --mdc-radio-selected-hover-icon-color: var(--primaryColor);
+        --mdc-radio-selected-icon-color: var(--primaryColor);
+        --mdc-radio-selected-pressed-icon-color: var(--primaryColor);
+        --mat-radio-checked-ripple-color: var(--primaryColor);
+        --mdc-radio-unselected-icon-color: rgba(55, 97, 238, 0.20);
+    }
+    &.secondary {
+        --mdc-radio-selected-pressed-icon-color: #6c757d;
+        --mdc-radio-selected-focus-icon-color: #6c757d;
+        --mdc-radio-selected-hover-icon-color: #6c757d;
+        --mat-radio-checked-ripple-color: #6c757d;
+        --mdc-radio-selected-icon-color: #6c757d;
+    }
+    &.success {
+        --mdc-radio-selected-pressed-icon-color: var(--successColor);
+        --mdc-radio-selected-focus-icon-color: var(--successColor);
+        --mdc-radio-selected-hover-icon-color: var(--successColor);
+        --mat-radio-checked-ripple-color: var(--successColor);
+        --mdc-radio-selected-icon-color: var(--successColor);
+    }
+    &.info {
+        --mdc-radio-selected-pressed-icon-color: var(--infoColor);
+        --mdc-radio-selected-focus-icon-color: var(--infoColor);
+        --mdc-radio-selected-hover-icon-color: var(--infoColor);
+        --mat-radio-checked-ripple-color: var(--infoColor);
+        --mdc-radio-selected-icon-color: var(--infoColor);
+    }
+    &.warning {
+        --mdc-radio-selected-pressed-icon-color: var(--warningColor);
+        --mdc-radio-selected-focus-icon-color: var(--warningColor);
+        --mdc-radio-selected-hover-icon-color: var(--warningColor);
+        --mat-radio-checked-ripple-color: var(--warningColor);
+        --mdc-radio-selected-icon-color: var(--warningColor);
+    }
+    &.danger {
+        --mdc-radio-selected-pressed-icon-color: var(--dangerColor);
+        --mdc-radio-selected-focus-icon-color: var(--dangerColor);
+        --mdc-radio-selected-hover-icon-color: var(--dangerColor);
+        --mat-radio-checked-ripple-color: var(--dangerColor);
+        --mdc-radio-selected-icon-color: var(--dangerColor);
+    }
+    &.light {
+        --mdc-radio-selected-pressed-icon-color: #6c757d;
+        --mdc-radio-selected-focus-icon-color: #6c757d;
+        --mdc-radio-selected-hover-icon-color: #6c757d;
+        --mat-radio-checked-ripple-color: #6c757d;
+        --mdc-radio-selected-icon-color: #6c757d;
+    }
+    &.dark {
+        --mdc-radio-selected-pressed-icon-color: #000000;
+        --mdc-radio-selected-focus-icon-color: #000000;
+        --mdc-radio-selected-hover-icon-color: #000000;
+        --mat-radio-checked-ripple-color: #000000;
+        --mdc-radio-selected-icon-color: #000000;
+    }
+    .mdc-form-field {
+        color: var(--blackColor);
+    }
+}
+.mat-mdc-button {
+    &.mat-primary {
+        --mdc-text-button-label-text-color: var(--primaryColor);
+        --mat-text-button-state-layer-color: var(--primaryColor);
+        --mat-text-button-ripple-color: rgba(55, 97, 238, 0.1);
+    }
+}
+.mat-mdc-raised-button {
+    &.mat-primary {
+        --mdc-protected-button-container-color: var(--primaryColor);
+    }
+}
+.mat-mdc-outlined-button {
+    &.mat-primary {
+        --mdc-outlined-button-label-text-color: var(--primaryColor);
+        --mat-outlined-button-state-layer-color: var(--primaryColor);
+        --mat-outlined-button-ripple-color: rgba(55, 97, 238, 0.1);
+    }
+}
+.mat-mdc-unelevated-button {
+    &.mat-primary {
+        --mdc-filled-button-container-color: var(--primaryColor);
+    }
+}
+.mat-mdc-checkbox {
+    --mdc-checkbox-unselected-pressed-state-layer-opacity: 0.04;
+    --mdc-checkbox-unselected-focus-state-layer-color: transparent;
+    --mdc-checkbox-unselected-hover-state-layer-color: transparent;
+
+    &.mat-primary {
+        --mdc-checkbox-disabled-selected-icon-color: rgba(0, 0, 0, 0.08);
+        --mdc-checkbox-disabled-unselected-icon-color: rgba(0, 0, 0, 0.08);
+        --mdc-checkbox-unselected-hover-icon-color: rgba(55, 97, 238, 0.40);
+        --mdc-checkbox-unselected-focus-icon-color: rgba(55, 97, 238, 0.20);
+        --mdc-checkbox-unselected-icon-color: rgba(55, 97, 238, 0.20);
+        --mdc-checkbox-unselected-pressed-icon-color: rgba(55, 97, 238, 0.20);
+        --mdc-checkbox-selected-focus-icon-color: var(--primaryColor);
+        --mdc-checkbox-selected-hover-icon-color: var(--primaryColor);
+        --mdc-checkbox-selected-icon-color: var(--primaryColor);
+        --mdc-checkbox-selected-pressed-icon-color: var(--primaryColor);
+        --mdc-checkbox-selected-focus-state-layer-color: var(--primaryColor);
+        --mdc-checkbox-selected-hover-state-layer-color: var(--primaryColor);
+        --mdc-checkbox-selected-pressed-state-layer-color: var(--primaryColor);
+    }
+    &.mat-warn {
+        --mdc-checkbox-disabled-selected-icon-color: rgba(0, 0, 0, 0.08);
+        --mdc-checkbox-disabled-unselected-icon-color: rgba(0, 0, 0, 0.08);
+        --mdc-checkbox-unselected-hover-icon-color: rgba(55, 97, 238, 0.40);
+        --mdc-checkbox-unselected-focus-icon-color: rgba(55, 97, 238, 0.20);
+        --mdc-checkbox-unselected-icon-color: rgba(55, 97, 238, 0.20);
+        --mdc-checkbox-unselected-pressed-icon-color: rgba(55, 97, 238, 0.20);
+    }
+    &.secondary {
+        --mdc-checkbox-disabled-selected-icon-color: rgba(0, 0, 0, 0.08);
+        --mdc-checkbox-disabled-unselected-icon-color: rgba(0, 0, 0, 0.08);
+        --mdc-checkbox-selected-focus-icon-color: #6c757d;
+        --mdc-checkbox-selected-hover-icon-color: #6c757d;
+        --mdc-checkbox-selected-icon-color: #6c757d;
+        --mdc-checkbox-selected-pressed-icon-color: #6c757d;
+        --mdc-checkbox-selected-focus-state-layer-color: #6c757d;
+        --mdc-checkbox-selected-hover-state-layer-color: #6c757d;
+        --mdc-checkbox-selected-pressed-state-layer-color: #6c757d;
+    }
+    &.success {
+        --mdc-checkbox-disabled-selected-icon-color: rgba(0, 0, 0, 0.08);
+        --mdc-checkbox-disabled-unselected-icon-color: rgba(0, 0, 0, 0.08);
+        --mdc-checkbox-selected-focus-icon-color: var(--successColor);
+        --mdc-checkbox-selected-hover-icon-color: var(--successColor);
+        --mdc-checkbox-selected-icon-color: var(--successColor);
+        --mdc-checkbox-selected-pressed-icon-color: var(--successColor);
+        --mdc-checkbox-selected-focus-state-layer-color: var(--successColor);
+        --mdc-checkbox-selected-hover-state-layer-color: var(--successColor);
+        --mdc-checkbox-selected-pressed-state-layer-color: var(--successColor);
+    }
+    &.info {
+        --mdc-checkbox-disabled-selected-icon-color: rgba(0, 0, 0, 0.08);
+        --mdc-checkbox-disabled-unselected-icon-color: rgba(0, 0, 0, 0.08);
+        --mdc-checkbox-selected-focus-icon-color: var(--infoColor);
+        --mdc-checkbox-selected-hover-icon-color: var(--infoColor);
+        --mdc-checkbox-selected-icon-color: var(--infoColor);
+        --mdc-checkbox-selected-pressed-icon-color: var(--infoColor);
+        --mdc-checkbox-selected-focus-state-layer-color: var(--infoColor);
+        --mdc-checkbox-selected-hover-state-layer-color: var(--infoColor);
+        --mdc-checkbox-selected-pressed-state-layer-color: var(--infoColor);
+    }
+    &.danger {
+        --mdc-checkbox-disabled-selected-icon-color: rgba(0, 0, 0, 0.08);
+        --mdc-checkbox-disabled-unselected-icon-color: rgba(0, 0, 0, 0.08);
+        --mdc-checkbox-selected-focus-icon-color: var(--dangerColor);
+        --mdc-checkbox-selected-hover-icon-color: var(--dangerColor);
+        --mdc-checkbox-selected-icon-color: var(--dangerColor);
+        --mdc-checkbox-selected-pressed-icon-color: var(--dangerColor);
+        --mdc-checkbox-selected-focus-state-layer-color: var(--dangerColor);
+        --mdc-checkbox-selected-hover-state-layer-color: var(--dangerColor);
+        --mdc-checkbox-selected-pressed-state-layer-color: var(--dangerColor);
+    }
+    &.light {
+        --mdc-checkbox-disabled-selected-icon-color: rgba(0, 0, 0, 0.08);
+        --mdc-checkbox-disabled-unselected-icon-color: rgba(0, 0, 0, 0.08);
+        --mdc-checkbox-selected-focus-icon-color: #6c757d;
+        --mdc-checkbox-selected-hover-icon-color: #6c757d;
+        --mdc-checkbox-selected-icon-color: #6c757d;
+        --mdc-checkbox-selected-pressed-icon-color: #6c757d;
+        --mdc-checkbox-selected-focus-state-layer-color: #6c757d;
+        --mdc-checkbox-selected-hover-state-layer-color: #6c757d;
+        --mdc-checkbox-selected-pressed-state-layer-color: #6c757d;
+    }
+    &.dark {
+        --mdc-checkbox-disabled-selected-icon-color: rgba(0, 0, 0, 0.08);
+        --mdc-checkbox-disabled-unselected-icon-color: rgba(0, 0, 0, 0.08);
+        --mdc-checkbox-selected-focus-icon-color: #000000;
+        --mdc-checkbox-selected-hover-icon-color: #000000;
+        --mdc-checkbox-selected-icon-color: #000000;
+        --mdc-checkbox-selected-pressed-icon-color: #000000;
+        --mdc-checkbox-selected-focus-state-layer-color: #000000;
+        --mdc-checkbox-selected-hover-state-layer-color: #000000;
+        --mdc-checkbox-selected-pressed-state-layer-color: #000000;
+    }
+    .mdc-form-field>label {
+        padding-left: 0;
+    }
+}
+.mat-mdc-standard-chip {
+    &.mat-mdc-chip-selected, .mat-mdc-chip-highlighted {
+        &.mat-primary {
+            --mdc-chip-elevated-container-color: var(--primaryColor);
+            --mdc-chip-elevated-selected-container-color: var(--primaryColor);
+            --mdc-chip-elevated-disabled-container-color: var(--primaryColor);
+            --mdc-chip-flat-disabled-selected-container-color: var(--primaryColor);
+        }
+    }
+}
+.mat-toolbar {
+    &.mat-primary {
+        --mat-toolbar-container-background-color: var(--primaryColor);
+    }
+}
+.mat-mdc-list-option {
+    --mdc-checkbox-selected-focus-icon-color: var(--primaryColor);
+    --mdc-checkbox-selected-hover-icon-color: var(--primaryColor);
+    --mdc-checkbox-selected-icon-color: var(--primaryColor);
+    --mdc-checkbox-selected-pressed-icon-color: var(--primaryColor);
+    --mdc-checkbox-selected-focus-state-layer-color: var(--primaryColor);
+    --mdc-checkbox-selected-hover-state-layer-color: var(--primaryColor);
+    --mdc-checkbox-selected-pressed-state-layer-color: var(--primaryColor);
+}
+.mdc-list-item__start, .mdc-list-item__end {
+    --mdc-radio-selected-focus-icon-color: var(--primaryColor);
+    --mdc-radio-selected-hover-icon-color: var(--primaryColor);
+    --mdc-radio-selected-icon-color: var(--primaryColor);
+    --mdc-radio-selected-pressed-icon-color: var(--primaryColor);
+}
+.mat-mdc-slider {
+    --mdc-slider-handle-color: var(--primaryColor);
+    --mat-mdc-slider-ripple-color: var(--primaryColor);
+    --mdc-slider-focus-handle-color: var(--primaryColor);
+    --mdc-slider-hover-handle-color: var(--primaryColor);
+    --mdc-slider-active-track-color: var(--primaryColor);
+    --mdc-slider-inactive-track-color: var(--primaryColor);
+    --mdc-slider-with-tick-marks-inactive-container-color: var(--primaryColor);
+}

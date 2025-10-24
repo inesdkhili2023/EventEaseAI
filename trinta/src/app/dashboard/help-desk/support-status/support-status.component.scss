@@ -1,0 +1,180 @@
+.trinta-card {
+    &.support-status-card {
+        .mat-mdc-card-content {
+            .chart {
+                padding-top: 25px;
+                margin-bottom: 25px;
+                
+                div {
+                    &:nth-child(1) {
+                        left: -51px;
+                        font-size: 32px;
+                        width: 191.955px;
+                        height: 191.955px;
+                        color: var(--whiteColor);
+                        background: var(--primaryColor);
+                    }
+                    &:nth-child(2) {
+                        top: 0;
+                        right: 20.2%;
+                        font-size: 24px;
+                        width: 143.466px;
+                        height: 143.466px;
+                        position: absolute;
+                        background: #ae8ff7;
+                        color: var(--whiteColor);
+                        border: 4px solid var(--whiteColor);
+                    }
+                    &:nth-child(3) {
+                        right: 30%;
+                        bottom: 20px;
+                        font-size: 15px;
+                        width: 96.311px;
+                        height: 96.311px;
+                        position: absolute;
+                        background: #c6d2fd;
+                        color: var(--whiteColor);
+                        border: 4px solid var(--whiteColor);
+                    }
+                }
+            }
+            .list {
+                li {
+                    font-size: 13px;
+                    padding-left: 20px;
+                    letter-spacing: 1px;
+                    margin: {
+                        left: 15px;
+                        right: 15px;
+                    };
+                    .dot {
+                        left: 0;
+                        top: 50%;
+                        width: 12px;
+                        height: 12px;
+                        margin-top: -.7px;
+                        border-radius: 50%;
+                        position: absolute;
+                        transform: translateY(-50%);
+                        background: var(--primaryColor);
+
+                        &.solved {
+                            background: #c893fd;
+                        }
+                        &.unresolved {
+                            background: #c6d2fd;
+                        }
+                    }
+                    &:first-child {
+                        margin-left: 0;
+                    }
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    .trinta-card {
+        &.support-status-card {
+            .mat-mdc-card-content {
+                .chart {
+                    display: flex;
+                    padding-top: 0;
+                    margin-bottom: 10px;
+                    justify-content: center;
+                    
+                    div {
+                        width: 65px !important;
+                        height: 65px !important;
+                        font-size: 15px !important;
+                        margin: {
+                            left: 5px !important;
+                            right: 5px !important;
+                        };
+                        &:nth-child(1) {
+                            left: 0;
+                        }
+                        &:nth-child(2) {
+                            top: 0;
+                            right: 0;
+                            border-width: 0;
+                            position: relative;
+                        }
+                        &:nth-child(3) {
+                            right: 0;
+                            bottom: 0;
+                            border-width: 0;
+                            position: relative;
+                        }
+                        &:first-child {
+                            margin-left: 0 !important;
+                        }
+                        &:last-child {
+                            margin-right: 0 !important;
+                        }
+                    }
+                }
+                .list {
+                    li {
+                        letter-spacing: 0.15px;
+                        margin: {
+                            top: 8px;
+                            left: 5px;
+                            right: 5px;
+                        };
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width : 576px) and (max-width : 767px) {}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width : 768px) and (max-width : 991px) {}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width : 992px) and (max-width : 1199px) {}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+
+    .trinta-card {
+        &.support-status-card {
+            .mat-mdc-card-content {
+                .chart {
+                    div {
+                        &:nth-child(2) {
+                            right: 12.2%;
+                        }
+                        &:nth-child(3) {
+                            right: 23%;
+                        }
+                    }
+                }
+                .list {
+                    li {
+                        letter-spacing: 0.45px;
+                        margin: {
+                            left: 10px;
+                            right: 10px;
+                        };
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {}

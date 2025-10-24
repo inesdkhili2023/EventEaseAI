@@ -1,0 +1,22 @@
+<div class="todays-order-box bg-white">
+    <h5 class="fw-medium">
+        Today’s Order
+    </h5>
+    <div class="info position-relative">
+        <div class="chart">
+            <apx-chart
+                [series]="chartOptions.series!"
+                [chart]="chartOptions.chart!"
+                [plotOptions]="chartOptions.plotOptions!"
+                [labels]="chartOptions.labels!"
+                [colors]="chartOptions.colors!"
+            ></apx-chart>
+        </div>
+        <h6 class="fw-medium">
+            2,095
+        </h6>
+        <span class="d-inline-block position-relative text-gray">
+            4.09% <i class="ri-arrow-up-s-line"></i>
+        </span>
+    </div>
+</div>

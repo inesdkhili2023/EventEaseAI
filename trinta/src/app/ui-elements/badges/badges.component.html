@@ -1,0 +1,190 @@
+<!-- Breadcrumb -->
+<div class="breadcrumb-card mb-25 d-md-flex align-items-center justify-content-between">
+    <h5 class="mb-0">
+        Badges
+    </h5>
+    <ol class="breadcrumb list-unstyled mt-0 mb-0 pl-0">
+        <li class="breadcrumb-item position-relative">
+            <a routerLink="/" class="d-inline-block position-relative">
+                <i class="ri-home-8-line"></i>
+                Dashboard
+            </a>
+        </li>
+        <li class="breadcrumb-item position-relative">
+            UI Elements
+        </li>
+        <li class="breadcrumb-item position-relative">
+            Badges
+        </li>
+    </ol>
+</div>
+
+<!-- Badges -->
+<div class="row">
+    <div class="col-lg-12">
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Angular Material Badges
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="mat-badges">
+                <div matBadge="4" matBadgeOverlap="false" class="demo-section">Text with a badge</div>
+        
+                <div matBadge="1" matBadgeSize="large" class="demo-section">Text with large badge</div>
+        
+                <div class="demo-section">
+                    Button with a badge on the left
+                    <button mat-raised-button color="primary"
+                        matBadge="8" matBadgePosition="before" matBadgeColor="accent">
+                        Action
+                    </button>
+                </div>
+        
+                <div class="demo-section">
+                    Button toggles badge visibility
+                    <button mat-raised-button matBadge="7" [matBadgeHidden]="hidden" (click)="toggleBadgeVisibility()">
+                        Hide
+                    </button>
+                </div>
+        
+                <div class="demo-section">
+                    Icon with a badge
+                    <mat-icon matBadge="15" matBadgeColor="warn">home</mat-icon>
+                    <!-- Include text description of the icon's meaning for screen-readers -->
+                    <span class="cdk-visually-hidden">
+                        Example with a home icon with overlaid badge showing the number 15
+                    </span>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-lg-6">
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Default Badges
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="example-badges">
+                <span class="badge text-bg-primary">Primary</span>
+                <span class="badge text-bg-secondary">Secondary</span>
+                <span class="badge text-bg-success">Success</span>
+                <span class="badge text-bg-danger">Danger</span>
+                <span class="badge text-bg-warning">Warning</span>
+                <span class="badge text-bg-info">Info</span>
+                <span class="badge text-bg-light">Light</span>
+                <span class="badge text-bg-dark">Dark</span>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-lg-6">
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Outline Badges
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="example-badges">
+                <span class="badge text-outline-primary">Primary</span>
+                <span class="badge text-outline-secondary">Secondary</span>
+                <span class="badge text-outline-success">Success</span>
+                <span class="badge text-outline-danger">Danger</span>
+                <span class="badge text-outline-warning">Warning</span>
+                <span class="badge text-outline-info">Info</span>
+                <span class="badge text-outline-light">Light</span>
+                <span class="badge text-outline-dark">Dark</span>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-lg-6">
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Soft Badges
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="example-badges">
+                <span class="badge text-soft-primary">Primary</span>
+                <span class="badge text-soft-secondary">Secondary</span>
+                <span class="badge text-soft-success">Success</span>
+                <span class="badge text-soft-danger">Danger</span>
+                <span class="badge text-soft-warning">Warning</span>
+                <span class="badge text-soft-info">Info</span>
+                <span class="badge text-soft-light">Light</span>
+                <span class="badge text-soft-dark">Dark</span>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-lg-6">
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Pill Badges
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="example-badges">
+                <span class="badge rounded-pill text-bg-primary">Primary</span>
+                <span class="badge rounded-pill text-bg-secondary">Secondary</span>
+                <span class="badge rounded-pill text-bg-success">Success</span>
+                <span class="badge rounded-pill text-bg-danger">Danger</span>
+                <span class="badge rounded-pill text-bg-warning">Warning</span>
+                <span class="badge rounded-pill text-bg-info">Info</span>
+                <span class="badge rounded-pill text-bg-light">Light</span>
+                <span class="badge rounded-pill text-bg-dark">Dark</span>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-lg-6">
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Soft Pill Badges
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="example-badges">
+                <span class="badge rounded-pill text-soft-primary">Primary</span>
+                <span class="badge rounded-pill text-soft-secondary">Secondary</span>
+                <span class="badge rounded-pill text-soft-success">Success</span>
+                <span class="badge rounded-pill text-soft-danger">Danger</span>
+                <span class="badge rounded-pill text-soft-warning">Warning</span>
+                <span class="badge rounded-pill text-soft-info">Info</span>
+                <span class="badge rounded-pill text-soft-light">Light</span>
+                <span class="badge rounded-pill text-soft-dark">Dark</span>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-lg-6">
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Outline Pill Badges
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="example-badges">
+                <span class="badge rounded-pill text-outline-primary">Primary</span>
+                <span class="badge rounded-pill text-outline-secondary">Secondary</span>
+                <span class="badge rounded-pill text-outline-success">Success</span>
+                <span class="badge rounded-pill text-outline-danger">Danger</span>
+                <span class="badge rounded-pill text-outline-warning">Warning</span>
+                <span class="badge rounded-pill text-outline-info">Info</span>
+                <span class="badge rounded-pill text-outline-light">Light</span>
+                <span class="badge rounded-pill text-outline-dark">Dark</span>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+<mat-card
+    class="trinta-card website-overview-card mb-25 bg-transparent border-none d-block position-relative z-1"
+>
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0 text-white">
+                Website Overview
+            </h5>
+        </mat-card-title>
+        <mat-card-subtitle>
+            <span class="trending d-block text-white position-relative">
+                <i class="material-symbols-outlined">trending_up</i> Total <span class="fw-semibold">30.5%</span> Conversion Rate
+            </span>
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="row">
+            <div class="col-sm-6 col-lg-4 col-xxxl-2">
+
+                <!-- Today's Order -->
+                <app-todays-order />
+
+            </div>
+            <div class="col-sm-6 col-lg-4 col-xxxl-2">
+
+                <!-- Today's Revenue -->
+                <app-todays-revenue />
+
+            </div>
+            <div class="col-sm-6 col-lg-4 col-xxxl-2">
+
+                <!-- Average Value -->
+                <app-average-value />
+
+            </div>
+            <div class="col-sm-6 col-lg-4 col-xxxl-2">
+
+                <!-- All Spending -->
+                <app-all-spending />
+
+            </div>
+            <div class="col-sm-6 col-lg-4 col-xxxl-2">
+
+                <!-- Expected Earnings -->
+                <app-expected-earnings />
+
+            </div>
+            <div class="col-sm-6 col-lg-4 col-xxxl-2">
+
+                <!-- Week Report -->
+                <app-week-report />
+
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

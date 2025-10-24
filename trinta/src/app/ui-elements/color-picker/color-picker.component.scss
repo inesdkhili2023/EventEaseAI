@@ -1,0 +1,18 @@
+.trinta-card {
+    input {
+        width: 100%;
+        height: 50px;
+        display: block;
+        border-radius: 5px;
+        outline: 0 !important;
+        border: 1px solid #EDEFF5;
+        padding: {
+            left: 15px;
+            right: 15px;
+        };
+    }
+    span {
+        font-size: 14px;
+        margin-top: 10px;
+    }
+}

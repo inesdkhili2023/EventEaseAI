@@ -1,0 +1,9 @@
+.trinta-card {
+    &.gallery-card {
+        .mat-mdc-card-content {
+            .gallery-list {
+                margin-bottom: -25px;
+            }
+        }
+    }
+}
