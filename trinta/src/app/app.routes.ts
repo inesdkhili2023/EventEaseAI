@@ -162,7 +162,7 @@ export const routes: Routes = [
     {path: 'project-management', component: ProjectManagementComponent},
     {path: 'lms', component: LmsComponent},
     {path: 'help-desk', component: HelpDeskComponent},
-     {path: 'driver-matching', component: DriverMatchingComponent},
+    // {path: 'driver-matching', component: DriverMatchingComponent},
     {
         path: 'apps',
         component: AppsComponent,
@@ -172,6 +172,7 @@ export const routes: Routes = [
             {path: 'file-manager', component: FileManagerComponent},
             {path: 'calendar', component: CalendarComponent},
             {path: 'contacts', component: ContactsComponent},
+            {path: 'driver-rider', component: DriverMatchingComponent},
             {path: 'chat', component: ChatComponent},
             {
                 path: 'email',

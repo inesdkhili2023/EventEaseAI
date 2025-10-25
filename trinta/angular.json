@@ -34,10 +34,12 @@
                           "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.css",
                           "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css",
                           "node_modules/remixicon/fonts/remixicon.css",
+                           "node_modules/leaflet/dist/leaflet.css",
                           "src/styles.scss"
                         ],
                         "scripts": [
-                            "node_modules/apexcharts/dist/apexcharts.min.js"
+                            "node_modules/apexcharts/dist/apexcharts.min.js",
+                            "node_modules/leaflet/dist/leaflet.js"
                         ],
                         "server": "src/main.server.ts",
                         "prerender": false,

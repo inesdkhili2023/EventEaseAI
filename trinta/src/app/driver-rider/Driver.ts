@@ -1,15 +1,16 @@
 export interface Driver {
   id: string;
-  latitude: number;
-  longitude: number;
+  nom: string;        // Changé de 'name' à 'nom'
+  prenom: string;     // Ajouté
   vehicleType: string;
   capacity: number;
+  latitude: number;
+  longitude: number;
   rating: number;
   pricePerKm: number;
   experienceYears: number;
   responseTime: number;
   available: boolean;
-  name: string;
-  phone: string;
-  profilePicture: string;
+  numTel: string;     // Changé de 'phone' à 'numTel'
+  imageUrl: string;   // Changé de 'profilePicture' à 'imageUrl'
 }
