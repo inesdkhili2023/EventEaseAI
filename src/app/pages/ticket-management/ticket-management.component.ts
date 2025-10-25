@@ -10,7 +10,7 @@ import { TicketListComponent } from './ticket-plans-list/ticket-plans-list.compo
 import { SalesAnalyticsComponent } from './sales-analytics/sales-analytics.component';
 import { ChatbotComponent } from './chatbot/chatbot.component';
 
-@Component({
+@Component({  
   selector: 'app-ticket-management',
   standalone: true,
   imports: [
@@ -22,7 +22,7 @@ import { ChatbotComponent } from './chatbot/chatbot.component';
     RouterModule,
     TicketListComponent,
     SalesAnalyticsComponent,
-    ChatbotComponent
+    
   ],
   templateUrl: './ticket-management.component.html',
   styleUrls: ['./ticket-management.component.scss']

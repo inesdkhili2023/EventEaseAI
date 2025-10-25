@@ -157,6 +157,7 @@ import { ListboxComponent } from './ui-elements/listbox/listbox.component';
 import { ListComponent } from './ui-elements/list/list.component';
 import { InputComponent } from './ui-elements/input/input.component';
 import { TooltipComponent } from './ui-elements/tooltip/tooltip.component';
+import { ChatbotComponent } from './pages/ticket-management/chatbot/chatbot.component';
 
 export const routes: Routes = [
     {path: '', redirectTo: '/events', pathMatch: 'full'},
@@ -164,6 +165,8 @@ export const routes: Routes = [
     {path: 'project-management', component: ProjectManagementComponent},
     {path: 'lms', component: LmsComponent},
     {path: 'help-desk', component: HelpDeskComponent},
+    {path: 'chat', component: ChatbotComponent},
+
     {
         path: 'apps',
         component: AppsComponent,
