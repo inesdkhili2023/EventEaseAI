@@ -142,7 +142,7 @@ export class LiveCallsComponent {
                     vertical: 4
                 },
                 markers: {
-                    radius: 12,
+                    
                     offsetY: -1
                 }
             }

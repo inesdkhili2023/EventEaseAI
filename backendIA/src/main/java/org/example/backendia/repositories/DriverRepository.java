@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Repository
@@ -30,4 +31,8 @@ public interface DriverRepository  extends JpaRepository<Driver, UUID> {
 
     @Query("SELECT d FROM Driver d WHERE d.available = true")
     List<Driver> findAllAvailableDrivers();
+    @Query("SELECT d FROM Driver d")
+    List<Driver> findAllDrivers();
+
+    Optional<Driver> findByEmail(String email);
 }

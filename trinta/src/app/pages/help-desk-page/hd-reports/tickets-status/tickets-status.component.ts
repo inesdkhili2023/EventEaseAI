@@ -141,10 +141,7 @@ export class TicketsStatusComponent {
                     horizontal: 15,
                     vertical: 2
                 },
-                markers: {
-                    radius: 12,
-                    offsetY: -1
-                }
+                
             }
         };
     }

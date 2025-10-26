@@ -155,6 +155,9 @@ import { ListComponent } from './ui-elements/list/list.component';
 import { InputComponent } from './ui-elements/input/input.component';
 import { TooltipComponent } from './ui-elements/tooltip/tooltip.component';
 import { DriverMatchingComponent } from './driver-rider/driver-matching/driver-matching.component';
+import { DriverComponent } from './driver-rider/driver/driver.component';
+import { ModifyDriverComponent } from './driver-rider/modify-driver/modify-driver.component';
+import { CalendarDriverComponent } from './driver-rider/calendar/calendar.component-driver';
 
 export const routes: Routes = [
     {path: '', component: EcommerceComponent},
@@ -172,8 +175,12 @@ export const routes: Routes = [
             {path: 'file-manager', component: FileManagerComponent},
             {path: 'calendar', component: CalendarComponent},
             {path: 'contacts', component: ContactsComponent},
-            {path: 'driver-rider', component: DriverMatchingComponent},
+            {path: 'driver', component: DriverComponent},
+            {path:   'modifier-driver', component:ModifyDriverComponent},
+            {path: 'calendar-driver',component:CalendarDriverComponent},
+            {path: 'driver-matching', component: DriverMatchingComponent},
             {path: 'chat', component: ChatComponent},
+
             {
                 path: 'email',
                 component: EmailComponent,

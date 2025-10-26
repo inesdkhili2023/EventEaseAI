@@ -143,7 +143,7 @@ export class AverageResponseTimeComponent {
                     vertical: 2
                 },
                 markers: {
-                    radius: 12,
+                   
                     offsetY: -1
                 }
             }

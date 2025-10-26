@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 @Slf4j
@@ -41,6 +42,30 @@ public class DriverController {
         return driverService.updateDriverLocation(id, updatedData)
                 .<ResponseEntity<?>>map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.badRequest().body("Driver not found"));
+    }
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Driver> updateDriver(@PathVariable UUID id, @RequestBody Driver updatedDriver) {
+        Driver driver = driverService.updateDriverInfo(id, updatedDriver);
+        return ResponseEntity.ok(driver);
+    }
+    @GetMapping("/email/{email}")
+    public ResponseEntity<?> getDriverByEmail(@PathVariable String email) {
+        return driverService.getDriverByEmail(email)
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
+    }
+    @GetMapping("/by-email/{email}")
+    public ResponseEntity<?> getDriverByEmail2(@PathVariable String email) {
+        log.info("Recherche du chauffeur avec l'email : {}", email);
+
+        return driverService.getDriverByEmail(email)
+                .map(driver -> ResponseEntity.ok(Map.of(
+                        "id", driver.getId(),
+                        "nom", driver.getNom(),
+                        "prenom", driver.getPrenom(),
+                        "email", driver.getEmail()
+                )))
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 }
 

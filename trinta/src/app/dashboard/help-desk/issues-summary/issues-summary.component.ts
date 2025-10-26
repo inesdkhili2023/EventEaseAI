@@ -142,7 +142,7 @@ export class IssuesSummaryComponent {
                     vertical: 2
                 },
                 markers: {
-                    radius: 12,
+                    
                     offsetY: -1
                 }
             }

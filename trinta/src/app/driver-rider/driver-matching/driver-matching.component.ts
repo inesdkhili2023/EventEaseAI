@@ -8,6 +8,11 @@ import { CommonModule } from '@angular/common';
 import * as L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { DriverTrackingService } from '../../services/driver-tracking.service';
+import { MatCardModule } from '@angular/material/card';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
 
 // Configuration des icônes Leaflet
 const iconRetinaUrl = 'assets/leaflet/marker-icon-2x.png';
@@ -29,7 +34,7 @@ L.Marker.prototype.options.icon = iconDefault;
 @Component({
   selector: 'app-driver-matching',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule,MatCardModule,MatTableModule,MatPaginatorModule,MatMenuModule,MatButtonModule],
   templateUrl: './driver-matching.component.html',
   styleUrls: ['./driver-matching.component.scss']
 })
@@ -54,22 +59,28 @@ export class DriverMatchingComponent implements AfterViewInit, OnInit, OnDestroy
     longitude: 0,
     rating: 4.5,
     pricePerKm: 1.2,
+    email :'',
+    password: '',
+    date_naissance:'',
+    adresse:'',
     experienceYears: 2,
     responseTime: 5,
     available: true,
-    numTel: '',
-    imageUrl: ''
+    num_tel: '',
+    image_url: ''
   };
   
   matches: MatchResult[] = [];
   isLoading = false;
   selectedDriver: Driver | null = null;
   errorMessage = '';
-  
+  private driversLoaded = false;
+  private mapReady = false;
   // --- Map control
   private map: L.Map | null = null;
   private markers: L.Marker[] = [];
   private mapInitialized = false;
+displayedColumns: string[] = ['photo', 'nom', 'vehicleType', 'available', 'actions'];
 
   constructor(
     private matchingService: DriverMatchingService,
@@ -81,20 +92,28 @@ export class DriverMatchingComponent implements AfterViewInit, OnInit, OnDestroy
     this.loadDrivers();
   }
   
-  ngAfterViewInit(): void {
-    // Petit délai pour s'assurer que le DOM est complètement rendu
+   ngAfterViewInit(): void {
     setTimeout(() => {
       this.initMap();
     }, 100);
   }
 
+filterByAvailability(filter: 'all' | 'available' | 'unavailable') {
+  if (filter === 'available') {
+    this.drivers = this.drivers.filter(d => d.available);
+  } else if (filter === 'unavailable') {
+    this.drivers = this.drivers.filter(d => !d.available);
+  } else {
+    this.loadDrivers(); // recharge tous
+  }
+}
   ngOnDestroy(): void {
     if (this.map) {
       this.map.remove();
     }
   }
 
-  private initMap(): void {
+   private initMap(): void {
     if (this.mapInitialized) return;
     
     try {
@@ -112,10 +131,11 @@ export class DriverMatchingComponent implements AfterViewInit, OnInit, OnDestroy
       }).addTo(this.map);
 
       this.mapInitialized = true;
+      this.mapReady = true;
       console.log('Carte initialisée avec succès');
 
-      // Mettre à jour les marqueurs une fois la carte initialisée
-      if (this.drivers.length > 0) {
+      // Si les chauffeurs sont déjà chargés, mettre à jour les marqueurs
+      if (this.driversLoaded && this.drivers.length > 0) {
         this.updateMarkers();
       }
     } catch (error) {
@@ -125,31 +145,42 @@ export class DriverMatchingComponent implements AfterViewInit, OnInit, OnDestroy
 
   private updateMarkers(): void {
     if (!this.map) {
-      console.warn('Carte non initialisée');
+      console.warn('Carte non initialisée - impossible de mettre à jour les marqueurs');
       return;
     }
+
+    console.log('Mise à jour des marqueurs avec', this.drivers.length, 'chauffeurs');
 
     // Supprime les anciens marqueurs
     this.markers.forEach(m => this.map?.removeLayer(m));
     this.markers = [];
 
     // Ajoute les marqueurs chauffeurs
-    this.drivers.forEach(d => {
-      if (d.latitude && d.longitude) {
+    this.drivers.forEach((d, index) => {
+      // Vérification plus robuste des coordonnées
+      if (d.latitude && d.longitude && 
+          !isNaN(d.latitude) && !isNaN(d.longitude) &&
+          d.latitude !== 0 && d.longitude !== 0) {
+        
+        //console.log(`Ajout marqueur ${index + 1}:`, d.nom, d.latitude, d.longitude);
+        
         const marker = L.marker([d.latitude, d.longitude])
           .addTo(this.map!)
-          .bindPopup(`
-            <b>${d.nom}</b><br>
-            🚗 ${d.vehicleType} - ${d.capacity} places<br>
-            ⭐ ${d.rating}/5<br>
-            📞 ${d.numTel || 'Non renseigné'}
-          `);
+         
+          .on('click', () => {
+            this.selectedDriver = d;
+          });
+        
         this.markers.push(marker);
+      } else {
+        console.warn(`Chauffeur ${d.nom} ignoré - coordonnées invalides:`, d.latitude, d.longitude);
       }
     });
 
     // Ajoute la position du rider
-    if (this.rider.latitude && this.rider.longitude) {
+    if (this.rider.latitude && this.rider.longitude && 
+        this.rider.latitude !== 0 && this.rider.longitude !== 0) {
+      
       const riderIcon = L.icon({
         iconUrl: 'https://cdn-icons-png.flaticon.com/512/3448/3448440.png',
         iconSize: [32, 32],
@@ -165,10 +196,15 @@ export class DriverMatchingComponent implements AfterViewInit, OnInit, OnDestroy
     if (this.markers.length > 0) {
       const group = new L.FeatureGroup(this.markers);
       this.map.fitBounds(group.getBounds().pad(0.1));
+      console.log('Vue ajustée pour', this.markers.length, 'marqueurs');
+    } else {
+      console.warn('Aucun marqueur valide à afficher');
+      // Centrer sur une position par défaut si aucun marqueur
+      this.map.setView([36.8065, 10.1815], 13);
     }
   }
 
-  getUserLocation(forDriver: boolean = false) {
+   getUserLocation(forDriver: boolean = false) {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -181,7 +217,7 @@ export class DriverMatchingComponent implements AfterViewInit, OnInit, OnDestroy
           } else {
             this.rider.latitude = lat;
             this.rider.longitude = lng;
-            this.loadNearbyDrivers();
+            // Ne pas appeler loadNearbyDrivers() ici si vous voulez tous les chauffeurs
           }
           
           this.updateMarkers();
@@ -196,11 +232,17 @@ export class DriverMatchingComponent implements AfterViewInit, OnInit, OnDestroy
     }
   }
 
-  loadDrivers(): void {
+ loadDrivers(): void {
     this.driverService.getAllDrivers().subscribe({
       next: (data) => {
         this.drivers = data;
-        this.updateMarkers();
+        this.driversLoaded = true;
+        console.log('Chauffeurs chargés:', this.drivers.length);
+        
+        // Si la carte est prête, mettre à jour les marqueurs
+        if (this.mapReady) {
+          this.updateMarkers();
+        }
       },
       error: (err) => {
         console.error('Erreur chargement chauffeurs', err);
@@ -208,6 +250,8 @@ export class DriverMatchingComponent implements AfterViewInit, OnInit, OnDestroy
       }
     });
   }
+
+  
 
   // ... le reste de vos méthodes reste inchangé
   loadNearbyDrivers() {
@@ -275,7 +319,7 @@ export class DriverMatchingComponent implements AfterViewInit, OnInit, OnDestroy
             ...this.newDriver, 
             nom: '', 
             capacity: 1,
-            numTel: ''
+            num_tel: ''
           };
         },
         error: () => (this.errorMessage = 'Erreur lors de l\'ajout du chauffeur.')

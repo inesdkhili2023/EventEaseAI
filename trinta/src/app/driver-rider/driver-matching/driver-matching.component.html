@@ -1,36 +1,138 @@
 <div class="container">
 
-  <h2>🚗 Gestion des Chauffeurs & Matching</h2>
+  <h2>🚗 Trouver un chauffeur</h2>
 <div id="map" class="map-container"></div>
-  <!-- 🧍 Formulaire chauffeur -->
-  <div class="driver-form card">
-    <h3>Ajouter un Chauffeur</h3>
-    <div class="form-group">
-      <label>Nom :</label>
-      <input type="text" [(ngModel)]="newDriver.nom" />
-    </div>
-    
-    <div class="form-group">
-      <label>Nombre de places :</label>
-      <input type="number" [(ngModel)]="newDriver.capacity" min="1" />
-    </div>
-    <button class="btn-primary" (click)="addDriver()">📍 Ajouter</button>
-  </div>
 
-  <!-- 🗺️ Carte -->
- <!-- 🗺️ Carte OpenStreetMap -->
+ <!-- Liste des chauffeurs -->
+  <!-- Liste moderne des chauffeurs -->
+<div class="d-flex justify-content-center mt-4">
+  <mat-card class="drivers-mat-card bg-white border-none">
+    <mat-card-header>
+      <mat-card-title>
+        <h4 class="mt-0 mb-0">👥 Liste des Chauffeurs</h4>
+      </mat-card-title>
+      <mat-card-subtitle>
+        <button type="button" mat-button color="primary" class="card-header-menu-btn"
+                [matMenuTriggerFor]="cardHeaderMenu">
+          Filtrer
+        </button>
+        <mat-menu #cardHeaderMenu="matMenu">
+          <button mat-menu-item (click)="filterByAvailability('all')">Tous</button>
+          <button mat-menu-item (click)="filterByAvailability('available')">Disponibles</button>
+          <button mat-menu-item (click)="filterByAvailability('unavailable')">Indisponibles</button>
+        </mat-menu>
+      </mat-card-subtitle>
+    </mat-card-header>
 
+    <mat-card-content>
+      <div class="users-list-table table-responsive">
+        <table mat-table [dataSource]="drivers" class="mat-elevation-z2">
 
+          <!-- Photo -->
+          <ng-container matColumnDef="photo">
+            <th mat-header-cell *matHeaderCellDef>Photo</th>
+            <td mat-cell *matCellDef="let d">
+              <img [src]="d.image_url || 'assets/images/default-avatar.png'" class="driver-avatar" alt="avatar">
+            </td>
+          </ng-container>
+
+          <!-- Nom -->
+          <ng-container matColumnDef="nom">
+            <th mat-header-cell *matHeaderCellDef>Nom</th>
+            <td mat-cell *matCellDef="let d">
+              <strong>{{ d.nom }} {{ d.prenom }}</strong><br>
+              <small class="text-muted">{{ d.email }}</small>
+            </td>
+          </ng-container>
+
+          <!-- Véhicule -->
+          <ng-container matColumnDef="vehicleType">
+            <th mat-header-cell *matHeaderCellDef>Véhicule</th>
+            <td mat-cell *matCellDef="let d">
+              {{ d.vehicleType || 'N/A' }} - {{ d.capacity }} places
+            </td>
+          </ng-container>
+
+          <!-- Statut -->
+          <ng-container matColumnDef="available">
+            <th mat-header-cell *matHeaderCellDef>Statut</th>
+            <td mat-cell *matCellDef="let d">
+              <span class="status-badge" [class.available]="d.available" [class.unavailable]="!d.available">
+                {{ d.available ? '🟢 Disponible' : '🔴 Indisponible' }}
+              </span>
+            </td>
+          </ng-container>
+
+          <!-- Actions -->
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef class="text-center">Actions</th>
+            <td mat-cell *matCellDef="let d" class="text-center">
+              <button mat-raised-button color="primary" class="me-2" (click)="showDriverInfo(d)">
+                📍 Détails
+              </button>
+             
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-paginator [length]="drivers.length" [pageSize]="6" [pageSizeOptions]="[6, 10, 20]">
+        </mat-paginator>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
 
   <!-- 🪟 Popup chauffeur -->
-  <div *ngIf="selectedDriver" class="popup">
-    <h4> {{ selectedDriver.nom }}</h4>
-    <p>🚗 {{ selectedDriver.vehicleType }} - {{ selectedDriver.capacity }} places</p>
-    <p>⭐ {{ selectedDriver.rating }}/5</p>
-    <p>📞 {{ selectedDriver.numTel || 'Non renseigné' }}</p>
-    <button class="btn-update" (click)="updateDriverPosition(selectedDriver)">🔁 Actualiser position</button>
-    <button class="btn-close" (click)="selectedDriver = null">Fermer</button>
+ <div *ngIf="selectedDriver" class="driver-popup animate-popup">
+  <div class="popup-header">
+    <img
+      [src]="selectedDriver.image_url || 'assets/images/default-avatar.png'"
+      alt="photo chauffeur"
+      class="popup-avatar"
+    />
+    <div>
+      <h3>{{ selectedDriver.nom }} {{ selectedDriver.prenom }}</h3>
+      <p class="popup-subtitle">
+        🚗 {{ selectedDriver.vehicleType || 'Type inconnu' }} • {{ selectedDriver.capacity }} places
+      </p>
+    </div>
   </div>
+
+  <div class="popup-body">
+    <div class="popup-info">
+      <span>⭐ Note :</span> <strong>{{ selectedDriver.rating || 'N/A' }}/5</strong>
+    </div>
+    <div class="popup-info">
+      <span>📞 Téléphone :</span>
+      <strong>{{ selectedDriver.num_tel || 'Non renseigné' }}</strong>
+    </div>
+    <div class="popup-info">
+      <span>🎂 Date de naissance :</span>
+      <strong>{{ selectedDriver.date_naissance || 'Non renseignée' }}</strong>
+    </div>
+    <div class="popup-info">
+      <span>📍 Adresse :</span>
+      <strong>{{ selectedDriver.adresse || 'Non renseignée' }}</strong>
+    </div>
+    <div class="popup-info">
+      <span>💼 Expérience :</span>
+      <strong>{{ selectedDriver.experienceYears || 0 }} ans</strong>
+    </div>
+    <div class="popup-info">
+      <span>💰 Tarif/km :</span>
+      <strong>{{ selectedDriver.pricePerKm || 0 }} TND</strong>
+    </div>
+  </div>
+
+  <div class="popup-footer">
+    <button class="btn-close" (click)="selectedDriver = null">
+      ❌ Fermer
+    </button>
+  </div>
+</div>
 
   <!-- 🤝 Matching -->
   <div class="rider-form card">

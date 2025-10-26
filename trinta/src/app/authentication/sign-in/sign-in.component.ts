@@ -11,6 +11,7 @@ import { NgIf } from '@angular/common';
 import { SupabaseService } from '../../services/supabase.service';
 import { Subject } from 'rxjs';
 import { FeathericonsModule } from '../../icons/feathericons/feathericons.module';
+import { HttpClient } from '@angular/common/http';  // ✅ AJOUT IMPORTANT
 
 @Component({
   selector: 'app-sign-in',
@@ -44,7 +45,8 @@ export class SignInComponent implements OnInit, OnDestroy {
     private fb: FormBuilder,
     private router: Router,
     private supabase: SupabaseService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private http: HttpClient // ✅ AJOUT ICI
   ) {
     this.authForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -103,9 +105,20 @@ export class SignInComponent implements OnInit, OnDestroy {
         localStorage.removeItem('userEmail');
       }
 
+      // ✅ AJOUT : récupérer l'ID du chauffeur après login
+      if (user.user_role === 'CHAUFFEUR') {
+        this.http.get<{ id: string }>(`http://localhost:8090/api/drivers/by-email/${email}`).subscribe({
+          next: (data) => {
+            localStorage.setItem('driverId', data.id);
+            console.log('✅ driverId sauvegardé :', data.id);
+          },
+          error: (err) => console.error('Erreur récupération driverId', err)
+        });
+      }
+
       this.showMessage(`Welcome back, ${user.email}!`, 'success');
       await this.redirectByRole(user.user_role);
-    console.log('User after login:', user.role);
+      console.log('User after login:', user);
 
     } catch (error: any) {
       console.error('Sign in error:', error);
@@ -114,20 +127,19 @@ export class SignInComponent implements OnInit, OnDestroy {
     } finally {
       this.isLoading = false;
     }
-
   }
 
- private async redirectByRole(role: string): Promise<void> {
-  const routes: { [key: string]: string } = {
-    ADMIN: '/project-management',
-    CLIENT: '/ecommerce-page',
-    OWNER: 'crm-page/leads',
-    CHAUFFEUR: '/lms'
-  };
-  const targetRoute = routes[role] || '/home';
-  await new Promise(resolve => setTimeout(resolve, 500));
-  this.router.navigate([targetRoute]);
-}
+  private async redirectByRole(role: string): Promise<void> {
+    const routes: { [key: string]: string } = {
+      ADMIN: '/project-management',
+      CLIENT: '/ecommerce-page',
+      OWNER: 'crm-page/leads',
+      CHAUFFEUR: '/lms'
+    };
+    const targetRoute = routes[role] || '/home';
+    await new Promise(resolve => setTimeout(resolve, 500));
+    this.router.navigate([targetRoute]);
+  }
 
   private markFormGroupTouched(formGroup: FormGroup): void {
     Object.keys(formGroup.controls).forEach(key => {

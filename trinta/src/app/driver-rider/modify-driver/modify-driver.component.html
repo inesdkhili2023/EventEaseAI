@@ -1,0 +1,70 @@
+<div class="container">
+  <mat-card class="driver-card">
+    <mat-card-header>
+      <mat-card-title>🧍 Modifier mes informations</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form>
+        <div class="grid">
+          <mat-form-field appearance="outline">
+            <mat-label>Nom</mat-label>
+            <input matInput [(ngModel)]="driver.nom" name="nom">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Prénom</mat-label>
+            <input matInput [(ngModel)]="driver.prenom" name="prenom">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput [(ngModel)]="driver.email" name="email">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Téléphone</mat-label>
+            <input matInput [(ngModel)]="driver.num_tel" name="num_tel">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Date de naissance</mat-label>
+            <input matInput [(ngModel)]="driver.date_naissance" type="date" name="date_naissance">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Adresse</mat-label>
+            <input matInput [(ngModel)]="driver.adresse" name="adresse">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Type de véhicule</mat-label>
+            <mat-select [(ngModel)]="driver.vehicleType" name="vehicleType">
+              <mat-option value="Standard">Standard</mat-option>
+              <mat-option value="SUV">SUV</mat-option>
+              <mat-option value="Minibus">Minibus</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Expérience (années)</mat-label>
+            <input matInput type="number" [(ngModel)]="driver.experienceYears" name="experienceYears">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Tarif / km</mat-label>
+            <input matInput type="number" [(ngModel)]="driver.pricePerKm" name="pricePerKm">
+          </mat-form-field>
+        </div>
+
+        <div id="map" class="map-container"></div>
+
+        <div class="buttons">
+          <button mat-raised-button color="primary" (click)="updateDriver()">
+            💾 Enregistrer les modifications
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -18,4 +18,6 @@ public interface IDriverService {
     public Optional<Driver> getDriverById(UUID id);
     public Driver addDriver(Driver driver);
     public Optional<Driver> updateDriverLocation(UUID id, Driver updatedData);
+    public Driver updateDriverInfo(UUID id, Driver updatedDriver);
+    public Optional<Driver> getDriverByEmail(String email);
 }

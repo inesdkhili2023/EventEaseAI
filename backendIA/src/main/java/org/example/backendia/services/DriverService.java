@@ -7,6 +7,7 @@ import org.example.backendia.IService.IDriverService;
 import org.example.backendia.entities.Driver;
 import org.example.backendia.repositories.DriverRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -20,6 +21,8 @@ public class DriverService implements IDriverService {
 
     @Autowired
     private DriverRepository driverRepository;
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
     @Override
     public List<DriverDTO> getAvailableDriversNearLocation(double lat, double lng, double radiusKm) {
         try {
@@ -74,29 +77,43 @@ public class DriverService implements IDriverService {
         return driverRepository.findById(id);
     }
 
+
     @Override
     public Driver addDriver(Driver driver) {
-        // S'assurer que l'ID est généré
+        // Génération d'UUID si manquant
         if (driver.getId() == null) {
             driver.setId(UUID.randomUUID());
         }
 
-        // Initialiser les champs requis
+        // Champs par défaut
         driver.setAvailable(true);
-        driver.setNom(driver.getNom());
         driver.setCreated_at(LocalDate.now());
 
-        // S'assurer que le rôle est défini si nécessaire
         if (driver.getRole() == null) {
             driver.setRole("CHAUFFEUR");
         }
 
+        // 🔐 Crypter le mot de passe avant sauvegarde
+        if (driver.getPassword() != null && !driver.getPassword().isBlank()) {
+            try {
+                String hashedPassword = jdbcTemplate.queryForObject(
+                        "SELECT crypt(?, gen_salt('bf'))",
+                        String.class,
+                        driver.getPassword()
+                );
+                driver.setPassword(hashedPassword);
+            } catch (Exception e) {
+                log.error("Erreur lors du cryptage du mot de passe : {}", e.getMessage());
+                throw new RuntimeException("Erreur de cryptage du mot de passe");
+            }
+        }
+
         try {
             Driver saved = driverRepository.save(driver);
-            log.info("Added driver {} {} with ID {}", saved.getPrenom(), saved.getNom(), saved.getId());
+            log.info("✅ Chauffeur ajouté : {} {} (ID: {})", saved.getPrenom(), saved.getNom(), saved.getId());
             return saved;
         } catch (Exception e) {
-            log.error("Error saving driver: {}", e.getMessage());
+            log.error("❌ Erreur lors de la sauvegarde du chauffeur : {}", e.getMessage());
             throw e;
         }
     }
@@ -117,15 +134,31 @@ public class DriverService implements IDriverService {
         return Optional.of(driver);
     }
 
-    // Méthode utilitaire pour calculer la distance (fallback)
-    private double calculateDistance(double lat1, double lon1, double lat2, double lon2) {
-        final int R = 6371; // Rayon de la Terre en km
-        double latDistance = Math.toRadians(lat2 - lat1);
-        double lonDistance = Math.toRadians(lon2 - lon1);
-        double a = Math.sin(latDistance / 2) * Math.sin(latDistance / 2)
-                + Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2))
-                * Math.sin(lonDistance / 2) * Math.sin(lonDistance / 2);
-        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-        return R * c;
+    @Override
+    public Driver updateDriverInfo(UUID id, Driver updatedDriver) {
+        Driver existing = driverRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Driver not found"));
+
+        existing.setNom(updatedDriver.getNom());
+        existing.setPrenom(updatedDriver.getPrenom());
+        existing.setEmail(updatedDriver.getEmail());
+        existing.setNum_tel(updatedDriver.getNum_tel());
+        existing.setAdresse(updatedDriver.getAdresse());
+        existing.setDate_naissance(updatedDriver.getDate_naissance());
+        existing.setVehicleType(updatedDriver.getVehicleType());
+        existing.setCapacity(updatedDriver.getCapacity());
+        existing.setExperienceYears(updatedDriver.getExperienceYears());
+        existing.setPricePerKm(updatedDriver.getPricePerKm());
+        existing.setLatitude(updatedDriver.getLatitude());
+        existing.setLongitude(updatedDriver.getLongitude());
+
+        return driverRepository.save(existing);
     }
+
+    @Override
+    public Optional<Driver> getDriverByEmail(String email) {
+        return driverRepository.findByEmail(email);
+    }
+
+
 }
