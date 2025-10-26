@@ -2,14 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
-import { TicketPlan, TicketSale, SalesAnalytics,} from '../models/ticket-category.model';
+import { TicketPlan, TicketSale, SalesAnalytics } from '../models/ticket-category.model';
 import { ApiService } from './api.service';
+
 interface TicketCategory {
   id: number;
-  categoryName: string;
+  category_name: string; // Changed from categoryName to match backend
   price: number;
-  totalQuota: number;
-  availableQuota: number;
+  total_quota: number; // Changed from totalQuota
+  available_quota: number; // Changed from availableQuota
+  event_id: number; // Added event_id
   active: boolean;
 }
 
@@ -33,9 +35,37 @@ export class TicketService {
 
   // Get all categories for event
   getCategoriesByEvent(eventId: number) {
+    console.log('🔧 TicketService: Fetching categories for event', eventId);
+    
+    // Try the event-specific endpoint first
     return this.api.get<TicketCategory[]>(`/api/events/${eventId}/categories`)
       .then(res => {
+        console.log('✅ Success with /api/events/{id}/categories:', res);
         this.categories$.next(res.data);
+        return res.data;
+      })
+      .catch(err => {
+        console.warn('⚠️ Failed with /api/events/{id}/categories, trying /api/categories');
+        
+        // Fallback to get all categories and filter by event_id
+        return this.api.get<TicketCategory[]>(`/api/categories`)
+          .then(res => {
+            console.log('✅ Success with /api/categories:', res);
+            // Filter categories for this event
+            const filtered = res.data.filter(cat => cat.event_id === eventId);
+            console.log(`📊 Filtered ${filtered.length} categories for event ${eventId}`);
+            this.categories$.next(filtered);
+            return filtered;
+          });
+      });
+  }
+
+  // Alternative method: Get all categories (no filtering)
+  getAllCategories() {
+    console.log('🔧 TicketService: Fetching all categories');
+    return this.api.get<TicketCategory[]>(`/api/categories`)
+      .then(res => {
+        console.log('✅ All categories:', res);
         return res.data;
       });
   }

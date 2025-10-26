@@ -158,9 +158,10 @@ import { ListComponent } from './ui-elements/list/list.component';
 import { InputComponent } from './ui-elements/input/input.component';
 import { TooltipComponent } from './ui-elements/tooltip/tooltip.component';
 import { ChatbotComponent } from './pages/ticket-management/chatbot/chatbot.component';
+import { EcommerceComponent } from './dashboard/ecommerce/ecommerce.component';
 
 export const routes: Routes = [
-    {path: '', redirectTo: '/events', pathMatch: 'full'},
+    {path: '', component: EcommerceComponent},
     {path: 'crm', component: CrmComponent},
     {path: 'project-management', component: ProjectManagementComponent},
     {path: 'lms', component: LmsComponent},

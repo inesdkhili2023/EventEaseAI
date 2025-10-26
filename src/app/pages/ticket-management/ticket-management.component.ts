@@ -29,23 +29,23 @@ import { SalesAnalyticsComponent } from './sales-analytics/sales-analytics.compo
 })
 export class TicketManagementComponent implements OnInit {
   selectedTab = 0;
-  categories: string[] = [];
+  categories: any[] = [];
 
   constructor(private http: HttpClient) {}  // ✅ inject HttpClient properly
 
   ngOnInit(): void {
-    this.loadCategories();
-    console.log('Ticket management component initialized');
-  }
+    this.loadCategories();  }
 
   loadCategories(): void {
-    this.http.get<{ category_name: string }[]>('/api/ticket-categories')
-      .subscribe(data => {
-        // Only unique category names
-        this.categories = Array.from(new Set(data.map(c => c.category_name)));
-        console.log('Active categories from Supabase:', this.categories);
-      }, error => {
-        console.error('Error fetching categories:', error);
+    this.http.get<any[]>('http://localhost:8090/api/categories')
+      .subscribe({
+        next: (data) => {
+          this.categories = data;  // keep all columns, not just category_name
+          console.log('All categories from Supabase:', this.categories);
+        },
+        error: (err) => {
+          console.error('Error fetching ticket categories:', err);
+        }
       });
   }
 
