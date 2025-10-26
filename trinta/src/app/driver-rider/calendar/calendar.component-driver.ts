@@ -34,7 +34,7 @@ export class CalendarDriverComponent implements OnInit {
     eventMouseEnter: this.handleEventHover.bind(this),
     eventMouseLeave: this.handleEventLeave.bind(this),
     // 👇 Personnalisation des couleurs
-    eventColor: '#4CAF50', // Vert pour les disponibilités
+    eventColor: '#4CAF50',
     eventTextColor: '#ffffff',
     // 👇 Header avec navigation
     headerToolbar: {
@@ -44,10 +44,16 @@ export class CalendarDriverComponent implements OnInit {
     },
     // 👇 Hauteur fixe
     height: 'auto',
-    contentHeight: 'auto'
+    contentHeight: 'auto',
+    // 👇 Amélioration de l'apparence des événements
+    eventDisplay: 'block',
+    eventTimeFormat: {
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false
+    }
   };
 
-  // Pour stocker les données brutes
   allAvailabilities: DriverAvailability[] = [];
 
   constructor(private availabilityService: DriverAvailabilityService) {}
@@ -80,9 +86,7 @@ export class CalendarDriverComponent implements OnInit {
     // Transformer en événements FullCalendar
     const events = Object.entries(groupedByDate).map(([date, availabilities]) => {
       const driverCount = availabilities.length;
-      const driversList = availabilities
-        .map(av => `🚗 ${av.driverName || 'Chauffeur'} (${av.startTime} - ${av.endTime})`)
-        .join('\n');
+      const availableDrivers = availabilities.filter(a => a.available).length;
 
       return {
         id: `avail-${date}`,
@@ -91,10 +95,11 @@ export class CalendarDriverComponent implements OnInit {
         color: this.getEventColor(driverCount),
         extendedProps: {
           drivers: availabilities,
-          tooltipContent: this.generateTooltipContent(availabilities)
+          tooltipContent: this.generateTooltipContent(availabilities),
+          availableCount: availableDrivers,
+          totalCount: driverCount
         },
-        // 👇 Style personnalisé
-        classNames: ['availability-event'],
+        classNames: ['availability-event', `availability-${driverCount}`],
         display: 'block'
       };
     });
@@ -102,23 +107,40 @@ export class CalendarDriverComponent implements OnInit {
     this.calendarOptions.events = events;
   }
 
-  // 👇 Générer le contenu du tooltip
   private generateTooltipContent(availabilities: DriverAvailability[]): string {
     if (!availabilities.length) return '';
 
+    const availableCount = availabilities.filter(a => a.available).length;
+    const totalCount = availabilities.length;
+
     const driversHTML = availabilities
       .map(av => `
-        <div class="driver-info">
-          <strong>${av.driverName || 'Chauffeur'}</strong>
-          <div class="time-slot">${av.startTime} - ${av.endTime}</div>
-          ${av.available ? '<span class="status available">🟢 Disponible</span>' : '<span class="status unavailable">🔴 Indisponible</span>'}
+        <div class="driver-info ${av.available ? 'available' : 'unavailable'}">
+          <div class="driver-header">
+            <span class="driver-icon">🚗</span>
+            <strong class="driver-name">${av.driverName || 'Chauffeur'}</strong>
+            ${av.available ? 
+              '<span class="status-badge available">🟢 Disponible</span>' : 
+              '<span class="status-badge unavailable">🔴 Indisponible</span>'
+            }
+          </div>
+          <div class="time-slot">
+            <span class="time-icon">⏰</span>
+            ${av.startTime} - ${av.endTime}
+          </div>
         </div>
       `)
       .join('');
 
     return `
       <div class="availability-tooltip">
-        <h4>📅 ${availabilities[0].date}</h4>
+        <div class="tooltip-header">
+          <h4>📅 ${this.formatDate(availabilities[0].date)}</h4>
+          <div class="availability-summary">
+            <span class="summary-badge available">${availableCount} disponible(s)</span>
+            <span class="summary-badge total">${totalCount} total</span>
+          </div>
+        </div>
         <div class="drivers-list">
           ${driversHTML}
         </div>
@@ -126,7 +148,16 @@ export class CalendarDriverComponent implements OnInit {
     `;
   }
 
-  // 👇 Gérer la couleur en fonction du nombre de chauffeurs
+  private formatDate(dateString: string): string {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('fr-FR', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  }
+
   private getEventColor(driverCount: number): string {
     if (driverCount >= 5) return '#2E7D32'; // Vert foncé
     if (driverCount >= 3) return '#4CAF50'; // Vert moyen
@@ -134,12 +165,10 @@ export class CalendarDriverComponent implements OnInit {
     return '#C8E6C9'; // Vert très clair
   }
 
-  // 👇 Gestion du survol de la souris
   handleEventHover(mouseEnterInfo: EventHoveringArg) {
     const event = mouseEnterInfo.event;
     const extendedProps = event.extendedProps;
     
-    // Créer le tooltip personnalisé
     this.createCustomTooltip(mouseEnterInfo.jsEvent, extendedProps['tooltipContent']);
   }
 
@@ -147,7 +176,6 @@ export class CalendarDriverComponent implements OnInit {
     this.removeCustomTooltip();
   }
 
-  // 👇 Créer un tooltip personnalisé
   private createCustomTooltip(mouseEvent: MouseEvent, content: string) {
     this.removeCustomTooltip();
 
@@ -155,10 +183,9 @@ export class CalendarDriverComponent implements OnInit {
     tooltip.className = 'custom-calendar-tooltip';
     tooltip.innerHTML = content;
 
-    // Positionner le tooltip près du curseur
     tooltip.style.position = 'fixed';
-    tooltip.style.left = (mouseEvent.pageX + 10) + 'px';
-    tooltip.style.top = (mouseEvent.pageY + 10) + 'px';
+    tooltip.style.left = (mouseEvent.pageX + 15) + 'px';
+    tooltip.style.top = (mouseEvent.pageY + 15) + 'px';
     tooltip.style.zIndex = '10000';
 
     document.body.appendChild(tooltip);
