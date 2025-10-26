@@ -37,13 +37,61 @@ public class GeminiService {
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                 .build();
     }
+    private String formatEventSummary(Map<String, Object> event) {
+        return String.format(
+                "🎟️ %s\n💰 %s\n📍 %s\n🗓️ %s → %s",
+                event.getOrDefault("title", "N/A"),
+                event.getOrDefault("price", "N/A"),
+                event.getOrDefault("location", "N/A"),
+                event.getOrDefault("start_date", "N/A"),
+                event.getOrDefault("end_date", "N/A")
+        );
+    }
 
     public ChatResponse chat(ChatRequest request) {
         String message = Optional.ofNullable(request.getMessage()).orElse("").trim();
         String lower = message.toLowerCase();
 
         try {
-            // ✅ 1) Detect event ID pattern anywhere in message
+            // ✅ 1. Handle Dynamic Slash Commands
+            if (lower.startsWith("/")) {
+                switch (lower) {
+                    case "/help":
+                        return new ChatResponse(
+                                "📘 Available Commands:\n" +
+                                        "/help → Show all commands\n" +
+                                        "/latest → Fetch the latest 5 events\n" +
+                                        "/popular → Show top-rated events\n" +
+                                        "/contact → Get organizer info\n" +
+                                        "You can also ask things like:\n" +
+                                        "• event 3\n" +
+                                        "• tech events in Tunis under 50\n" +
+                                        "• summarize feedback for event 12"
+                        );
+
+                    case "/latest":
+                        List<Map<String, Object>> latest = supabaseService.fetchLatestEvents(5);
+                        if (latest.isEmpty()) {
+                            return new ChatResponse("No recent events found.");
+                        }
+                        return new ChatResponse("🆕 Latest Events:\n" + formatMultipleEvents(latest));
+
+                    case "/popular":
+                        List<Map<String, Object>> popular = supabaseService.fetchPopularEvents();
+                        if (popular.isEmpty()) {
+                            return new ChatResponse("No popular events found yet.");
+                        }
+                        return new ChatResponse("🔥 Top-rated Events:\n" + formatMultipleEvents(popular));
+
+                    case "/contact":
+                        String contact = supabaseService.fetchOrganizerInfo();
+                        return new ChatResponse(contact != null ? contact : "No organizer info available.");
+
+                    default:
+                        return new ChatResponse("❓ Unknown command. Try /help for a list of commands.");
+                }
+            }
+            // 1️⃣ Detect event ID anywhere in message
             Pattern idPattern = Pattern.compile("\\bevent\\b\\s*[#:/]?\\s*(?:id\\s*)?(\\d+)", Pattern.CASE_INSENSITIVE);
             Matcher idMatcher = idPattern.matcher(message);
 
@@ -51,17 +99,52 @@ public class GeminiService {
                 String id = idMatcher.group(1);
                 Map<String, Object> event = supabaseService.fetchEventById(id);
 
-                if (event != null) {
+                if (event != null)
                     return new ChatResponse(formatEventDetails(event, id));
-                } else {
+                else
                     return new ChatResponse("Sorry, I couldn’t find any event with ID " + id + ".");
+            }
+
+            // 2️⃣ Try to detect filters: category, location, price
+            String category = null, city = null;
+            Double maxPrice = null;
+
+            // Extract category keywords
+            if (lower.contains("educatif")) category = "EDUCATIF";
+            else if (lower.contains("tech")) category = "TECH";
+            else if (lower.contains("music") || lower.contains("concert")) category = "MUSIC";
+
+            // Extract city/location
+            if (lower.contains("tunis")) city = "Tunis";
+            else if (lower.contains("café nutri")) city = "Café Nutri";
+
+            // Extract price number (e.g. "under 100" or "<100")
+            Matcher priceMatcher = Pattern.compile("(under|below|moins de|<|<=)\\s*(\\d+)", Pattern.CASE_INSENSITIVE).matcher(lower);
+            if (priceMatcher.find()) {
+                maxPrice = Double.parseDouble(priceMatcher.group(2));
+            } else {
+                // Try standalone number if context implies price
+                Matcher numberMatcher = Pattern.compile("\\b(\\d{1,4})\\b").matcher(lower);
+                if (numberMatcher.find() && (lower.contains("price") || lower.contains("under") || lower.contains("prix")))
+                    maxPrice = Double.parseDouble(numberMatcher.group(1));
+            }
+
+            // 3️⃣ If filters detected, call Supabase
+            if (category != null || city != null || maxPrice != null) {
+                List<Map> results = supabaseService.fetchFilteredEvents(category, city, maxPrice);
+                if (results != null && !results.isEmpty()) {
+                    StringBuilder sb = new StringBuilder("Here are the top matching events:\n\n");
+                    for (Map event : results) {
+                        sb.append(formatEventSummary(event)).append("\n\n");
+                    }
+                    return new ChatResponse(sb.toString());
+                } else {
+                    return new ChatResponse("Sorry, I couldn’t find events matching your criteria.");
                 }
             }
 
-            // ✅ 2) If message contains event-related keywords → search by title
-            if (lower.contains("event") || lower.contains("ticket") || lower.contains("price")
-                    || lower.contains("prix") || lower.contains("place") || lower.contains("billet")) {
-
+            // 4️⃣ If user just asks about events in general
+            if (lower.contains("event") || lower.contains("ticket")) {
                 Map<String, Object> event = supabaseService.searchEventByText(message);
                 if (event != null) {
                     String id = String.valueOf(event.get("id"));
@@ -69,7 +152,7 @@ public class GeminiService {
                 }
             }
 
-            // ✅ 3) Fallback to Gemini API for general chat
+            // 5️⃣ Fallback to Gemini AI
             String aiResponse = callGemini(message);
             return new ChatResponse(aiResponse);
 
@@ -78,6 +161,35 @@ public class GeminiService {
             return new ChatResponse("An error occurred: " + e.getMessage());
         }
     }
+    private String formatMultipleEvents(List<Map<String, Object>> events) {
+        if (events == null || events.isEmpty()) {
+            return "No events found.";
+        }
+
+        StringBuilder sb = new StringBuilder();
+        int index = 1;
+
+        for (Map<String, Object> event : events) {
+            sb.append(index++)
+                    .append(". ")
+                    .append(event.getOrDefault("title", "Untitled Event"))
+                    .append(" — 💰 Price: ")
+                    .append(event.getOrDefault("price", "N/A"))
+                    .append(" € | 📍 Location: ")
+                    .append(event.getOrDefault("location", "Unknown"))
+                    .append("\n   📅 Date: ")
+                    .append(event.getOrDefault("start_date", "N/A"))
+                    .append(" → ")
+                    .append(event.getOrDefault("end_date", "N/A"))
+                    .append("\n")
+                    .append("   Category: ")
+                    .append(event.getOrDefault("category", "General"))
+                    .append("\n\n");
+        }
+
+        return sb.toString().trim();
+    }
+
 
     // 🔍 Helper to format event details clearly
     private String formatEventDetails(Map<String, Object> event, String id) {
