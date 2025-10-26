@@ -5,10 +5,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { TicketListComponent } from './ticket-plans-list/ticket-plans-list.component';
 import { SalesAnalyticsComponent } from './sales-analytics/sales-analytics.component';
-import { ChatbotComponent } from './chatbot/chatbot.component';
 
 @Component({  
   selector: 'app-ticket-management',
@@ -20,21 +20,33 @@ import { ChatbotComponent } from './chatbot/chatbot.component';
     MatButtonModule,
     MatIconModule,
     RouterModule,
+    HttpClientModule,
     TicketListComponent,
     SalesAnalyticsComponent,
-    
   ],
   templateUrl: './ticket-management.component.html',
   styleUrls: ['./ticket-management.component.scss']
 })
 export class TicketManagementComponent implements OnInit {
   selectedTab = 0;
+  categories: string[] = [];
 
-  constructor() {}
+  constructor(private http: HttpClient) {}  // ✅ inject HttpClient properly
 
   ngOnInit(): void {
-    // Initialize component
+    this.loadCategories();
     console.log('Ticket management component initialized');
+  }
+
+  loadCategories(): void {
+    this.http.get<{ category_name: string }[]>('/api/ticket-categories')
+      .subscribe(data => {
+        // Only unique category names
+        this.categories = Array.from(new Set(data.map(c => c.category_name)));
+        console.log('Active categories from Supabase:', this.categories);
+      }, error => {
+        console.error('Error fetching categories:', error);
+      });
   }
 
   onTabChange(index: number): void {
@@ -42,7 +54,6 @@ export class TicketManagementComponent implements OnInit {
   }
 
   openChatbot(): void {
-    // This will be handled by the chatbot component itself
     console.log('Opening chatbot...');
   }
 }

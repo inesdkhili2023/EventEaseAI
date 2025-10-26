@@ -1,28 +1,68 @@
 .payment-container {
   max-width: 600px;
   margin: 0 auto;
-  padding: 24px;
+  padding: 32px 24px;
+  background: linear-gradient(135deg, #f8fafc 0%, #f0f7ff 100%);
+  min-height: 100vh;
 
   .payment-card {
     margin-bottom: 24px;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(15, 76, 165, 0.08), 0 4px 16px rgba(0, 0, 0, 0.04);
+    background: white;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 4px 12px rgba(15, 76, 165, 0.12), 0 8px 24px rgba(0, 0, 0, 0.06);
+      transform: translateY(-2px);
+    }
+
+    mat-card-header {
+      background: linear-gradient(135deg, #0f4ca5 0%, #1e5ba8 100%);
+      padding: 28px 24px;
+      border-radius: 12px 12px 0 0;
+      color: white;
+
+      mat-card-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin: 0 0 8px 0;
+        color: white;
+      }
+
+      mat-card-subtitle {
+        font-size: 0.95rem;
+        color: rgba(255, 255, 255, 0.9);
+        font-weight: 400;
+      }
+    }
+
+    mat-card-content {
+      padding: 28px 24px;
+    }
 
     .ticket-summary {
-      background: #f8f9fa;
-      padding: 20px;
-      border-radius: 8px;
-      margin-bottom: 24px;
-      border-left: 4px solid #2196f3;
+      background: linear-gradient(135deg, #f0f7ff 0%, #e8f2ff 100%);
+      padding: 24px;
+      border-radius: 10px;
+      margin-bottom: 28px;
+      border-left: 4px solid #0f4ca5;
+      border: 1px solid #d4e6f7;
+      border-left: 4px solid #0f4ca5;
 
       h3 {
-        margin: 0 0 8px 0;
-        color: #333;
-        font-weight: 500;
+        margin: 0 0 12px 0;
+        color: #0f4ca5;
+        font-weight: 600;
+        font-size: 1.2rem;
       }
 
       .ticket-description {
-        margin: 0 0 16px 0;
-        color: #666;
-        font-size: 0.875rem;
+        margin: 0 0 20px 0;
+        color: #475569;
+        font-size: 0.95rem;
+        line-height: 1.5;
       }
 
       .ticket-details {
@@ -30,8 +70,13 @@
           display: flex;
           justify-content: space-between;
           align-items: center;
-          padding: 8px 0;
-          border-bottom: 1px solid #e0e0e0;
+          padding: 12px 0;
+          border-bottom: 1px solid rgba(15, 76, 165, 0.1);
+          transition: background 0.2s ease;
+
+          &:hover {
+            background: rgba(15, 76, 165, 0.03);
+          }
 
           &:last-child {
             border-bottom: none;
@@ -39,20 +84,27 @@
 
           &.total {
             font-weight: 600;
-            font-size: 1.1rem;
-            color: #2196f3;
-            border-top: 2px solid #2196f3;
-            margin-top: 8px;
-            padding-top: 12px;
+            font-size: 1.15rem;
+            color: #0f4ca5;
+            border-top: 2px solid #0f4ca5;
+            border-bottom: none;
+            margin-top: 12px;
+            padding-top: 16px;
+            background: rgba(15, 76, 165, 0.05);
+            padding: 16px 0;
+            border-radius: 6px;
+            padding-left: 12px;
+            padding-right: 12px;
           }
 
           .label {
-            color: #666;
+            color: #64748b;
+            font-weight: 500;
           }
 
           .value {
-            color: #333;
-            font-weight: 500;
+            color: #1e293b;
+            font-weight: 600;
           }
         }
       }
@@ -60,13 +112,16 @@
 
     .payment-form {
       .form-section {
-        margin-bottom: 24px;
+        margin-bottom: 28px;
 
         h4 {
-          margin: 0 0 16px 0;
-          color: #333;
-          font-weight: 500;
-          font-size: 1.1rem;
+          margin: 0 0 18px 0;
+          color: #0f4ca5;
+          font-weight: 600;
+          font-size: 1.05rem;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          font-size: 0.95rem;
         }
 
         .full-width {
@@ -78,34 +133,64 @@
           width: 120px;
         }
 
+        mat-form-field {
+          width: 100%;
+
+          ::ng-deep {
+            .mat-mdc-form-field-focus-overlay {
+              background-color: rgba(15, 76, 165, 0.04);
+            }
+
+            .mdc-text-field--filled {
+              background-color: #f8fafc;
+            }
+
+            .mat-mdc-form-field-underline::after {
+              border-bottom-color: #0f4ca5;
+            }
+
+            .mdc-floating-label {
+              color: #64748b;
+            }
+
+            .mdc-floating-label--float-above {
+              color: #0f4ca5;
+            }
+          }
+        }
+
         .card-element-container {
-          margin-bottom: 16px;
+          margin-bottom: 20px;
 
           label {
             display: block;
-            margin-bottom: 8px;
-            color: #333;
-            font-weight: 500;
+            margin-bottom: 10px;
+            color: #1e293b;
+            font-weight: 600;
+            font-size: 0.95rem;
           }
 
           .card-element {
-            padding: 12px;
-            border: 1px solid #e0e0e0;
-            border-radius: 4px;
-            background: white;
-            transition: border-color 0.2s ease;
+            padding: 14px 16px;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 8px;
+            background: #f8fafc;
+            transition: all 0.3s ease;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
             &:focus {
-              border-color: #2196f3;
-              box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.2);
+              border-color: #0f4ca5;
+              box-shadow: 0 0 0 3px rgba(15, 76, 165, 0.1);
+              background: white;
             }
           }
 
           .card-errors {
-            color: #f44336;
-            font-size: 0.875rem;
+            color: #dc2626;
+            font-size: 0.85rem;
             margin-top: 8px;
             min-height: 20px;
+            font-weight: 500;
           }
         }
 
@@ -113,10 +198,22 @@
           width: 100%;
           margin-bottom: 16px;
 
+          ::ng-deep {
+            .mdc-checkbox {
+              margin-right: 12px;
+            }
+
+            .mdc-checkbox__native-control:checked ~ .mdc-checkbox__background {
+              border-color: #0f4ca5;
+              background-color: #0f4ca5;
+            }
+          }
+
           .error-message {
-            color: #f44336;
-            font-size: 0.75rem;
-            margin-top: 4px;
+            color: #dc2626;
+            font-size: 0.8rem;
+            margin-top: 6px;
+            font-weight: 500;
           }
         }
       }
@@ -124,41 +221,67 @@
       .security-notice {
         display: flex;
         align-items: flex-start;
-        gap: 12px;
-        padding: 16px;
-        background: #e8f5e8;
-        border-radius: 8px;
-        margin-bottom: 24px;
+        gap: 14px;
+        padding: 16px 20px;
+        background: linear-gradient(135deg, #ecfdf5 0%, #e0f7f4 100%);
+        border: 1px solid #a7f3d0;
+        border-radius: 10px;
+        margin-bottom: 28px;
 
         mat-icon {
-          color: #4caf50;
+          color: #059669;
           margin-top: 2px;
+          flex-shrink: 0;
         }
 
         p {
           margin: 0;
-          color: #2e7d32;
-          font-size: 0.875rem;
-          line-height: 1.4;
+          color: #047857;
+          font-size: 0.9rem;
+          line-height: 1.5;
+          font-weight: 500;
         }
       }
 
       .payment-actions {
         display: flex;
         justify-content: center;
-        margin-top: 24px;
+        gap: 12px;
+        margin-top: 28px;
 
         .payment-button {
-          min-width: 200px;
+          min-width: 220px;
           height: 48px;
           font-size: 1rem;
-          font-weight: 500;
+          font-weight: 600;
           display: flex;
           align-items: center;
-          gap: 8px;
+          justify-content: center;
+          gap: 10px;
+          border-radius: 8px;
+          background: linear-gradient(135deg, #0f4ca5 0%, #1e5ba8 100%);
+          color: white;
+          border: none;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 12px rgba(15, 76, 165, 0.3);
+
+          &:hover:not([disabled]) {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(15, 76, 165, 0.4);
+          }
+
+          &:active:not([disabled]) {
+            transform: translateY(0);
+          }
 
           &[disabled] {
             opacity: 0.6;
+            cursor: not-allowed;
+          }
+
+          mat-spinner {
+            margin-right: 8px;
           }
         }
       }
@@ -166,6 +289,28 @@
   }
 
   .payment-methods-info {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(15, 76, 165, 0.08);
+    background: white;
+
+    mat-card-header {
+      background: linear-gradient(135deg, #f0f7ff 0%, #e8f2ff 100%);
+      padding: 20px 24px;
+      border-radius: 12px 12px 0 0;
+      border-bottom: 1px solid #d4e6f7;
+
+      mat-card-title {
+        color: #0f4ca5;
+        font-weight: 600;
+        font-size: 1.1rem;
+      }
+    }
+
+    mat-card-content {
+      padding: 24px;
+    }
+
     .payment-methods {
       display: flex;
       justify-content: space-around;
@@ -176,22 +321,34 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 8px;
-        padding: 16px;
-        background: #f8f9fa;
-        border-radius: 8px;
-        min-width: 120px;
+        gap: 12px;
+        padding: 20px;
+        background: linear-gradient(135deg, #f8fafc 0%, #f0f7ff 100%);
+        border: 1.5px solid #e2e8f0;
+        border-radius: 10px;
+        min-width: 130px;
         text-align: center;
+        transition: all 0.3s ease;
+        cursor: pointer;
+
+        &:hover {
+          border-color: #0f4ca5;
+          background: linear-gradient(135deg, #f0f7ff 0%, #e8f2ff 100%);
+          transform: translateY(-4px);
+          box-shadow: 0 4px 12px rgba(15, 76, 165, 0.15);
+        }
 
         mat-icon {
-          color: #2196f3;
+          color: #0f4ca5;
           font-size: 32px;
+          width: 32px;
+          height: 32px;
         }
 
         span {
-          font-size: 0.875rem;
-          color: #666;
-          font-weight: 500;
+          font-size: 0.9rem;
+          color: #475569;
+          font-weight: 600;
         }
       }
     }
@@ -204,6 +361,14 @@
     padding: 16px;
 
     .payment-card {
+      mat-card-header {
+        padding: 20px 16px;
+      }
+
+      mat-card-content {
+        padding: 20px 16px;
+      }
+
       .ticket-summary {
         padding: 16px;
 
@@ -211,7 +376,7 @@
           .detail-item {
             flex-direction: column;
             align-items: flex-start;
-            gap: 4px;
+            gap: 6px;
           }
         }
       }
@@ -220,6 +385,15 @@
         .form-section {
           .quantity-field {
             width: 100%;
+          }
+        }
+
+        .payment-actions {
+          flex-direction: column;
+
+          .payment-button {
+            width: 100%;
+            min-width: unset;
           }
         }
       }

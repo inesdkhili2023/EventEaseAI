@@ -1,18 +1,22 @@
 <div class="ticket-management-container">
-  <!-- Header -->
+  <!-- Premium Header -->
   <div class="page-header">
     <div class="header-content">
       <div class="header-info">
+        <div class="header-badge">
+          <mat-icon>trending_up</mat-icon>
+          <span>Dashboard</span>
+        </div>
         <h1>Gestion des Paiements et Billets</h1>
-        <p>Gérez vos plans de billets, suivez les ventes et assistez vos clients</p>
+        <p>Gérez vos plans de billets, suivez les ventes et assistez vos clients avec intelligence</p>
       </div>
       <div class="header-actions">
-        <button mat-raised-button color="primary">
-          <mat-icon>add</mat-icon>
+        <button mat-raised-button class="btn-primary">
+          <mat-icon>add_circle</mat-icon>
           Nouveau Plan
         </button>
-        <button mat-button>
-          <mat-icon>settings</mat-icon>
+        <button mat-button class="btn-secondary">
+          <mat-icon>tune</mat-icon>
           Configuration
         </button>
       </div>
@@ -21,6 +25,51 @@
 
   <!-- Main Content -->
   <div class="main-content">
+    <!-- Stats Overview -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon revenue">
+          <mat-icon>attach_money</mat-icon>
+        </div>
+        <div class="stat-content">
+          <p class="stat-label">Revenus Totaux</p>
+          <h3 class="stat-value">€45,230</h3>
+          <span class="stat-change positive">+12.5% ce mois</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon tickets">
+          <mat-icon>confirmation_number</mat-icon>
+        </div>
+        <div class="stat-content">
+          <p class="stat-label">Billets Vendus</p>
+          <h3 class="stat-value">1,284</h3>
+          <span class="stat-change positive">+8.2% ce mois</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon customers">
+          <mat-icon>people</mat-icon>
+        </div>
+        <div class="stat-content">
+          <p class="stat-label">Clients Actifs</p>
+          <h3 class="stat-value">892</h3>
+          <span class="stat-change positive">+5.1% ce mois</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon conversion">
+          <mat-icon>trending_up</mat-icon>
+        </div>
+        <div class="stat-content">
+          <p class="stat-label">Taux de Conversion</p>
+          <h3 class="stat-value">3.24%</h3>
+          <span class="stat-change positive">+0.8% ce mois</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabs Section -->
     <mat-tab-group 
       [(selectedIndex)]="selectedTab" 
       (selectedIndexChange)="onTabChange($event)"
@@ -29,6 +78,17 @@
       <!-- Plans de Billets Tab -->
       <mat-tab label="Plans de Billets">
         <div class="tab-content">
+          <div class="tab-header">
+            <h2>Vos Plans de Billets</h2>
+            <div class="tab-controls">
+              <button mat-icon-button class="icon-btn">
+                <mat-icon>search</mat-icon>
+              </button>
+              <button mat-icon-button class="icon-btn">
+                <mat-icon>filter_list</mat-icon>
+              </button>
+            </div>
+          </div>
           <app-ticket-list></app-ticket-list>
         </div>
       </mat-tab>
@@ -36,56 +96,79 @@
       <!-- Analytiques Tab -->
       <mat-tab label="Analytiques">
         <div class="tab-content">
+          <div class="tab-header">
+            <h2>Analyse des Ventes</h2>
+            <div class="tab-controls">
+              <button mat-button class="time-filter active">7 jours</button>
+              <button mat-button class="time-filter">30 jours</button>
+              <button mat-button class="time-filter">90 jours</button>
+            </div>
+          </div>
           <app-sales-analytics></app-sales-analytics>
         </div>
       </mat-tab>
 
-      <!-- Assistant Tab -->
+      <!-- Assistant IA Tab -->
       <mat-tab label="Assistant IA">
         <div class="tab-content">
           <div class="chatbot-section">
             <mat-card class="chatbot-info-card">
               <mat-card-header>
-                <mat-card-title>Assistant Virtuel Intelligent</mat-card-title>
-                <mat-card-subtitle>Votre chatbot IA pour l'assistance client</mat-card-subtitle>
+                <div class="chatbot-header-content">
+                  <div class="chatbot-icon">
+                    <mat-icon>smart_toy</mat-icon>
+                  </div>
+                  <div>
+                    <mat-card-title>Assistant Virtuel Intelligent</mat-card-title>
+                    <mat-card-subtitle>Chatbot IA pour l'assistance client 24/7</mat-card-subtitle>
+                  </div>
+                </div>
               </mat-card-header>
               <mat-card-content>
                 <div class="chatbot-features">
                   <div class="feature-item">
-                    <mat-icon>question_answer</mat-icon>
-                    <div>
+                    <div class="feature-icon">
+                      <mat-icon>question_answer</mat-icon>
+                    </div>
+                    <div class="feature-text">
                       <h4>Réponses Automatiques</h4>
                       <p>Répond aux questions fréquentes sur les prix, lieux, dates et disponibilité</p>
                     </div>
                   </div>
                   <div class="feature-item">
-                    <mat-icon>shopping_cart</mat-icon>
-                    <div>
+                    <div class="feature-icon">
+                      <mat-icon>shopping_cart</mat-icon>
+                    </div>
+                    <div class="feature-text">
                       <h4>Guide d'Achat</h4>
                       <p>Guide les utilisateurs dans le processus d'achat de billets</p>
                     </div>
                   </div>
                   <div class="feature-item">
-                    <mat-icon>support_agent</mat-icon>
-                    <div>
+                    <div class="feature-icon">
+                      <mat-icon>support_agent</mat-icon>
+                    </div>
+                    <div class="feature-text">
                       <h4>Support 24/7</h4>
                       <p>Disponible en permanence pour assister vos clients</p>
                     </div>
                   </div>
                   <div class="feature-item">
-                    <mat-icon>language</mat-icon>
-                    <div>
+                    <div class="feature-icon">
+                      <mat-icon>language</mat-icon>
+                    </div>
+                    <div class="feature-text">
                       <h4>Multi-plateforme</h4>
                       <p>Intégration future avec WhatsApp et Facebook Messenger</p>
                     </div>
                   </div>
                 </div>
                 <div class="chatbot-actions">
-                  <button mat-raised-button color="primary" (click)="openChatbot()">
-                    <mat-icon>chat</mat-icon>
+                  <button mat-raised-button class="btn-primary" (click)="openChatbot()">
+                    <mat-icon>chat_bubble</mat-icon>
                     Tester l'Assistant
                   </button>
-                  <button mat-button>
+                  <button mat-button class="btn-secondary">
                     <mat-icon>settings</mat-icon>
                     Configuration
                   </button>
@@ -97,6 +180,4 @@
       </mat-tab>
     </mat-tab-group>
   </div>
-
-  <!-- Chatbot Widget -->
 </div>
