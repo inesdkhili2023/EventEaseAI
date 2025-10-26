@@ -19,7 +19,9 @@ public class TicketCategoryService {
 
     @Autowired
     private EventRepository eventRepository;
-
+    public List<TicketCategory> getAllCategories() {
+        return categoryRepository.findAll();
+    }
     public TicketCategory create(Long eventId, TicketCategoryDTO dto) {
         Event event = eventRepository.findById(eventId)
                 .orElseThrow(() -> new RuntimeException("Event not found"));

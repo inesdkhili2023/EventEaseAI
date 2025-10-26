@@ -48,6 +48,24 @@ public class SupabaseService {
             return List.of();
         }
     }
+    /** Fetch active ticket categories */
+    public List<Map> fetchActiveTicketCategories() {
+        try {
+            return supabaseClient.get()
+                    .uri(uriBuilder -> uriBuilder
+                            .path("/ticket-categories")
+                            .queryParam("active", "eq.true")  // only active
+                            .queryParam("select", "category_name") // only need category_name
+                            .build())
+                    .retrieve()
+                    .bodyToFlux(Map.class)
+                    .collectList()
+                    .block();
+        } catch (Exception e) {
+            System.err.println("Error fetching ticket categories: " + e.getMessage());
+            return List.of();
+        }
+    }
 
     /** Fetch event by ID */
     public Map<String, Object> fetchEventById(String id) {

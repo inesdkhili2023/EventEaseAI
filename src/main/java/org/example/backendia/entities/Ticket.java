@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "tickets")
@@ -26,4 +27,6 @@ public class Ticket {
     private String buyerEmail;
     private LocalDateTime purchaseDate;
     private Boolean valid;
+
+
 }

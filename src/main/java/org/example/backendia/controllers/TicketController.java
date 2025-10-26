@@ -23,7 +23,10 @@ class TicketController {
         TicketCategory category = ticketCategoryService.create(eventId, dto);
         return ResponseEntity.ok(category);
     }
-
+    @GetMapping("/categories")
+    public List<TicketCategory> getAll() {
+        return ticketCategoryService.getAllCategories();
+    }
     @PutMapping("/categories/{categoryId}")
     public ResponseEntity<TicketCategory> updateCategory(
             @PathVariable Long categoryId,
