@@ -21,57 +21,6 @@ La plateforme intègre **7 microservices interconnectés** :
 
 ## 🏗️ Architecture Microservices Complète
 
-```
-                              🌐 API Gateway (Spring Cloud Gateway)
-                                        Port: 8080
-                                            |
-                    ┌───────────────────────┼───────────────────────┐
-                    |                       |                       |
-            🔍 Service Registry      ⚖️ Load Balancer      ⚙️ Config Server
-              (Eureka Server)        (Spring Cloud LB)     (Spring Cloud Config)
-                Port: 8761               Ribbon                Port: 8888
-                    |                       |                       |
-        ┌───────────┴───────────┬───────────┴───────────┬──────────┴─────────┐
-        |                       |                       |                    |
-┌───────▼────────┐    ┌────────▼─────────┐    ┌───────▼──────────┐   ┌─────▼──────────┐
-│ 📅 Event       │    │ 🎫 Ticket        │    │ 💬 Comment       │   │ 🚗 Driver      │
-│    Service     │    │    Service       │    │    Service       │   │    Service     │
-│ (Spring Boot)  │    │ (Spring Boot)    │    │ (Spring Boot)    │   │ (Spring Boot)  │
-│  Port: 8081    │    │  Port: 8082      │    │  Port: 8083      │   │  Port: 8084    │
-└───────┬────────┘    └────────┬─────────┘    └───────┬──────────┘   └─────┬──────────┘
-        │                      │                       │                    │
-        ↓                      ↓                       ↓                    ↓
-┌───────────────┐    ┌─────────────────┐    ┌──────────────────┐   ┌─────────────────┐
-│ 🔍 Fraud      │    │ 💰 Budget       │    │ 🛡️ NLP          │   │ 🔄 Matching     │
-│   Detection   │    │   Prediction    │    │   Moderation    │   │   AI Service    │
-│   (FastAPI)   │    │    (Flask)      │    │    (Flask)      │   │    (Flask)      │
-│  Port: 8001   │    │  Port: 5001     │    │  Port: 8002     │   │  Port: 5003     │
-│  XGBoost ML   │    │  XGBoost ML     │    │ Logistic Reg.   │   │  XGBoost ML     │
-└───────────────┘    └─────────────────┘    └──────────────────┘   └─────────────────┘
-
-                    ┌──────────────────────────────────────┐
-                    │ 🤝 Partnership Recommendation        │
-                    │        Service (Flask)               │
-                    │  Port: 5002 | Sentence-Transformers  │
-                    └──────────────────────────────────────┘
-
-                    ┌──────────────────────────────────────┐
-                    │ 🤖 Gemini AI Assistant Service       │
-                    │    (Integrated in Spring Boot)       │
-                    │         Google Gemini API            │
-                    └──────────────────────────────────────┘
-
-                    ┌──────────────────────────────────────┐
-                    │  🎨 Frontend (Angular 18)            │
-                    │  Port: 4200 | CoreUI + Material     │
-                    └──────────────────────────────────────┘
-
-                    ┌──────────────────────────────────────┐
-                    │  💾 Database Layer                   │
-                    │  PostgreSQL + Supabase               │
-                    │  Supabase Auth + Storage             │
-                    └──────────────────────────────────────┘
-```
 
 **Technologies Infrastructure :**
 - **API Gateway** : Spring Cloud Gateway (Port 8080)
@@ -90,9 +39,9 @@ La plateforme intègre **7 microservices interconnectés** :
 
 ### 1. 📅 Event Service - Gestion d'Événements & Détection de Fraude
 
-**Port** : 8081  
+  
 **Technologie** : Spring Boot 3 + JPA/Hibernate + PostgreSQL  
-**Développé par** : Malek Feki
+
 
 #### Fonctionnalités
 - ✅ CRUD complet des événements (Création, Lecture, Modification, Suppression)
@@ -141,10 +90,8 @@ GET    /api/events/search?q={query} - Rechercher des événements
 ---
 
 ### 2. 🔍 Fraud Detection Service - Détection de Fraude par IA
-
-**Port** : 8001  
+ 
 **Technologie** : FastAPI + XGBoost + Python  
-**Développé par** : Malek Feki
 
 #### Objectif
 Détecter automatiquement les événements suspects ou frauduleux en analysant leurs caractéristiques via un modèle de Machine Learning.
@@ -204,8 +151,9 @@ POST /predict - Calculer le score de fraude
 
 ### 3. 🎫 Ticket Service - Billetterie & Paiements Stripe
 
-**Port** : 8082  
+ 
 **Technologie** : Spring Boot 3 + Stripe API + Supabase
+
 
 #### Fonctionnalités
 - 🎟️ Gestion des catégories de billets (VIP, Standard, Étudiant, Early Bird)
@@ -250,8 +198,9 @@ Tables : `ticket_categories`, `payments`, `transactions`, `refunds`
 
 ### 4. 💬 Comment Service - Modération des Commentaires
 
-**Port** : 8083  
+
 **Technologie** : Spring Boot 3 + Communication NLP Service
+
 
 #### Objectif
 Maintenir un **environnement sain et respectueux** en filtrant automatiquement le contenu inapproprié via Natural Language Processing.
@@ -286,7 +235,7 @@ Chaque commentaire est automatiquement envoyé au **NLP Service** qui retourne :
 
 ### 5. 🛡️ NLP Service - Modération par Intelligence Artificielle
 
-**Port** : 8002  
+ 
 **Technologie** : Flask + Scikit-learn + NLTK + TF-IDF
 
 #### Objectif
@@ -363,7 +312,7 @@ Texte brut → Préprocessing → Stemming → TF-IDF → Logistic Regression �
 
 ### 6. 💰 Budget Prediction Service - Prédiction Budget Logistique
 
-**Port** : 5001  
+ 
 **Technologie** : Flask + XGBoost + Scikit-learn + Python
 
 #### Objectif
@@ -442,7 +391,7 @@ POST /predict - Prédire le budget logistique
 
 ### 7. 🤝 Partnership Recommendation Service
 
-**Port** : 5002  
+
 **Technologie** : Flask + Sentence-Transformers (BERT) + Python
 
 #### Objectif
@@ -510,9 +459,9 @@ GET /api/recommendations/{partnership_id} - Obtenir recommandations
 
 ### 8. 🚗 Driver Service - Gestion des Chauffeurs
 
-**Port** : 8084  
+ 
 **Technologie** : Spring Boot 3 + JPA + PostgreSQL  
-**Développé par** : Ons El Guebli
+
 
 #### Objectif
 Gérer les **profils et disponibilités des chauffeurs** pour optimiser l'affectation aux trajets via matching IA.
@@ -567,9 +516,9 @@ DELETE /api/availability/{id}          - Supprimer une disponibilité
 
 ### 9. 🔄 Matching AI Service - Optimisation Chauffeurs-Trajets
 
-**Port** : 5003  
+
 **Technologie** : Flask + XGBoost + Python  
-**Développé par** : Ons El Guebli
+
 
 #### Objectif
 Optimiser l'**affectation chauffeurs ↔ trajets** selon disponibilités, profils et conditions externes.
@@ -714,18 +663,18 @@ Would you like more details about any of these events?
 
 | Microservice | Port | Backend | IA/ML | Database | Spécialisation |
 |--------------|------|---------|-------|----------|----------------|
-| **API Gateway** | 8080 | Spring Cloud Gateway | - | - | Routage, Load Balancing |
+| **API Gateway** | **** | Spring Cloud Gateway | - | - | Routage, Load Balancing |
 | **Eureka Server** | 8761 | Spring Cloud Netflix | - | - | Service Discovery |
-| **Config Server** | 8888 | Spring Cloud Config | - | Git Repo | Configuration centralisée |
-| **Event Service** | 8081 | Spring Boot 3 + JPA | - | PostgreSQL | CRUD Événements |
-| **Ticket Service** | 8082 | Spring Boot 3 + Stripe | - | Supabase | Billetterie + Paiements |
-| **Comment Service** | 8083 | Spring Boot 3 | - | PostgreSQL | Gestion Commentaires |
-| **Driver Service** | 8084 | Spring Boot 3 + JPA | - | PostgreSQL | Gestion Chauffeurs |
-| **Fraud Service** | 8001 | FastAPI | XGBoost | - | Détection Fraude |
-| **NLP Service** | 8002 | Flask | Logistic Reg. + TF-IDF | - | Modération Toxicité |
-| **Budget Service** | 5001 | Flask | XGBoost | - | Prédiction Budget |
-| **Recommendation** | 5002 | Flask | Sentence-Transformers | - | Recommandation Partenariats |
-| **Matching Service** | 5003 | Flask | XGBoost | - | Matching Chauffeurs-Trajets |
+| **Config Server** | **** | Spring Cloud Config | - | Git Repo | Configuration centralisée |
+| **Event Service** | **** | Spring Boot 3 + JPA | - | PostgreSQL | CRUD Événements |
+| **Ticket Service** | **** | Spring Boot 3 + Stripe | - | Supabase | Billetterie + Paiements |
+| **Comment Service** | **** | Spring Boot 3 | - | PostgreSQL | Gestion Commentaires |
+| **Driver Service** | **** | Spring Boot 3 + JPA | - | PostgreSQL | Gestion Chauffeurs |
+| **Fraud Service** | **** | FastAPI | XGBoost | - | Détection Fraude |
+| **NLP Service** | **** | Flask | Logistic Reg. + TF-IDF | - | Modération Toxicité |
+| **Budget Service** | **** | Flask | XGBoost | - | Prédiction Budget |
+| **Recommendation** | **** | Flask | Sentence-Transformers | - | Recommandation Partenariats |
+| **Matching Service** | **** | Flask | XGBoost | - | Matching Chauffeurs-Trajets |
 | **Gemini AI** | - | Spring Boot 3 | Google Gemini API | - | Assistant Conversationnel |
 | **Frontend** | 4200 | Angular 18 + TypeScript | - | - | Interface Utilisateur |
 
@@ -754,20 +703,7 @@ Frontend Angular → API Gateway → [Microservices]
 - Communication dynamique via noms de services
 - Load balancing automatique
 
-#### 4. **Exemple avec Feign Client**
-```java
-@FeignClient(name = "fraud-service")
-public interface FraudClient {
-    @PostMapping("/predict")
-    FraudResponse detectFraud(@RequestBody EventData data);
-}
 
-@FeignClient(name = "nlp-service")
-public interface NLPClient {
-    @PostMapping("/moderate")
-    ModerationResponse moderateComment(@RequestBody CommentData data);
-}
-```
 
 ---
 
@@ -781,35 +717,15 @@ public interface NLPClient {
 - 📊 **PostgreSQL** ou compte **Supabase**
 - 🔧 **Maven 3.6+**
 
-### Option 1 : Lancement avec Docker Compose (Recommandé)
-
-```bash
-# 1. Cloner le dépôt
-git clone https://github.com/votre-organisation/eventease.git
-cd eventease
-
-# 2. Configurer les variables d'environnement
-cp .env.example .env
-# Éditer .env avec vos clés API
-
-# 3. Démarrer tous les microservices
-docker-compose up -d
-
-# 4. Vérifier le statut
-docker-compose ps
-
-# 5. Voir les logs
-docker-compose logs -f [service-name]
-```
 
 **Accès aux services :**
 - 🎨 Frontend : http://localhost:4200
-- 🌐 API Gateway : http://localhost:8080
+- 🌐 API Gateway : http://localhost:****
 - 🔍 Eureka Dashboard : http://localhost:8761
-- 📅 Event Service : http://localhost:8081
-- 🎫 Ticket Service : http://localhost:8082
-- 💬 Comment Service : http://localhost:8083
-- 🚗 Driver Service : http://localhost:8084
+- 📅 Event Service : http://localhost:****
+- 🎫 Ticket Service : http://localhost:****
+- 💬 Comment Service : http://localhost:****
+- 🚗 Driver Service : http://localhost:****
 
 ### Option 2 : Lancement Manuel par Microservice
 
@@ -832,19 +748,6 @@ STRIPE_PUBLIC_KEY=pk_test_your_public_key
 # Gemini AI
 GEMINI_API_KEY=your_gemini_api_key
 
-# Services Ports
-API_GATEWAY_PORT=8080
-EUREKA_PORT=8761
-CONFIG_SERVER_PORT=8888
-EVENT_SERVICE_PORT=8081
-TICKET_SERVICE_PORT=8082
-COMMENT_SERVICE_PORT=8083
-DRIVER_SERVICE_PORT=8084
-FRAUD_SERVICE_PORT=8001
-NLP_SERVICE_PORT=8002
-BUDGET_SERVICE_PORT=5001
-RECOMMENDATION_SERVICE_PORT=5002
-MATCHING_SERVICE_PORT=5003
 
 # Security
 JWT_SECRET=your_jwt_secret_key_here
@@ -1276,24 +1179,11 @@ curl -o EventEase.postman_collection.json \
 |------|-------------|
 | **ADMIN** | Accès complet à tous les services |
 | **ORGANIZER** | Gérer ses événements, voir analytics |
-| **PARTNER** | Voir recommandations, gérer profil |
+
 | **DRIVER** | Gérer disponibilités, voir affectations |
 | **USER** | Acheter billets, commenter, voir événements |
 
-### Configuration JWT
 
-```java
-@Configuration
-public class SecurityConfig {
-    @Value("${jwt.secret}")
-    private String jwtSecret;
-    
-    @Value("${jwt.expiration}")
-    private Long jwtExpiration;
-    
-    // Configuration...
-}
-```
 
 ---
 
@@ -1352,110 +1242,18 @@ public class SecurityConfig {
 
 ## 👥 Équipe de Développement
 
-| Membre | Rôle | Microservices | Technologies |
-|--------|------|---------------|--------------|
-| **Malek Feki** | Full Stack / IA | Event Service, Fraud Detection | Spring Boot, Angular, FastAPI, XGBoost |
-| **Ons El Guebli** | Full Stack / IA | Driver Service, Matching AI | Spring Boot, Angular, Flask, XGBoost |
-| **[Nom]** | Full Stack / DevOps | Ticket Service, Payment Integration | Spring Boot, Stripe, Docker |
-| **[Nom]** | Backend / NLP | Comment Service, NLP Moderation | Spring Boot, Flask, NLP, TF-IDF |
-| **[Nom]** | ML Engineer | Budget Prediction Service | Flask, XGBoost, Scikit-learn |
-| **[Nom]** | ML Engineer | Recommendation Service | Flask, Sentence-Transformers, BERT |
-| **[Nom]** | Frontend Lead | Angular Application, UI/UX | Angular, TypeScript, CoreUI |
+| Rôle | Microservices | Technologies |
+|------|---------------|--------------|
+| Full Stack / IA | Event Service, Fraud Detection | Spring Boot, Angular, FastAPI, XGBoost |
+| Full Stack / IA | Driver Service, Matching AI | Spring Boot, Angular, Flask, XGBoost |
+| Full Stack / DevOps | Ticket Service, Payment Integration | Spring Boot, Stripe, Docker |
+| Backend / NLP | Comment Service, NLP Moderation | Spring Boot, Flask, NLP, TF-IDF |
+| Full Stack / IA | Budget Prediction Service | Flask, XGBoost, Scikit-learn |
+| Full Stack / IA| Recommendation Service | Flask, Sentence-Transformers, BERT |
+| Full Stack / IA | Angular Application, UI/UX | Angular, TypeScript, CoreUI |
 
-### Contact de l'Équipe
-- **GitHub Organization** : [https://github.com/eventease-team](https://github.com/eventease-team)
-- **Email** : contact@eventease.com
-- **LinkedIn** : [EventEase Team](https://linkedin.com/company/eventease)
 
----
 
-## 🤝 Contribution
 
-Les contributions sont les bienvenues ! Veuillez suivre ces étapes :
-
-### Process de Contribution
-
-1. **Fork** le projet
-2. Créez votre **branche de fonctionnalité** (`git checkout -b feature/AmazingFeature`)
-3. **Committez** vos changements (`git commit -m 'Add some AmazingFeature'`)
-4. **Poussez** vers la branche (`git push origin feature/AmazingFeature`)
-5. Ouvrez une **Pull Request**
-
-### Guidelines
-
-- ✅ Suivre les conventions de code du projet
-- ✅ Ajouter des tests pour les nouvelles fonctionnalités
-- ✅ Mettre à jour la documentation si nécessaire
-- ✅ Respecter les principes SOLID et Clean Code
-- ✅ Utiliser des messages de commit conventionnels
-
-### Commit Convention
-
-```
-feat: ajout d'une nouvelle fonctionnalité
-fix: correction d'un bug
-docs: mise à jour de la documentation
-style: changements de formatage
-refactor: refactorisation du code
-test: ajout ou modification de tests
-chore: tâches de maintenance
-```
-
----
-
-## 📄 Licence
-
-Projet académique réalisé dans le cadre du programme **5SAE3 - IA for Software Engineering**.
-
-**Université** : [Nom de l'Université]  
-**Année Académique** : 2024-2025  
-**Encadrant** : [Nom de l'Encadrant]
-
----
-
-## 📧 Support et Contact
-
-Pour toute question, suggestion ou collaboration :
-
-- 📧 **Email** : contact@eventease.com
-- 💬 **Discord** : [EventEase Community](https://discord.gg/eventease)
-- 🐛 **Issues** : [GitHub Issues](https://github.com/eventease-team/eventease/issues)
-- 📖 **Documentation** : [docs.eventease.com](https://docs.eventease.com)
-- 🎥 **Démos** : [YouTube Channel](https://youtube.com/@eventease)
-
----
-
-## 🙏 Remerciements
-
-Nous tenons à remercier :
-- 🎓 Notre université et nos professeurs
-- 🤝 La communauté open source
-- 🛠️ Les créateurs des technologies utilisées
-- 👥 Tous les contributeurs du projet
-
----
-
-## 📈 Statistiques du Projet
-
-![GitHub stars](https://img.shields.io/github/stars/eventease-team/eventease)
-![GitHub forks](https://img.shields.io/github/forks/eventease-team/eventease)
-![GitHub issues](https://img.shields.io/github/issues/eventease-team/eventease)
-![GitHub license](https://img.shields.io/github/license/eventease-team/eventease)
-
-**Total Lines of Code** : ~50,000+  
-**Microservices** : 12  
-**Technologies** : 20+  
-**AI Models** : 5  
-**Team Members** : 7
-
----
-
-<div align="center">
-
-### 🎉 **EventEase** - *L'architecture microservices au service de l'intelligence artificielle*
-
-**Made with ❤️ by EventEase Team**
-
-[🌐 Website](https://eventease.com) • [📖 Docs](https://docs.eventease.com) • [💬 Community](https://discord.gg/eventease)
 
 </div>
