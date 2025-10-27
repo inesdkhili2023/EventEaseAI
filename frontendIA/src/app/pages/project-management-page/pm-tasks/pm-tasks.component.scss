@@ -1,0 +1,256 @@
+.trinta-card {
+    &.team-card {
+        .mat-mdc-card-content {
+            h6 {
+                font-size: 18px;
+            }
+            .action {
+                .mat-mdc-button {
+                    color: #818093;
+                    margin-right: 12px;
+
+                    i-feather {
+                        width: 18px;
+                        height: 18px;
+                    }
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
+            }
+            p {
+                margin-top: 10px;
+            }
+            .users {
+                margin: {
+                    top: 20px;
+                    bottom: 25px;
+                };
+                .user {
+                    margin-right: 4px;
+
+                    img {
+                        margin-bottom: -6px;
+                        height: 52px;
+                        width: 52px;
+                    }
+                    .dot {
+                        top: 0;
+                        left: 0;
+                        width: 12px;
+                        height: 12px;
+                        position: absolute;
+                        border: 2px solid var(--whiteColor);
+                    }
+                }
+                .number {
+                    background-color: rgba(0, 182, 155, 0.10);
+                    margin-left: 10px;
+                    color: #00b69b;
+                    height: 52px;
+                    width: 52px;
+                }
+            }
+            .list {
+                li {
+                    margin-right: 35px;
+
+                    span {
+                        &:nth-child(1) {
+                            letter-spacing: 1px;
+                            margin-bottom: 7px;
+                        }
+                    }
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
+            }
+            .info {
+                margin-top: 25px;
+
+                .user {
+                    margin-bottom: 25px;
+                    
+                    img {
+                        height: 76px;
+                        width: 76px;
+                        margin: {
+                            bottom: -6px;
+                            right: 15px;
+                        };
+                    }
+                    h6 {
+                        font-size: 16px;
+                        margin-bottom: 8px;
+                    }
+                }
+                .default-btn {
+                    &.mat-mdc-button {
+                        height: auto;
+                        min-width: auto;
+                        border-radius: 6px;
+                        padding: 10px 15px 11px;
+                        color: var(--whiteColor);
+                        background-color: var(--primaryColor);
+                        font: {
+                            size: 14px;
+                            weight: 600;
+                            family: var(--headingFontFamily);
+                        };
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    .trinta-card {
+        &.team-card {
+            .mat-mdc-card-content {
+                h6 {
+                    font-size: 16px;
+                }
+                .action {
+                    .mat-mdc-button {
+                        margin-right: 12px;
+    
+                        i-feather {
+                            width: 16px;
+                            height: 16px;
+                        }
+                    }
+                }
+                .users {
+                    margin: {
+                        top: 15px;
+                        bottom: 20px;
+                    };
+                    .user {
+                        margin-right: 2px;
+    
+                        img {
+                            height: 45px;
+                            width: 45px;
+                        }
+                    }
+                    .number {
+                        margin-left: 5px;
+                        height: 45px;
+                        width: 45px;
+                    }
+                }
+                .list {
+                    li {
+                        margin-right: 25px;
+    
+                        span {
+                            &:nth-child(1) {
+                                letter-spacing: .5px;
+                            }
+                        }
+                    }
+                }
+                .info {
+                    margin-top: 15px;
+    
+                    .user {
+                        margin-bottom: 15px;
+
+                        img {
+                            height: 65px;
+                            width: 65px;
+                        }
+                        h6 {
+                            font-size: 15px;
+                            margin-bottom: 7px;
+                        }
+                    }
+                    .default-btn {
+                        &.mat-mdc-button {
+                            font-size: 13px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width : 576px) and (max-width : 767px) {}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+
+    .trinta-card {
+        &.team-card {
+            .mat-mdc-card-content {
+                h6 {
+                    font-size: 17px;
+                }
+                .users {
+                    margin: {
+                        top: 20px;
+                        bottom: 20px;
+                    };
+                    .user {
+                        img {
+                            height: 48px;
+                            width: 48px;
+                        }
+                    }
+                    .number {
+                        height: 48px;
+                        width: 48px;
+                    }
+                }
+                .list {
+                    li {
+                        margin-right: 30px;
+                    }
+                }
+                .info {
+                    margin-top: 20px;
+    
+                    .user {
+                        margin-bottom: 25px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width : 992px) and (max-width : 1199px) {}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {
+
+    .trinta-card {
+        &.team-card {
+            .mat-mdc-card-content {
+                .list {
+                    li {
+                        margin-right: 45px;
+                    }
+                }
+                .info {
+                    .user {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+
+}

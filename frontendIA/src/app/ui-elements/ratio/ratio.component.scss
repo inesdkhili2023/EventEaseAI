@@ -1,0 +1,15 @@
+.example-ratios {
+    .ratio {
+        width: 10rem;
+        display: inline-block;
+        background-color: #f8f9fa;
+        border: 1px solid #dee2e6;
+        color: rgba(33, 37, 41, 0.75);
+        
+        >div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}

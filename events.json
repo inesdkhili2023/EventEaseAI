@@ -1,0 +1,336 @@
+[
+  {
+    "id": 1,
+    "title": "Concert Jazz Night",
+    "description": "Venez profiter d'une soirée inoubliable avec les meilleurs musiciens de jazz locaux.",
+    "category": "CULTUREL",
+    "location": "Tunis",
+    "address": "Salle de Concert ABC, Tunis",
+    "startDate": "2025-10-13T11:46:25.000+00:00",
+    "endDate": "2025-11-19T11:46:00.000+00:00",
+    "capacity": 80,
+    "organizerId": null,
+    "images": [
+      "https://media.istockphoto.com/id/465732100/fr/photo/african-musicien-de-jazz-jouant-du-saxophone.jpg?s=612x612&w=0&k=20&c=rpQ9-ffBfytdTl82V_4CX1IXakxBwfiC8SoGpqDuZIg="
+    ],
+    "price": 30,
+    "createdAt": "2025-10-13T11:45:32.000+00:00",
+    "updatedAt": "2025-10-13T12:46:43.000+00:00",
+    "partnerships": [],
+    "is_fraud": 0
+  },
+  {
+    "id": 4,
+    "title": "Marathon de Tunis 2025",
+    "description": "Participez au Marathon annuel de Tunis et testez votre endurance dans un parcours magnifique à travers la ville.",
+    "category": "SPORTIF",
+    "location": "Parc du Belvédère",
+    "address": "Avenue du Parc, Tunis, Tunisie",
+    "startDate": "2025-10-13T23:00:00.000+00:00",
+    "endDate": "2025-10-30T23:00:00.000+00:00",
+    "capacity": 5000,
+    "organizerId": 0,
+    "images": [
+      "https://t3.ftcdn.net/jpg/02/41/54/00/360_F_241540051_OnZfvfMAz2csZ7XMCyOB1BGSZkIhc3mr.jpg"
+    ],
+    "price": 10,
+    "createdAt": "2025-10-14T00:14:19.860+00:00",
+    "updatedAt": "2025-10-14T00:14:19.860+00:00",
+    "partnerships": [],
+    "is_fraud": 0
+  },
+  {
+    "id": 3,
+    "title": "Soirée Karaoke",
+    "description": "Rejoignez-nous pour une soirée karaoke inoubliable au Restaurant La Médina ! Venez chanter vos chansons préférées dans une ambiance conviviale et festive. Que vous soyez amateur ou passionné, notre scène vous attend ! Répertoire varié : variété française, internationale, tubes arabes, et plus encore. Système de son professionnel et écrans HD. Cocktails et tapas disponibles toute la soirée. Réservation recommandée - Places limitées !",
+    "category": "CULTUREL",
+    "location": "Tunis",
+    "address": "25 Avenue Habib Bourguiba, La Médina, Tunis 1008",
+    "startDate": "2025-10-27T23:00:00.000+00:00",
+    "endDate": "2025-10-27T23:00:00.000+00:00",
+    "capacity": 40,
+    "organizerId": 0,
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ5UsLe2yjqVwo6VEcFjeJCK-zir0cpuu3bA&s"
+    ],
+    "price": 25,
+    "createdAt": "2025-10-13T21:15:35.110+00:00",
+    "updatedAt": "2025-10-14T00:29:57.615+00:00",
+    "partnerships": [],
+    "is_fraud": 0
+  },
+  {
+    "id": 2,
+    "title": "Marathon de Tunis 2025",
+    "description": "Participez au Marathon annuel de Tunis et testez votre endurance dans un parcours magnifique à travers la ville.",
+    "category": "SPORTIF",
+    "location": "Parc du Belvédère",
+    "address": "Avenue du Parc, Tunis, Tunisie",
+    "startDate": "2025-10-13T23:00:00.000+00:00",
+    "endDate": "2025-10-30T23:00:00.000+00:00",
+    "capacity": 5000,
+    "organizerId": 0,
+    "images": [
+      "https://cdn.prod.website-files.com/5f58a4616a9e71d63ca059c8/63eb9c9bc0c7e518fd04ee67_MG1_2798.webp"
+    ],
+    "price": 25,
+    "createdAt": "2025-10-13T21:10:28.873+00:00",
+    "updatedAt": "2025-10-16T17:33:47.073+00:00",
+    "partnerships": [
+      {
+        "id": 1,
+        "name": "Orange Tunisie",
+        "type": "Télécom",
+        "description": "Sponsor officiel avec mise à jour de ses images",
+        "contractValue": 16000,
+        "startDate": "2025-11-01T00:00:00.000+00:00",
+        "endDate": "2025-12-31T00:00:00.000+00:00",
+        "active": true,
+        "createdAt": "2025-10-15T16:32:25.019+00:00",
+        "updatedAt": "2025-10-15T17:05:35.714+00:00"
+      }
+    ],
+    "is_fraud": 0
+  },
+  {
+    "id": 6,
+    "title": "Conférence Tech 2025",
+    "description": "Participez à la Conférence Tech annuelle et découvrez les dernières innovations en intelligence artificielle, cybersécurité et développement logiciel.",
+    "category": "TECHNOLOGIQUE",
+    "location": "Centre des Congrès, Tunis",
+    "address": "Rue des Innovations, Tunis, Tunisie",
+    "startDate": "2025-10-31T23:00:00.000+00:00",
+    "endDate": "2025-11-25T23:00:00.000+00:00",
+    "capacity": 1000,
+    "organizerId": 0,
+    "images": [
+      "https://www.eventindustrynews.com/wp-content/uploads/2024/05/47cbde67-1435-4351-b764-7d92bac767ae-1.jpg"
+    ],
+    "price": 50,
+    "createdAt": "2025-10-16T20:07:46.572+00:00",
+    "updatedAt": "2025-10-16T20:07:46.572+00:00",
+    "partnerships": [],
+    "is_fraud": 0
+  },
+  {
+    "id": 7,
+    "title": "Festival Social de Tunis",
+    "description": "Rejoignez le festival social annuel pour partager, échanger et participer à des activités communautaires et culturelles dans toute la ville.",
+    "category": "SOCIAL",
+    "location": "Place de la République, Tunis",
+    "address": "Place de la République, Tunis",
+    "startDate": "2025-10-21T23:00:00.000+00:00",
+    "endDate": "2025-11-29T23:00:00.000+00:00",
+    "capacity": 500,
+    "organizerId": 0,
+    "images": [
+      "https://cdn1.parksmedia.wdprapps.disney.com/resize/mwImage/1/960/330/90/media/dm/en-us/global/social-events/event-types/SocialEvents-TypesofEvents-Hero-5x2..jpg"
+    ],
+    "price": 0,
+    "createdAt": "2025-10-16T20:12:36.319+00:00",
+    "updatedAt": "2025-10-16T20:12:36.319+00:00",
+    "partnerships": [],
+    "is_fraud": 0
+  },
+  {
+    "id": 8,
+    "title": "Conférence IA et Robotique",
+    "description": "Découvrez les dernières avancées en intelligence artificielle et robotique avec des experts internationaux.",
+    "category": "TECHNOLOGIQUE",
+    "location": "Centre des Congrès Tunis",
+    "address": "Centre des Congrès Tunis",
+    "startDate": "2025-11-01T23:00:00.000+00:00",
+    "endDate": "2025-11-29T23:00:00.000+00:00",
+    "capacity": 300,
+    "organizerId": 0,
+    "images": [
+      "https://vasseur.tech/wp-content/uploads/2021/02/IAetRobotiqueConference.jpg"
+    ],
+    "price": 100,
+    "createdAt": "2025-10-18T17:31:31.002+00:00",
+    "updatedAt": "2025-10-18T19:49:50.291+00:00",
+    "partnerships": [],
+    "is_fraud": 0
+  },
+  {
+    "id": 9,
+    "title": "Brunch Gourmand au Café des Délices",
+    "description": "Un brunch dominical avec pâtisseries maison et boissons chaudes ou froides pour bien démarrer la journée.",
+    "category": "AUTRE",
+    "location": "Café des Délices",
+    "address": "Café des Délices , Sidi Bou Said",
+    "startDate": "2025-10-29T23:00:00.000+00:00",
+    "endDate": "2025-10-29T23:00:00.000+00:00",
+    "capacity": 60,
+    "organizerId": 0,
+    "images": [
+      "https://media.istockphoto.com/id/1029200760/photo/table-decoration-of-beautiful-tasty-food-on-celebration-day.jpg?s=612x612&w=0&k=20&c=QZ7q8yTgMs0z3Ya8C4tBDHJcDvtZTdXM6qZ1Yy1TcoA="
+    ],
+    "price": 25,
+    "createdAt": "2025-10-18T18:05:46.141+00:00",
+    "updatedAt": "2025-10-18T19:53:06.011+00:00",
+    "partnerships": [],
+    "is_fraud": 0
+  },
+  {
+    "id": 10,
+    "title": "Exposition d’Art Contemporain",
+    "description": "Une exposition unique présentant les œuvres des artistes contemporains tunisiens.",
+    "category": "CULTUREL",
+    "location": "Galerie d’Art Tunis",
+    "address": "Rue de la Kasbah, Tunis",
+    "startDate": "2025-10-27T23:00:00.000+00:00",
+    "endDate": "2025-10-30T23:00:00.000+00:00",
+    "capacity": 40,
+    "organizerId": 0,
+    "images": [
+      "https://img.lemde.fr/2020/07/13/0/0/5472/3648/664/0/75/0/c726e2b_689769200-000_1M18X4.jpg"
+    ],
+    "price": 20,
+    "createdAt": "2025-10-18T18:13:26.174+00:00",
+    "updatedAt": "2025-10-18T19:55:54.687+00:00",
+    "partnerships": [],
+    "is_fraud": 0
+  },
+  {
+    "id": 11,
+    "title": "Cours de Cuisine Santé au Café Nutri",
+    "description": "Apprenez à préparer des repas équilibrés et savoureux avec notre chef nutritionniste.",
+    "category": "EDUCATIF",
+    "location": "Café Nutri",
+    "address": "5 Rue des Jardins, Tunis",
+    "startDate": "2025-10-18T23:00:00.000+00:00",
+    "endDate": "2025-10-26T23:00:00.000+00:00",
+    "capacity": 15,
+    "organizerId": 0,
+    "images": [
+      "https://media.istockphoto.com/id/918054004/fr/photo/la-cuisine-est-ludique-nbsp.jpg?s=612x612&w=0&k=20&c=p6verSynsfBKIIiR2CHAQhrDnlHlFrHeZdnSZzRdHt8="
+    ],
+    "price": 70,
+    "createdAt": "2025-10-18T19:59:21.185+00:00",
+    "updatedAt": "2025-10-18T19:59:21.185+00:00",
+    "partnerships": [],
+    "is_fraud": 0
+  },
+  {
+    "id": 12,
+    "title": "concert",
+    "description": "not a fake event",
+    "category": "CULTUREL",
+    "location": "tunis",
+    "address": "ariana",
+    "startDate": "2025-10-18T23:00:00.000+00:00",
+    "endDate": "2025-10-18T23:00:00.000+00:00",
+    "capacity": 100,
+    "organizerId": 0,
+    "images": [
+      "https://www.adobe.com/fr/creativecloud/photography/discover/media_15955bf89f635a586d897b5c35f7a447b495f6ed7.jpg?width=1200&format=pjpg&optimize=medium"
+    ],
+    "price": 500,
+    "createdAt": "2025-10-18T22:42:03.407+00:00",
+    "updatedAt": "2025-10-18T23:29:16.691+00:00",
+    "partnerships": [],
+    "is_fraud": 0
+  },
+
+  {
+    "id": 13,
+    "title": "Gagnez 100000DT maintenant !",
+    "description": "Offre exceptionnelle : gagnez 100000DT en assistant à notre événement VIP. Places limitées — payez 200DT maintenant pour garantir votre place. Cliquez ici : http://fake-pay.example/secure",
+    "category": "AUTRE",
+    "location": "En ligne",
+    "address": "https://fake-pay.example/secure",
+    "startDate": "2025-10-20T10:00:00.000+00:00",
+    "endDate": "2025-10-20T12:00:00.000+00:00",
+    "capacity": 50000,
+    "organizerId": null,
+    "images": [
+      "https://example.com/fake-prize.jpg"
+    ],
+    "price": 200,
+    "createdAt": "2025-10-18T23:00:00.000+00:00",
+    "updatedAt": "2025-10-18T23:00:00.000+00:00",
+    "partnerships": [],
+    "is_fraud": 1
+  },
+  {
+    "id": 14,
+    "title": "Soirée VIP — Tickets rares (paiement immédiat)",
+    "description": "Réservez vos tickets VIP maintenant ! Envoyez un virement à ce compte pour réserver. Offre limitée. Contact : +111111111. Billets non remboursables.",
+    "category": "CULTUREL",
+    "location": "Adresse non communiquée",
+    "address": "Zone inconnue, Tunisie",
+    "startDate": "2025-10-25T20:00:00.000+00:00",
+    "endDate": "2025-10-25T23:00:00.000+00:00",
+    "capacity": 5,
+    "organizerId": null,
+    "images": [
+      "https://example.com/vip-ticket.jpg"
+    ],
+    "price": 1000,
+    "createdAt": "2025-10-18T23:30:00.000+00:00",
+    "updatedAt": "2025-10-18T23:30:00.000+00:00",
+    "partnerships": [],
+    "is_fraud": 1
+  },
+  {
+    "id": 15,
+    "title": "Stage miracle : Perdez 10kg en 3 jours !",
+    "description": "Inscrivez-vous au stage 'santé miracle' — résultats garantis. Paiement en avance requis. Témoignages non vérifiés. Places limitées.",
+    "category": "EDUCATIF",
+    "location": "Centre X",
+    "address": "Rue inconnue, Tunisia",
+    "startDate": "2025-11-01T09:00:00.000+00:00",
+    "endDate": "2025-11-03T17:00:00.000+00:00",
+    "capacity": 10,
+    "organizerId": null,
+    "images": [
+      "https://example.com/miracle-diet.jpg"
+    ],
+    "price": 400,
+    "createdAt": "2025-10-19T00:00:00.000+00:00",
+    "updatedAt": "2025-10-19T00:00:00.000+00:00",
+    "partnerships": [],
+    "is_fraud": 1
+  },
+  {
+    "id": 16,
+    "title": "Achat massif de billets — offres incroyables",
+    "description": "Vendez vos billets au meilleur prix ! Garantie d'achat immédiat. Contactez-nous via WhatsApp +222222222 (escrow non fourni). Transfert requis avant validation.",
+    "category": "AUTRE",
+    "location": "Tunis",
+    "address": "Adresse privée",
+    "startDate": "2025-10-22T10:00:00.000+00:00",
+    "endDate": "2025-10-22T18:00:00.000+00:00",
+    "capacity": 1000000,
+    "organizerId": null,
+    "images": [
+      "https://example.com/bulk-buy.jpg"
+    ],
+    "price": 5,
+    "createdAt": "2025-10-19T01:00:00.000+00:00",
+    "updatedAt": "2025-10-19T01:00:00.000+00:00",
+    "partnerships": [],
+    "is_fraud": 1
+  },
+  {
+    "id": 17,
+    "title": "Opportunité d'investissement — rendement garanti",
+    "description": "Participez à notre séminaire d'investissement : rendement garanti 50% en 1 mois. Investissement minimum 500DT. Places limitées, paiement immédiat requis.",
+    "category": "TECHNOLOGIQUE",
+    "location": "Centre inconnu",
+    "address": "Adresse fournie après inscription",
+    "startDate": "2025-11-05T09:00:00.000+00:00",
+    "endDate": "2025-11-05T17:00:00.000+00:00",
+    "capacity": 200,
+    "organizerId": null,
+    "images": [
+      "https://example.com/invest.jpg"
+    ],
+    "price": 500,
+    "createdAt": "2025-10-19T02:00:00.000+00:00",
+    "updatedAt": "2025-10-19T02:00:00.000+00:00",
+    "partnerships": [],
+    "is_fraud": 1
+  }
+]

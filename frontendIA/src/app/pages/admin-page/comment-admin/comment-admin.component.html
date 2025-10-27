@@ -1,0 +1,99 @@
+<mat-card class="trinta-card all-comments-card mb-25 bg-white border-none d-block">
+  <form class="search-box position-relative" (submit)="applyFilter(); $event.preventDefault()">
+    <i class="ri-search-line"></i>
+    <input
+      type="text"
+      class="input-search w-100 d-block border-none"
+      placeholder="Search comments..."
+      [(ngModel)]="searchQuery"
+      name="search"
+      (input)="applyFilter()"
+    />
+    <button type="submit" class="bg-transparent p-0 border-none transition">
+    </button>
+  </form>
+
+  <mat-card-header class="d-flex justify-content-between align-items-center">
+    <mat-card-title class="mb-0">
+      <h5 class="mt-0 mb-0">All Comments</h5>
+    </mat-card-title>
+    <button mat-raised-button color="primary" (click)="loadComments()">
+      <mat-icon>refresh</mat-icon>
+      Refresh
+    </button>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div class="all-comments-table">
+      <div class="table-responsive">
+        <table mat-table [dataSource]="dataSource">
+
+          <!-- ID Column -->
+          <ng-container matColumnDef="idComment">
+            <th mat-header-cell *matHeaderCellDef>ID</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.idComment }}
+            </td>
+          </ng-container>
+
+
+          <ng-container matColumnDef="content">
+            <th mat-header-cell *matHeaderCellDef>Content</th>
+            <td mat-cell *matCellDef="let element">
+              <div class="comment-content">
+                {{ element.content | slice:0:50 }}{{ element.content && element.content.length > 50 ? '...' : '' }}
+              </div>
+            </td>
+          </ng-container>
+
+
+          <ng-container matColumnDef="rating">
+            <th mat-header-cell *matHeaderCellDef>Rating</th>
+            <td mat-cell *matCellDef="let element">
+              <div class="rating-display">
+                <span class="rating-value">{{ element.rating }}</span>
+                <mat-icon class="star-icon">star</mat-icon>
+              </div>
+            </td>
+          </ng-container>
+
+
+          <ng-container matColumnDef="createdDate">
+            <th mat-header-cell *matHeaderCellDef>Created Date</th>
+            <td mat-cell *matCellDef="let element">
+              {{ formatDate(element.createdDate) }}
+            </td>
+          </ng-container>
+
+       
+          <ng-container matColumnDef="moderationReason">
+            <th mat-header-cell *matHeaderCellDef>Moderation Reason</th>
+            <td mat-cell *matCellDef="let element">
+              <div class="moderation-reason">
+                {{ element.moderationReason || 'N/A' }}
+              </div>
+            </td>
+          </ng-container>
+
+
+          <ng-container matColumnDef="event">
+            <th mat-header-cell *matHeaderCellDef>Event</th>
+            <td mat-cell *matCellDef="let element">
+              <div class="event-info">
+                {{ element.event?.title || 'N/A' }}
+              </div>
+            </td>
+          </ng-container>
+
+
+          
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        </table>
+      </div>
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
+    </div>
+  </mat-card-content>
+</mat-card>

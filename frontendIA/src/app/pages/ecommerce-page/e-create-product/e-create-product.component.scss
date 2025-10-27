@@ -1,0 +1,484 @@
+.partnership-form-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 40px 20px;
+}
+
+.form-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+// ============ HEADER ============
+.form-header {
+  text-align: center;
+  margin-bottom: 40px;
+  animation: slideDown 0.6s ease-out;
+  
+  .header-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    
+    .icon-large {
+      width: 40px;
+      height: 40px;
+      stroke: white;
+      stroke-width: 2;
+    }
+  }
+  
+  h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin: 0 0 12px;
+  }
+  
+  p {
+    font-size: 18px;
+    color: #6c757d;
+    margin: 0;
+  }
+}
+
+// ============ MODERN CARD ============
+.modern-card {
+  border-radius: 24px !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1) !important;
+  border: none !important;
+  padding: 40px !important;
+  background: white !important;
+  animation: fadeInUp 0.6s ease-out;
+  animation-delay: 0.2s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+// ============ SECTIONS ============
+.form-section {
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+  border-bottom: 2px solid #f0f0f0;
+  
+  &:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    
+    i-feather {
+      width: 24px;
+      height: 24px;
+      stroke: #667eea;
+      stroke-width: 2.5;
+    }
+    
+    h3 {
+      font-size: 20px;
+      font-weight: 600;
+      color: #2c3e50;
+      margin: 0;
+    }
+  }
+}
+
+// ============ MODERN FIELDS ============
+.modern-field {
+  .modern-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    
+    i-feather {
+      width: 18px;
+      height: 18px;
+      stroke: #667eea;
+    }
+  }
+}
+
+::ng-deep {
+  .modern-field {
+    .mat-mdc-form-field {
+      width: 100%;
+      
+      &.mat-form-field-appearance-outline {
+        .mat-mdc-text-field-wrapper {
+          background: #f8f9fa;
+          border-radius: 12px;
+          transition: all 0.3s ease;
+        }
+        
+        &.mat-focused .mat-mdc-text-field-wrapper {
+          background: white;
+          box-shadow: 0 4px 20px rgba(102, 126, 234, 0.15);
+        }
+        
+        .mat-mdc-form-field-flex {
+          padding: 0 16px;
+        }
+        
+        .mdc-notched-outline {
+          .mdc-notched-outline__leading,
+          .mdc-notched-outline__trailing {
+            border-color: #e9ecef !important;
+          }
+        }
+        
+        &.mat-focused .mdc-notched-outline {
+          .mdc-notched-outline__leading,
+          .mdc-notched-outline__trailing,
+          .mdc-notched-outline__notch {
+            border-color: #667eea !important;
+            border-width: 2px !important;
+          }
+        }
+      }
+      
+      .mat-mdc-form-field-icon-prefix,
+      .mat-mdc-form-field-icon-suffix {
+        color: #667eea;
+      }
+      
+      input,
+      textarea {
+        font-size: 16px;
+        color: #2c3e50;
+        
+        &::placeholder {
+          color: #a0aec0;
+        }
+      }
+      
+      // Style spécifique pour textarea
+      textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+    }
+  }
+}
+
+// ============ UPLOAD ZONE ============
+.upload-zone {
+  .modern-uploader {
+    border: 3px dashed #cbd5e0;
+    border-radius: 16px;
+    background: #f8f9fa;
+    padding: 40px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    
+    &:hover {
+      border-color: #667eea;
+      background: rgba(102, 126, 234, 0.05);
+      transform: translateY(-2px);
+    }
+    
+    .upload-content {
+      .upload-icon {
+        width: 64px;
+        height: 64px;
+        stroke: #667eea;
+        stroke-width: 1.5;
+        margin: 0 auto 16px;
+      }
+      
+      h4 {
+        font-size: 18px;
+        font-weight: 600;
+        color: #2c3e50;
+        margin: 0 0 8px;
+      }
+      
+      p {
+        font-size: 14px;
+        color: #6c757d;
+        margin: 0;
+      }
+    }
+  }
+}
+
+// ============ STATUS CHECKBOX ============
+.status-checkbox {
+  padding: 24px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 12px;
+  
+  .modern-checkbox {
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      
+      mat-icon {
+        font-size: 24px;
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+}
+
+// ============ ACTIONS ============
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 2px solid #f0f0f0;
+  
+  button {
+    min-width: 160px;
+    height: 56px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    
+    mat-icon {
+      margin-right: 8px;
+    }
+  }
+  
+  .btn-cancel {
+    border: 2px solid #e9ecef;
+    color: #6c757d;
+    
+    &:hover {
+      border-color: #dc3545;
+      color: #dc3545;
+      background: rgba(220, 53, 69, 0.05);
+    }
+  }
+  
+  .btn-submit {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+    
+    &:hover {
+      box-shadow: 0 6px 30px rgba(102, 126, 234, 0.4);
+      transform: translateY(-2px);
+    }
+  }
+}
+
+// ============ ANIMATIONS ============
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ============ RESPONSIVE ============
+@media only screen and (max-width: 767px) {
+  .partnership-form-container {
+    padding: 20px 12px;
+  }
+  
+  .form-header {
+    margin-bottom: 30px;
+    
+    .header-icon {
+      width: 60px;
+      height: 60px;
+      
+      .icon-large {
+        width: 30px;
+        height: 30px;
+      }
+    }
+    
+    h1 {
+      font-size: 28px;
+    }
+    
+    p {
+      font-size: 16px;
+    }
+  }
+  
+  .modern-card {
+    padding: 24px !important;
+    border-radius: 16px !important;
+  }
+  
+  .form-section {
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    
+    .section-header h3 {
+      font-size: 18px;
+    }
+  }
+  
+  .form-actions {
+    flex-direction: column;
+    
+    button {
+      width: 100%;
+      min-width: 100%;
+    }
+  }
+  
+  .upload-zone .modern-uploader {
+    padding: 24px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .form-wrapper {
+    max-width: 100%;
+  }
+  
+  .modern-card {
+    padding: 32px !important;
+  }
+}
+// Ajouter ce code dans votre fichier src/styles.scss global
+
+// ============ SNACKBAR ALERTS ============
+::ng-deep {
+  .success-snackbar {
+    .mdc-snackbar__surface {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+      box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4) !important;
+    }
+    
+    .mat-mdc-snack-bar-label {
+      color: white !important;
+      font-weight: 600 !important;
+      font-size: 15px !important;
+    }
+    
+    .mat-mdc-button {
+      color: white !important;
+      font-weight: 700 !important;
+    }
+  }
+  
+  .error-snackbar {
+    .mdc-snackbar__surface {
+      background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%) !important;
+      box-shadow: 0 4px 20px rgba(239, 68, 68, 0.4) !important;
+    }
+    
+    .mat-mdc-snack-bar-label {
+      color: white !important;
+      font-weight: 600 !important;
+      font-size: 15px !important;
+    }
+    
+    .mat-mdc-button {
+      color: white !important;
+      font-weight: 700 !important;
+    }
+  }
+
+  // Style pour mat-checkbox
+  .status-checkbox {
+    .mat-mdc-checkbox {
+      .mdc-checkbox__background {
+        border-color: #667eea !important;
+      }
+      
+      &.mat-mdc-checkbox-checked {
+        .mdc-checkbox__background {
+          background-color: #667eea !important;
+          border-color: #667eea !important;
+        }
+      }
+    }
+    
+    .mat-mdc-checkbox-label {
+      font-size: 16px;
+      font-weight: 600;
+      color: #2c3e50;
+    }
+  }
+}
+// Styles pour les Snackbars
+.snackbar-success {
+  background-color: #4caf50 !important;
+  color: white !important;
+  
+  .mat-mdc-snack-bar-label {
+    color: white !important;
+  }
+  
+  .mat-mdc-button {
+    color: white !important;
+  }
+}
+
+.snackbar-error {
+  background-color: #f44336 !important;
+  color: white !important;
+  white-space: pre-line !important; // Pour afficher les \n
+  
+  .mat-mdc-snack-bar-label {
+    color: white !important;
+  }
+  
+  .mat-mdc-button {
+    color: white !important;
+  }
+}
+
+.snackbar-info {
+  background-color: #2196f3 !important;
+  color: white !important;
+  
+  .mat-mdc-snack-bar-label {
+    color: white !important;
+  }
+}
+.preview-img {
+  max-width: 200px;
+  max-height: 200px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-top: 10px;
+}

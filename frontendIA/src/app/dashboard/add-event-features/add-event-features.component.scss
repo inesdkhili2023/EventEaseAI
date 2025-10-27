@@ -1,0 +1,158 @@
+.add-event-features-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.add-event-card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+}
+
+.add-event-card mat-card-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 12px 12px 0 0;
+  padding: 20px;
+  margin: -24px -24px 20px -24px;
+}
+
+.add-event-card mat-card-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.add-event-card mat-card-subtitle {
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 8px;
+}
+
+.event-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.form-row mat-form-field {
+  flex: 1;
+}
+
+.form-row .full-width {
+  width: 100%;
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+.sample-button {
+  background-color: #ff9800 !important;
+  color: white !important;
+}
+
+.reset-button {
+  background-color: #f44336 !important;
+  color: white !important;
+}
+
+.list-button {
+  background-color: #2196F3 !important;
+  color: white !important;
+}
+
+.submit-button {
+  background-color: #4caf50 !important;
+  color: white !important;
+  min-width: 140px;
+}
+
+.submit-button[disabled] {
+  background-color: #cccccc !important;
+}
+
+.error-message {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  background-color: #ffebee;
+  border: 1px solid #f44336;
+  border-radius: 8px;
+  color: #d32f2f;
+  margin-top: 16px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .form-actions {
+    justify-content: center;
+  }
+  
+  .add-event-features-container {
+    padding: 10px;
+  }
+}
+
+/* Snackbar styles */
+::ng-deep .success-snackbar {
+  background-color: #4caf50 !important;
+  color: white !important;
+}
+
+::ng-deep .error-snackbar {
+  background-color: #f44336 !important;
+  color: white !important;
+}
+
+/* Validation styles */
+.mat-form-field.mat-form-field-invalid .mat-form-field-outline {
+  border-color: #f44336 !important;
+}
+
+.mat-form-field.mat-form-field-invalid .mat-form-field-label {
+  color: #f44336 !important;
+}
+
+.mat-error {
+  font-size: 12px;
+  margin-top: 4px;
+  color: #f44336;
+}
+
+.mat-hint {
+  font-size: 12px;
+  color: #666;
+}
+
+/* Champs valides */
+.mat-form-field.ng-valid.ng-touched .mat-form-field-outline {
+  border-color: #4caf50 !important;
+}
+
+/* Animation pour les erreurs */
+.mat-error {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}

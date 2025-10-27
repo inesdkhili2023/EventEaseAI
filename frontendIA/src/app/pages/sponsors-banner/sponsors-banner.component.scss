@@ -1,0 +1,96 @@
+.sponsors-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px; // ← TRÈS COMPACT
+  margin-top: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.sponsors-header {
+  display: none; // ← MASQUER le titre (optionnel)
+}
+
+.sponsors-carousel {
+  position: relative;
+  overflow: hidden;
+  padding: 10px 0;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+
+.sponsors-track {
+  display: flex;
+  gap: 30px;
+  animation: scroll-left linear infinite;
+  will-change: transform;
+  
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.sponsor-item {
+  flex-shrink: 0;
+  width: 120px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 10px;
+  padding: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+  }
+  
+  &:hover img {
+    filter: grayscale(0%);
+  }
+}
+
+.sponsors-count {
+  display: none; // ← MASQUER le compteur (optionnel)
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .sponsors-section {
+    padding: 15px;
+  }
+  
+  .sponsor-item {
+    width: 100px;
+    height: 50px;
+    padding: 10px;
+  }
+  
+  .sponsors-track {
+    gap: 20px;
+  }
+}

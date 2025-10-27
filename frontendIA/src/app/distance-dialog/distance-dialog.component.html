@@ -1,0 +1,30 @@
+<h2 mat-dialog-title class="dialog-title">Enter Distance</h2>
+<form [formGroup]="distanceForm">
+  <div mat-dialog-content class="dialog-content">
+    <div class="dialog-container">
+      <div class="input-container">
+        <mat-form-field appearance="outline">
+          <mat-label>Distance</mat-label>
+          <input matInput formControlName="distance" placeholder="0" placeholder="0" (focus)="onInputFocus()" >
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Unit</mat-label>
+          <mat-select formControlName="unit">
+            <mat-option value="MILE">MILE</mat-option>
+            <mat-option value="KM">KM</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="keypad">
+        <button *ngFor="let number of numbers" mat-raised-button color="primary" (click)="appendNumber(number)">{{ number }}</button>
+        <button mat-raised-button color="primary" (click)="appendDecimal()">.</button>
+        <button mat-raised-button color="warn" (click)="clear()">Clear</button>
+      </div>
+    </div>
+  </div>
+  <div mat-dialog-actions class="actions-buttons" style="justify-content: center;">
+    <button mat-button class="custom-button" (click)="onOk()">Ok</button>
+    <button mat-button class="cancel-button" (click)="onCancel()">Cancel</button>
+    
+  </div>
+</form>

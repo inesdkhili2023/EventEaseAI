@@ -1,0 +1,147 @@
+<div class="ticket-plans-container">
+  <div class="header">
+    <h2>Gestion des Plans de Billets</h2>
+    <button mat-raised-button color="primary" (click)="createTicketPlan()">
+      <mat-icon>add</mat-icon>
+      Nouveau Plan
+    </button>
+  </div>
+
+  <div class="table-container" *ngIf="!loading">
+    <table mat-table [dataSource]="ticketPlans" class="ticket-plans-table">
+      
+      <!-- Nom du Plan -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Nom du Plan</th>
+        <td mat-cell *matCellDef="let plan">
+          <div class="plan-name">
+            <strong>{{ plan.name }}</strong>
+            <small class="plan-description">{{ plan.description }}</small>
+          </div>
+        </td>
+      </ng-container>
+
+      <!-- Catégorie -->
+      <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef>Catégorie</th>
+        <td mat-cell *matCellDef="let plan">
+          <mat-chip [color]="getCategoryColor(plan.category)">
+            {{ plan.category }}
+          </mat-chip>
+        </td>
+      </ng-container>
+
+      <!-- Prix -->
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef>Prix</th>
+        <td mat-cell *matCellDef="let plan">
+          <span class="price" [class.free]="plan.price === 0">
+            {{ plan.price === 0 ? 'Gratuit' : (plan.price | currency:'TND':'symbol':'1.2-2':'fr') }}
+          </span>
+        </td>
+      </ng-container>
+
+      <!-- Quota -->
+      <ng-container matColumnDef="quota">
+        <th mat-header-cell *matHeaderCellDef>Quota</th>
+        <td mat-cell *matCellDef="let plan">
+          <span class="quota">{{ plan.quota }}</span>
+        </td>
+      </ng-container>
+
+      <!-- Vendu -->
+      <ng-container matColumnDef="sold">
+        <th mat-header-cell *matHeaderCellDef>Vendu</th>
+        <td mat-cell *matCellDef="let plan">
+          <span class="sold">{{ plan.sold }}</span>
+        </td>
+      </ng-container>
+
+      <!-- Disponible -->
+      <ng-container matColumnDef="available">
+        <th mat-header-cell *matHeaderCellDef>Disponible</th>
+        <td mat-cell *matCellDef="let plan">
+          <span class="available" [class.sold-out]="isSoldOut(plan)">
+            {{ ticketService.getAvailableTickets(plan) }}
+          </span>
+        </td>
+      </ng-container>
+
+      <!-- Progression des Ventes -->
+      <ng-container matColumnDef="salesProgress">
+        <th mat-header-cell *matHeaderCellDef>Progression</th>
+        <td mat-cell *matCellDef="let plan">
+          <div class="progress-container">
+            <mat-progress-bar 
+              mode="determinate" 
+              [value]="getSalesPercentage(plan)"
+              [color]="getSalesPercentage(plan) > 80 ? 'warn' : 'primary'">
+            </mat-progress-bar>
+            <span class="progress-text">{{ getSalesPercentage(plan) | number:'1.0-1' }}%</span>
+          </div>
+        </td>
+      </ng-container>
+
+      <!-- Statut -->
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>Statut</th>
+        <td mat-cell *matCellDef="let plan">
+          <mat-chip 
+            [color]="plan.isActive ? 'primary' : 'warn'">
+            {{ plan.isActive ? 'Actif' : 'Inactif' }}
+          </mat-chip>
+        </td>
+      </ng-container>
+
+      <!-- Actions -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let plan">
+          <div class="actions">
+            <button 
+              mat-icon-button 
+              (click)="editTicketPlan(plan)"
+              [disabled]="!ticketService.canEditTicketPlan(plan)"
+              matTooltip="Modifier">
+              <mat-icon>edit</mat-icon>
+            </button>
+            
+            <button 
+              mat-icon-button 
+              (click)="togglePlanStatus(plan)"
+              [color]="plan.isActive ? 'warn' : 'primary'"
+              matTooltip="{{ plan.isActive ? 'Désactiver' : 'Activer' }}">
+              <mat-icon>{{ plan.isActive ? 'pause' : 'play_arrow' }}</mat-icon>
+            </button>
+            
+            <button 
+              mat-icon-button 
+              color="warn"
+              (click)="deleteTicketPlan(plan)"
+              [disabled]="!ticketService.canDeleteTicketPlan(plan)"
+              matTooltip="Supprimer">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+
+  <div class="loading-container" *ngIf="loading">
+    <mat-spinner></mat-spinner>
+    <p>Chargement des plans de billets...</p>
+  </div>
+
+  <div class="empty-state" *ngIf="!loading && ticketPlans.length === 0">
+    <mat-icon class="empty-icon">confirmation_number</mat-icon>
+    <h3>Aucun plan de billet</h3>
+    <p>Commencez par créer votre premier plan de billet pour votre événement.</p>
+    <button mat-raised-button color="primary" (click)="createTicketPlan()">
+      Créer un Plan
+    </button>
+  </div>
+</div>

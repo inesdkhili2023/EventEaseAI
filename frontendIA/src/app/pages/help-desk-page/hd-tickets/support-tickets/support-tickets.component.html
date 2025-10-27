@@ -1,0 +1,57 @@
+<mat-card
+    class="trinta-card support-status-card mb-25 bg-white border-none d-block"
+>
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Support Status
+            </h5>
+        </mat-card-title>
+        <mat-card-subtitle>
+            <button type="button" mat-button class="card-header-dot-btn lh-1 p-0 min-w-auto h-auto" [matMenuTriggerFor]="cardHeaderMenu">
+                <i class="ri-more-2-fill"></i>
+            </button>
+            <mat-menu #cardHeaderMenu="matMenu" class="card-header-menu" xPosition="before">
+                <button mat-menu-item>
+                    Last Day
+                </button>
+                <button mat-menu-item>
+                    Last Week
+                </button>
+                <button mat-menu-item>
+                    Last Month
+                </button>
+                <button mat-menu-item>
+                    Last Year
+                </button>
+            </mat-menu>
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="chart text-center position-relative">
+            <div class="text-center ml-auto mr-auto position-relative rounded-circle d-flex align-items-center justify-content-center fw-bold heading-font-family">
+                70%
+            </div>
+            <div class="text-center ml-auto mr-auto rounded-circle d-flex align-items-center justify-content-center fw-bold heading-font-family">
+                20%
+            </div>
+            <div class="text-center ml-auto mr-auto rounded-circle d-flex align-items-center justify-content-center fw-bold heading-font-family">
+                10%
+            </div>
+        </div>
+        <ul class="list text-center p-0 m-0 list-unstyled">
+            <li class="d-inline-block position-relative text-gray">
+                <div class="dot"></div>
+                New Tickets
+            </li>
+            <li class="d-inline-block position-relative text-gray">
+                <div class="dot solved"></div>
+                Solved Tickets
+            </li>
+            <li class="d-inline-block position-relative text-gray">
+                <div class="dot unresolved"></div>
+                Unresolved
+            </li>
+        </ul>
+    </mat-card-content>
+</mat-card>

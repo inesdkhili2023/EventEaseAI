@@ -1,0 +1,10 @@
+.custom-button {
+  background-color: green;
+  color: white;
+  margin-right: 10px;
+  border: none; 
+  border-radius: 6px;
+}
+.custom-button:hover{
+  background-color: darken(green, 10%);
+}

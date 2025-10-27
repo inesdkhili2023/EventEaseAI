@@ -1,0 +1,126 @@
+<!-- Breadcrumb -->
+<div class="breadcrumb-card mb-25 d-md-flex align-items-center justify-content-between">
+    <h5 class="mb-0">
+        Pagination
+    </h5>
+    <ol class="breadcrumb list-unstyled mt-0 mb-0 pl-0">
+        <li class="breadcrumb-item position-relative">
+            <a routerLink="/" class="d-inline-block position-relative">
+                <i class="ri-home-8-line"></i>
+                Dashboard
+            </a>
+        </li>
+        <li class="breadcrumb-item position-relative">
+            UI Elements
+        </li>
+        <li class="breadcrumb-item position-relative">
+            Pagination
+        </li>
+    </ol>
+</div>
+
+<!-- Pagination -->
+<div class="row">
+    <div class="col-md-6">
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Pagination
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination-list">
+                        <li class="page-item"><a class="page-link" routerLink="/ui-kit/pagination">Previous</a></li>
+                        <li class="page-item"><a class="page-link" routerLink="/ui-kit/pagination">1</a></li>
+                        <li class="page-item"><a class="page-link active" routerLink="/ui-kit/pagination">2</a></li>
+                        <li class="page-item"><a class="page-link" routerLink="/ui-kit/pagination">3</a></li>
+                        <li class="page-item"><a class="page-link" routerLink="/ui-kit/pagination">Next</a></li>
+                    </ul>
+                </nav>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-md-6">
+        <mat-card class="trinta-card mb-25 bg-white border-none d-block">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0">
+                        Pagination with Icons
+                    </h5>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination-list">
+                        <li class="page-item">
+                            <a class="page-link" routerLink="/ui-kit/pagination" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" routerLink="/ui-kit/pagination">1</a></li>
+                        <li class="page-item"><a class="page-link" routerLink="/ui-kit/pagination">2</a></li>
+                        <li class="page-item"><a class="page-link" routerLink="/ui-kit/pagination">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" routerLink="/ui-kit/pagination" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+<mat-card class="trinta-card mb-25 bg-white border-none d-block">
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Paginator
+            </h5>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-paginator
+            [length]="100"
+            [pageSize]="10"
+            [pageSizeOptions]="[5, 10, 25, 100]"
+            aria-label="Select page"
+        >
+        </mat-paginator>
+    </mat-card-content>
+</mat-card>
+<div class="pagination-card mb-25 d-md-flex align-items-center justify-content-between">
+    <p class="mb-0 text-black">
+        Showing 1 to 12 of 102 results 
+    </p>
+    <ol class="pagination list-unstyled mt-0 mb-0 p-0">
+        <li class="pagination-item d-inline-block">
+            <a mat-button routerLink="/ui-kit/pagination">
+                <i class="ri-arrow-left-line"></i>
+            </a>
+        </li>
+        <li class="pagination-item d-inline-block">
+            <a mat-button routerLink="/ui-kit/pagination" class="active">
+                1
+            </a>
+        </li>
+        <li class="pagination-item d-inline-block">
+            <a mat-button routerLink="/ui-kit/pagination">
+                2
+            </a>
+        </li>
+        <li class="pagination-item d-inline-block">
+            <a mat-button routerLink="/ui-kit/pagination">
+                3
+            </a>
+        </li>
+        <li class="pagination-item d-inline-block">
+            <a mat-button routerLink="/ui-kit/pagination">
+                <i class="ri-arrow-right-line"></i>
+            </a>
+        </li>
+    </ol>
+</div>

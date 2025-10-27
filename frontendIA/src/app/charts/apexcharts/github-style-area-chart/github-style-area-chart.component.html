@@ -1,0 +1,45 @@
+<mat-card class="trinta-card mb-25 bg-white border-none d-block">
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Github Style Area Chart
+            </h5>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <apx-chart
+            [series]="chartMonths.series!"
+            [chart]="chartMonths.chart!"
+            [colors]="chartMonths.colors!"
+            [yaxis]="chartMonths.yaxis!"
+            [dataLabels]="commonOptions.dataLabels!"
+            [fill]="commonOptions.fill!"
+            [grid]="commonOptions.grid!"
+            [stroke]="commonOptions.stroke!"
+            [xaxis]="commonOptions.xaxis!"
+        ></apx-chart>
+        <div class="github-user d-flex align-items-center">
+            <img src="assets/images/admin.jpg" class="rounded-circle" width="60" alt="user-image">
+            <div class="title">
+                <span class="d-block fw-medium">
+                    Mateo Luca
+                </span>
+                <span class="d-block text-body">
+                    Coder
+                </span>
+            </div>
+        </div>
+        <apx-chart
+            [series]="chartYears.series!"
+            [chart]="chartYears.chart!"
+            [colors]="chartYears.colors!"
+            [legend]="chartYears.legend!"
+            [yaxis]="chartMonths.yaxis!"
+            [grid]="commonOptions.grid!"
+            [dataLabels]="commonOptions.dataLabels!"
+            [fill]="commonOptions.fill!"
+            [stroke]="commonOptions.stroke!"
+            [xaxis]="commonOptions.xaxis!"
+        ></apx-chart>
+    </mat-card-content>
+</mat-card>

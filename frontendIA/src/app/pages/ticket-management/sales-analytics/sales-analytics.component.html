@@ -1,0 +1,191 @@
+<div class="sales-analytics-container">
+  <!-- Header -->
+  <div class="analytics-header">
+    <h2>Analytiques des Ventes</h2>
+    <div class="controls">
+      <mat-form-field appearance="outline" class="date-field">
+        <mat-label>Date de début</mat-label>
+        <input matInput [matDatepicker]="startPicker" [(ngModel)]="startDate" (dateChange)="onDateRangeChange()" 
+               placeholder="Sélectionnez une date" title="Date de début des ventes">
+        <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+        <mat-datepicker #startPicker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="date-field">
+        <mat-label>Date de fin</mat-label>
+        <input matInput [matDatepicker]="endPicker" [(ngModel)]="endDate" (dateChange)="onDateRangeChange()"
+               placeholder="Sélectionnez une date" title="Date de fin des ventes">
+        <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+        <mat-datepicker #endPicker></mat-datepicker>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" (click)="onRefresh()" [disabled]="loading">
+        <mat-icon>refresh</mat-icon>
+        Actualiser
+      </button>
+    </div>
+  </div>
+
+  <!-- Loading State -->
+  <div class="loading-container" *ngIf="loading">
+    <mat-spinner></mat-spinner>
+    <p>Chargement des analytiques...</p>
+  </div>
+
+  <!-- Analytics Content -->
+  <div class="analytics-content" *ngIf="!loading && analytics">
+    
+    <!-- Summary Cards -->
+    <div class="summary-cards">
+      <mat-card class="summary-card">
+        <mat-card-content>
+          <div class="card-content">
+            <div class="card-icon revenue">
+              <mat-icon>attach_money</mat-icon>
+            </div>
+            <div class="card-info">
+              <h3>{{ formatCurrency(analytics.totalRevenue) }}</h3>
+              <p>Revenus Totaux</p>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="summary-card">
+        <mat-card-content>
+          <div class="card-content">
+            <div class="card-icon tickets">
+              <mat-icon>confirmation_number</mat-icon>
+            </div>
+            <div class="card-info">
+              <h3>{{ analytics.totalTicketsSold }}</h3>
+              <p>Billets Vendus</p>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="summary-card">
+        <mat-card-content>
+          <div class="card-content">
+            <div class="card-icon refunds">
+              <mat-icon>money_off</mat-icon>
+            </div>
+            <div class="card-info">
+              <h3>{{ formatCurrency(analytics.totalRefunds) }}</h3>
+              <p>Remboursements</p>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Charts Section -->
+    <div class="charts-section">
+      <!-- Category Breakdown -->
+      <mat-card class="chart-card">
+        <mat-card-header>
+          <mat-card-title>Répartition par Catégorie</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="category-breakdown">
+            <div 
+              *ngFor="let item of getCategoryBreakdown()" 
+              class="category-item">
+              <div class="category-info">
+                <mat-chip [color]="getCategoryColor(item.category)" selected>
+                  {{ item.category }}
+                </mat-chip>
+                <span class="category-stats">
+                  {{ item.sold }} billets • {{ formatCurrency(item.revenue) }}
+                </span>
+              </div>
+              <div class="category-percentage">
+                {{ item.percentage | number:'1.1-1' }}%
+              </div>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <!-- Top Selling Plans -->
+      <mat-card class="chart-card">
+        <mat-card-header>
+          <mat-card-title>Plans les Plus Vendus</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <table mat-table [dataSource]="getTopSellingPlans()" class="top-plans-table">
+            <ng-container matColumnDef="planName">
+              <th mat-header-cell *matHeaderCellDef>Plan</th>
+              <td mat-cell *matCellDef="let plan">{{ plan.planName }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="category">
+              <th mat-header-cell *matHeaderCellDef>Catégorie</th>
+              <td mat-cell *matCellDef="let plan">
+                <mat-chip [color]="getCategoryColor(plan.category)" selected>
+                  {{ plan.category }}
+                </mat-chip>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="sold">
+              <th mat-header-cell *matHeaderCellDef>Vendu</th>
+              <td mat-cell *matCellDef="let plan">{{ plan.sold }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="revenue">
+              <th mat-header-cell *matHeaderCellDef>Revenus</th>
+              <td mat-cell *matCellDef="let plan">{{ formatCurrency(plan.revenue) }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="percentage">
+              <th mat-header-cell *matHeaderCellDef>%</th>
+              <td mat-cell *matCellDef="let plan">
+                <div class="percentage-bar">
+                  <div 
+                    class="percentage-fill" 
+                    [style.width.%]="(plan.sold / analytics!.totalTicketsSold) * 100">
+                  </div>
+                  <span class="percentage-text">
+                    {{ ((plan.sold / analytics!.totalTicketsSold) * 100) | number:'1.1-1' }}%
+                  </span>
+                </div>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Daily Sales Chart -->
+    <mat-card class="chart-card full-width">
+      <mat-card-header>
+        <mat-card-title>Ventes Quotidiennes</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="daily-sales">
+          <div 
+            *ngFor="let day of getDailySales()" 
+            class="daily-item">
+            <div class="day-info">
+              <span class="day-date">{{ day.date | date:'dd/MM' }}</span>
+              <span class="day-tickets">{{ day.ticketsSold }} billets</span>
+            </div>
+            <div class="day-revenue">{{ formatCurrency(day.revenue) }}</div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <!-- Empty State -->
+  <div class="empty-state" *ngIf="!loading && !analytics">
+    <mat-icon class="empty-icon">analytics</mat-icon>
+    <h3>Aucune donnée d'analyse</h3>
+    <p>Les données d'analyse apparaîtront une fois que des billets auront été vendus.</p>
+  </div>
+</div>

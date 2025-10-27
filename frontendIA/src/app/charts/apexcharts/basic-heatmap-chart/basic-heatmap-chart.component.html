@@ -1,0 +1,21 @@
+<mat-card class="trinta-card mb-25 bg-white border-none d-block">
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Basic Heatmap Chart
+            </h5>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <apx-chart
+            [series]="chartOptions.series!"
+            [chart]="chartOptions.chart!"
+            [dataLabels]="chartOptions.dataLabels!"
+            [title]="chartOptions.title!"
+            [yaxis]="chartOptions.yaxis!"
+            [xaxis]="chartOptions.xaxis!"
+            [grid]="chartOptions.grid!"
+            [colors]="chartOptions.colors!"
+        ></apx-chart>
+    </mat-card-content>
+</mat-card>

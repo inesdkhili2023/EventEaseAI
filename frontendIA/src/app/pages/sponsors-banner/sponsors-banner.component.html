@@ -1,0 +1,29 @@
+<div class="sponsors-section">
+  <div class="sponsors-header">
+    <h2>Nos Partenaires & Sponsors</h2>
+    <p>Ils nous font confiance</p>
+  </div>
+  
+  <div class="sponsors-carousel">
+    <div class="sponsors-track" [style.animation-duration]="animationDuration">
+      <!-- Premier set de logos -->
+      <div class="sponsor-item" *ngFor="let sponsor of activeSponsors">
+        <img [src]="getImageUrl(sponsor)" 
+             [alt]="sponsor.name"
+             [title]="sponsor.name"
+             (error)="onImageError($event)">
+      </div>
+      <!-- Dupliquer pour l'effet infini -->
+      <div class="sponsor-item" *ngFor="let sponsor of activeSponsors">
+        <img [src]="getImageUrl(sponsor)" 
+             [alt]="sponsor.name"
+             [title]="sponsor.name"
+             (error)="onImageError($event)">
+      </div>
+    </div>
+  </div>
+  
+  <div class="sponsors-count">
+    <span>{{ activeSponsors.length }} partenaires actifs</span>
+  </div>
+</div>

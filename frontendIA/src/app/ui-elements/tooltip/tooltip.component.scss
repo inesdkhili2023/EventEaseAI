@@ -1,0 +1,13 @@
+.example-tooltip-uppercase {
+    text-transform: uppercase;
+}
+.example-buttons {
+    margin-top: -15px;
+    
+    button, a {
+        margin: {
+            right: 15px;
+            top: 15px;
+        };
+    }
+}

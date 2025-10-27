@@ -1,0 +1,257 @@
+<!-- Products Filter -->
+<mat-card
+    class="trinta-card products-filter-card mb-25 bg-white border-none d-block"
+>
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Filter
+            </h5>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form>
+            <div class="filters-top row">
+                <mat-form-field>
+                    <mat-label>
+                        <i class="material-symbols-outlined">stacks</i>
+                        Categories
+                    </mat-label>
+                    <mat-select multiple [(value)]="selectedCategories" (selectionChange)="filterByCategory()">
+                        <mat-option *ngFor="let category of categories" [value]="category">
+                            {{ category }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                  <!-- Price Range -->
+
+                 <mat-form-field>
+    <mat-label>
+      <i class="material-symbols-outlined">monetization_on</i>
+      Price Range
+    </mat-label>
+    <mat-select [(value)]="selectedPriceRange" (selectionChange)="filterEvents()">
+      <mat-option [value]="'FREE'">Gratuit</mat-option>
+      <mat-option [value]="'LOW'">Moins de 10 DT</mat-option>
+      <mat-option [value]="'MID'">Entre 10 et 15 DT</mat-option>
+      <mat-option [value]="'HIGH'">Entre 15 et 20 DT</mat-option>
+      <mat-option [value]="'PREMIUM'">Plus de 20 DT</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+              <!-- <div class="col-sm-6 col-lg-2/5">
+                    <mat-form-field>
+                        <mat-label>
+                            <i class="material-symbols-outlined">
+                                equalizer
+                            </i>
+                            Customer Ratings
+                        </mat-label>
+                        <mat-select>
+                            <mat-option value="1">
+                                5 Star
+                            </mat-option>
+                            <mat-option value="2">
+                                4 Star
+                            </mat-option>
+                            <mat-option value="3">
+                                3 Star
+                            </mat-option>
+                            <mat-option value="4">
+                                2 Star
+                            </mat-option>
+                            <mat-option value="5">
+                                1 Star
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-6 col-lg-2/5">
+                    <mat-form-field>
+                        <mat-label>
+                            <i class="material-symbols-outlined">
+                                category
+                            </i>
+                            Brands
+                        </mat-label>
+                        <mat-select multiple>
+                            <mat-option value="1">
+                                Amazon
+                            </mat-option>
+                            <mat-option value="2">
+                                Walmart
+                            </mat-option>
+                            <mat-option value="3">
+                                Nike
+                            </mat-option>
+                            <mat-option value="4">
+                                Vans
+                            </mat-option>
+                            <mat-option value="5">
+                                Chanel
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-12 col-lg-2/5">
+                    <mat-form-field>
+                        <mat-label>
+                            <i class="material-symbols-outlined">
+                                percent
+                            </i>
+                            Discount
+                        </mat-label>
+                        <mat-select>
+                            <mat-option value="1">
+                                10%
+                            </mat-option>
+                            <mat-option value="2">
+                                15%
+                            </mat-option>
+                            <mat-option value="3">
+                                20%
+                            </mat-option>
+                            <mat-option value="4">
+                                25%
+                            </mat-option>
+                            <mat-option value="5">
+                                30%
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>-->
+            <div class="filters-bottom d-md-flex align-items-center justify-content-between">
+                <div class="selected-filters d-lg-flex align-items-center">
+                  <!--  <ul class="p-0 mb-0 mt-0">
+                        <li class="d-inline-block position-relative fw-medium text-primary">
+                            Furniture
+                            <button type="button" class="p-0 bg-transparent border-none cursor-pointer">
+                                <i class="ri-close-fill"></i>
+                            </button>
+                        </li>
+                        <li class="d-inline-block position-relative fw-medium text-primary">
+                            T-Shirt
+                            <button type="button" class="p-0 bg-transparent border-none cursor-pointer">
+                                <i class="ri-close-fill"></i>
+                            </button>
+                        </li>
+                        <li class="d-inline-block position-relative fw-medium text-primary">
+                            $100
+                            <button type="button" class="p-0 bg-transparent border-none cursor-pointer">
+                                <i class="ri-close-fill"></i>
+                            </button>
+                        </li>
+                        <li class="d-inline-block position-relative fw-medium text-primary">
+                            20% Off
+                            <button type="button" class="p-0 bg-transparent border-none cursor-pointer">
+                                <i class="ri-close-fill"></i>
+                            </button>
+                        </li>
+                        <li class="d-inline-block position-relative fw-medium text-primary">
+                            Color
+                            <button type="button" class="p-0 bg-transparent border-none cursor-pointer">
+                                <i class="ri-close-fill"></i>
+                            </button>
+                        </li>
+                    </ul>-->
+                    <button mat-button type="button" (click)="clearAllFilters()">
+                        Clear All
+                    </button>
+                </div>
+                <div class="search-btn">
+                    <button mat-button type="button">
+                        Search
+                    </button>
+                    <button mat-button type="button" routerLink="/chat">
+                        Chat
+                    </button>
+                </div>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>
+
+<!-- Products Grid -->
+<div class="row">
+    <div class="col-sm-6 col-lg-4 col-xxl-3" *ngFor="let event of paginatedEvents">
+        <mat-card
+            class="trinta-card product-card mb-25 bg-white border-none d-block"
+        >
+            <mat-card-header>
+                <mat-card-title>
+                    <h5 class="mt-0 mb-0 fw-normal text-primary">
+                        {{event.category}}
+                    </h5>
+                </mat-card-title>
+                <mat-card-subtitle>
+                  <!--  <button type="button" mat-button class="card-header-dot-btn lh-1 p-0 min-w-auto h-auto" [matMenuTriggerFor]="cardHeaderMenu">
+                        <i class="ri-more-2-fill"></i>
+                    </button>-->
+                    <mat-menu #cardHeaderMenu="matMenu" class="card-header-menu" xPosition="before">
+                        <button mat-menu-item>
+                            View
+                        </button>
+                        <button mat-menu-item>
+                            Edit
+                        </button>
+                        <button mat-menu-item>
+                            Delete
+                        </button>
+                    </mat-menu>
+                </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <a [routerLink]="['/ecommerce-page/product-details', event.id]" class="image">
+                    <img [src]="event.images[0] || 'assets/images/default-event.png'" alt="event-image">
+                </a>
+                <div class="content">
+                    <h5>
+                        <a [routerLink]="['/ecommerce-page/product-details', event.id]">
+                            {{event.title}}
+                        </a>
+                    </h5>
+                    
+                    <div class="price lh-1 d-flex justify-content-center align-items-center">
+                        <span class="d-block fw-semibold text-black heading-font-family">
+                           <strong>Price:</strong> {{event.price}} DT
+                        </span>
+                    </div>
+                    <span class="d-block fw-semibold text-black heading-font-family">
+                        <strong>Date:</strong> {{ event.startDate | date:'mediumDate' }}
+                    </span>
+                    <!-- ✅ Purchase Button --> 
+                    <div class="purchase-btn mt-3 d-flex justify-content-center"> 
+                    <button mat-raised-button color="primary" [routerLink]="['/events', event.id, 'purchase']"> Purchase Ticket </button> 
+                    </div>
+                </div>
+
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+
+<!-- Pagination -->
+<div class="pagination-card mb-25 d-md-flex align-items-center justify-content-between">
+    <p class="mb-0 text-black">
+        Showing {{ minIndex }} to {{ maxIndex }} of {{ totalItems }} results
+    </p>
+    <ol class="pagination list-unstyled mt-0 mb-0 p-0 d-flex gap-2">
+        <li class="pagination-item">
+            <button mat-button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">
+                <i class="ri-arrow-left-line"></i>
+            </button>
+        </li>
+        <li class="pagination-item" *ngFor="let page of pageNumbers">
+            <button mat-button [class.active]="page === currentPage" (click)="goToPage(page)">
+                {{ page }}
+            </button>
+        </li>
+        <li class="pagination-item">
+            <button mat-button (click)="goToPage(currentPage + 1)" [disabled]="currentPage === totalPages">
+                <i class="ri-arrow-right-line"></i>
+            </button>
+        </li>
+    </ol>
+</div>
+<app-sponsors-banner></app-sponsors-banner>

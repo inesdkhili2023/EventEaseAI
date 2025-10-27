@@ -1,0 +1,138 @@
+<div class="ticket-plan-form">
+  <div class="form-header">
+    <h2 mat-dialog-title>
+      {{ data.mode === 'create' ? 'Nouveau Plan de Billet' : 'Modifier le Plan de Billet' }}
+    </h2>
+    <button mat-icon-button (click)="onCancel()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <form [formGroup]="ticketPlanForm" (ngSubmit)="onSubmit()" class="form-content">
+    
+    <!-- Nom du Plan -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Nom du Plan *</mat-label>
+      <input matInput formControlName="name" placeholder="Ex: Billet VIP, Billet Standard">
+      <mat-error *ngIf="isFieldInvalid('name')">
+        {{ getErrorMessage('name') }}
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Description -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Description</mat-label>
+      <textarea 
+        matInput 
+        formControlName="description" 
+        rows="3"
+        placeholder="Description du plan de billet (optionnel)">
+      </textarea>
+      <mat-error *ngIf="isFieldInvalid('description')">
+        {{ getErrorMessage('description') }}
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Catégorie et Prix -->
+    <div class="form-row">
+      <mat-form-field appearance="outline" class="half-width">
+        <mat-label>Catégorie *</mat-label>
+        <mat-select formControlName="category">
+          <mat-option *ngFor="let category of ticketCategories" [value]="category">
+            {{ category }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="isFieldInvalid('category')">
+          {{ getErrorMessage('category') }}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="half-width">
+        <mat-label>Prix (TND) *</mat-label>
+        <input 
+          matInput 
+          type="number" 
+          formControlName="price" 
+          min="0" 
+          step="0.01"
+          placeholder="0.00">
+        <span matSuffix>TND</span>
+        <mat-error *ngIf="isFieldInvalid('price')">
+          {{ getErrorMessage('price') }}
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <!-- Quota -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Nombre de Billets Disponibles *</mat-label>
+      <input 
+        matInput 
+        type="number" 
+        formControlName="quota" 
+        min="1"
+        placeholder="100">
+      <mat-error *ngIf="isFieldInvalid('quota')">
+        {{ getErrorMessage('quota') }}
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Dates de Vente -->
+    <div class="form-row">
+      <mat-form-field appearance="outline" class="half-width">
+        <mat-label>Début des Ventes *</mat-label>
+        <input 
+          matInput 
+          [matDatepicker]="startPicker" 
+          formControlName="salesStartDate"
+          [min]="minDate"
+          placeholder="Sélectionnez une date"
+          title="Date de début des ventes">
+        <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+        <mat-datepicker #startPicker></mat-datepicker>
+        <mat-error *ngIf="isFieldInvalid('salesStartDate')">
+          {{ getErrorMessage('salesStartDate') }}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="half-width">
+        <mat-label>Fin des Ventes</mat-label>
+        <input 
+          matInput 
+          [matDatepicker]="endPicker" 
+          formControlName="salesEndDate"
+          [min]="ticketPlanForm.get('salesStartDate')?.value"
+          placeholder="Sélectionnez une date"
+          title="Date de fin des ventes">
+        <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+        <mat-datepicker #endPicker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <!-- Statut Actif -->
+    <div class="form-row">
+      <mat-slide-toggle formControlName="isActive" class="status-toggle">
+        Plan Actif
+      </mat-slide-toggle>
+    </div>
+
+    <!-- Actions -->
+    <div class="form-actions">
+      <button 
+        mat-button 
+        type="button" 
+        (click)="onCancel()"
+        [disabled]="isSubmitting">
+        Annuler
+      </button>
+      <button 
+        mat-raised-button 
+        color="primary" 
+        type="submit"
+        [disabled]="ticketPlanForm.invalid || isSubmitting">
+        <mat-icon *ngIf="isSubmitting">refresh</mat-icon>
+        {{ data.mode === 'create' ? 'Créer' : 'Mettre à jour' }}
+      </button>
+    </div>
+  </form>
+</div>

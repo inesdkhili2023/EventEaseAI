@@ -1,0 +1,33 @@
+<mat-card class="trinta-card mb-25 bg-white border-none d-block">
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">
+                Option Groups Autocomplete
+            </h5>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form [formGroup]="stateForm">
+            <mat-form-field>
+                <i-feather name="list"></i-feather>
+                <mat-label>States Group</mat-label>
+                <input
+                    type="text"
+                    matInput
+                    formControlName="stateGroup"
+                    required
+                    [matAutocomplete]="autoGroup"
+                >
+                <mat-autocomplete #autoGroup="matAutocomplete">
+                    @for (group of stateGroupOptions | async; track group) {
+                        <mat-optgroup [label]="group.letter">
+                            @for (name of group.names; track name) {
+                                <mat-option [value]="name">{{name}}</mat-option>
+                            }
+                        </mat-optgroup>
+                    }
+                </mat-autocomplete>
+            </mat-form-field>
+        </form>
+    </mat-card-content>
+</mat-card>

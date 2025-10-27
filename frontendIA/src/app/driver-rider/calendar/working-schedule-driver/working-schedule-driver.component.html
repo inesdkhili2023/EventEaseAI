@@ -1,0 +1,65 @@
+<!-- working-schedule-driver.component.html -->
+<mat-card class="trinta-card working-schedule-card mb-25 bg-white border-none d-block">
+    <mat-card-header>
+        <mat-card-title>
+            <h5 class="mt-0 mb-0">🗓 Ajouter une disponibilité</h5>
+        </mat-card-title>
+    </mat-card-header>
+    
+    <mat-card-content>
+        <form (ngSubmit)="addAvailability()" #availabilityForm="ngForm">
+            <!-- Date -->
+            <mat-form-field appearance="outline" class="w-100 mb-3">
+                <mat-label>Date</mat-label>
+                <input matInput 
+                       type="date" 
+                       [(ngModel)]="newAvailability.date" 
+                       name="date"
+                       required
+                       #dateInput="ngModel">
+                <mat-error *ngIf="dateInput.invalid && dateInput.touched">
+                    La date est obligatoire
+                </mat-error>
+            </mat-form-field>
+
+            <!-- Heure début -->
+            <mat-form-field appearance="outline" class="w-100 mb-3">
+                <mat-label>Heure début</mat-label>
+                <input matInput 
+                       type="time" 
+                       [(ngModel)]="newAvailability.startTime" 
+                       name="startTime"
+                       required
+                       #startTimeInput="ngModel">
+                <mat-error *ngIf="startTimeInput.invalid && startTimeInput.touched">
+                    L'heure de début est obligatoire
+                </mat-error>
+            </mat-form-field>
+
+            <!-- Heure fin -->
+            <mat-form-field appearance="outline" class="w-100 mb-3">
+                <mat-label>Heure fin</mat-label>
+                <input matInput 
+                       type="time" 
+                       [(ngModel)]="newAvailability.endTime" 
+                       name="endTime"
+                       required
+                       #endTimeInput="ngModel">
+                <mat-error *ngIf="endTimeInput.invalid && endTimeInput.touched">
+                    L'heure de fin est obligatoire
+                </mat-error>
+            </mat-form-field>
+
+            <!-- Bouton -->
+            <div class="text-center mt-3">
+                <button mat-raised-button 
+                        color="primary" 
+                        type="submit"
+                        [disabled]="availabilityForm.invalid"
+                        class="w-100">
+                    ➕ Ajouter Disponibilité
+                </button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

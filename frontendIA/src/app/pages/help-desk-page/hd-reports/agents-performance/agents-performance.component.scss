@@ -1,0 +1,199 @@
+.trinta-card {
+    &.agents-performance-card {
+        .agents-performance-table {
+            .mat-mdc-table {
+                width: 100%;
+                overflow: hidden;
+                background-color: transparent;
+
+                .mat-mdc-header-row {
+                    height: auto;
+                    line-height: initial;
+                    letter-spacing: 0.14px;
+                    color: var(--darkColor);
+                    background: transparent;
+                    font: {
+                        weight: 500;
+                        size: var(--fontSize);
+                        family: var(--fontFamily);
+                    };
+                    .mat-mdc-header-cell {
+                        border: none;
+                        overflow: unset;
+                        text-align: start;
+                        white-space: nowrap;
+                        line-height: initial;
+                        padding: 0 15px 15px;
+                        letter-spacing: normal;
+                        background: transparent;
+                        border-bottom: 2px solid #edeff5;
+                    }
+                }
+                .mat-mdc-row, .mdc-data-table__content {
+                    line-height: initial;
+                    background: transparent;
+                    font: {
+                        weight: normal;
+                        size: var(--fontSize);
+                        family: var(--fontFamily);
+                    };
+                }
+                .mat-mdc-row {
+                    height: auto;
+                    color: var(--blackColor);
+                }
+                .mat-mdc-cell {
+                    border: none;
+                    overflow: hidden;
+                    text-align: start;
+                    padding: 18px 15px;
+                    white-space: nowrap;
+                    line-height: initial;
+                    letter-spacing: 0.14px;
+                    background: transparent;
+                    border-bottom: 1px solid #edeff5;
+
+                    .agent-info {
+                        .image {
+                            width: 53px;
+                            height: 53px;
+                            border-radius: 50%;
+                            margin-right: 15px;
+
+                            img {
+                                border-radius: 50%;
+                            }
+                        }
+                        .info {
+                            h6 {
+                                margin-bottom: 7px;
+                                font-size: 15px;
+                            }
+                        }
+                    }
+                    .ratings {
+                        i {
+                            font-size: 18px;
+                            color: #ee8336;
+                            margin-right: 2px;
+
+                            &.ri-star-line {
+                                color: var(--bodyColor);
+                            }
+                            &:last-child {
+                                margin-right: 0;
+                            }
+                        }
+                    }
+                    .action {
+                        .mat-mdc-button {
+                            font-size: 18px;
+                            color: #818093;
+                            margin-right: 12px;
+
+                            &:last-child {
+                                margin-right: 0;
+                            }
+                        }
+                    }
+                }
+            }
+            .mat-mdc-paginator {
+                padding-top: 15px;
+            }
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    .trinta-card {
+        &.agents-performance-card {
+            .agents-performance-table {
+                .mat-mdc-table {
+                    .mat-mdc-header-row {
+                        font-size: 13px;
+                    }
+                    .mat-mdc-row, .mdc-data-table__content {
+                        font-size: 13px;
+                    }
+                    .mat-mdc-cell {
+                        padding: 15px;
+    
+                        .agent-info {
+                            .image {
+                                width: 50px;
+                                height: 50px;
+                                margin-right: 12px;
+                            }
+                            .info {
+                                h6 {
+                                    font-size: 13px;
+                                }
+                            }
+                        }
+                        .ratings {
+                            i {
+                                font-size: 15px;
+                            }
+                        }
+                        .action {
+                            .mat-mdc-button {
+                                font-size: 15px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width : 576px) and (max-width : 767px) {}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+
+    .trinta-card {
+        &.agents-performance-card {
+            .agents-performance-table {
+                .mat-mdc-table {
+                    .mat-mdc-cell {
+                        padding: 15px;
+    
+                        .agent-info {
+                            .info {
+                                h6 {
+                                    font-size: 14px;
+                                }
+                            }
+                        }
+                        .ratings {
+                            i {
+                                font-size: 17px;
+                            }
+                        }
+                        .action {
+                            .mat-mdc-button {
+                                font-size: 17px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width : 992px) and (max-width : 1199px) {}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {}

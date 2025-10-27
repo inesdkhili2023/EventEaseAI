@@ -1,0 +1,137 @@
+<div class="payment-container">
+  <mat-card class="payment-card">
+    <mat-card-header>
+      <mat-card-title>Paiement Sécurisé</mat-card-title>
+      <mat-card-subtitle>Votre paiement est protégé par Stripe</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <!-- Ticket Plan Summary -->
+      <div class="ticket-summary" *ngIf="ticketPlan">
+        <h3>{{ ticketPlan.name }}</h3>
+        <p class="ticket-description">{{ ticketPlan.description }}</p>
+        <div class="ticket-details">
+          <div class="detail-item">
+            <span class="label">Catégorie:</span>
+            <span class="value">{{ ticketPlan.category }}</span>
+          </div>
+          <div class="detail-item">
+            <span class="label">Prix unitaire:</span>
+            <span class="value">{{ formatCurrency(ticketPlan.price) }}</span>
+          </div>
+          <div class="detail-item">
+            <span class="label">Quantité:</span>
+            <span class="value">{{ quantity }}</span>
+          </div>
+          <div class="detail-item total">
+            <span class="label">Total:</span>
+            <span class="value">{{ formatCurrency(totalAmount) }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payment Form -->
+      <form [formGroup]="paymentForm" (ngSubmit)="processPayment()" class="payment-form">
+        
+        <!-- Customer Information -->
+        <div class="form-section">
+          <h4>Informations Client</h4>
+          
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Nom complet *</mat-label>
+            <input matInput formControlName="customerName" placeholder="Votre nom complet">
+            <mat-error *ngIf="isFieldInvalid('customerName')">
+              {{ getErrorMessage('customerName') }}
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Email *</mat-label>
+            <input matInput type="email" formControlName="customerEmail" placeholder="votre@email.com">
+            <mat-error *ngIf="isFieldInvalid('customerEmail')">
+              {{ getErrorMessage('customerEmail') }}
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="quantity-field">
+            <mat-label>Quantité *</mat-label>
+            <input matInput type="number" formControlName="quantity" min="1" [max]="ticketPlan?.available || 1"
+                   placeholder="Nombre de billets" title="Nombre de billets à acheter">
+            <mat-error *ngIf="isFieldInvalid('quantity')">
+              {{ getErrorMessage('quantity') }}
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <!-- Payment Information -->
+        <div class="form-section">
+          <h4>Informations de Paiement</h4>
+          
+          <div class="card-element-container">
+            <label for="card-element">Détails de la carte</label>
+            <div id="card-element" class="card-element" aria-label="Détails de la carte bancaire">
+              <!-- Stripe Elements will create form elements here -->
+            </div>
+            <div id="card-errors" class="card-errors" role="alert"></div>
+          </div>
+        </div>
+
+        <!-- Terms and Conditions -->
+        <div class="form-section">
+          <div class="terms-field">
+            <mat-checkbox formControlName="agreeToTerms" 
+                         aria-label="J'accepte les conditions générales">
+              J'accepte les conditions générales
+            </mat-checkbox>
+            <div class="error-message" *ngIf="isFieldInvalid('agreeToTerms')">
+              Vous devez accepter les conditions générales
+            </div>
+          </div>
+        </div>
+
+        <!-- Security Notice -->
+        <div class="security-notice">
+          <mat-icon>security</mat-icon>
+          <p>Vos informations de paiement sont sécurisées et cryptées. Nous ne stockons jamais vos données de carte bancaire.</p>
+        </div>
+
+        <!-- Payment Button -->
+        <div class="payment-actions">
+          <button 
+            mat-raised-button 
+            color="primary" 
+            type="submit"
+            [disabled]="paymentForm.invalid || processing || !ticketPlan"
+            class="payment-button">
+            <mat-spinner *ngIf="processing" diameter="20"></mat-spinner>
+            <mat-icon *ngIf="!processing">payment</mat-icon>
+            {{ processing ? 'Traitement...' : 'Payer ' + formatCurrency(totalAmount) }}
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Payment Methods Info -->
+  <mat-card class="payment-methods-info">
+    <mat-card-header>
+      <mat-card-title>Méthodes de Paiement Acceptées</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="payment-methods">
+        <div class="payment-method">
+          <mat-icon>credit_card</mat-icon>
+          <span>Cartes de crédit/débit</span>
+        </div>
+        <div class="payment-method">
+          <mat-icon>account_balance</mat-icon>
+          <span>Virement bancaire</span>
+        </div>
+        <div class="payment-method">
+          <mat-icon>phone_android</mat-icon>
+          <span>Mobile Money</span>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

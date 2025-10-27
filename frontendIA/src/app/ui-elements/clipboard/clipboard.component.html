@@ -1,0 +1,33 @@
+<!-- Breadcrumb -->
+<div class="breadcrumb-card mb-25 d-md-flex align-items-center justify-content-between">
+    <h5 class="mb-0">
+        Clipboard
+    </h5>
+    <ol class="breadcrumb list-unstyled mt-0 mb-0 pl-0">
+        <li class="breadcrumb-item position-relative">
+            <a routerLink="/" class="d-inline-block position-relative">
+                <i class="ri-home-8-line"></i>
+                Dashboard
+            </a>
+        </li>
+        <li class="breadcrumb-item position-relative">
+            UI Elements
+        </li>
+        <li class="breadcrumb-item position-relative">
+            Clipboard
+        </li>
+    </ol>
+</div>
+
+<!-- Clipboard -->
+<mat-card
+    class="trinta-card mb-25 bg-white border-none d-block"
+>
+    <mat-card-content>
+        <label for="clipboard-example-textarea" class="mb-10 fw-semibold d-block">
+            Text to be copied
+        </label>
+        <textarea id="clipboard-example-textarea" class="d-block w-100" cols="30" rows="10" [(ngModel)]="value"></textarea>
+        <button [cdkCopyToClipboard]="value" mat-flat-button color="primary" class="mt-15">Click to Copy Clipboard</button>
+    </mat-card-content>
+</mat-card>

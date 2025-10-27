@@ -1,0 +1,269 @@
+<div class="driver-container">
+  <mat-card class="driver-card">
+    <mat-card-header>
+      <mat-card-title>
+        <h3>🚗 Création d’un nouveau chauffeur</h3>
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form #driverForm="ngForm" (ngSubmit)="addDriver()" novalidate>
+        <div class="row">
+          <!-- Nom -->
+          <div class="col-md-6">
+            <div class="input-with-icon">
+              <i-feather name="user"></i-feather>
+              <mat-form-field appearance="outline">
+                <mat-label>Nom *</mat-label>
+                <input
+                  matInput
+                  name="nom"
+                  [(ngModel)]="newDriver.nom"
+                  #nomInput="ngModel"
+                  required
+                  minlength="2"
+                  placeholder="Ex. Dupont"
+                />
+                <mat-error *ngIf="nomInput.invalid && (nomInput.touched || nomInput.dirty)">
+                  <span *ngIf="nomInput.errors?.['required']">Le nom est obligatoire.</span>
+                  <span *ngIf="nomInput.errors?.['minlength']">Le nom doit contenir au moins 2 caractères.</span>
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <!-- Prénom -->
+          <div class="col-md-6">
+            <div class="input-with-icon">
+              <i-feather name="user"></i-feather>
+              <mat-form-field appearance="outline">
+                <mat-label>Prénom *</mat-label>
+                <input
+                  matInput
+                  name="prenom"
+                  [(ngModel)]="newDriver.prenom"
+                  #prenomInput="ngModel"
+                  required
+                  placeholder="Ex. Jean"
+                />
+                <mat-error *ngIf="prenomInput.invalid && (prenomInput.touched || prenomInput.dirty)">
+                  Le prénom est obligatoire.
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="col-md-6">
+            <div class="input-with-icon">
+              <i-feather name="mail"></i-feather>
+              <mat-form-field appearance="outline">
+                <mat-label>Email *</mat-label>
+                <input
+                  matInput
+                  name="email"
+                  type="email"
+                  [(ngModel)]="newDriver.email"
+                  #emailInput="ngModel"
+                  required
+                  email
+                  placeholder="email@exemple.com"
+                />
+                <mat-error *ngIf="emailInput.invalid && (emailInput.touched || emailInput.dirty)">
+                  <span *ngIf="emailInput.errors?.['required']">L’adresse email est obligatoire.</span>
+                  <span *ngIf="emailInput.errors?.['email']">Adresse email invalide.</span>
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <!-- Mot de passe -->
+<div class="col-md-6">
+  <div class="input-with-icon">
+    <i-feather name="lock"></i-feather>
+    <mat-form-field appearance="outline">
+      <mat-label>Mot de passe *</mat-label>
+      <input
+        matInput
+        type="password"
+        name="password"
+        [(ngModel)]="newDriver.password"
+        #passwordInput="ngModel"
+        required
+        minlength="6"
+        placeholder="********"
+      />
+      <mat-hint>Minimum 6 caractères</mat-hint>
+      <mat-error *ngIf="passwordInput.invalid && (passwordInput.touched || passwordInput.dirty)">
+        <span *ngIf="passwordInput.errors?.['required']">Le mot de passe est obligatoire.</span>
+        <span *ngIf="passwordInput.errors?.['minlength']">6 caractères minimum requis.</span>
+      </mat-error>
+    </mat-form-field>
+  </div>
+</div>
+
+
+          <!-- Téléphone -->
+          <div class="col-md-6">
+            <div class="input-with-icon">
+              <i-feather name="phone"></i-feather>
+              <mat-form-field appearance="outline">
+                <mat-label>Téléphone</mat-label>
+                <input
+                  matInput
+                  name="numTel"
+                  [(ngModel)]="newDriver.num_tel"
+                  #numTelInput="ngModel"
+                  pattern="^\+?[0-9\s]{8,15}$"
+                  placeholder="+216 XX XXX XXX"
+                />
+                <mat-hint>Format : +216 22 345 678</mat-hint>
+                <mat-error *ngIf="numTelInput.invalid && (numTelInput.touched || numTelInput.dirty)">
+                  Numéro invalide. Utilisez : +216 22 345 678
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <!-- Type de véhicule -->
+          <div class="col-md-6">
+            <div class="input-with-icon">
+              <i-feather name="truck"></i-feather>
+              <mat-form-field appearance="outline">
+                <mat-label>Type de véhicule</mat-label>
+                <mat-select [(ngModel)]="newDriver.vehicleType" name="vehicleType">
+                  <mat-option value="Standard">Standard</mat-option>
+                  <mat-option value="VIP">VIP</mat-option>
+                  <mat-option value="Luxe">Luxe</mat-option>
+                  <mat-option value="Familial">Familial</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <!-- Nombre de places -->
+          <div class="col-md-6">
+            <div class="input-with-icon">
+              <i-feather name="users"></i-feather>
+              <mat-form-field appearance="outline">
+                <mat-label>Nombre de places</mat-label>
+                <input
+                  matInput
+                  type="number"
+                  name="capacity"
+                  [(ngModel)]="newDriver.capacity"
+                  min="1"
+                  max="8"
+                />
+                <mat-error *ngIf="newDriver.capacity < 1 || newDriver.capacity > 8">
+                  Le nombre de places doit être entre 1 et 8.
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <!-- Adresse -->
+          <div class="col-md-6">
+            <div class="input-with-icon">
+              <i-feather name="map-pin"></i-feather>
+              <mat-form-field appearance="outline">
+                <mat-label>Adresse</mat-label>
+                <input
+                  matInput
+                  name="adresse"
+                  [(ngModel)]="newDriver.adresse"
+                  placeholder="Adresse complète"
+                />
+              </mat-form-field>
+            </div>
+          </div>
+
+          <!-- Expérience -->
+          <div class="col-md-6">
+            <div class="input-with-icon">
+              <i-feather name="briefcase"></i-feather>
+              <mat-form-field appearance="outline">
+                <mat-label>Années d’expérience</mat-label>
+                <input
+                  matInput
+                  type="number"
+                  name="experienceYears"
+                  [(ngModel)]="newDriver.experienceYears"
+                  min="0"
+                />
+                <mat-error *ngIf="newDriver.experienceYears < 0">
+                  Les années d’expérience ne peuvent pas être négatives.
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+
+        <!-- 📍 Section position -->
+        <div class="position-section">
+          <h4>📍 Sélection de la position</h4>
+
+          <div class="position-actions">
+            <button mat-stroked-button color="primary" type="button" (click)="openPositionMap()">
+              🗺️ Choisir sur la carte
+            </button>
+            <button mat-stroked-button color="accent" type="button" (click)="useCurrentLocation()">
+              📍 Utiliser ma position actuelle
+            </button>
+          </div>
+
+          <div class="position-info" *ngIf="selectedPosition">
+            <p>
+              <strong>Position :</strong>
+              {{ selectedPosition.lat | number: "1.6-6" }},
+              {{ selectedPosition.lng | number: "1.6-6" }}
+            </p>
+          </div>
+
+          <div *ngIf="!selectedPosition && positionTouched" class="alert alert-warning">
+            ⚠️ La position est obligatoire. Veuillez la sélectionner.
+          </div>
+        </div>
+
+        <!-- 🟢 Carte principale (pour visualiser les chauffeurs) -->
+        <div id="driver-map" class="main-map"></div>
+
+        <!-- Bouton principal -->
+        <div class="form-actions">
+          <button mat-raised-button color="primary" type="submit"
+            [disabled]="driverForm.invalid || !selectedPosition">
+            ✅ Créer le chauffeur
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Messages -->
+  <div *ngIf="successMessage" class="alert alert-success fade-in">
+    ✅ {{ successMessage }}
+  </div>
+  <div *ngIf="errorMessage" class="alert alert-danger fade-in">
+    ⚠️ {{ errorMessage }}
+  </div>
+
+  <!-- Modal carte -->
+  <div *ngIf="showPositionMap" class="modal-overlay" (click)="closePositionMap()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <h3>🗺️ Sélectionnez votre position</h3>
+        <button class="btn-close" (click)="closePositionMap()">×</button>
+      </div>
+      <div class="modal-body">
+        <div id="position-map" class="position-map-container"></div>
+        <div class="modal-actions">
+          <button mat-stroked-button color="accent" (click)="centerOnCurrentLocation()">
+            📍 Centrer sur ma position
+          </button>
+          <button mat-raised-button color="primary" (click)="validatePosition()">
+            ✅ Valider la position
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

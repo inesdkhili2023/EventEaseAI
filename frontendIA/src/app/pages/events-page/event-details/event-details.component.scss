@@ -1,0 +1,594 @@
+.trinta-card {
+    &.event-details-image-card {
+        padding: 0;
+
+        .mat-mdc-card-content {
+            img {
+                border-radius: 6px;
+                margin-bottom: -6px;
+            }
+        }
+    }
+    &.event-details-card {
+        .mat-mdc-card-content {
+            .content {
+                h4 {
+                    font-size: 24px;
+                    margin-bottom: 20px;
+                    letter-spacing: 0.24px;
+                }
+                p {
+                    font-size: 16px;
+                }
+                .btn-box {
+                    margin-top: 60px;
+                }
+            }
+            .socials {
+                text-align: end;
+
+                span {
+                    margin-bottom: 15px;
+                }
+                ul {
+                    li {
+                        margin-right: 15px;
+
+                        a {
+                            width: 41px;
+                            height: 41px;
+                            font-size: 22px;
+                            border-radius: 3px;
+                            color: var(--primaryColor);
+                            border: 1px solid #e2e8f0;
+
+                            &:hover {
+                                color: var(--whiteColor);
+                                border-color: var(--primaryColor);
+                                background-color: var(--primaryColor);
+                            }
+                        }
+                        &:last-child {
+                            margin-right: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.about-this-event-card {
+        .mat-mdc-card-content {
+            p {
+                font-size: 16px;
+            }
+        }
+    }
+    &.topic-covered-card {
+        .mat-mdc-card-content {
+            ul {
+                li {
+                    font-size: 16px;
+                    padding-left: 28px;
+                    margin-bottom: 15.5px;
+
+                    i-feather {
+                        left: 0;
+                        top: 50%;
+                        width: 19px;
+                        height: 19px;
+                        position: absolute;
+                        color: var(--primaryColor);
+                        transform: translateY(-50%);
+                    }
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+    &.host-card {
+        .mat-mdc-card-content {
+            .host {
+                img {
+                    width: 53px;
+                    height: 53px;
+                    margin-right: 15px;
+                }
+                h6 {
+                    margin-bottom: 8px;
+                    font-size: 15px;
+                }
+                span {
+                    margin-bottom: 15px;
+                }
+                p {
+                    font-size: 16px;
+                }
+            }
+            .box {
+                padding: 25px 5px;
+                border-radius: 6px;
+                background: #f5f7fa;
+
+                .icon {
+                    width: 62px;
+                    height: 62px;
+                    font-size: 30px;
+                    border-radius: 12.718px;
+                    color: var(--whiteColor);
+                    background: var(--infoColor);
+                    margin: {
+                        left: auto;
+                        right: auto;
+                    };
+                }
+                span {
+                    color: #77838f;
+                    margin: {
+                        top: 18px;
+                        bottom: 11px;
+                    };
+                }
+                h6 {
+                    font-size: 18px;
+                    letter-spacing: 1px;
+                }
+            }
+            .row {
+                .col-lg-6 {
+                    &:nth-child(2) {
+                        .box {
+                            .icon {
+                                background: var(--dangerColor);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+::ng-deep {
+    .trinta-card {
+        &.event-details-card {
+            .mat-mdc-card-content {
+                .content {
+                    .btn-box {
+                        .mat-mdc-button {
+                            height: auto;
+                            min-width: auto;
+                            padding: 18px 25px;
+                            margin-right: 18px;
+                            color: var(--primaryColor);
+                            background: rgba(55, 97, 238, 0.10);
+    
+                            .mdc-button__label {
+                                display: block;
+                                padding-left: 30px;
+                                font: {
+                                    size: 16px;
+                                    weight: 500;
+                                    family: var(--headingFontFamily);
+                                };
+                                i-feather {
+                                    transform: translateY(-50%);
+                                    font-weight: normal;
+                                    position: absolute;
+                                    height: 20px;
+                                    width: 20px;
+                                    top: 50%;
+                                    left: 0;
+                                }
+                            }
+                            &:nth-child(1) {
+                                color: var(--whiteColor);
+                                background-color: var(--primaryColor);
+                            }
+                            &:last-child {
+                                margin-right: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    .trinta-card {
+        &.event-details-card {
+            .mat-mdc-card-content {
+                .content {
+                    h4 {
+                        font-size: 15px;
+                        margin-bottom: 13px;
+                    }
+                    p {
+                        font-size: 13px;
+                    }
+                    .btn-box {
+                        margin-top: -8px;
+                    }
+                }
+                .socials {
+                    text-align: start;
+                    margin-top: 15px;
+    
+                    span {
+                        margin-bottom: 10px;
+                    }
+                    ul {
+                        li {
+                            margin-right: 10px;
+    
+                            a {
+                                width: 38px;
+                                height: 38px;
+                                font-size: 18px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &.about-this-event-card {
+            .mat-mdc-card-content {
+                p {
+                    font-size: 13px;
+                }
+            }
+        }
+        &.topic-covered-card {
+            .mat-mdc-card-content {
+                ul {
+                    li {
+                        font-size: 13px;
+                        padding-left: 26px;
+                        margin-bottom: 12px;
+    
+                        i-feather {
+                            width: 17px;
+                            height: 17px;
+                        }
+                    }
+                }
+            }
+        }
+        &.host-card {
+            .mat-mdc-card-content {
+                .host {
+                    img {
+                        margin: {
+                            right: 0;
+                            bottom: 8px;
+                        };
+                    }
+                    h6 {
+                        font-size: 14px;
+                    }
+                    span {
+                        margin-bottom: 10px;
+                    }
+                    p {
+                        font-size: 13px;
+                    }
+                }
+                .box {
+                    padding: 25px 15px;
+                    margin-top: 15px;
+    
+                    .icon {
+                        width: 58px;
+                        height: 58px;
+                        font-size: 27px;
+                    }
+                    span {
+                        margin: {
+                            top: 15px;
+                            bottom: 10px;
+                        };
+                    }
+                    h6 {
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+    }
+    ::ng-deep {
+        .trinta-card {
+            &.event-details-card {
+                .mat-mdc-card-content {
+                    .content {
+                        .btn-box {
+                            .mat-mdc-button {
+                                padding: 15px 25px;
+                                margin: {
+                                    right: 10px;
+                                    top: 10px;
+                                };
+                                .mdc-button__label {
+                                    padding-left: 25px;
+                                    font-size: 13px;
+
+                                    i-feather {
+                                        height: 17px;
+                                        width: 17px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width : 576px) and (max-width : 767px) {}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+
+    .trinta-card {
+        &.event-details-card {
+            .mat-mdc-card-content {
+                .content {
+                    h4 {
+                        font-size: 20px;
+                        margin-bottom: 13px;
+                    }
+                    p {
+                        font-size: 14px;
+                    }
+                    .btn-box {
+                        margin-top: 18px;
+                    }
+                }
+                .socials {
+                    text-align: start;
+                    margin-top: 20px;
+    
+                    span {
+                        margin-bottom: 15px;
+                    }
+                    ul {
+                        li {
+                            margin-right: 10px;
+    
+                            a {
+                                width: 40px;
+                                height: 40px;
+                                font-size: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &.about-this-event-card {
+            .mat-mdc-card-content {
+                p {
+                    font-size: 14px;
+                }
+            }
+        }
+        &.topic-covered-card {
+            .mat-mdc-card-content {
+                ul {
+                    li {
+                        font-size: 14px;
+                        padding-left: 27px;
+    
+                        i-feather {
+                            width: 18px;
+                            height: 18px;
+                        }
+                    }
+                }
+            }
+        }
+        &.host-card {
+            .mat-mdc-card-content {
+                .host {
+                    span {
+                        margin-bottom: 12px;
+                    }
+                    p {
+                        font-size: 14px;
+                    }
+                }
+                .box {
+                    padding: 20px 15px;
+                    margin-top: 20px;
+    
+                    h6 {
+                        font-size: 17px;
+                    }
+                }
+            }
+        }
+    }
+    ::ng-deep {
+        .trinta-card {
+            &.event-details-card {
+                .mat-mdc-card-content {
+                    .content {
+                        .btn-box {
+                            .mat-mdc-button {
+                                padding: 16px 25px;
+                                margin-right: 15px;
+                                
+                                .mdc-button__label {
+                                    padding-left: 26px;
+                                    font-size: 14px;
+
+                                    i-feather {
+                                        height: 18px;
+                                        width: 18px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width : 992px) and (max-width : 1199px) {
+
+    .trinta-card {
+        &.event-details-card {
+            .mat-mdc-card-content {
+                .content {
+                    h4 {
+                        font-size: 22px;
+                        margin-bottom: 15px;
+                    }
+                    p {
+                        font-size: 15px;
+                    }
+                    .btn-box {
+                        margin-top: 30px;
+                    }
+                }
+                .socials {
+                    ul {
+                        li {
+                            margin-right: 10px;
+                        }
+                    }
+                }
+            }
+        }
+        &.about-this-event-card {
+            .mat-mdc-card-content {
+                p {
+                    font-size: 15px;
+                }
+            }
+        }
+        &.topic-covered-card {
+            .mat-mdc-card-content {
+                ul {
+                    li {
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+        &.host-card {
+            .mat-mdc-card-content {
+                .host {
+                    p {
+                        font-size: 15px;
+                    }
+                }
+                .box {
+                    margin-top: 25px;
+                }
+            }
+        }
+    }
+    ::ng-deep {
+        .trinta-card {
+            &.event-details-card {
+                .mat-mdc-card-content {
+                    .content {
+                        .btn-box {
+                            .mat-mdc-button {
+                                padding: 16px 20px;
+                                margin-right: 10px;
+        
+                                .mdc-button__label {
+                                    font-size: 15px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+
+    .trinta-card {
+        &.event-details-card {
+            .mat-mdc-card-content {
+                .content {
+                    .btn-box {
+                        margin-top: 30px;
+                    }
+                }
+            }
+        }
+        &.host-card {
+            .mat-mdc-card-content {
+                .box {
+                    margin-top: 25px;
+                }
+            }
+        }
+    }
+    ::ng-deep {
+        .trinta-card {
+            &.event-details-card {
+                .mat-mdc-card-content {
+                    .content {
+                        .btn-box {
+                            .mat-mdc-button {
+                                padding: 15px 16px;
+                                margin-right: 10px;
+        
+                                .mdc-button__label {
+                                    font-size: 15px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {
+
+    .trinta-card {
+        &.host-card {
+            .mat-mdc-card-content {
+                .host {
+                    p {
+                        max-width: 776px;
+                    }
+                }
+                .box {
+                    padding: {
+                        left: 25px;
+                        right: 25px;
+                    };
+                    h6 {
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+    }
+
+}

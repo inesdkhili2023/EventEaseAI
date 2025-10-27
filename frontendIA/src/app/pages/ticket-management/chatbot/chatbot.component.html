@@ -1,0 +1,58 @@
+<div class="chatbot-container">
+  <div class="card">
+    <div class="card-header">
+      <div class="d-flex align-items-center">
+        <div class="avatar">🤖</div>
+        <div class="ms-3">
+          <h5 class="mb-0">EventEaseAI Chatbot</h5>
+          <small class="text-muted">Powered by Gemini</small>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card-body chat-box">
+      <div *ngFor="let m of messages" 
+           [class]="'message-wrapper ' + (m.from === 'user' ? 'user-message' : 'bot-message')">
+        <div class="message-bubble">
+          <div class="message-header">
+            <strong>{{ m.from === 'user' ? 'You' : 'EventEaseAI' }}</strong>
+            <small class="ms-2 text-muted">{{ m.timestamp | date:'short' }}</small>
+          </div>
+          <div class="message-text">{{ m.text }}</div>
+        </div>
+      </div>
+      
+      <div *ngIf="loading" class="bot-message message-wrapper">
+        <div class="message-bubble">
+          <div class="typing-indicator">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card-footer input-area">
+      <div class="input-group">
+        <input 
+          id="userInput"
+          type="text"
+          class="form-control"
+          [(ngModel)]="input" 
+          (keypress)="handleKeyPress($event)"
+          placeholder="Ask about events, tickets, payments..."
+          [disabled]="loading"
+          aria-label="Message input"
+        />
+        <button 
+          class="btn btn-primary"
+          (click)="send()"
+          [disabled]="!input.trim() || loading">
+          <span *ngIf="!loading">Send</span>
+          <span *ngIf="loading" class="spinner-border spinner-border-sm"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
