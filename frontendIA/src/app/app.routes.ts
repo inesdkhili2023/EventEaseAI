@@ -154,6 +154,7 @@ import { ListboxComponent } from './ui-elements/listbox/listbox.component';
 import { ListComponent } from './ui-elements/list/list.component';
 import { InputComponent } from './ui-elements/input/input.component';
 import { TooltipComponent } from './ui-elements/tooltip/tooltip.component';
+import { CommentAdminComponent } from './pages/admin-page/comment-admin/comment-admin.component';
 
 export const routes: Routes = [
     {path: '', component: EcommerceComponent},

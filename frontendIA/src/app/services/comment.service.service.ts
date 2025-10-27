@@ -72,7 +72,6 @@ addComment(comment: Comment): Observable<Comment> {
   }
 
   assignReport(idComment: number, typeReport: TypeReport): Observable<Report> {
-    // Send the enum value as a string to match backend expectations
     const typeReportString = typeReport.toString();
     console.log('Sending report request:', {
       url: `${this.baseUrl}/assignReport/${idComment}`,
@@ -124,6 +123,13 @@ addComment(comment: Comment): Observable<Comment> {
 
   toggleCommentVisibility(idComment: number): Observable<Comment> {
     return this.http.put<Comment>(`${this.baseUrl}/toggle-visibility/${idComment}`, {}, this.httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  deleteComment(idComment: number): Observable<string> {
+    return this.http.delete<string>(`${this.baseUrl}/deleteComment/${idComment}`, this.httpOptions)
       .pipe(
         catchError(this.handleError)
       );

@@ -26,6 +26,7 @@ public class Comment {
     private double rating;
     private LocalDateTime createdDate;
     private boolean isHidden = false;
+    @Column(length = 1000)
     private String moderationReason;
 
     @OneToMany(mappedBy = "comment", cascade = CascadeType.ALL, fetch = FetchType.LAZY)

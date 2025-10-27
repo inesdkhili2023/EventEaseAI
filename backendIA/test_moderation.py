@@ -11,7 +11,7 @@ def test_comment(comment_text):
     try:
         result = subprocess.run([
             'python', 
-            'src/main/resources/simple_comment_moderation.py', 
+            'src/main/resources/comment_moderation_service.py', 
             comment_text
         ], capture_output=True, text=True, cwd='.')
         
@@ -51,3 +51,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

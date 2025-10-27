@@ -11,11 +11,14 @@ import { RouterLink } from '@angular/router';
 import { MatButtonToggle } from "@angular/material/button-toggle";
 import { EventsListComponent } from '../../../pages/events-page/events-list/events-list.component';
 import { EventService } from '../../../services/event.service';
+import { CommentServiceService } from '../../../services/comment.service.service';
+
+
 
 @Component({
     selector: 'app-all-projects',
     standalone: true,
-    providers:[EventService],
+    providers:[EventService,CommentServiceService],
     imports: [RouterLink, MatCardModule, MatButtonModule, MatMenuModule, MatPaginatorModule, MatTableModule, NgIf, NgFor, MatCheckboxModule, MatTooltipModule,EventsListComponent],
     templateUrl: './all-projects.component.html',
     styleUrl: './all-projects.component.scss'

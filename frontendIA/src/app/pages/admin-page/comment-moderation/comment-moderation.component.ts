@@ -88,3 +88,4 @@ export class CommentModerationComponent implements OnInit {
     return new Date(dateString).toLocaleDateString();
   }
 }
+

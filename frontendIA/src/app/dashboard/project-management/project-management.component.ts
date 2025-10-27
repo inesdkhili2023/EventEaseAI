@@ -9,13 +9,14 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { EventsListComponent } from '../../pages/events-page/events-list/events-list.component';
 import { CommonModule } from '@angular/common';
 import { EventService } from '../../services/event.service';
-import { HttpClientModule } from '@angular/common/http'; // <-- obligatoire
+import { HttpClientModule } from '@angular/common/http';
+import { CommentAdminComponent } from "../../pages/admin-page/comment-admin/comment-admin.component"; // <-- obligatoire
 
 @Component({
     selector: 'app-project-management',
     standalone: true,
     providers:[EventService],
-    imports: [CommonModule,StatsComponent,HttpClientModule, AllProjectsComponent, ToDoListComponent, IssuesSummaryComponent, TasksPerformanceComponent, TasksOverviewComponent, CalendarComponent],
+    imports: [CommonModule, StatsComponent, HttpClientModule, AllProjectsComponent, ToDoListComponent, IssuesSummaryComponent, TasksPerformanceComponent, TasksOverviewComponent, CalendarComponent, CommentAdminComponent],
     templateUrl: './project-management.component.html',
     styleUrl: './project-management.component.scss'
 })

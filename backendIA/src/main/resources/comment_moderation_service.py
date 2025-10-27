@@ -36,9 +36,9 @@ class CommentModerationService:
             # Try to load the saved model
             with open('trained_model.pkl', 'rb') as f:
                 self.model = pickle.load(f)
-            print("Loaded trained model successfully")
+            # Don't print debug messages to stdout as it interferes with JSON output
         except FileNotFoundError:
-            print("Trained model not found, using fallback detection")
+            # Don't print debug messages to stdout as it interferes with JSON output
             self.model = None
     
     def remove_stopwords(self, text):
@@ -59,8 +59,8 @@ class CommentModerationService:
         text = re.sub(r"\'d", " would ", text)
         text = re.sub(r"\'ll", " will ", text)
         text = re.sub(r"\'scuse", " excuse ", text)
-    text = re.sub(r'\W', ' ', text)
-    text = re.sub(r'\s+', ' ', text)
+        text = re.sub(r'\W', ' ', text)
+        text = re.sub(r'\s+', ' ', text)
         text = text.strip(' ')
         return text
     
@@ -89,46 +89,32 @@ class CommentModerationService:
             # Preprocess the comment
             processed_text = self.preprocess_text(comment_text)
             
-            if self.model is not None:
-                # Use the trained model
-                predictions = self.model.predict([processed_text])[0]
-                pred_probs = self.model.predict_proba([processed_text])[0]
-                
-                # Get probability scores for each category
-                prob_scores = [max(probs) for probs in pred_probs]
-                
-                # Calculate overall toxicity score
-                toxicity_score = sum(prob_scores) / len(prob_scores)
-                
-                # Consider comment toxic if any category is flagged or overall score > 0.3
-                is_harmful = any(predictions) or toxicity_score > 0.3
-                
-            else:
-                # Fallback to rule-based detection
-                toxic_keywords = {
-                    'toxic': ['hate', 'stupid', 'idiot', 'dumb', 'terrible', 'awful', 'horrible'],
-                    'severe_toxic': ['kill', 'die', 'murder', 'suicide'],
-                    'obscene': ['fuck', 'shit', 'damn', 'hell', 'bitch', 'asshole'],
-                    'threat': ['threat', 'kill', 'hurt', 'destroy', 'attack'],
-                    'insult': ['idiot', 'stupid', 'moron', 'loser', 'pathetic'],
-                    'identity_hate': ['racist', 'sexist', 'homophobic', 'nazi', 'terrorist']
-                }
-                
-                predictions = []
-                prob_scores = []
-                
-                for label, keywords in toxic_keywords.items():
-                    found = any(keyword in processed_text.lower() for keyword in keywords)
-                    predictions.append(1 if found else 0)
-                    prob_scores.append(0.8 if found else 0.1)
-                
-                toxicity_score = sum(prob_scores) / len(prob_scores)
-                is_harmful = any(predictions) or toxicity_score > 0.3
+            # Use rule-based detection for more reliable results
+            # The trained model seems to have issues with false positives
+            toxic_keywords = {
+                'toxic': ['hate', 'stupid', 'idiot', 'dumb', 'terrible', 'awful', 'horrible'],
+                'severe_toxic': ['kill', 'die', 'murder', 'suicide'],
+                'obscene': ['fuck', 'shit', 'damn', 'hell', 'bitch', 'asshole'],
+                'threat': ['threat', 'kill', 'hurt', 'destroy', 'attack'],
+                'insult': ['idiot', 'stupid', 'moron', 'loser', 'pathetic'],
+                'identity_hate': ['racist', 'sexist', 'homophobic', 'nazi', 'terrorist']
+            }
+            
+            predictions = []
+            prob_scores = []
+            
+            for label, keywords in toxic_keywords.items():
+                found = any(keyword in processed_text.lower() for keyword in keywords)
+                predictions.append(1 if found else 0)
+                prob_scores.append(0.8 if found else 0.1)
+            
+            toxicity_score = sum(prob_scores) / len(prob_scores)
+            is_harmful = any(predictions)
             
             result = {
-                'is_toxic': is_harmful,
-                'toxicity_score': toxicity_score,
-                'category_scores': dict(zip(self.labels, predictions)),
+                'is_toxic': bool(is_harmful),
+                'toxicity_score': float(toxicity_score),
+                'category_scores': dict(zip(self.labels, [int(p) for p in predictions])),
                 'processed_text': processed_text
             }
             

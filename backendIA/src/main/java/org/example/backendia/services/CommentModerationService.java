@@ -19,7 +19,7 @@ public class CommentModerationService {
         try {
             System.out.println("Moderating comment: " + commentText);
 
-            String pythonScript = "src/main/resources/simple_comment_moderation.py";
+            String pythonScript = "src/main/resources/comment_moderation_service.py";
             ProcessBuilder processBuilder = new ProcessBuilder("python", pythonScript, commentText);
             processBuilder.redirectErrorStream(true);
             
@@ -84,7 +84,14 @@ public class CommentModerationService {
             reason.append("General toxicity detected");
         }
         
-        return reason.length() > 0 ? reason.toString() : "Content approved";
+        String result = reason.length() > 0 ? reason.toString() : "Content approved";
+        
+        // Truncate if too long to prevent database constraint issues
+        if (result.length() > 1000) {
+            result = result.substring(0, 997) + "...";
+        }
+        
+        return result;
     }
     
 

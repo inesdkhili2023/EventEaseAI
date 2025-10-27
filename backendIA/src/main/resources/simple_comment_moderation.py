@@ -12,7 +12,7 @@ class SimpleCommentModerationService:
     def __init__(self):
         self.labels = ['toxic', 'severe_toxic', 'obscene', 'threat', 'insult', 'identity_hate']
         
-        # Define toxic keywords for each category
+
         self.toxic_keywords = {
             'toxic': ['hate', 'stupid', 'idiot', 'dumb', 'terrible', 'awful', 'horrible', 'sucks', 'worst'],
             'severe_toxic': ['kill', 'die', 'murder', 'suicide', 'destroy', 'annihilate'],
@@ -96,3 +96,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

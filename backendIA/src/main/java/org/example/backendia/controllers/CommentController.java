@@ -78,4 +78,14 @@ public class CommentController {
         return commentService.toggleCommentVisibility(idComment);
     }
 
+    @DeleteMapping("/deleteComment/{idComment}")
+    public ResponseEntity<String> deleteComment(@PathVariable Long idComment) {
+        try {
+            commentService.deleteCommentById(idComment);
+            return ResponseEntity.ok("Comment deleted successfully");
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Error deleting comment: " + e.getMessage());
+        }
+    }
+
 }
