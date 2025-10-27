@@ -92,23 +92,7 @@ Chargement de données test	Préremplissage rapide du formulaire pour tester l�
 Téléchargement de rapport PDF	Génération d’un rapport des résultats de prédiction.
 Gestion d’événements	Ajout, modification, suppression et recherche d’événements.
 Filtrage par ID	Consultation rapide d’un événement spécifique.
-⚙️ Tests et performance
 
-Des tests de charge ont été effectués avec JMeter :
-
-Comparaison entre 100 et 200 utilisateurs simultanés.
-
-Résultats :
-
-Temps moyen : ~345 ms → 382 ms
-
-Erreurs : 0 %
-
-Throughput : x2 entre 100 et 200 users
-
-SLA respecté et latence maîtrisée.
-
-L’API est donc stable et scalable, capable de répondre en moins d’une seconde sans perte de performance.
 
 🚀 Lancement du projet
 1. Lancer le backend Spring Boot
@@ -174,7 +158,7 @@ Base de données : PostgreSQL (Supabase)
 
 Modèle IA : XGBoost
 
-Outils : Jupyter, GitHub, Postman, JMeter
+Outils : Google collab, GitHub, Postman, 
 
 📄 Licence
 
