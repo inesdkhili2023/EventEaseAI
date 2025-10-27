@@ -388,8 +388,14 @@ POST /predict - Prédire le budget logistique
 - 🎯 **MAE** (Erreur absolue moyenne) : ±500 TND
 
 ---
+### 7.📅 **Gestion des Partenariats**
+- **Création, modification et suppression** des partenariats via des API REST (`POST`, `PUT`, `DELETE`).
+- **Consultation des partenariats** avec récupération de leurs informations (nom, type, description, etc.) et événements associés.
+- **Association des partenariats à des événements** pour une gestion fluide des relations (API `POST`).
+- **Suppression d'un partenariat d'un événement** via l'API `DELETE`.
+----  
 
-### 7. 🤝 Partnership Recommendation Service
+### 8. 🤝 Partnership Recommendation Service
 
 
 **Technologie** : Flask + Sentence-Transformers (BERT) + Python
@@ -457,7 +463,7 @@ GET /api/recommendations/{partnership_id} - Obtenir recommandations
 
 ---
 
-### 8. 🚗 Driver Service - Gestion des Chauffeurs
+### 9. 🚗 Driver Service - Gestion des Chauffeurs
 
  
 **Technologie** : Spring Boot 3 + JPA + PostgreSQL  
@@ -514,7 +520,7 @@ DELETE /api/availability/{id}          - Supprimer une disponibilité
 
 ---
 
-### 9. 🔄 Matching AI Service - Optimisation Chauffeurs-Trajets
+### 10. 🔄 Matching AI Service - Optimisation Chauffeurs-Trajets
 
 
 **Technologie** : Flask + XGBoost + Python  
@@ -577,7 +583,7 @@ POST /match - Trouver le meilleur chauffeur pour un trajet
 
 ---
 
-### 10. 🤖 Gemini AI Assistant Service
+### 11. 🤖 Gemini AI Assistant Service
 
 **Intégration** : Backend Spring Boot  
 **Technologie** : Google Gemini API
